@@ -8,6 +8,6 @@ public class YummyosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(YummyosApplication.class, args);
-	}
+	}//
 
 }
