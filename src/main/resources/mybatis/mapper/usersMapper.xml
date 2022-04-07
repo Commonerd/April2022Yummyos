@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="app.yummyos.users.dao.UsersDao">
+<insert parameterType="app.yummyos.users.dto.UsersDto" id="insertUsers"> 
+insert into users values(#{id},#{password},#{birth})</insert>
+
+<update parameterType="app.yummyos.users.dto.UsersDto" id="updateUsers">
+update users set password=#{password}, birth = #{birth} 
+where id=#{id} </update>
+
+<delete parameterType="String" id="deleteUsers"> 
+delete from users where id = #{id} </delete>
+
+<select parameterType="String" id="idCheck" resultType="String"> 
+select id from users where id =#{id} </select>
+
+<select parameterType="app.yummyos.users.dto.UsersDto" id="login" 
+resultType="app.yummyos.users.dto.UsersDto"> 
+select * from users where id=#{id} and password=#{password} </select>
+
+</mapper>
