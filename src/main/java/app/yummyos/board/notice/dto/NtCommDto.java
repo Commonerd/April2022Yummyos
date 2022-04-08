@@ -4,11 +4,11 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class CommDto {
-	private int cno;
+public class NtCommDto {
+	private int nt_cno;
 	private String id;
 	private String content;
 	private Date regdate;
-	private int no;
+	private int nt_no;
 }
 

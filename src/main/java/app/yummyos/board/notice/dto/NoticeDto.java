@@ -8,10 +8,12 @@ import lombok.Data;
 public class NoticeDto {
 	private int no;
 	private String id;
+	private String img;
 	private String title;
 	private String content;
 	private Date regdate;
 	private int readcount;
-	
+
+
 }
 

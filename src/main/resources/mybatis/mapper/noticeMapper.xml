@@ -5,7 +5,7 @@
   <mapper namespace="app.yummyos.board.notice.dao.NoticeDao">
 
 <insert parameterType="app.yummyos.board.notice.dto.NoticeDto" id="insert"> 
-insert into notice(no, id,title, content, regdate) values(b_seq.nextval, #{id}, #{title}, #{content},sysdate) </insert>
+insert into notice(no,id, title, content, regdate) values(n_seq.nextval, #{id}, #{title}, #{content},sysdate) </insert>
 
 <update parameterType="app.yummyos.board.notice.dto.NoticeDto" id="updateNotice"> 
 update notice set title=#{title}, content=#{content} where no=#{no} </update>
@@ -15,15 +15,12 @@ update notice set title=#{title}, content=#{content} where no=#{no} </update>
 	
 <delete parameterType="int" id="deleteNotice"> delete from notice where no = #{no} </delete>
 
-<select parameterType="map" id="noticeList" resultType="app.yummyos.board.notice.dto.NoticeDto">
-
-<![CDATA[
-		select * from
-		(select no, id,title, content, regdate, readcount, rownum r
+<select id="noticeList" resultType="app.yummyos.board.notice.dto.NoticeDto">
+		select no, image, title, content, regdate, readcount, id from
+		(select no, image, title, content, regdate, readcount, id, rownum r
 		from (select * from notice order by regdate desc)
-		order by regdate desc)where r >= #{start} AND r <= #{end}
- 		]]>
-
+		order by regdate desc) where r >= #{start} AND r &lt;= #{end}
+ 		
 </select>
 
 <select id="count" resultType="int"> select count(*) from notice </select>
@@ -45,7 +42,7 @@ select * from notice where no = #{no} </select>
 <select id="noticeListSearch" parameterType="map" resultType="app.yummyos.board.notice.dto.NoticeDto">
 		
 		select * from
-		(select no, id,title, content, regdate, readcount, rownum r
+		(select no, image,title, content, regdate, readcount, rownum r
 		from (select * from notice order by regdate desc) 
 		<where>
 			<choose>

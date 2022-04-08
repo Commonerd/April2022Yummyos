@@ -9,13 +9,13 @@
 <body>
 <table border="1">
 	<tr><td>제목</td><td>${dto.title}</td>
-	<tr><td>작성자</td><td>${dto.id}</td>
+	<tr><td>작성자</td><td>${dto.user_no}</td>
 	<tr><td>내용</td><td>${dto.content}</td>
 	<tr><td>등록일</td><td><fmt:formatDate value="${dto.regdate }" dateStyle="long"/></td>
 	<tr><td>조회수</td><td>${dto.readcount}</td>
 	<tr><td colspan="2" align="right">
-	<c:if test="${ user.id == dto.id }">
-	<a href="/board/update/${dto.no}">글 수정 </a> 
+	<c:if test="${ users.id == dto.id }">	
+	<a href="/board/notice/update/${dto.no}">글 수정 </a> 
 	<a id="${dto.no}" href="#">글 삭제</a>
 	</c:if>
 	<a href="../list">목록 이동</a> 
@@ -38,10 +38,10 @@
 <!--  cList -->
 <div>
 	<c:forEach items="${cList}" var="comm">
-		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
-		<div>${comm.content} 
-		<c:if test="${comm.id == user.id }">
-		<button class="dbtn" id="${comm.cno}">삭제</button>
+		<div>${n_comm.id} / <fmt:formatDate value="${n_comm.regdate }" dateStyle="short"/></div>
+		<div>${n_comm.content} 
+		<c:if test="${n_comm.id == nt_user.id }">
+		<button class="dbtn" id="${nt_comm.n_cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>

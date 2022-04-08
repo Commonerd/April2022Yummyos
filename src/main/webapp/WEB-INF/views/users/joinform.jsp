@@ -8,18 +8,15 @@
 	#input , #result{ display: none;}
 </style>
 <body>
-<h3>회원 가입을 환영합니다.</h3>
+<h3>회원 가입을 환영합니다. </h3>
 <form action="insert" method="post" id="joinform">
 <input type="hidden" name="_method">
 	<table>
 		<tr><td>id</td><td><input name="id" id="id">
 				<input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span></td></tr>
 		<tr><td>password</td><td><input name="password" type="password" id="password"></td></tr>
-		<tr><td>name</td><td><input name="name" id="name"></td></tr>
 		<tr><td>birth</td><td><input name="birth" placeholder="yyyyMMdd"></td></tr>
-		<tr><td>address</td><td><input name="address" id="address">
-					<input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()"></td></tr>
-		
+		<tr><td>gender</td><td><input name="gender" id="gender" placeholder="'남','여'"></td></tr>
 		<tr><td>email</td><td><input name="email" id="email">
 		<div id="emailresult"></div>
 		<input type="button" id="mail_ck" value="메일 인증">
@@ -88,7 +85,7 @@ $("#ck_b").click(function(){
 			}
 		})
 	
-	$("#joinform").submit(function(){
+	$("#joinform").submit(function(){	
 		if($("#id_ck").val() != 1){
 			$("#id_msg").html("아이디 중복 체크 하셔야 합니다.")
 			return false;

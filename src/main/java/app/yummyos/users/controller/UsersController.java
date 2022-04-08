@@ -51,6 +51,7 @@ public class UsersController {
 	public String joinform() {
 		return "users/joinform";
 	}
+	
 
 	@GetMapping("/idCheck")
 	@ResponseBody
@@ -64,15 +65,13 @@ public class UsersController {
 		service.insertUsers(dto);
 		return "redirect:loginform";
 	}
-
-	@GetMapping("/login")
+	@GetMapping("/loginform")
 	public String loginform() {
 		return "users/loginform";
 	}
-
-	@PostMapping("/login")
+	@RequestMapping("/login")
 	public String login(@ModelAttribute("command") @Valid UsersDto dto, BindingResult error, Model m) {
-
+		
 		UsersDto resultDto = service.login(dto);
 		if (resultDto == null) {
 			error.reject("nocode", "로그인 실패: 아이디나 비밀번호가 틀림");

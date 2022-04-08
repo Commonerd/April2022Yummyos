@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--  bList begin end count pageNum totalPages -->
+<!--  nList begin end count pageNum totalPages -->
 <title>글 목록</title>
 <style>
 #center {
@@ -49,12 +49,12 @@ a {
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${bList}" var="board">
+				<c:forEach items="${nList}" var="notice">
 					<tr>
-						<td><a href ="content/${board.no}">${board.title}</a></td>
-						<td>${board.id }</td>
-						<td><fmt:formatDate value="${board.regdate }" dateStyle="short"/> </td>
-						<td>${board.readcount }</td>
+						<td><a href ="content/${notice.no}">${notice.title}</a></td>
+						<td>${notice.id}</td>
+						<td><fmt:formatDate value="${notice.regdate}" dateStyle="short"/> </td>
+						<td>${notice.readcount}</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -9,27 +9,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import app.yummyos.board.notice.dto.CommDto;
-import app.yummyos.board.notice.service.CommService;
+import app.yummyos.board.notice.dto.NtCommDto;
+import app.yummyos.board.notice.service.NtCommService;
 
 
 @Controller
-public class CommController {
+public class NtCommController {
 
 	@Autowired
-	CommService service;
+	NtCommService service;
 
 	@PostMapping("/comm/insert")
 	@ResponseBody
-	public String insertComm(CommDto dto) {
-		int i = service.insertComm(dto);
+	public String insertNtComm(NtCommDto dto) {
+		int i = service.insertNtComm(dto);
 		return i+"";
 	}
 
-	@DeleteMapping("/comm/delete/{cno}")
+	@DeleteMapping("/comm/delete/{nt_cno}")
 	@ResponseBody
-	public String deleteComm(@PathVariable int cno) {
-		int i = service.deleteComm(cno);
+	public String deleteNtComm(@PathVariable int cno) {
+		int i = service.deleteNtComm(cno);
 		return i+"";
 	}
 }
