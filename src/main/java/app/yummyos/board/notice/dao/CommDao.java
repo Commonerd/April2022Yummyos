@@ -8,8 +8,9 @@ import app.yummyos.board.notice.dto.CommDto;
 
 @Mapper
 public interface CommDao {
-	List<CommDto> selectComm(int no);
-	int insertComm(CommDto dto);
-	int deleteComm(int cno);
-}
+		List<CommDto> selectComm(int no);
+		int insertComm(CommDto dto);
+		int deleteComm(int cno);
+		
 
+}

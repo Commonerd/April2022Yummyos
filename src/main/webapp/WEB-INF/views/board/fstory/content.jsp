@@ -40,9 +40,9 @@
 	$(function(){
 		$("a[id]").click(function(){
 				let no = $(this).attr("id");
-			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
+			$.ajax({url:"/board/fstory/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/list";
+				location.href="/board/fstory/list";
 			})
 			return false;
 		})//click

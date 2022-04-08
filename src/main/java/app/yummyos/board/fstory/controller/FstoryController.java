@@ -22,6 +22,7 @@ import app.yummyos.board.fstory.service.FstoryService;
 @Controller
 @SessionAttributes("user")
 public class FstoryController {
+	
 	@Autowired
 	FstoryService service;
 	
