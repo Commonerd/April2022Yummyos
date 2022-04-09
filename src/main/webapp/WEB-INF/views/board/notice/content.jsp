@@ -9,7 +9,7 @@
 <body>
 <table border="1">
 	<tr><td>제목</td><td>${dto.title}</td>
-	<tr><td>작성자</td><td>${dto.user_no}</td>
+	<tr><td>작성자</td><td>${dto.id}</td>
 	<tr><td>내용</td><td>${dto.content}</td>
 	<tr><td>등록일</td><td><fmt:formatDate value="${dto.regdate }" dateStyle="long"/></td>
 	<tr><td>조회수</td><td>${dto.readcount}</td>
@@ -38,10 +38,10 @@
 <!--  cList -->
 <div>
 	<c:forEach items="${cList}" var="comm">
-		<div>${n_comm.id} / <fmt:formatDate value="${n_comm.regdate }" dateStyle="short"/></div>
-		<div>${n_comm.content} 
-		<c:if test="${n_comm.id == nt_user.id }">
-		<button class="dbtn" id="${nt_comm.n_cno}">삭제</button>
+		<div>${nt_comm.id} / <fmt:formatDate value="${nt_comm.regdate }" dateStyle="short"/></div>
+		<div>${nt_comm.content} 
+		<c:if test="${nt_comm.id == user.id }">
+		<button class="dbtn" id="${nt_comm.nt_cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
@@ -69,7 +69,7 @@
 					data:"no="+no+"&id="+id+"&content="+content,
 					method:"post"
 			}).done(function(){
-					location.reload();		
+					location.reload();
 				});
 			
 		})//click
@@ -78,7 +78,7 @@
 			$.ajax({url:"/comm/delete/"+cno,
 				method:"delete"
 		}).done(function(){
-				location.reload();		
+				location.reload();
 			});
 			
 		})//click

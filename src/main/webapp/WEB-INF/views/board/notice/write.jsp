@@ -17,7 +17,7 @@
 		</tr>
 		<tr>
 			<td class="orange">작성자</td>
-			<td><input name="id" value="${user.id}" readonly></td>
+			<td><input name="id" value="${users.id}" readonly></td>
 		</tr>
 		<tr>
 			<td class="orange">내용</td>
