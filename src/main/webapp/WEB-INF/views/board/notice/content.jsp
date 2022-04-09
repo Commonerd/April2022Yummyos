@@ -14,7 +14,7 @@
 	<tr><td>등록일</td><td><fmt:formatDate value="${dto.regdate }" dateStyle="long"/></td>
 	<tr><td>조회수</td><td>${dto.readcount}</td>
 	<tr><td colspan="2" align="right">
-	<c:if test="${ users.id == dto.id }">	
+	<c:if test="${ user.id == dto.id }">
 	<a href="/board/notice/update/${dto.no}">글 수정 </a> 
 	<a id="${dto.no}" href="#">글 삭제</a>
 	</c:if>
@@ -26,9 +26,9 @@
 	$(function(){
 		$("a[id]").click(function(){
 			let no = $(this).attr("id");
-			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
+			$.ajax({url:"/board/notice/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/list";
+				location.href="/board/notice/list";
 			})
 			return false;
 		})//click
@@ -38,10 +38,10 @@
 <!--  cList -->
 <div>
 	<c:forEach items="${cList}" var="comm">
-		<div>${nt_comm.id} / <fmt:formatDate value="${nt_comm.regdate }" dateStyle="short"/></div>
-		<div>${nt_comm.content} 
-		<c:if test="${nt_comm.id == user.id }">
-		<button class="dbtn" id="${nt_comm.nt_cno}">삭제</button>
+		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
+		<div>${comm.content} 
+		<c:if test="${comm.id == user.id }">
+		<button class="dbtn" id="${comm.cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>

@@ -5,14 +5,14 @@
 <mapper namespace="app.yummyos.board.notice.dao.NtCommDao">
 	
 	<insert id="insertNtComm" parameterType="app.yummyos.board.notice.dto.NtCommDto">
-		insert into nt_comm values(nc_seq.nextval, #{id}, #{content}, sysdate, #{nt_no})
+		insert into ntcomm values(nc_seq.nextval, #{id}, #{content}, sysdate, #{no})
 	</insert>
 	<delete id="deleteNtComm" parameterType="int">
-		delete from nt_comm where nt_cno = #{nt_cno}
+		delete from ntcomm where cno = #{cno}
 	</delete>
 	<select id="selectNtComm" parameterType="int" 
 	resultType="app.yummyos.board.notice.dto.NtCommDto">
-		select * from nt_comm where nt_no = #{nt_no} order by regdate desc
+		select * from ntcomm where no = #{no} order by regdate desc
 	</select>
 </mapper>
 	

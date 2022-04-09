@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Data
 public class NtCommDto {
-	private int nt_cno;
+	private int cno;
 	private String id;
 	private String content;
 	private Date regdate;
-	private int nt_no;
+	private int no;
 }
 

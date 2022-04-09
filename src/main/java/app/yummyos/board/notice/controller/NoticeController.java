@@ -36,7 +36,7 @@ public class NoticeController {
 	}
 
 	@GetMapping("/board/notice/write")
-	public String writeForm(@ModelAttribute("user") UsersDto dto) {
+	public String writeForm(@ModelAttribute("user")UsersDto dto) {
 		return "board/notice/write";
 	}
 	

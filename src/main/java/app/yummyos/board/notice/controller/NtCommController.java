@@ -26,7 +26,7 @@ public class NtCommController {
 		return i+"";
 	}
 
-	@DeleteMapping("/comm/delete/{nt_cno}")
+	@DeleteMapping("/comm/delete/{cno}")
 	@ResponseBody
 	public String deleteNtComm(@PathVariable int cno) {
 		int i = service.deleteNtComm(cno);
