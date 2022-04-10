@@ -20,7 +20,7 @@ table {
 }
 
 th {border: 1px solid black;
-	background-color: orange;
+	background-color: Aquamarine;
 	width: 150px;
 }
 td{border: 1px solid black;}
@@ -49,12 +49,12 @@ a {
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${bList}" var="board">
+				<c:forEach items="${nList}" var="notice">
 					<tr>
-						<td><a href ="content/${board.no}">${board.title}</a></td>
-						<td>${board.id }</td>
-						<td><fmt:formatDate value="${board.regdate }" dateStyle="short"/> </td>
-						<td>${board.readcount }</td>
+						<td><a href ="content/${notice.no}">${notice.title}</a></td>
+						<td>${notice.id }</td>
+						<td><fmt:formatDate value="${notice.regdate }" dateStyle="short"/> </td>
+						<td>${notice.readcount }</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -78,7 +78,7 @@ a {
 <form action="search">
 <select name="searchn">
 <option value="0">제목</option>
-<option value="1">내용</option>
+<!-- <option value="1">내용</option> 윤정화씨의 해시태그로 대체할 것-->
 <option value="2">작성자</option>
 </select>
 <input type="text" name="search" size="15" maxlength="50" /> 

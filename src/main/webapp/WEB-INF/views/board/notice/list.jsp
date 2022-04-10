@@ -21,7 +21,7 @@ table {
 }
 
 th {border: 1px solid black;
-	background-color: orange;
+	background-color: Aquamarine;
 	width: 150px;
 }
 td{border: 1px solid black;}
@@ -36,7 +36,7 @@ a {
 </head>
 <body>
 	<div id="center">
-		<h1>게시글 목록</h1>
+		<h1>공지사항</h1>
 		<div align="right">
 			<a href="/main">main</a><a href="write">새글 등록</a>
 		</div>
@@ -52,7 +52,7 @@ a {
 				<c:forEach items="${nList}" var="notice">
 					<tr>
 						<td><a href ="content/${notice.no}">${notice.title}</a></td>
-						<td>${notice.id}</td>
+						<td>${notice.id }</td>
 						<td><fmt:formatDate value="${notice.regdate}" dateStyle="short"/> </td>
 						<td>${notice.readcount}</td>
 					</tr>
@@ -80,7 +80,7 @@ a {
 <form action="search">
 <select name="searchn">
 <option value="0">제목</option>
-<option value="1">내용</option>
+<!-- <option value="1">내용</option> 윤정화씨의 해시태그로 구현할 부분.-->
 <option value="2">작성자</option>
 </select>
 <input type="text" name="search" size="15" maxlength="50" /> 

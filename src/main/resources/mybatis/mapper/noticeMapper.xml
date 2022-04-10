@@ -42,13 +42,14 @@ select * from notice where no = #{no} </select>
 <select id="noticeListSearch" parameterType="map" resultType="app.yummyos.board.notice.dto.NoticeDto">
 		
 		select * from
-		(select no, image,title, content, regdate, readcount, rownum r
+		(select no, image,title, content, regdate, readcount, id, rownum r
 		from (select * from notice order by regdate desc) 
 		<where>
 			<choose>
 				<when test="searchn == 0">
 				title like '%'||#{search}||'%'</when>
-				<when test="searchn == 1"> content like '%'||#{search}||'%' </when>
+				<!--  테이블이 long타입이라 검색안됨. 윤정화씨가 해쉬태그 만들어야 수정가능한 부분.
+				 <when test="searchn == 1"> content like '%'||#{search}||'%' </when> -->
 				<when test="searchn == 2"> id like '%'||#{search}||'%' </when>
 			</choose>
 		</where> 
