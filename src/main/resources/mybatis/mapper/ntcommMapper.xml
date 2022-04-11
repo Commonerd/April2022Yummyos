@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="app.yummyos.board.notice.dao.NtCommDao">
+
+	<insert parameterType="app.yummyos.board.notice.dto.NtCommDto"
+		id="insertNtComm">insert into ntcomm values(nc_seq.nextval, #{id}, #{content},
+		sysdate, #{no}) </insert>
+
+	<delete parameterType="int" id="deleteNtComm">delete from ntcomm where cno =
+		#{cno} </delete>
+
+	<select parameterType="int" id="selectNtComm"
+		resultType="app.yummyos.board.notice.dto.NtCommDto">select * from ntcomm where no = #{no} order by regdate desc
+	</select>
+
+</mapper>
