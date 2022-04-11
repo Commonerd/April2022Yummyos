@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="app.yummyos.board.mpick.dao.MCommDao">
+	
+	<insert id="insertMComm" parameterType="app.yummyos.board.mpick.dto.MCommDto">
+		insert into mp_comm values(mpc_seq.nextval, #{id}, #{content}, sysdate, #{mp_no})
+	</insert>
+	<delete id="deleteMComm" parameterType="int">
+		delete from mp_comm where mp_cno = #{mp_cno}
+	</delete>
+	<select id="selectMComm" parameterType="int" 
+	resultType="app.yummyos.board.mpick.dto.MCommDto">
+		select * from mp_comm where mp_no = #{mp_no} order by regdate desc
+	</select>
+</mapper>

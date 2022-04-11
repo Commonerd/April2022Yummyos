@@ -15,7 +15,7 @@
 	<tr><td>조회수</td><td>${dto.readcount}</td>
 	<tr><td colspan="2" align="right">
 	<c:if test="${ user.id == dto.id }">
-	<a href="/board/update/${dto.no}">글 수정 </a> 
+	<a href="/board/mpick/update/${dto.no}">글 수정 </a> 
 	<a id="${dto.no}" href="#">글 삭제</a>
 	</c:if>
 	<a href="../list">목록 이동</a> 
@@ -23,11 +23,11 @@
 </table>
 <!--  cList -->
 <div>
-	<c:forEach items="${cList}" var="comm">
-		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
-		<div>${comm.content} 
-		<c:if test="${comm.id == user.id }">
-		<button class="dbtn" id="${comm.cno}">삭제</button>
+	<c:forEach items="${cList}" var="mp_comm">
+		<div>${mp_comm.id} / <fmt:formatDate value="${mp_comm.regdate }" dateStyle="short"/></div>
+		<div>${mp_comm.content} 
+		<c:if test="${mp_comm.id == user.id }">
+		<button class="dbtn" id="${mp_comm.mp_cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
@@ -38,10 +38,10 @@
 <script>
 	$(function(){
 		$("a[id]").click(function(){
-			let no = $(this).attr("id");
-			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
+			let mp_no = $(this).attr("id");
+			$.ajax({url:"/board/mpick/delete", data:"no="+mp_no, method:"delete"}
 			).done(function(){
-				location.href="/board/list";
+				location.href="/board/mpick/list";
 			})
 			return false;
 		})//click
@@ -49,20 +49,20 @@
 		$("#add").click(function(){
 			let id = '${user.id}';
 			let content = $("#content").val();
-			let no = ${dto.no};
+			let mp_no = ${dto.no};
 			
-			$.ajax({url:"/comm/insert",
-					data:"no="+no+"&id="+id+"&content="+content,
-					method:"get"
+			$.ajax({url:"/mp_comm/insert",
+					data:"mp_no="+mp_no+"&id="+id+"&content="+content,
+					method:"post"
 			}).done(function(){
 					location.reload();		
 				});
 			
 		})//click
 		$(".dbtn").click(function(){
-			let cno = $(this).attr("id");
-			$.ajax({url:"/comm/delete/"+cno,
-				method:"get"
+			let mp_cno = $(this).attr("id");
+			$.ajax({url:"/mp_comm/delete/"+mp_cno,
+				method:"delete"
 		}).done(function(){
 				location.reload();		
 			});

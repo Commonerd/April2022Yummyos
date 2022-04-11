@@ -125,6 +125,7 @@
 	<a href="delete">회원 탈퇴</a>
 	<a href="logout">로그아웃</a>
 	<a href="board/notice/list">공지사항</a>
+	<a href="board/mpick/list">미디어픽</a>
 	<br>
 
 	<!-- <iframe
