@@ -26,7 +26,7 @@
 	<c:forEach items="${ cList }" var="comm">
 		<div> ${comm.id } /<fmt:formatDate value="${comm.regdate}" dateStyle="short"/> </div>
 		<div>${comm.content}
-		<c:if test="${comm.id == users.id}" >
+		<c:if test="${comm.id == user.id}" >
 		<button class="dbtn" id="${comm.fs_cno}">삭제</button>
 		</c:if>
 		</div>
@@ -39,20 +39,22 @@
 <script>
 	$(function(){
 		$("a[id]").click(function(){
-				let no = $(this).attr("id");
-			$.ajax({url:"/board/fstory/delete", data:"no="+no, method:"delete"}
+				let fs_no = $(this).attr("id");
+			$.ajax({url:"/board/fstory/delete", 
+						data:"fs_no="+nfs_no, 
+						method:"delete"}
 			).done(function(){
 				location.href="/board/fstory/list";
 			})
 			return false;
 		})//click
 		$("#add").click(function(){
-			let id = '${users.id}';
+			let id = '${user.id}';
 			let content = $("#content").val();
-			let no = ${dto.no};
+			let fs_no = ${dto.fs_no};
 			
 			$.ajax({url:"/comm/insert",
-					data:"no="+fs_no+"&id="+id+"&content="+content,
+					data:"fs_no="+fs_no+"&id="+id+"&content="+content,
 					method:"post"
 			}).done(function(){
 					location.reload();		

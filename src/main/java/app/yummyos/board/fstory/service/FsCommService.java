@@ -10,6 +10,7 @@ import app.yummyos.board.fstory.dto.FsCommDto;
 
 @Service
 public class FsCommService {
+
 	@Autowired
 	FsCommDao dao;
 	
