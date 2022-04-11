@@ -19,15 +19,15 @@ public class MCommController {
 
 	@PostMapping("/mp_comm/insert")
 	@ResponseBody
-	public String insertComm(MCommDto dto) {
-		int i = service.insertComm(dto);
+	public String insertMComm(MCommDto dto) {
+		int i = service.insertMComm(dto);
 		return i+"";
 	}
 
 	@DeleteMapping("/mp_comm/delete/{mp_cno}")
 	@ResponseBody
-	public String deleteComm(@PathVariable int mp_cno) {
-		int i = service.deleteComm(mp_cno);
+	public String deleteMComm(@PathVariable int mp_cno) {
+		int i = service.deleteMComm(mp_cno);
 		return i+"";
 	}
 }

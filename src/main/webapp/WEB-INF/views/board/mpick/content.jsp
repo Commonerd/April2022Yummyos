@@ -14,7 +14,7 @@
 	<tr><td>등록일</td><td><fmt:formatDate value="${dto.regdate }" dateStyle="long"/></td>
 	<tr><td>조회수</td><td>${dto.readcount}</td>
 	<tr><td colspan="2" align="right">
-	<c:if test="${ users.id == dto.id }">
+	<c:if test="${ user.id == dto.id }">
 	<a href="/board/mpick/update/${dto.no}">글 수정 </a> 
 	<a id="${dto.no}" href="#">글 삭제</a>
 	</c:if>
@@ -26,7 +26,7 @@
 	<c:forEach items="${cList}" var="mp_comm">
 		<div>${mp_comm.id} / <fmt:formatDate value="${mp_comm.regdate }" dateStyle="short"/></div>
 		<div>${mp_comm.content} 
-		<c:if test="${mp_comm.id == users.id }">
+		<c:if test="${mp_comm.id == user.id }">
 		<button class="dbtn" id="${mp_comm.mp_cno}">삭제</button>
 		</c:if>
 		</div>
@@ -38,7 +38,7 @@
 <script>
 	$(function(){
 		$("a[id]").click(function(){
-			let no = $(this).attr("id");
+			let mp_no = $(this).attr("id");
 			$.ajax({url:"/board/mpick/delete", data:"no="+mp_no, method:"delete"}
 			).done(function(){
 				location.href="/board/mpick/list";
@@ -47,13 +47,13 @@
 		})//click
 		
 		$("#add").click(function(){
-			let id = '${users.id}';
+			let id = '${user.id}';
 			let content = $("#content").val();
-			let no = ${dto.no};
+			let mp_no = ${dto.no};
 			
 			$.ajax({url:"/mp_comm/insert",
-					data:"no="+mp_no+"&id="+id+"&content="+content,
-					method:"get"
+					data:"mp_no="+mp_no+"&id="+id+"&content="+content,
+					method:"post"
 			}).done(function(){
 					location.reload();		
 				});
@@ -62,7 +62,7 @@
 		$(".dbtn").click(function(){
 			let mp_cno = $(this).attr("id");
 			$.ajax({url:"/mp_comm/delete/"+mp_cno,
-				method:"get"
+				method:"delete"
 		}).done(function(){
 				location.reload();		
 			});

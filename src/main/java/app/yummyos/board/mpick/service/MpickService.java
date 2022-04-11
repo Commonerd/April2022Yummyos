@@ -32,17 +32,17 @@ public class MpickService {
 		return dao.insert(dto);
 	}
 	
-	public MpickDto mpickOne(int mp_no) {
-		dao.addReadcount(mp_no);
-		return dao.mpickOne(mp_no);
+	public MpickDto mpickOne(int no) {
+		dao.addReadcount(no);
+		return dao.mpickOne(no);
 	}
 
 	public int updatempick(MpickDto dto) {
 		return dao.updateMpick(dto);
 	}
 	
-	public int deletempick(int mp_no) {
-		return dao.deleteMpick(mp_no);
+	public int deletempick(int no) {
+		return dao.deleteMpick(no);
 	}
 	
 	public List<MpickDto> mpickListSearch(int searchn, String search, int start, int end){

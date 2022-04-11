@@ -27,7 +27,7 @@ update mpick set title=#{title}, content=#{content} where no=#{no} </update>
 </select>
 
 <select id="count" resultType="int"> select count(*) from mpick </select>
-<select parameterType="int" id="MpickOne" resultType="app.yummyos.board.mpick.dto.MpickDto"> 
+<select parameterType="int" id="mpickOne" resultType="app.yummyos.board.mpick.dto.MpickDto"> 
 select * from mpick where no = #{no} </select>
 
 <select id="countSearch" resultType="int" parameterType="map">

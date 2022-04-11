@@ -15,14 +15,14 @@ public class MCommService {
 	@Autowired
 	MCommDao dao;
 	
-	public List<MCommDto> selectComm(int mp_no){
-		return dao.selectComm(mp_no);
+	public List<MCommDto> selectMComm(int mp_no){
+		return dao.selectMComm(mp_no);
 	}
-	public int insertComm(MCommDto dto) {
-		return dao.insertComm(dto);
+	public int insertMComm(MCommDto dto) {
+		return dao.insertMComm(dto);
 	}
-	public int deleteComm(int mp_cno) {
-		return dao.deleteComm(mp_cno);
+	public int deleteMComm(int mp_cno) {
+		return dao.deleteMComm(mp_cno);
 	}
 	
 }

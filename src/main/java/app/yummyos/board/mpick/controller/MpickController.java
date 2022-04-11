@@ -22,20 +22,20 @@ import app.yummyos.board.mpick.service.MCommService;
 import app.yummyos.board.mpick.service.MpickService;
 import app.yummyos.users.dto.UsersDto;
 
-@SessionAttributes("users")
+@SessionAttributes("user")
 @Controller
 public class MpickController {
 
 	@Autowired
 	MpickService service;
 	
-	@ModelAttribute("users")
+	@ModelAttribute("user")
 	public UsersDto getDto() {
 		return new UsersDto();
 	}
 
 	@GetMapping("/board/mpick/write")
-	public String writeForm(@ModelAttribute("users") UsersDto dto) {
+	public String writeForm(@ModelAttribute("user") UsersDto dto) {
 		return "board/mpick/write";
 	}
 	
@@ -80,20 +80,20 @@ public class MpickController {
 	
 	
 	@Autowired
-	MCommService c_service;+
+	MCommService c_service;
 	
-	@GetMapping("board/mpick/content/{mp_no}")
-	public String content(@PathVariable int mp_no, Model m) {
-		MpickDto dto = service.mpickOne(mp_no);
+	@GetMapping("board/mpick/content/{no}")
+	public String content(@PathVariable int no, Model m) {
+		MpickDto dto = service.mpickOne(no);
 		m.addAttribute("dto", dto);
-		List<MCommDto> cList = c_service.selectComm(mp_no);
+		List<MCommDto> cList = c_service.selectMComm(no);
 		m.addAttribute("cList", cList);
 		return "board/mpick/content";
 	}
 	
-	@GetMapping("board/mpick/update/{mp_no}")
-	public String updateForm(@PathVariable int mp_no, Model m) {
-		MpickDto dto = service.mpickOne(mp_no);
+	@GetMapping("board/mpick/update/{no}")
+	public String updateForm(@PathVariable int no, Model m) {
+		MpickDto dto = service.mpickOne(no);
 		m.addAttribute("dto", dto);
 		return "board/mpick/updateForm";
 	}
@@ -106,8 +106,8 @@ public class MpickController {
 	
 	@DeleteMapping("/board/mpick/delete")
 	@ResponseBody
-	public String delete(int mp_no) {
-		int i = service.deletempick(mp_no); 
+	public String delete(int no) {
+		int i = service.deletempick(no); 
 		return ""+i;
 	}
 	

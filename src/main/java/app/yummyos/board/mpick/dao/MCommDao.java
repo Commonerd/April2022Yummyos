@@ -8,7 +8,7 @@ import app.yummyos.board.mpick.dto.MCommDto;
 
 @Mapper
 public interface MCommDao {
-	List<MCommDto> selectComm(int mp_no);
-	int insertComm(MCommDto dto);
-	int deleteComm(int mp_cno);
+	List<MCommDto> selectMComm(int mp_no);
+	int insertMComm(MCommDto dto);
+	int deleteMComm(int mp_cno);
 }
