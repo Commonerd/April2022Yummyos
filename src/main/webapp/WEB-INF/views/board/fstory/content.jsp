@@ -26,8 +26,8 @@
 	<c:forEach items="${ cList }" var="comm">
 		<div> ${comm.id } /<fmt:formatDate value="${comm.regdate}" dateStyle="short"/> </div>
 		<div>${comm.content}
-		<c:if test="${comm.id == user.id}" >
-		<button class="dbtn" id="${comm.cno}">삭제</button>
+		<c:if test="${comm.id == users.id}" >
+		<button class="dbtn" id="${comm.fs_cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
@@ -40,19 +40,19 @@
 	$(function(){
 		$("a[id]").click(function(){
 				let no = $(this).attr("id");
-			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
+			$.ajax({url:"/board/fstory/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/list";
+				location.href="/board/fstory/list";
 			})
 			return false;
 		})//click
 		$("#add").click(function(){
-			let id = '${user.id}';
+			let id = '${users.id}';
 			let content = $("#content").val();
 			let no = ${dto.no};
 			
 			$.ajax({url:"/comm/insert",
-					data:"no="+no+"&id="+id+"&content="+content,
+					data:"no="+fs_no+"&id="+id+"&content="+content,
 					method:"post"
 			}).done(function(){
 					location.reload();		
@@ -60,8 +60,8 @@
 			
 		})//click
 		$(".dbtn").click(function(){
-			let cno = $(this).attr("id");
-			$.ajax({url:"/comm/delete/"+cno,
+			let fs_cno = $(this).attr("id");
+			$.ajax({url:"/comm/delete/"+fs_cno,
 				method:"delete"
 		}).done(function(){
 				location.reload();		

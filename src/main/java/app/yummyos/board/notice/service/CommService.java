@@ -16,11 +16,12 @@ public class CommService {
 	public List<CommDto> selectComm(int no){
 		return dao.selectComm(no);
 	}
+	
 	public int insertComm(CommDto dto) {
 		return dao.insertComm(dto);
 	}
 	public int deleteComm(int cno) {
 		return dao.deleteComm(cno);
 	}
-	
+
 }

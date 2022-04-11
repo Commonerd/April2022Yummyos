@@ -22,12 +22,12 @@
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${bList}" var="board">
+				<c:forEach items="${fList}" var="fstoryboard">
 					<tr>
-						<td><a href ="content/${board.no}">${board.title}</a></td>
-						<td>${board.id }</td>
-						<td><fmt:formatDate value="${board.regdate }" dateStyle="short"/> </td>
-						<td>${board.readcount }</td>
+						<td><a href ="content/${fstory.no}">${fstory.title}</a></td>
+						<td>${fstory.id }</td>
+						<td><fmt:formatDate value="${fstory.regdate }" dateStyle="short"/> </td>
+						<td>${fstory.readcount }</td>
 					</tr>
 				</c:forEach>
 			</table>
