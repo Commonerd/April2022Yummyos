@@ -40,7 +40,7 @@ public class FstoryController {
 	}
 	
 
-	@PostMapping("/board/fstory/list")//글 목록
+	@PostMapping("/board/fstory/write")//글 목록
 	public String write(FstoryDto dto) {
 		service.insert(dto);
 		return "redirect:list";
