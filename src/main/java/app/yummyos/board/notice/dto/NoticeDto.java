@@ -14,6 +14,5 @@ public class NoticeDto {
 	private Date regdate;
 	private int readcount;
 
-
 }
 
