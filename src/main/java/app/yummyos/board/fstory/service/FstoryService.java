@@ -16,8 +16,8 @@ public class FstoryService {
 	@Autowired
 	FstoryDao dao;
 	
-	public int insert(FstoryDto dto) {
-		return dao.insert(dto);	
+	public int count() {
+		return dao.count();
 	}
 	
 	public List<FstoryDto> fstoryList(int start, int end){
@@ -28,11 +28,13 @@ public class FstoryService {
 		return dao.fstoryList(m);	
 	}
 
-	public int count() {
-		return dao.count();
+	
+	public int insert(FstoryDto dto) {
+		return dao.insert(dto);	
 	}
 	
 	public FstoryDto fstoryOne(int no) {
+		dao.addReadcount(no);
 		return dao.fstoryOne(no);
 	}
 	
@@ -55,6 +57,7 @@ public class FstoryService {
 	}
 	
 	public int countSearch(int searchn, String search) {
+		System.out.println(searchn+search);
 		Map<String,Object> m = new HashMap<String, Object>();
 		m.put("searchn", searchn);
 		m.put("search", search);

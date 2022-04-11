@@ -8,11 +8,12 @@ import lombok.Data;
 public class FstoryDto {
 	
 	private int no;
+	private String id;
 	private String image;
 	private String title;
 	private String content;
 	private Date regdate;
 	private int readcount;
-	private int user_no;
+	
 	
 }
