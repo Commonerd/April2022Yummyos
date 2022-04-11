@@ -42,7 +42,6 @@
      let oEditors = []
 
     smartEditor = function() {
-    	 alert("test");
       console.log("Naver SmartEditor")
       nhn.husky.EZCreator.createInIFrame({
         oAppRef: oEditors,

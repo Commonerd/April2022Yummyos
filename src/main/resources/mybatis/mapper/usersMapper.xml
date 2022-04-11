@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="app.yummyos.users.dao.UsersDao">
 <insert parameterType="app.yummyos.users.dto.UsersDto" id="insertUsers"> 
-insert into users values(#{id},#{password},#{birth})</insert>
+insert into users values(u_seq.nextval,#{id},#{password},#{email},#{birth},#{gender},'role_user','123')</insert>
 
 <update parameterType="app.yummyos.users.dto.UsersDto" id="updateUsers">
 update users set password=#{password}, birth = #{birth} 

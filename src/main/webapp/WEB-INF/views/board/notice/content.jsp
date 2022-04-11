@@ -15,7 +15,7 @@
 	<tr><td>조회수</td><td>${dto.readcount}</td>
 	<tr><td colspan="2" align="right">
 	<c:if test="${ user.id == dto.id }">
-	<a href="/board/update/${dto.no}">글 수정 </a> 
+	<a href="/board/notice/update/${dto.no}">글 수정 </a> 
 	<a id="${dto.no}" href="#">글 삭제</a>
 	</c:if>
 	<a href="../list">목록 이동</a> 
@@ -26,9 +26,9 @@
 	$(function(){
 		$("a[id]").click(function(){
 			let no = $(this).attr("id");
-			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
+			$.ajax({url:"/board/notice/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/list";
+				location.href="/board/notice/list";
 			})
 			return false;
 		})//click
@@ -69,7 +69,7 @@
 					data:"no="+no+"&id="+id+"&content="+content,
 					method:"post"
 			}).done(function(){
-					location.reload();		
+					location.reload();
 				});
 			
 		})//click
@@ -78,7 +78,7 @@
 			$.ajax({url:"/comm/delete/"+cno,
 				method:"delete"
 		}).done(function(){
-				location.reload();		
+				location.reload();
 			});
 			
 		})//click

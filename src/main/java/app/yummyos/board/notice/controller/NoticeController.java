@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import app.yummyos.board.notice.dto.CommDto;
+import app.yummyos.board.notice.dto.NtCommDto;
 import app.yummyos.board.notice.dto.NoticeDto;
-import app.yummyos.board.notice.service.CommService;
+import app.yummyos.board.notice.service.NtCommService;
 import app.yummyos.board.notice.service.NoticeService;
 import app.yummyos.users.dto.UsersDto;
 
@@ -37,15 +37,15 @@ public class NoticeController {
 	}
 
 	@GetMapping("/board/notice/write")
-	public String writeForm(@ModelAttribute("user") UsersDto dto) {
+	public String writeForm(@ModelAttribute("user")UsersDto dto) {
 		return "board/notice/write";
 	}
 	
-	@PostMapping("/board/notice/write")
+	@PostMapping("/board/notice/write")	
 	public String write(NoticeDto dto) {
 		service.insert(dto);
 		return "redirect:/board/notice/list";//글목록
-	}
+	}//
 
 	//요청 page 번호를 받아서 페이지에 맞는 글을 갯수에 맞게 꺼내옴
 	//전체 글 갯수에 맞춰 페이징 처리
@@ -82,13 +82,13 @@ public class NoticeController {
 	
 	
 	@Autowired
-	CommService c_service;
+	NtCommService c_service;
 	
 	@GetMapping("board/notice/content/{no}")
 	public String content(@PathVariable int no, Model m) {
 		NoticeDto dto = service.noticeOne(no);
 		m.addAttribute("dto", dto);
-		List<CommDto> cList = c_service.selectComm(no);
+		List<NtCommDto> cList = c_service.selectNtComm(no);
 		m.addAttribute("cList", cList);
 		return "board/notice/content";
 	}
