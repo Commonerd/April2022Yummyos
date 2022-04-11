@@ -7,30 +7,46 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import app.yummyos.board.fstory.dto.CommDto;
+import app.yummyos.board.fstory.dto.FsCommDto;
 import app.yummyos.board.fstory.dto.FstoryDto;
-import app.yummyos.board.fstory.service.CommService;
+import app.yummyos.board.fstory.service.FsCommService;
 import app.yummyos.board.fstory.service.FstoryService;
+import app.yummyos.users.dto.UsersDto;
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes("users")
 public class FstoryController {
 	
 	@Autowired
 	FstoryService service;
 	
+	@ModelAttribute("users")
+	public UsersDto getDto() {
+		return new UsersDto();
+	}
+
 	@GetMapping("/board/fstory/write")
 	public String writeForm() {
 		return "board/fstory/write";	
 	}
 	
+
+	@PostMapping("/board/fstory/list")//글 목록
+	public String write(FstoryDto dto) {
+		service.insert(dto);
+		return "redirect:list";
+	}
+	
+
 	// 요청 page 번호를 받아서 페이지에 맞는 글을 갯수에 맞게 꺼내옴
 	// 전체 글 갯수에 맞춰 페이징 처리
 	@RequestMapping("/board/fstory/list")
@@ -75,8 +91,8 @@ public class FstoryController {
 		int startRow = (page - 1) * perPage + 1;
 		int endRow = page * perPage;
 		
-		List<FstoryDto> boardList = service.fstoryListSearch(searchn,search,startRow, endRow);
-		m.addAttribute("bList", boardList);
+		List<FstoryDto> fstoryList = service.fstoryListSearch(searchn,search,startRow, endRow);
+		m.addAttribute("fList", fstoryList);
 
 		int pageNum = 5;
 		int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수
@@ -100,23 +116,16 @@ public class FstoryController {
 	}
 	
 	@Autowired
-	CommService c_service;
+	FsCommService fsc_service;
 	
 	@GetMapping("/board/fstory/content/{no}")
 	public String content(@PathVariable int no,Model m) {
 		FstoryDto dto = service.fstoryOne(no);
 		m.addAttribute("dto",dto);
-		List<CommDto> cList = c_service.selectComm(no);
+		List<FsCommDto> cList = fsc_service.selectComm(no);
 		m.addAttribute("cList",cList);
 		return "board/fstory/content";
 	}
-
-	@PostMapping("/board/fstory/list")//글 목록
-	public String write(FstoryDto dto) {
-		service.insert(dto);
-		return "redirect:list";
-	}
-	
 
 	@GetMapping("board/fstory/update/{no}")
 	public String updateForm(@PathVariable int no, Model m) {
@@ -130,6 +139,7 @@ public class FstoryController {
 	}
 	
 	@DeleteMapping("/board/fstory/delete")
+	@ResponseBody
 	public String delete(int no) {
 		int i= service.deleteFstory(no);
 		return ""+i;

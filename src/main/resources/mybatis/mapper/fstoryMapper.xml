@@ -5,7 +5,7 @@
   <mapper namespace="app.yummyos.board.fstory.dao.FstoryDao">
   	<insert parameterType="app.yummyos.board.fstory.dto.FstoryDto" id="insert">
   		insert into fstory(no, image, title, content, regdate)
- 			 values(f_seq.nextval, #{id}, #{title}, #{content},sysdate)
+ 			 values(f_seq.nextval, #{image}, #{title}, #{content},sysdate)
   	</insert>  
   
   	<update parameterType="app.yummyos.board.fstory.dto.FstoryDto" id="updateFstory">
@@ -18,9 +18,9 @@
 	
 	<select id="fstoryList" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
 		<![CDATA[
-		select * from
-			(select no, image, title, content, regdate, readcount, rownum r 
-				from(select * from board order by regdate desc) 
+		select * from 
+			(select no, image, title, content, regdate, readcount, id, rownum r
+				from(select * from fstory order by regdate desc) 
 			order by regdate desc) 
 		where r >= #{start} AND r <= #{end}	 
 		]]>
@@ -35,10 +35,11 @@
   		select * from fstory where no=#{no}
   	</select>
   	
-  	<select id="id" parameterType="app.yummyos.board.fstory.dto.FstoryDto" >
+  <!-- 	<select id="id" parameterType="app.yummyos.board.fstory.dto.FstoryDto" >
   		select * from fstory where id=#{id}
   	</select>
-  	
+  	 -->
+
   	<select id="countSearch" resultType="int" parameterType="map">
   		select count(*) from fstory	
   		<where>
@@ -52,8 +53,8 @@
   	
   	<select id="fstoryListSearch" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
 
-		select * from
-		(select no, image, title, content, regdate, readcount, rownum r 
+		select * from 
+		(select no, image, title, content, regdate, readcount, id,rownum r
 		from (select * from fstory 
 			<where>
 				<choose>

@@ -5,9 +5,9 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class CommDto {
+public class FsCommDto {
 	
-	private int cno;
+	private int fs_cno;
 	private String id;
 	private String content;
 	private Date regdate;

@@ -15,9 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class FileUploadController {
-	@RequestMapping(value = "/smarteditorMultiImageUpload")
-	public void smarteditorMultiImageUpload(HttpServletRequest request, HttpServletResponse response){
+public class FsFileUploadController {
+	@RequestMapping(value = "/fs_smarteditorMultiImageUpload")
+	public void fs_smarteditorMultiImageUpload(HttpServletRequest request, HttpServletResponse response){
 		try {
 			//파일정보
 			String sFileInfo = "";
