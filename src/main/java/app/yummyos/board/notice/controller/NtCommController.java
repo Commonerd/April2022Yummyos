@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import app.yummyos.board.notice.dto.CommDto;
-import app.yummyos.board.notice.service.CommService;
+import app.yummyos.board.notice.dto.NtCommDto;
+import app.yummyos.board.notice.service.NtCommService;
 
 
 @Controller
-public class CommController {
+public class NtCommController {
 
 	@Autowired
-	CommService service;
+	NtCommService service;
 
 	@PostMapping("/comm/insert")
 	@ResponseBody
-	public String insertComm(CommDto dto) {
+	public String insertComm(NtCommDto dto) {
 		int i = service.insertComm(dto);
 		return i+"";
 	}

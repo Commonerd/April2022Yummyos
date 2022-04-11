@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import app.yummyos.board.notice.dto.CommDto;
+import app.yummyos.board.notice.dto.NtCommDto;
 
 @Mapper
-public interface CommDao {
-	List<CommDto> selectComm(int no);
-	int insertComm(CommDto dto);
+public interface NtCommDao {
+	List<NtCommDto> selectComm(int no);
+	int insertComm(NtCommDto dto);
 	int deleteComm(int cno);
 }
 

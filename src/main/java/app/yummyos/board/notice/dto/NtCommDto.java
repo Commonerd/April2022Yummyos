@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class CommDto {
+public class NtCommDto {
 	private int cno;
 	private String id;
 	private String content;

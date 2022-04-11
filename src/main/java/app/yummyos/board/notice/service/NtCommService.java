@@ -5,18 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.yummyos.board.notice.dao.CommDao;
-import app.yummyos.board.notice.dto.CommDto;
+import app.yummyos.board.notice.dao.NtCommDao;
+import app.yummyos.board.notice.dto.NtCommDto;
 
 @Service
-public class CommService {
+public class NtCommService {
 	@Autowired
-	CommDao dao;
+	NtCommDao dao;
 	
-	public List<CommDto> selectComm(int no){
+	public List<NtCommDto> selectComm(int no){
 		return dao.selectComm(no);
 	}
-	public int insertComm(CommDto dto) {
+	public int insertComm(NtCommDto dto) {
 		return dao.insertComm(dto);
 	}
 	public int deleteComm(int cno) {
