@@ -65,12 +65,12 @@ public class UsersController {
 		return "redirect:loginform";
 	}
 
-	@GetMapping("/login")
+	@GetMapping("/loginform")
 	public String loginform() {
 		return "users/loginform";
 	}
 
-	@PostMapping("/login")
+	@RequestMapping("/login")   
 	public String login(@ModelAttribute("command") @Valid UsersDto dto, BindingResult error, Model m) {
 
 		UsersDto resultDto = service.login(dto);

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="app.yummyos.board.mpick.dao.MpickDao">
+
+<insert parameterType="app.yummyos.board.mpick.dto.MpickDto" id="insert"> 
+insert into mpick(no, image, title, content, regdate, id) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}) </insert>
+
+<update parameterType="app.yummyos.board.mpick.dto.MpickDto" id="updateMpick"> 
+update mpick set title=#{title}, content=#{content} where no=#{no} </update>
+
+<update id="addReadcount" parameterType="int">
+	update mpick set readcount = readcount + 1 where no = #{no} </update>
+	
+<delete parameterType="int" id="deleteMpick"> delete from mpick where no = #{no} </delete>
+
+<select parameterType="map" id="mpickList" resultType="app.yummyos.board.mpick.dto.MpickDto">
+
+<![CDATA[
+		select * from
+		(select no, image, title, content, regdate, readcount, id, rownum r
+		from (select * from mpick order by regdate desc)
+		order by regdate desc)where r >= #{start} AND r <= #{end}
+ 		]]>
+
+</select>
+
+<select id="count" resultType="int"> select count(*) from mpick </select>
+<select parameterType="int" id="MpickOne" resultType="app.yummyos.board.mpick.dto.MpickDto"> 
+select * from mpick where no = #{no} </select>
+
+<select id="countSearch" resultType="int" parameterType="map">
+		select count(*) from mpick 
+		<where>
+			<choose>
+				<when test="searchn == 0">
+				title  like '%'||#{search}||'%' </when>
+				<when test="searchn == 1"> content  like '%'||#{search}||'%'</when>
+				<when test="searchn == 2"> id  like '%'||#{search}||'%' </when>
+			</choose>
+		</where> 
+</select>
+
+<select id="MpickListSearch" parameterType="map" resultType="app.yummyos.board.mpick.dto.MpickDto">
+		
+		select * from
+		(select no, image, title, content, regdate, readcount, id, rownum r
+		from (select * from mpick order by regdate desc) 
+		<where>
+			<choose>
+				<when test="searchn == 0">
+				title like '%'||#{search}||'%'</when>
+				<when test="searchn == 1"> content like '%'||#{search}||'%' </when>
+				<when test="searchn == 2"> id like '%'||#{search}||'%' </when>
+			</choose>
+		</where> 
+		order by regdate desc 
+		
+		) where r >= #{start} AND r &lt;= #{end}
+ 		
+</select>
+
+
+</mapper>

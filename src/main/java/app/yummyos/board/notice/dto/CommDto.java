@@ -1,6 +1,7 @@
 package app.yummyos.board.notice.dto;
 
 import java.util.Date;
+
 import lombok.Data;
 
 @Data
