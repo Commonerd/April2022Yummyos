@@ -4,14 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="app.yummyos.board.fstory.dao.FsCommDao">
 	
-	<insert id="insertFsComm" parameterType="app.yummyos.board.fstory.dto.FsCommDto">
-		insert into fcomm values(fsc_seq.nextval, #{id}, #{content}, sysdate, #{no})
+	<insert id="insertfsComm" parameterType="app.yummyos.board.fstory.dto.FsCommDto">
+		insert into fs_comm values(fsc_seq.nextval, #{id}, #{content}, sysdate, #{f_no})
 	</insert>
-	<delete id="deleteFsComm" parameterType="int">
-		delete from fcomm where fs_cno = #{fs_cno}
+	<delete id="deletefsComm" parameterType="int">
+		delete from fs_comm where fs_cno = #{fs_cno}
 	</delete>
-	<select id="selectFsComm" parameterType="int" 
+	<select id="selectfsComm" parameterType="int" 
 	resultType="app.yummyos.board.fstory.dto.FsCommDto">
-		select * from fcomm where fs_cno = #{fs_cno} order by regdate desc
+		select * from fs_comm where f_no = #{f_no} order by regdate desc
 	</select>
 </mapper>

@@ -48,7 +48,7 @@ a {
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${fList}" var="fstoryboard">
+				<c:forEach items="${fList}" var="fstory">
 					<tr>
 						<td><a href ="content/${fstory.no}">${fstory.title}</a></td>
 						<td>${fstory.id }</td>

@@ -88,7 +88,7 @@ public class FstoryController {
 	public String content(@PathVariable int no, Model m) {
 		FstoryDto dto = service.fstoryOne(no);
 		m.addAttribute("dto", dto);
-		List<FsCommDto> cList = fsc_service.selectComm(no);
+		List<FsCommDto> cList = fsc_service.selectfsComm(no);
 		m.addAttribute("cList", cList);
 		return "board/fstory/content";
 	}

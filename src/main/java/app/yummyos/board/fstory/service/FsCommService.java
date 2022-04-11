@@ -14,15 +14,16 @@ public class FsCommService {
 	@Autowired
 	FsCommDao dao;
 	
-	public List<FsCommDto> selectComm(int fs_cno){
-		return dao.selectComm(fs_cno);
+	public List<FsCommDto> selectfsComm(int f_no){
+		return dao.selectfsComm(f_no);
 	}
 	
 	public int insertComm(FsCommDto dto) {
-		return dao.insertComm(dto);
+		return dao.insertfsComm(dto);
 	}
 	public int deleteComm(int fs_cno) {
-		return dao.deleteComm(fs_cno);
+		return dao.deletefsComm(fs_cno);
 	}
+
 
 }

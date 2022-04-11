@@ -10,5 +10,5 @@ public class FsCommDto {
 	private String id;
 	private String content;
 	private Date regdate;
-	private int no;
+	private int f_no;
 }

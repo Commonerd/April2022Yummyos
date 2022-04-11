@@ -7,7 +7,7 @@
 <title>글 상세보기</title>
 </head>
 <body>
-<table border="1" width="500px">
+<table border="1">
 	<tr><td>제목</td><td>${dto.title}</td>
 	<tr><td>작성자</td><td>${dto.id}</td>
 	<tr><td>내용</td><td>${dto.content}</td>
@@ -23,11 +23,11 @@
 </table>
 <!-- cList -->
 <div>
-	<c:forEach items="${ cList }" var="comm">
-		<div> ${comm.id } /<fmt:formatDate value="${comm.regdate}" dateStyle="short"/> </div>
-		<div>${comm.content}
-		<c:if test="${comm.id == user.id}" >
-		<button class="dbtn" id="${comm.fs_cno}">삭제</button>
+	<c:forEach items="${ cList }" var="fs_comm">
+		<div> ${fs_comm.id } /<fmt:formatDate value="${fs_comm.regdate}" dateStyle="short"/> </div>
+		<div>${fs_comm.content}
+		<c:if test="${fs_comm.id == user.id}" >
+		<button class="dbtn" id="${fs_comm.fs_cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
@@ -39,9 +39,9 @@
 <script>
 	$(function(){
 		$("a[id]").click(function(){
-				let fs_no = $(this).attr("id");
+				let f_no = $(this).attr("id");
 			$.ajax({url:"/board/fstory/delete", 
-						data:"fs_no="+nfs_no, 
+						data:"no="+f_no, 
 						method:"delete"}
 			).done(function(){
 				location.href="/board/fstory/list";
@@ -51,10 +51,10 @@
 		$("#add").click(function(){
 			let id = '${user.id}';
 			let content = $("#content").val();
-			let fs_no = ${dto.fs_no};
+			let f_no = ${dto.no};
 			
-			$.ajax({url:"/comm/insert",
-					data:"fs_no="+fs_no+"&id="+id+"&content="+content,
+			$.ajax({url:"/fs_comm/insert",
+					data:"f_no="+f_no+"&id="+id+"&content="+content,
 					method:"post"
 			}).done(function(){
 					location.reload();		
@@ -63,7 +63,7 @@
 		})//click
 		$(".dbtn").click(function(){
 			let fs_cno = $(this).attr("id");
-			$.ajax({url:"/comm/delete/"+fs_cno,
+			$.ajax({url:"/fs_comm/delete/"+fs_cno,
 				method:"delete"
 		}).done(function(){
 				location.reload();		
