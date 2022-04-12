@@ -126,7 +126,8 @@
 	<a href="logout">로그아웃</a>
 	<a href="board/notice/list">공지사항</a>
 	
-	<a href="wishlists">위시리스트</a>
+	<a href="wishlist">위시리스트</a>
+	<a href="storedetail">맛집 상세보기</a>
 	<br>
 
 	<!-- <iframe
