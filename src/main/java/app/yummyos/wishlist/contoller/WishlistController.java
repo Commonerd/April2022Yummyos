@@ -29,9 +29,10 @@ public class WishlistController {
 	public UsersDto getDto() {
 		return new UsersDto();
 	}
+	
 	@GetMapping("/addwishlist") 
-	public String addwishlist() { 
-		service.insert(WishlistDto dto);
+	public String addwishlist() {
+		service.insert(null);
 		return "wishlist/wishlist";
 		}
 

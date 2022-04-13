@@ -72,25 +72,25 @@ a {
 
 
 <body>
-<table>
+
 <form action="addwishlist" method="get" id="addwishlist">	
 <input type="submit" value="위시리스트 등록">
 </form>
-
+<table>
 				<tr>
 					<th>상호명</th>
 					<th>카테고리</th>
 					<th>운영시간</th>
 					<th>주소</th>
 				</tr>
-				<%-- <c:forEach items="${wList}" var="wishlist">
+				<c:forEach items="${sList}" var="store">
 					<tr>	
-						<td>${wishlist.name}"</td>
-						<td>${wishlist.category}</td>
-						<td>${wishlist.opentime}</td>
-						<td>${wishlist.address}</td>
+						<td>${store.no}"</td>
+						<td>${store.category}</td>
+						<td>${store.opentime}</td>
+						<td>${store.address}</td>
 					</tr>
-				</c:forEach> --%>
+				</c:forEach>
 			</table>
 			
 
