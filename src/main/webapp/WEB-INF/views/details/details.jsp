@@ -60,31 +60,32 @@ h1 {
 
 	<nav class="menu-box">
 		<ul>
-			<li><a href="ff">내가 골라줄께</a></li>
-			<li><a href="ff">맛집찾기</a></li>
-			<li><a href="ff">테마</a></li>
+			<li><a href="details/choice">내가 골라줄께</a></li>
+			<li><a href="details/search">맛집찾기</a></li>
+			<li><a href="details/theme">테마</a></li>
 		</ul>
 	</nav>
 
-	<li><a href="views/review/review">리뷰쓰기</a>
+	<li><a href="details/review">리뷰쓰기</a>
 	<li>
-	<li><a href="views/review/jjim">찜</a>
+	<li><a href="details/wishlist">찜</a>
 	<li>
 
 		<h2>최고 평점맛집</h2>
 		<h4>최고의 맛집을 찾아라!</h4>
 
 		<ul>
-			<li><a href="views/details/details#address">주소</a>
-			<li><a href="views/details/details#Kinds">음식종류</a>
-			<li><a href="views/details/details#kinds">가격</a>
-			<li><a href="views/details/details#parking">주차</a>
-			<li><a href="views/details/details#Opening">영업시간</a>
-			<li><a href="views/details/details#break_time">쉬는시간</a>
-			<li><a href="views/details/details">휴일</a>
-			<li><a href="views/details/details">웹사이트</a>
-			<li><a href="views/details/details">메뉴</a>
-			<li><a href="views/details/details">식당소개</a>
+			
+			<li><a href="details/adress">주소</a>
+			<li><a href="details/kinds">음식종류</a>
+			<li><a href="details/price">가격</a>
+			<li><a href="details/parking">주차</a>
+			<li><a href="details/s_time">영업시간</a>
+			<li><a href="details/r_time">쉬는시간</a>
+			<li><a href="details/r_time">휴일</a>
+			<li><a href="details/website">웹사이트</a>
+			<li><a href="details/menu">메뉴</a>
+			<li><a href="details/introduce">식당소개</a>
 		</ul>
 
 		<form>
