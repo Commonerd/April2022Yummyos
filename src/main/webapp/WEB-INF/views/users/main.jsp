@@ -126,6 +126,7 @@
 	<a href="logout">로그아웃</a>
 	<a href="board/notice/list">공지사항</a>
 	<a href="board/mpick/list">미디어픽</a>
+	<a href="review/list">리뷰</a>
 	<br>
 
 	<!-- <iframe
