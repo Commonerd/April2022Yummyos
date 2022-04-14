@@ -20,6 +20,7 @@ import app.yummyos.board.mpick.dto.MCommDto;
 import app.yummyos.board.mpick.dto.MpickDto;
 import app.yummyos.board.mpick.service.MCommService;
 import app.yummyos.board.mpick.service.MpickService;
+import app.yummyos.review.dto.ReviewDto;
 import app.yummyos.users.dto.UsersDto;
 
 @SessionAttributes("user")
