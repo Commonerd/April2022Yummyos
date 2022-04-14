@@ -126,6 +126,7 @@
 	<a href="logout">로그아웃</a>
 	<a href="board/notice/list">공지사항</a>
 	<a href="board/fstory/list">맛있는 이야기</a>
+	<a href="search/view">검색</a>
 	<br>
 
 	<!-- <iframe
