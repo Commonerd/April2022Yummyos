@@ -94,7 +94,7 @@ public class StoreController {
 		@PutMapping("store/update/store/update")
 		public String update(StoreDto dto) {
 			service.updateStore(dto);
-			return "redirect:/store/list";
+			return "redirect:/store/list";   
 		}
 		
 		@DeleteMapping("store/delete")
@@ -136,7 +136,9 @@ public class StoreController {
 			
 			return "store/search";
 		}
-		
+		public void test() {
+			
+		}
 
 		
 	}
