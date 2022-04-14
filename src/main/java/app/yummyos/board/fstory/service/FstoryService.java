@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import app.yummyos.board.fstory.dao.FstoryDao;
 import app.yummyos.board.fstory.dto.FstoryDto;
+import app.yummyos.hashtag.dao.HashtagDao;
+import app.yummyos.hashtag.dto.HashtagDto;
 
 @Service
 public class FstoryService {
@@ -16,9 +18,14 @@ public class FstoryService {
 	@Autowired
 	FstoryDao dao;
 	
+	@Autowired
+	HashtagDao hashdao;
+	
 	public int count() {
 		return dao.count();
 	}
+	
+	
 	
 	public List<FstoryDto> fstoryList(int start, int end){
 		Map<String,Object> m = new HashMap<String, Object>();
@@ -64,5 +71,8 @@ public class FstoryService {
 		
 		return dao.countSearch(m);
 	}
+
+
+
 
 }

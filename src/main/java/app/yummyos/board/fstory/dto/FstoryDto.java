@@ -14,5 +14,5 @@ public class FstoryDto {
 	private String content;
 	private Date regdate;
 	private int readcount;
-	
+
 }

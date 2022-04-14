@@ -3,6 +3,8 @@ package app.yummyos.board.fstory.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +22,7 @@ import app.yummyos.board.fstory.dto.FsCommDto;
 import app.yummyos.board.fstory.dto.FstoryDto;
 import app.yummyos.board.fstory.service.FsCommService;
 import app.yummyos.board.fstory.service.FstoryService;
+import app.yummyos.hashtag.dto.HashtagDto;
 import app.yummyos.users.dto.UsersDto;
 
 @Controller

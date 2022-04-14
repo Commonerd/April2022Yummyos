@@ -75,7 +75,6 @@ a {
 		</c:if>
 	</div>
 
-
 	<div id="search" align="center">
 		<form action="search">
 			<select name="searchn">
