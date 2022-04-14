@@ -1,4 +1,4 @@
-package app.yummyos.board.notice.controller;
+package app.yummyos.board.mpick.controller;
 
 import java.util.List;
 
@@ -16,41 +16,39 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import app.yummyos.board.notice.dto.NtCommDto;
-import app.yummyos.board.notice.dto.NoticeDto;
-import app.yummyos.board.notice.service.NtCommService;
-import app.yummyos.board.notice.service.NoticeService;
+import app.yummyos.board.mpick.dto.MCommDto;
+import app.yummyos.board.mpick.dto.MpickDto;
+import app.yummyos.board.mpick.service.MCommService;
+import app.yummyos.board.mpick.service.MpickService;
 import app.yummyos.users.dto.UsersDto;
-
-
 
 @SessionAttributes("user")
 @Controller
-public class NoticeController {
+public class MpickController {
 
 	@Autowired
-	NoticeService service;
+	MpickService service;
 	
 	@ModelAttribute("user")
 	public UsersDto getDto() {
 		return new UsersDto();
 	}
 
-	@GetMapping("/board/notice/write")
-	public String writeForm(@ModelAttribute("user")UsersDto dto) {
-		return "board/notice/write";
+	@GetMapping("/board/mpick/write")
+	public String writeForm(@ModelAttribute("user") UsersDto dto) {
+		return "board/mpick/write";
 	}
 	
-	@PostMapping("/board/notice/write")	
-	public String write(NoticeDto dto) {
+	@PostMapping("/board/mpick/write")
+	public String write(MpickDto dto) {
 		service.insert(dto);
-		return "redirect:/board/notice/list";//글목록
+		return "redirect:/board/mpick/list";//글목록
 	}
 
 	//요청 page 번호를 받아서 페이지에 맞는 글을 갯수에 맞게 꺼내옴
 	//전체 글 갯수에 맞춰 페이징 처리
 	
-	@RequestMapping("/board/notice/list")
+	@RequestMapping("/board/mpick/list")
 	public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
 
 		//글이 있는지 체크
@@ -60,8 +58,8 @@ public class NoticeController {
 		int startRow = (page - 1) * perPage + 1;
 		int endRow = page * perPage;
 		
-		List<NoticeDto> noticeList = service.noticeList(startRow, endRow);
-		m.addAttribute("nList", noticeList);
+		List<MpickDto> mpickList = service.mpickList(startRow, endRow);
+		m.addAttribute("mList", mpickList);
 
 		int pageNum = 5;
 		int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
@@ -77,43 +75,43 @@ public class NoticeController {
 		m.addAttribute("totalPages", totalPages);
 		}
 		m.addAttribute("count", count);
-		return "board/notice/list";
+		return "board/mpick/list";
 	}
 	
 	
 	@Autowired
-	NtCommService c_service;
+	MCommService c_service;
 	
-	@GetMapping("board/notice/content/{no}")
+	@GetMapping("board/mpick/content/{no}")
 	public String content(@PathVariable int no, Model m) {
-		NoticeDto dto = service.noticeOne(no);
+		MpickDto dto = service.mpickOne(no);
 		m.addAttribute("dto", dto);
-		List<NtCommDto> cList = c_service.selectNtComm(no);
+		List<MCommDto> cList = c_service.selectMComm(no);
 		m.addAttribute("cList", cList);
-		return "board/notice/content";
+		return "board/mpick/content";
 	}
 	
-	@GetMapping("board/notice/update/{no}")
+	@GetMapping("board/mpick/update/{no}")
 	public String updateForm(@PathVariable int no, Model m) {
-		NoticeDto dto = service.noticeOne(no);
+		MpickDto dto = service.mpickOne(no);
 		m.addAttribute("dto", dto);
-		return "board/notice/updateForm";
+		return "board/mpick/updateForm";
 	}
 	
-	@PutMapping("/board/notice/update")
-	public String update(NoticeDto dto) {
-		service.updateNotice(dto);
+	@PutMapping("/board/mpick/update")
+	public String update(MpickDto dto) {
+		service.updatempick(dto);
 		return "redirect:list";
 	}
 	
-	@DeleteMapping("/board/notice/delete")
+	@DeleteMapping("/board/mpick/delete")
 	@ResponseBody
 	public String delete(int no) {
-		int i = service.deleteNotice(no); 
+		int i = service.deletempick(no); 
 		return ""+i;
 	}
 	
-	@GetMapping("/board/notice/search")
+	@GetMapping("/board/mpick/search")
 	public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
 		int count = service.countSearch(searchn,search);
 		if(count > 0) {
@@ -122,8 +120,8 @@ public class NoticeController {
 		int startRow = (page - 1) * perPage + 1;
 		int endRow = page * perPage;
 		
-		List<NoticeDto> noticeList = service.noticeListSearch(searchn,search,startRow, endRow);
-		m.addAttribute("nList", noticeList);
+		List<MpickDto> mpickList = service.mpickListSearch(searchn,search,startRow, endRow);
+		m.addAttribute("mList", mpickList);
 
 		int pageNum = 5;
 		int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수
@@ -143,7 +141,7 @@ public class NoticeController {
 		m.addAttribute("searchn", searchn);
 		m.addAttribute("search", search);
 		
-		return "board/notice/search";
+		return "board/mpick/search";
 	}
 	
 
