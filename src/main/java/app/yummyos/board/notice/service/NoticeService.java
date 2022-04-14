@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import app.yummyos.board.notice.dao.NoticeDao;
 import app.yummyos.board.notice.dto.NoticeDto;
+import app.yummyos.store.dto.StoreDto;
 
 
 @Service
