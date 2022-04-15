@@ -2,16 +2,16 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="app.yummyos.review.dao.ReviewDao">
+<mapper namespace="app.yummyos.store.dao.ReviewDao">
 	
-	<insert id="insertReview" parameterType="app.yummyos.review.dto.ReviewDto">
-		insert into review values(r_seq.nextval, #{id}, #{content}, sysdate, #{store_no}, #{image})
+	<insert id="insertReview" parameterType="app.yummyos.store.dto.ReviewDto">
+		insert into review values(r_seq.nextval, #{image}, #{contents}, sysdate, #{store_no},#{id},#{rating})
 	</insert>
 	<delete id="deleteReview" parameterType="int">
-		delete from review where no = #{no}
+		delete from review where no = #{no}    
 	</delete>
 	<select id="selectReview" parameterType="int" 
-	resultType="app.yummyos.review.dto.ReviewDto">
-		select * from review where store_no = #{store_no} order by regdate desc
+	resultType="app.yummyos.board.mpick.dto.MCommDto">
+		select * from review where store_no = #{store_no} order by day desc
 	</select>
 </mapper>
