@@ -13,7 +13,7 @@
 <input type="hidden" name="_method">
 	<table>
 		<tr><td>id</td><td><input name="id" id="id">
-				<input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span></td></tr>
+		<input type="button" id="id_check" value="중복 확인"><span id="id_msg"></span></td></tr>
 		<tr><td>password</td><td><input name="password" type="password" id="password"></td></tr>
 		<tr><td>birth</td><td><input name="birth" placeholder="yyyyMMdd"></td></tr>
 		<tr><td>gender</td><td><input name="gender" id="gender" placeholder="'남','여'"></td></tr>

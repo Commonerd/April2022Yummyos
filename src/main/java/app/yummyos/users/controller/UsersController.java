@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -46,7 +47,71 @@ public class UsersController {
 	public String View() {
 		return "users/joinView";
 	}
-
+	
+	// 아이디 찾기 페이지 이동
+		@RequestMapping(value="findId")
+		public String findIdView() {
+			return "users/findId";
+		}
+		
+	    // 아이디 찾기 실행
+		@RequestMapping(value="findId", method=RequestMethod.POST)
+		public String findIdAction(UsersDto dto, Model m) {
+//			System.out.println(dto.getBirth()+dto.getEmail());
+			String id = service.findId(dto);
+//			System.out.println("id :: "+id);
+			if(id == null) { 
+				m.addAttribute("check", 1);
+			} else { 
+				m.addAttribute("check", 0);
+				m.addAttribute("id", id);
+			}
+			
+			return "users/findId";
+		}
+		
+	    // 비밀번호 찾기 페이지로 이동
+		@RequestMapping(value="findPassword")
+		public String findPasswordView() {
+			return "users/findPassword";
+		}
+		
+	    // 비밀번호 찾기 실행
+		@RequestMapping(value="find_password", method=RequestMethod.POST)
+		public String findPasswordAction(UsersDto dto, Model model) {
+			String user = service.findPassword(dto);
+			
+			if(user == null) { 
+				model.addAttribute("check", 1);
+			} else { 
+				model.addAttribute("check", 0);
+				model.addAttribute("updateid", user);
+			}
+			
+			return "users/findPassword";
+		}
+		
+	    // 비밀번호 바꾸기 실행
+		@RequestMapping(value="update_password", method=RequestMethod.POST)
+		public String updatePasswordAction(@RequestParam(value="updateid", defaultValue="", required=false) String id,
+											UsersDto dto) {
+			dto.setId(id);
+			System.out.println(dto);
+			service.updatePassword(dto);
+			return "users/findPasswordConfirm";
+		}
+		
+	    // 비밀번호 바꾸기할 경우 성공 페이지 이동
+		@RequestMapping(value="findPasswordConfirm")
+		public String checkPasswordForModify(HttpSession session, Model model) {
+			UsersDto loginUser = (UsersDto) session.getAttribute("user");
+			if(loginUser == null) {
+				return "users/findPassword";
+			} else {
+				return "users/findPasswordConfirm";
+			}
+		}
+	
 	@GetMapping("/insert")
 	public String joinform() {
 		return "users/joinform";

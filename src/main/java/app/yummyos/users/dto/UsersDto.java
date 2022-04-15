@@ -21,6 +21,5 @@ public class UsersDto {
 	@DateTimeFormat(pattern ="yyyyMMdd")
 	private Date birth;
 	private String gender;
-	
 }
 

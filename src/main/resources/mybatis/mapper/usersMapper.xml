@@ -20,4 +20,19 @@ select id from users where id =#{id} </select>
 resultType="app.yummyos.users.dto.UsersDto"> 
 select * from users where id=#{id} and password=#{password} </select>
 
+<!-- 아이디 찾기  -->
+<select parameterType="app.yummyos.users.dto.UsersDto" id="findId" resultType="String">
+		select id from users where birth=#{birth} and email=#{email}
+	</select>
+	
+<!-- 비밀번호 찾기 -->
+	<select parameterType="app.yummyos.users.dto.UsersDto" id="findPassword" resultType="String">
+		select password from users where id=#{id} and birth=#{birth} and email=#{email}
+	</select>
+	
+<!-- 비밀번호 변경 -->
+	<update parameterType="app.yummyos.users.dto.UsersDto" id="updatePassword">
+		update users set password=#{password} where id=#{id}
+	</update>
+
 </mapper>
