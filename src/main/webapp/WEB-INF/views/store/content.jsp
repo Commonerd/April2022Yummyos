@@ -66,7 +66,7 @@ a {
 			let no = $(this).attr("id");
 			$.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/notice/list";
+				location.href="/store/list";
 			})
 			return false;
 		})//click
@@ -124,28 +124,27 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
     } 
 });    
 </script>
+<hr>
+<br>리뷰 등록
 <!--  cList -->
 <div>
-	<c:forEach items="${cList}" var="comm">
-		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
-		<div>${comm.content} 
-		<c:if test="${comm.id == user.id }">
-		<button class="dbtn" id="${comm.cno}">삭제</button>
+	<c:forEach items="${cList}" var="review">
+		<div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
+		<div>${review.content} 
+		<c:if test="${review.id == user.id }">
+		<button class="dbtn" id="${review.no}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
 	</c:forEach>
-	<form method="post" encType = "multipart/form-data" action="writeAction.jsp">
-	이미지 : <input type = "image" name="image">	
-	<input type = "submit" value="업로드"><br>
-	<input name="content" id="content"><button id="add">등록</button>
-	</form>
+	<textarea name="content" id="content" rows="5" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><button id="add">등록</button>
+	
 </div>
 <script>
 	$(function(){
 		$("a[id]").click(function(){
 			let store_no = $(this).attr("id");
-			$.ajax({url:"/review/delete", data:"no="+store_no, method:"delete"}
+			$.ajax({url:"/store/delete", data:"no="+store_no, method:"delete"}
 			).done(function(){
 				location.href="/store/list";
 			})
@@ -178,6 +177,5 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 	})//ready
 
 </script>
-
 </body>
 </html>

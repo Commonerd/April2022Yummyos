@@ -23,10 +23,10 @@ public class ReviewController {
 		return i+"";
 	}
 	
-	@DeleteMapping("/review/delete/{re_no}")
+	@DeleteMapping("/review/delete/{no}")
 	@ResponseBody
-	public String deleteReview(@PathVariable int re_no) {
-		int i = service.deleteReview(re_no);
+	public String deleteReview(@PathVariable int no) {
+		int i = service.deleteReview(no);
 		return i+"";
 	}
 }
