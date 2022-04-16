@@ -74,13 +74,12 @@ a {
 					<a href="list?p=${end+1}">[다음]</a>
 				</c:if>
 			</div>
-
 		</c:if>
 		<c:if test="${count == 0 }">
 	아직 입력한 글이 없습니다.
 </c:if>
-
 	</div>
+	<!-- 검색용 -->
 	<div id="search" align="center">
 		<form action="search">
 			<select name="searchn">

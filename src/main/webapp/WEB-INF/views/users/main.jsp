@@ -10,7 +10,6 @@
       #map {
         height: 100%;
       }
-
       /* Optional: Makes the sample page fill the window. */
       html,
       body {
@@ -18,15 +17,12 @@
         margin: 0;
         padding: 0;
       }
-
       body {
         padding: 0 !important;
       }
-
       table {
         font-size: 12px;
       }
-
       .restaurant-search {
         -webkit-box-align: center;
         -ms-flex-align: center;
@@ -41,12 +37,10 @@
         width: 880px;
         z-index: 1;
       }
-
       #map {
         margin-top: 40px;
         width: 880px;
       }
-
       #listing {
         position: absolute;
         width: 200px;
@@ -57,62 +51,50 @@
         cursor: pointer;
         overflow-x: hidden;
       }
-
       #findrestaurants {
         font-size: 14px;
       }
-
       #locationField {
         -webkit-box-flex: 1 1 190px;
         -ms-flex: 1 1 190px;
         flex: 1 1 190px;
         margin: 0 8px;
       }
-
       #controls {
         -webkit-box-flex: 1 1 140px;
         -ms-flex: 1 1 140px;
         flex: 1 1 140px;
       }
-
       #autocomplete {
         width: 100%;
       }
-
       #country {
         width: 100%;
       }
-
       .placeIcon {
         width: 20px;
         height: 34px;
         margin: 4px;
       }
-
       .restaurantIcon {
         width: 24px;
         height: 24px;
       }
-
       #resultsTable {
         border-collapse: collapse;
         width: 240px;
       }
-
       #rating {
         font-size: 13px;
         font-family: Arial Unicode MS;
       }
-
       .iw_table_row {
         height: 18px;
       }
-
       .iw_attribute_name {
         font-weight: bold;
         text-align: right;
       }
-
       .iw_table_icon {
         text-align: right;
       }
@@ -128,14 +110,13 @@
 
 	
 	<a href="wishlist">위시리스트</a>
-<<<<<<< HEAD
+
 	<a href="store/list">맛집 상세보기</a>
-=======
+
 	<a href="storedetail">맛집 상세보기</a>
 
 	<a href="board/mpick/list">미디어픽</a>
 
->>>>>>> branch 'song' of https://github.com/Commonerd/April2022Yummyos
 	<br>
 
 	<!-- <iframe
@@ -227,7 +208,6 @@
         },
         
       };
-
       function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
           zoom: countries["kr"].zoom,
@@ -256,12 +236,10 @@
           .getElementById("country")
           .addEventListener("change", setAutocompleteCountry);
       }
-
       // When the user selects a city, get the place details for the city and
       // zoom the map in on the city.
       function onPlaceChanged() {
         const place = autocomplete.getPlace();
-
         if (place.geometry && place.geometry.location) {
           map.panTo(place.geometry.location);
           map.setZoom(15);
@@ -270,7 +248,6 @@
           document.getElementById("autocomplete").placeholder = "Enter a city";
         }
       }
-
       // Search for restaurants in the selected city, within the viewport of the map.
       function search() {
         const search = {
@@ -281,7 +258,6 @@
           if (status === google.maps.places.PlacesServiceStatus.OK && results) {
             clearResults();
             clearMarkers();
-
             // Create a marker for each restaurant found, and
             // assign a letter of the alphabetic to each marker icon.
             for (let i = 0; i < results.length; i++) {
@@ -309,7 +285,6 @@
           }
         });
       }
-
       function clearMarkers() {
         for (let i = 0; i < markers.length; i++) {
           if (markers[i]) {
@@ -318,12 +293,10 @@
         }
         markers = [];
       }
-
       // Set the country restriction based on user input.
       // Also center and zoom the map on the given country.
       function setAutocompleteCountry() {
         const country = document.getElementById("country").value;
-
         if (country == "all") {
           autocomplete.setComponentRestrictions({ country: [] });
           map.setCenter({ lat: 15, lng: 0 });
@@ -336,20 +309,17 @@
         clearResults();
         clearMarkers();
       }
-
       function dropMarker(i) {
         return function () {
           markers[i].setMap(map);
         };
       }
-
       function addResult(result, i) {
         const results = document.getElementById("results");
         const markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
         const markerIcon = MARKER_PATH + markerLetter + ".png";
         const tr = document.createElement("tr");
         tr.style.backgroundColor = i % 2 === 0 ? "#F0F0F0" : "#FFFFFF";
-
         tr.onclick = function () {
           google.maps.event.trigger(markers[i], "click");
         };
@@ -366,15 +336,12 @@
         tr.appendChild(nameTd);
         results.appendChild(tr);
       }
-
       function clearResults() {
         const results = document.getElementById("results");
-
         while (results.childNodes[0]) {
           results.removeChild(results.childNodes[0]);
         }
       }
-
       // Get the place details for a restaurant. Show the information in an info window,
       // anchored on the marker for the restaurant that the user selected.
       function showInfoWindow() {
@@ -390,7 +357,6 @@
           }
         );
       }
-
       // Load the place information into the HTML elements used by the info window.
       function buildIWContent(place) {
         document.getElementById("iw-icon").innerHTML =
@@ -398,7 +364,6 @@
         document.getElementById("iw-url").innerHTML =
           '<b><a href="' + place.url + '">' + place.name + "</a></b>";
         document.getElementById("iw-address").textContent = place.vicinity;
-
         if (place.formatted_phone_number) {
           document.getElementById("iw-phone-row").style.display = "";
           document.getElementById("iw-phone").textContent =
@@ -406,13 +371,11 @@
         } else {
           document.getElementById("iw-phone-row").style.display = "none";
         }
-
         // Assign a five-star rating to the restaurant, using a black star ('&#10029;')
         // to indicate the rating the restaurant has earned, and a white star ('&#10025;')
         // for the rating points not achieved.
         if (place.rating) {
           let ratingHtml = "";
-
           for (let i = 0; i < 5; i++) {
             if (place.rating < i + 0.5) {
               ratingHtml += "&#10025;";
@@ -425,13 +388,11 @@
         } else {
           document.getElementById("iw-rating-row").style.display = "none";
         }
-
         // The regexp isolates the first part of the URL (domain plus subdomain)
         // to give a short URL for displaying in the info window.
         if (place.website) {
           let fullUrl = place.website;
           let website = String(hostnameRegexp.exec(place.website));
-
           if (!website) {
             website = "http://" + place.website + "/";
             fullUrl = website;

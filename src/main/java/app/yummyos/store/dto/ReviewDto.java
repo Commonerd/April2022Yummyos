@@ -8,11 +8,8 @@ import lombok.Data;
 public class ReviewDto {
 
 	private int no;
-	private String image;
-	private String contents;
+	private String content;
 	private Date day;
 	private int store_no;
 	private String id;
-	private String rating;
-	private int re_no;
 }

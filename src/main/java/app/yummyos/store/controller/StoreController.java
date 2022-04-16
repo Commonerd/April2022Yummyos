@@ -82,7 +82,7 @@ public class StoreController {
 		@Autowired
 		ReviewService r_service;
 				
-		@GetMapping("store/store/content/{no}")
+		@GetMapping("store/content/{no}")
 		public String contentStore(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);

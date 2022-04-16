@@ -52,7 +52,7 @@ a {
 				<c:forEach items="${sList}" var="store">
 					<tr>
 						<td>${store.no}</td>
-						<td><a href ="store/content/${store.no}">${store.name }</a></td>
+						<td><a href ="/store/content/${store.no}">${store.name }</a></td>
 						<td>${store.category}</td>
 						<td>${store.view_count}</td>
 					</tr>

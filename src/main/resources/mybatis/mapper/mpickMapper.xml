@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="app.yummyos.board.mpick.dao.MpickDao">
+<mapper namespace="app.yummyos.board.mpick.dao.MpickDao">
 
 <insert parameterType="app.yummyos.board.mpick.dto.MpickDto" id="insert"> 
 insert into mpick(no, image, title, content, regdate, id) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}) </insert>
@@ -42,7 +42,7 @@ select * from mpick where no = #{no} </select>
 		</where> 
 </select>
 
-<select id="MpickListSearch" parameterType="map" resultType="app.yummyos.board.mpick.dto.MpickDto">
+<select id="mpickListSearch" parameterType="map" resultType="app.yummyos.board.mpick.dto.MpickDto">
 		
 		select * from
 		(select no, image, title, content, regdate, readcount, id, rownum r
