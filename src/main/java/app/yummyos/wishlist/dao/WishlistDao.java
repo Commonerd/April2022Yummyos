@@ -12,7 +12,7 @@ import app.yummyos.wishlist.dto.WishlistDto;
 
 @Mapper
 public interface WishlistDao {
-	int insert(WishlistDto dto);
+	int insertWishlist(WishlistDto dto);
 	List<WishlistDto> wishlistList(Map<String, Object> m);
 	int count();//전체글 갯수
 	WishlistDto wishlistOne(int no);

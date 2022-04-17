@@ -26,7 +26,7 @@
 	<c:forEach items="${ cList }" var="comm">
 		<div> ${comm.id } /<fmt:formatDate value="${comm.regdate}" dateStyle="short"/> </div>
 		<div>${comm.content}
-		<c:if test="${comm.id == users.id}" >
+		<c:if test="${comm.id == user.id}" >
 		<button class="dbtn" id="${comm.fs_cno}">삭제</button>
 		</c:if>
 		</div>
@@ -47,7 +47,7 @@
 			return false;
 		})//click
 		$("#add").click(function(){
-			let id = '${users.id}';
+			let id = '${user.id}';
 			let content = $("#content").val();
 			let no = ${dto.no};
 			

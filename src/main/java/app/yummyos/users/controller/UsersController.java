@@ -98,9 +98,10 @@ public class UsersController {
 			dto.setId(id);
 			System.out.println(dto);
 			service.updatePassword(dto);
+			System.out.println(dto);
 			return "users/findPasswordConfirm";
 		}
-		
+			
 	    // 비밀번호 바꾸기할 경우 성공 페이지 이동
 		@RequestMapping(value="findPasswordConfirm")
 		public String checkPasswordForModify(HttpSession session, Model model) {

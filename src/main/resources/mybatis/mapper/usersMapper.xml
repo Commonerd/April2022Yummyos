@@ -31,7 +31,7 @@ select * from users where id=#{id} and password=#{password} </select>
 	</select>
 	
 <!-- 비밀번호 변경 -->
-	<update parameterType="app.yummyos.users.dto.UsersDto" id="updatePassword">
+	<update parameterType="String" id="updatePassword">
 		update users set password=#{password} where id=#{id}
 	</update>
 

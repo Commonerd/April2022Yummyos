@@ -30,9 +30,10 @@ public class WishlistService {
 		return dao.wishlistList(m);
 	}
 	
-	public int insert(WishlistDto dto) {
-		return dao.insert(dto);
+	public int insertWishlist(WishlistDto dto) {
+		return dao.insertWishlist(dto);
 	}
+
 	
 	public WishlistDto wishlistOne(int no) {
 		return dao.wishlistOne(no);

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import app.yummyos.board.notice.dto.NtCommDto;
 import app.yummyos.users.dto.UsersDto;
 import app.yummyos.wishlist.dto.WishlistDto;
 import app.yummyos.wishlist.service.WishlistService;
@@ -30,21 +31,13 @@ public class WishlistController {
 		return new UsersDto();
 	}
 	
-	@GetMapping("/addwishlist") 
-	public String addwishlist() {
-		service.insert(null);
-		return "wishlist/wishlist";
-		}
-
-	/*
-	 * @GetMapping("/wishlist") public String View() { return "wishlist/wishlist"; }
-	 */
+	@PostMapping("/wishlist/add")
+	@ResponseBody
+	public String insertWishlist(WishlistDto dto) {
+		int i = service.insertWishlist(dto);
+		return i+"";
+	}
 	
-	/*
-	 * @PostMapping("/wishlist/write") //위시리스트 등록, 이건 어디서 수행? 가게 버튼 누르면 일로 받아서.
-	 * public String add(WishlistDto dto) { service.insert(dto); return
-	 * "redirect:/";//리다이렉트- 위시리스트 등록 후 - 현재페이지 }
-	 */
 	
 	@RequestMapping("/wishlist")
 	public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
@@ -53,7 +46,7 @@ public class WishlistController {
 		int count = service.count();
 		System.out.println("count :: "+count);
 		if(count > 0 ) {
-		int perPage = 5; // 한 페이지에 보일 글의 갯수
+		int perPage = 10; // 한 페이지에 보일 글의 갯수
 		int startRow = (page - 1) * perPage + 1;
 		int endRow = page * perPage;
 		

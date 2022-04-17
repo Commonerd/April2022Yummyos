@@ -7,5 +7,8 @@ public class WishlistDto {
 	private int no;
 	private int store_no;
 	private String id;
+	private String store_name;
+	private String name;
+	private String category;
 
 }

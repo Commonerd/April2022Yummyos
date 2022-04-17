@@ -55,10 +55,30 @@ a {
 	<a href="/store/update/${dto.no}">맛집 수정 </a> 
 	<a id="${dto.no}" href="#">맛집 삭제</a>
 	<a href="/store/list">목록 이동</a> 
-	
+	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
+	<a href="/wishlist">위시리스트 바로가기</a>
 	</td></tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+//위시리스트 등록
+$("#addwishlist").click(function(){
+			let id = '${user.id}';
+			let store_no = ${dto.no};
+			let store_name = '${dto.name}';
+			let category = '${dto.category}';
+			
+			$.ajax({url:"/wishlist/add",
+					data:"no="+store_no+"&id="+id+"&name="+store_name+"&category="+category,
+					method:"post"
+			}).done(function(){
+					location.reload();
+				});
+			
+		})//click
+</script>
+
 <script>
 	//맛집 삭제
 	$(function(){
@@ -87,6 +107,7 @@ a {
 	</c:forEach>
 	<input name="content" id="content"><button id="add">등록</button>
 </div>
+
 <script>
 	$(function(){
 		$("a[id]").click(function(){

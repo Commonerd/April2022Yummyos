@@ -13,12 +13,11 @@
 		<tr><td>id</td><td>${user.id}
 				</td></tr>
 		<tr><td>password</td><td><input name="password" type="password" id="password" value="${user.password}"></td></tr>
-		<tr><td>name</td><td><input name="name" id="name" value="${user.name}"></td></tr>
 		<tr><td>birth</td><td><input name="birth" 
-			value='<fmt:formatDate value="${user.birth}" pattern="yyyyMMdd"/>'
+			value='<fmt:formatDate value="${user.birth}" pattern="yyyyMMdd"/>' placeholder="ex) 19800101"
 		></td></tr>
-		<tr><td>address</td><td><input name="address" id="address" value="${user.address}">
-					<input type="button" id="addbtn" value="우편번호 검색" onclick="addPost()"></td></tr>
+		<tr><td>email</td><td><input name="address" id="address" value="${user.email}" placeholder="xxxx@xxxx.com">
+		<tr><td>gender</td><td><input name="address" id="address" value="${user.gender}" placeholder="남 or 여">
 	
 		<tr><td colspan="2"><input type="submit" value="수정"></td></tr>
 	</table>
