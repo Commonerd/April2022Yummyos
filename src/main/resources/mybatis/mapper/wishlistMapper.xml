@@ -4,21 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="app.yummyos.wishlist.dao.WishlistDao">
 
-<insert parameterType="app.yummyos.wishlist.dto.WishlistDto" id="insert"> 
-insert into notice(no, store_no, id) values(w_seq.nextval, #{store_no},  #{id}) </insert>
-	
-<delete parameterType="int" id="deleteWishlist"> delete from wishlist where no = #{no} </delete>
+<insert parameterType="app.yummyos.wishlist.dto.WishlistDto" id="insertWishlist"> 
+insert into wishlist(no, store_no, id, store_name, category) values(wl_seq.nextval, #{no}, #{id}, #{name}, #{category}) </insert>
+
+<delete parameterType="int" id="deleteWishlist"> delete from wishlist where store_no = #{store_no} </delete>
 
 <select id="wishlistList" resultType="app.yummyos.wishlist.dto.WishlistDto">
-		select no, store_no, id from
-		(select no, store_no, id, rownum r
-		from (select * from wishlist order by no asc)
+		select no, store_no, id, store_name, category from
+		(select no, store_no, id, store_name, category, rownum r
+		from (select * from wishlist where id = #{id} order by no asc)
 		order by no asc) where r >= #{start} AND r &lt; = #{end}
  		
 </select>
-<select id="count" resultType="int"> select count(*) from wishlist </select>
+<select id="count" resultType="int" parameterType="string" > select count(*) from wishlist where id = #{id}</select>
 <select parameterType="int" id="wishlistOne" resultType="app.yummyos.wishlist.dto.WishlistDto"> 
 select * from wishlist where no = #{no} </select>
 
+
+<select id="countWishlist" resultType="int"> select count(*) from wishlist </select>
+<select parameterType="int" id="storeWishlist" resultType="app.yummyos.wishlist.dto.WishlistDto"> 
+select * from wishlist where no = #{no} </select>
 
 </mapper>

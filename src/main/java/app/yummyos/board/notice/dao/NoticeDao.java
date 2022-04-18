@@ -19,7 +19,6 @@ public interface NoticeDao {
 	int deleteNotice(int no);
 	List<NoticeDto> noticeListSearch(Map<String, Object> m);
 	int countSearch(Map<String, Object> m); //검색 글 갯수
-	
 	int addReadcount(int no);
 	
 }

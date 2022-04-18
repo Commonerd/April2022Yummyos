@@ -44,14 +44,21 @@ a {
 		<c:if test="${count != 0 }">
 			<table>
 				<tr>
-					<th>위시리스트 번호</th>
 					<th>가게번호</th>
+					<th>가게명</th>
+					<th>테마</th>
+					<th>위시리스트 삭제</th>
 				</tr>
+			
 				<c:forEach items="${wList}" var="wishlist">
+					<%-- <c:if test="${wishlist.id == user.id }"> 이 짓을 하면 과부하 걸린다. 하나하나 다 비교하게 됨.--%> 
 					<tr>	
-						<td>${wishlist.no}"</td>
-						<td>${wishlist.store_no}</td>
+						<td><a href="store/content/${wishlist.store_no}">${wishlist.store_no}</a></td>
+						<td><a href="store/content/${wishlist.store_no}">${wishlist.store_name}</a></td>
+						<td><a href="store/content/${wishlist.store_no}">${wishlist.category}</a></td>
+						<td><a id="${wishlist.store_no}" href="#">삭제</a></td>
 					</tr>
+					<%-- </c:if> --%>
 				</c:forEach>
 			</table>
 			<div id="page">
@@ -72,5 +79,21 @@ a {
 </c:if>
 
 	</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	//위시리스트 삭제
+	$(function(){
+		$("a[id]").click(function(){
+			let store_no = $(this).attr("id");
+			$.ajax({url:"/wishlist/delete", data:"no="+store_no, method:"delete"}
+			).done(function(){
+				location.href="/wishlist";
+			})
+			return false;
+		})//click
+	})//ready
+	
+
+</script>
 </body>
 </html>

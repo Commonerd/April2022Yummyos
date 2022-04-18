@@ -16,11 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+
 import app.yummyos.store.dto.LikeDto;
 import app.yummyos.store.dto.ReviewDto;
+
 import app.yummyos.store.dto.StoreDto;
+
 import app.yummyos.store.service.LikeService;
 import app.yummyos.store.service.ReviewService;
+
 import app.yummyos.store.service.StoreService;
 import app.yummyos.users.dto.UsersDto;
 
@@ -81,7 +85,8 @@ public class StoreController {
 			m.addAttribute("count", count);
 			return "store/list";
 		}
-		
+
+
 		@Autowired
 		ReviewService r_service;
 				
@@ -115,12 +120,12 @@ public class StoreController {
 			return "store/content";
 		}
 
+
 		@GetMapping("store/update/{no}")
 		public String updateForm(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
 			return "store/updateForm";
-
 		}
 		
 		@PutMapping("store/update/store/update")
@@ -129,7 +134,6 @@ public class StoreController {
 			return "redirect:/store/list";   
 		}
 		
-
 		@DeleteMapping("store/delete")
 		@ResponseBody
 		public String delete(int no) {
@@ -174,6 +178,6 @@ public class StoreController {
 		}
 
 		
-
 	}
+
 

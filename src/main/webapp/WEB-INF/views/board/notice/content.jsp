@@ -63,10 +63,11 @@
 		$("#add").click(function(){
 			let id = '${user.id}';
 			let content = $("#content").val();
-			let no = ${dto.no};
+			let no = ${dto.no}; //글번호를 no에.
 			
 			$.ajax({url:"/comm/insert",
 					data:"no="+no+"&id="+id+"&content="+content,
+					//글번호를 no에, 로그인 id를 id에, 입력 내용을 content에
 					method:"post"
 			}).done(function(){
 					location.reload();

@@ -18,21 +18,23 @@ public class WishlistService {
 	@Autowired
 	WishlistDao dao;
 	
-	public int count() {
-		return dao.count();
+	public int count(String id) {
+		return dao.count(id);
 	}
 	
-	public List<WishlistDto> wishlistList(int start, int end){
+	public List<WishlistDto> wishlistList(int start, int end, String id){
 		
 		Map<String, Object> m = new HashMap<String, Object>();
 		m.put("start", start);
 		m.put("end", end);
+		m.put("id", id);
 		return dao.wishlistList(m);
 	}
 	
-	public int insert(WishlistDto dto) {
-		return dao.insert(dto);
+	public int insertWishlist(WishlistDto dto) {
+		return dao.insertWishlist(dto);
 	}
+
 	
 	public WishlistDto wishlistOne(int no) {
 		return dao.wishlistOne(no);

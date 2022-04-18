@@ -34,7 +34,17 @@ public class UsersService {
 		}
 	}
 	
+	public String findId(UsersDto dto) {
+		return dao.findId(dto);
+	}
+
+	public String findPassword(UsersDto dto) {
+		return dao.findPassword(dto);
+	}
 	
+	public void updatePassword(UsersDto dto) {
+		dao.updatePassword(dto);
+	}
 	
 }
 	
