@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="app.yummyos.board.fstory.dao.FsCommDao">
+	
+	<insert id="insertfsComm" parameterType="app.yummyos.board.fstory.dto.FsCommDto">
+		insert into fs_comm values(fsc_seq.nextval, #{id}, #{content}, sysdate, #{f_no})
+	</insert>
+	<delete id="deletefsComm" parameterType="int">
+		delete from fs_comm where fs_cno = #{fs_cno}
+	</delete>
+	<select id="selectfsComm" parameterType="int" 
+	resultType="app.yummyos.board.fstory.dto.FsCommDto">
+		select * from fs_comm where f_no = #{f_no} order by regdate desc
+	</select>
+</mapper>

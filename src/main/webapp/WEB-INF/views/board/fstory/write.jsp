@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>게시판 글 작성</title>
+<title>게시판 새 글 작성</title>
 <style>
 	.orange{background-color: orange; width: 50px;}
 	table{border-collapse : collapse; width: 800px;}
@@ -11,6 +11,10 @@
 <body>
 <form method="post" id="writeform" action="write">
 	<table boarder="1">
+	<tr>  
+			<td class="orange">제목</td>
+			<td><input name="title"/></td>
+		</tr>
 		<tr>
 			<td class="orange">작성자</td>
 			<td><input name="id" value="${user.id }" readonly></td>

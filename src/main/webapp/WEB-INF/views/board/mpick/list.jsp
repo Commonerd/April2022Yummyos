@@ -54,13 +54,12 @@ a {
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${bList}" var="board">
+				<c:forEach items="${mList}" var="mpick">
 					<tr>
-						<td><a href="content/${board.no}">${board.title}</a></td>
-						<td>${board.id }</td>
-						<td><fmt:formatDate value="${board.regdate }"
-								dateStyle="short" /></td>
-						<td>${board.readcount }</td>
+						<td><a href="content/${mpick.no}">${mpick.title}</a></td>
+						<td>${mpick.id}</td>
+						<td><fmt:formatDate value="${mpick.regdate }" dateStyle="short" /></td>
+						<td>${mpick.readcount }</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -75,13 +74,12 @@ a {
 					<a href="list?p=${end+1}">[다음]</a>
 				</c:if>
 			</div>
-
 		</c:if>
 		<c:if test="${count == 0 }">
 	아직 입력한 글이 없습니다.
 </c:if>
-
 	</div>
+	<!-- 검색용 -->
 	<div id="search" align="center">
 		<form action="search">
 			<select name="searchn">

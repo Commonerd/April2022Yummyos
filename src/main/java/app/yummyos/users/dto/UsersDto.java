@@ -17,10 +17,9 @@ public class UsersDto {
 	private String id;
 	@NotNull(message="id is null.")
 	private String password;
-	private String name;
+	private String email;
 	@DateTimeFormat(pattern ="yyyyMMdd")
 	private Date birth;
-	private String address;
-	
+	private String gender;
 }
 
