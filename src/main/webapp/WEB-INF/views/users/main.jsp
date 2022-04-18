@@ -99,6 +99,9 @@
         text-align: right;
       }
     </style>
+    
+    
+    
 
 <body>
 	<h3>${user.id}님이로그인하셨습니다.야미요로 맛밥하세요!!</h3>
@@ -107,8 +110,7 @@
 	<a href="delete">회원 탈퇴</a>
 	<a href="logout">로그아웃</a>
 	<a href="board/notice/list">공지사항</a>
-
-	
+	<a href="board/fstory/list">맛있는 이야기</a>
 	<a href="wishlist">위시리스트</a>
 
 	<a href="store/list">맛집 상세보기</a>
@@ -116,6 +118,7 @@
 	<a href="storedetail">맛집 상세보기</a>
 
 	<a href="board/mpick/list">미디어픽</a>
+
 
 	<br>
 

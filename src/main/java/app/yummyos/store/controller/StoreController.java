@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import app.yummyos.board.mpick.dto.MCommDto;
 import app.yummyos.store.dto.LikeDto;
 import app.yummyos.store.dto.ReviewDto;
 import app.yummyos.store.dto.StoreDto;
@@ -115,17 +114,13 @@ public class StoreController {
 			m.addAttribute("check", check);
 			return "store/content";
 		}
-		
-		
-		
-		
 
-		
 		@GetMapping("store/update/{no}")
 		public String updateForm(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
 			return "store/updateForm";
+
 		}
 		
 		@PutMapping("store/update/store/update")
@@ -134,6 +129,7 @@ public class StoreController {
 			return "redirect:/store/list";   
 		}
 		
+
 		@DeleteMapping("store/delete")
 		@ResponseBody
 		public String delete(int no) {
@@ -178,6 +174,6 @@ public class StoreController {
 		}
 
 		
-	}
 
+	}
 
