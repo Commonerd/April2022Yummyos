@@ -21,7 +21,7 @@ public class likecontroller {
 	@PostMapping("/like/likeupdate")
 	public Map<String, String> likeupdate(@RequestBody LikeDto likedto) {
 		Map<String, String> map = new HashMap<String, String>();
-		
+
 		int ltlike = 0;
 
 		int check = likeservice.ltlikecount(likedto);
@@ -29,7 +29,7 @@ public class likecontroller {
 		if (check == 0) {
 
 			likeservice.likeinsert(likedto);// 좋아요 추가
-		
+
 		} else if (check == 1) {
 			try {
 				likeservice.likeupdate(likedto);
