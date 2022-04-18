@@ -42,8 +42,9 @@ a {
 </style>
 
 <body>
+
 <table border="1">
-	<tr><td>상호명</td><td>${dto.name}</td>
+	<tr><td>상호명</td><td>${dto.name}${check }</td>
 	<tr><td>카테고리</td><td>${dto.category}</td>
 	<tr><td>전화번호</td><td>${dto.phone}</td>
 	<tr><td>주소</td><td>${dto.address}</td>
@@ -138,7 +139,18 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 		<hr>
 	</c:forEach>
 	<textarea name="content" id="content" rows="5" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><button id="add">등록</button>
-	
+	<td id="like">
+					<c:choose>
+						<c:when test="${ltlike ==0}">
+							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>					
+						<c:when test="${ltlike ==1}">
+							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>
+					</c:choose>					
+				</td>
 </div>
 <script>
 	$(function(){
@@ -174,6 +186,50 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 			});
 			
 		})//click 
+		
+		$('#likebtn').click(function(){
+			likeupdate();
+		});
+		
+		function likeupdate(){
+			var root = getContextPath(),
+			likeurl = "/like/likeupdate",
+			id = $('#id').val(),
+			no = $('#no').val(),
+			count = $('#likecheck').val(),
+			data = {"ltmid" : id,
+					"ltbid" : no,
+					"count" : count};
+			
+		$.ajax({
+			url : root + likeurl,
+			type : 'POST',
+			contentType: 'application/json',
+			data : JSON.stringify(data),
+			success : function(result){
+				console.log("수정" + result.result);
+				if(count == 1){
+					console.log("좋아요 취소");
+					 $('#likecheck').val(0);
+					 $('#likebtn').attr('class','btn btn-light');
+				}else if(count == 0){
+					console.log("좋아요!");
+					$('#likecheck').val(1);
+					$('#likebtn').attr('class','btn btn-danger');
+				}
+			}, error : function(result){
+				console.log("에러" + result.result)
+			}
+			
+			});
+		};
+		
+		function getContextPath() {
+		    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+		    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+		} 
+		
+		
 	})//ready
 
 </script>
