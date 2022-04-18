@@ -16,6 +16,11 @@ public class DetailsController {
 		return "details/details";
 	}
 	
+	@GetMapping("/details/ladder")
+	public String details_ladder() {
+		return "details/ladder";
+	}
+	
 	@GetMapping("/details/adress")
 	public String details_adress() {
 		return "details/adress";

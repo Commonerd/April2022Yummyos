@@ -74,8 +74,11 @@ h1 {
 		<h2>최고 평점맛집</h2>
 		<h4>최고의 맛집을 찾아라!</h4>
 
+
+
+
 		<ul>
-			
+			<li><a href="details/ladder">사다리타기</a>
 			<li><a href="details/adress">주소</a>
 			<li><a href="details/kinds">음식종류</a>
 			<li><a href="details/price">가격</a>
