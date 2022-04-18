@@ -40,17 +40,17 @@ public class WishlistController {
 	
 	
 	@RequestMapping("/wishlist")
-	public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
+	public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m, @ModelAttribute("user") UsersDto dto) {
 
 		//글이 있는지 체크
-		int count = service.count();
+		int count = service.count(dto.getId());
 		System.out.println("count :: "+count);
 		if(count > 0 ) {
 		int perPage = 10; // 한 페이지에 보일 글의 갯수
 		int startRow = (page - 1) * perPage + 1;
 		int endRow = page * perPage;
 		
-		List<WishlistDto> wishlistList = service.wishlistList(startRow, endRow);
+		List<WishlistDto> wishlistList = service.wishlistList(startRow, endRow, dto.getId());
 		m.addAttribute("wList", wishlistList);
 		System.out.println("(wishlistList.size()::"+wishlistList.size());
 		int pageNum = 5;

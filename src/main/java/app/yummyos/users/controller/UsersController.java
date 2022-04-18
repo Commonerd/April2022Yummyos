@@ -80,7 +80,6 @@ public class UsersController {
 		@RequestMapping(value="find_password", method=RequestMethod.POST)
 		public String findPasswordAction(UsersDto dto, Model model) {
 			String user = service.findPassword(dto);
-			
 			if(user == null) { 
 				model.addAttribute("check", 1);
 			} else { 
@@ -99,18 +98,7 @@ public class UsersController {
 			System.out.println(dto);
 			service.updatePassword(dto);
 			System.out.println(dto);
-			return "users/findPasswordConfirm";
-		}
-			
-	    // 비밀번호 바꾸기할 경우 성공 페이지 이동
-		@RequestMapping(value="findPasswordConfirm")
-		public String checkPasswordForModify(HttpSession session, Model model) {
-			UsersDto loginUser = (UsersDto) session.getAttribute("user");
-			if(loginUser == null) {
-				return "users/findPassword";
-			} else {
-				return "users/findPasswordConfirm";
-			}
+			return "users/loginform";
 		}
 	
 	@GetMapping("/insert")
