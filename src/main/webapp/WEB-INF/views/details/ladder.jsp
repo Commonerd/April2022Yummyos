@@ -174,7 +174,7 @@ button {
     <div id="menu_wrap" class="bg_white">
         <div class="option">
             <div>
-                <form onsubmit="searchPlaces(); return false;">
+                <form id="searchForm" onsubmit="searchPlaces(); return false;">
                     Å°¿öµå : <input type="text" value="ÀÌÅÂ¿ø ¸ÀÁý" id="keyword" size="15"> 
                     <button type="submit">°Ë»öÇÏ±â</button> 
                 </form>
@@ -420,8 +420,8 @@ function removeAllChildNods(el) {
 
 				var defaults = {
 					angle: 0,
-					angleOffset: -45,
-					speed: 5000,
+					angleOffset: 0,
+					speed: 3000,
 					easing: "easeInOutElastic",
 				};
 
@@ -441,8 +441,8 @@ function removeAllChildNods(el) {
 						{ color: '#e6471d', text: '»ï°ã»ì' },
 						{ color: '#dc0936', text: '°¥ºñ' },
 						{ color: '#e5177b', text: '±¹¹ä' },
-						{ color: '#be107f', text: 'µµ½Ã¶ô' },
 						{ color: '#881f7e', text: 'ÆÐ½ºÆ®Çªµå' }
+						
 					];
 
 					var $wrap = $(this),
@@ -501,8 +501,11 @@ function removeAllChildNods(el) {
 					});
 
 					function rotation() {
-
-						var completeA = 360 * r(5, 10) + r(0, 360);
+						let arr = ['ÆÐ½ºÆ®Çªµå','±¹¹ä','°¥ºñ','»ï°ã»ì','µ·±î½º','Ä¡Å²','ÇÇÀÚ','ÇÜ¹ö°Å','ÀÏ½Ä','Áß½Ä','ÇÑ½Ä'];
+						let n1 =  r(5, 9);
+						let n2 =  r(0, 360)
+						//var completeA = 360 * n1 + n2;
+						var completeA = 360 * 0 + n2;
 
 						$roulette.rotate({
 							angle: angle,
@@ -511,9 +514,16 @@ function removeAllChildNods(el) {
 							easing: $.easing.esing,
 							callback: function() {
 								var currentA = $(this).getRotateAngle();
-
+								console.log(n2 / 36);
+								console.log("n1 : "+n1 + " n2:"+n2);
+								
 								console.log(currentA);
-
+								
+								let index = Math.ceil(n2/36);
+							
+								console.log(arr[index] + ' '+index);
+								$("#keyword").val(arr[index]);
+								$("#searchForm").submit();
 							},
 							duration: speed
 						});
@@ -531,7 +541,14 @@ function removeAllChildNods(el) {
 	$(function() {
 
 		$('.box-roulette').roulette();
-
+		
+		
+		
+		$(".text").click(function(){	
+			let f = $(this).text();
+			$("#keyword").val(f);
+			$("#searchForm").submit();
+		})
 	});
 		
 	</script>
