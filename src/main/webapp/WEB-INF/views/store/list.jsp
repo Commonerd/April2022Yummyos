@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--  bList begin end count pageNum totalPages -->
-<title>글 목록</title>
+<!--  nList begin end count pageNum totalPages -->
+<title>가게 목록</title>
 <style>
 #center {
 	width: 700px;
@@ -20,16 +20,11 @@ table {
 	border-collapse: collapse;
 }
 
-th {
-	border: 1px solid black;
-	background-color: orange;
-	width: 150px;
+th {border: 1px solid black;
+	background-color: Aquamarine;
+	width: 30px;
 }
-
-td {
-	border: 1px solid black;
-}
-
+td{border: 1px solid black;}
 a {
 	margin: 10px auto;
 }
@@ -41,25 +36,25 @@ a {
 </head>
 <body>
 	<div id="center">
-		<h1>게시글 목록</h1>
+		<h1></h1>
 		<div align="right">
-			<a href="/main">main</a> <a href="write">새글 등록</a>
+			<a href="/main">main</a><a href="insert">가게 등록</a>
 		</div>
 
 		<c:if test="${count != 0 }">
 			<table>
 				<tr>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>작성일</th>
+					<th>순번</th>
+					<th>상호명</th>
+					<th>테마</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${mList}" var="mpick">
+				<c:forEach items="${sList}" var="store">
 					<tr>
-						<td><a href="content/${mpick.no}">${mpick.title}</a></td>
-						<td>${mpick.id}</td>
-						<td><fmt:formatDate value="${mpick.regdate }" dateStyle="short" /></td>
-						<td>${mpick.readcount }</td>
+						<td>${store.no}</td>
+						<td><a href ="/store/content/${store.no}">${store.name }</a></td>
+						<td>${store.category}</td>
+						<td>${store.view_count}</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -74,21 +69,23 @@ a {
 					<a href="list?p=${end+1}">[다음]</a>
 				</c:if>
 			</div>
+
 		</c:if>
 		<c:if test="${count == 0 }">
-	아직 입력한 글이 없습니다.
+	아직 등록된 가게가 없습니다.
 </c:if>
+
 	</div>
-	<!-- 검색용 -->
-	<div id="search" align="center">
-		<form action="search">
-			<select name="searchn">
-				<option value="0">제목</option>
-				<option value="1">내용</option>
-				<option value="2">작성자</option>
-			</select> <input type="text" name="search" size="15" maxlength="50" /> 
-			<input type="submit" value="검색" />
-		</form>
-	</div>
+		<div id="search" align="center">
+<form action="search">
+<select name="searchn">
+<option value="0">상호명</option>
+<!-- <option value="1">내용</option> 윤정화씨의 해시태그로 구현할 부분.-->
+<option value="2">테마</option>
+</select>
+<input type="text" name="search" size="15" maxlength="50" /> 
+<input type="submit" value="검색" />
+</form>	
+</div>
 </body>
 </html>

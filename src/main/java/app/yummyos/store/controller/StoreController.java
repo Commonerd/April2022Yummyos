@@ -79,7 +79,19 @@ public class StoreController {
 			return "store/list";
 		}
 		
-		
+
+		@Autowired
+		ReviewService r_service;
+				
+		@GetMapping("store/content/{no}")
+		public String contentStore(@PathVariable int no, Model m) {
+			StoreDto dto = service.storeOne(no);
+			m.addAttribute("dto", dto);
+			List<ReviewDto> cList = r_service.selectReview(no);
+			m.addAttribute("cList", cList);
+			return "store/content";
+		}
+
 
 		
 		@GetMapping("store/update/{no}")
@@ -87,6 +99,7 @@ public class StoreController {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
 			return "store/updateForm";
+
 		}
 		
 		@PutMapping("store/update/store/update")
@@ -95,6 +108,7 @@ public class StoreController {
 			return "redirect:/store/list";   
 		}
 		
+
 		@DeleteMapping("store/delete")
 		@ResponseBody
 		public String delete(int no) {
@@ -139,4 +153,6 @@ public class StoreController {
 		}
 
 		
+
 	}
+
