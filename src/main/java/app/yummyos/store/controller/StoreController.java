@@ -21,14 +21,10 @@ import app.yummyos.store.dto.LikeDto;
 import app.yummyos.store.dto.ReviewDto;
 
 import app.yummyos.store.dto.StoreDto;
-<<<<<<< HEAD
-import app.yummyos.store.service.ReviewService;
-=======
 
 import app.yummyos.store.service.LikeService;
 import app.yummyos.store.service.ReviewService;
 
->>>>>>> refs/heads/master
 import app.yummyos.store.service.StoreService;
 import app.yummyos.users.dto.UsersDto;
 
