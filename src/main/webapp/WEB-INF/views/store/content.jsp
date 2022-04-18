@@ -118,35 +118,10 @@ $("#addwishlist").click(function(){
 			})
 			return false;
 		})//click
-		
-		/* 지훈이형 리뷰로 처리 할 곳
-		$("#add").click(function(){
-			let id = '${user.id}';
-			let content = $("#content").val();
-			let no = ${dto.no};
-			
-			$.ajax({url:"/comm/insert",
-					data:"no="+no+"&id="+id+"&content="+content,
-					method:"post"
-			}).done(function(){
-					location.reload();
-				});
-			
-		})//click
-		$(".dbtn").click(function(){
-			let cno = $(this).attr("id");
-			$.ajax({url:"/comm/delete/"+cno,
-				method:"delete"
-		}).done(function(){
-				location.reload();
-			});
-			
-		})//click */
 	})//ready
+	
 
 </script>
-
-
 <br>
 
 <p style="margin-top:-12px">
@@ -197,6 +172,58 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
     } 
 });    
 </script>
+<hr>
+<br>리뷰 등록
+<!--  cList -->
+<div>
+	<c:forEach items="${cList}" var="review">
+		<div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
+		<div>${review.content} 
+		<c:if test="${review.id == user.id }">
+		<button class="dbtn" id="${review.no}">삭제</button>
+		</c:if>
+		</div>
+		<hr>
+	</c:forEach>
+	<textarea name="content" id="content" rows="5" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><button id="add">등록</button>
+	
+</div>
+<script>
+	$(function(){
+		$("a[id]").click(function(){
+			let store_no = $(this).attr("id");
+			$.ajax({url:"/store/delete", data:"no="+store_no, method:"delete"}
+			).done(function(){
+				location.href="/store/list";
+			})
+			return false;
+		})//click
+		
+	
+		$("#add").click(function(){
+			let id = '${user.id}';
+			let content = $("#content").val();
+			let store_no = ${dto.no};
+			
+			$.ajax({url:"/review/insert",
+					data:"store_no="+store_no+"&id="+id+"&content="+content,
+					method:"post"
+			}).done(function(){
+					location.reload();
+				});
+			
+		})//click
+		$(".dbtn").click(function(){
+			let no = $(this).attr("id");
+			$.ajax({url:"/review/delete/"+no,
+				method:"delete"
+		}).done(function(){
+				location.reload();
+			});
+			
+		})//click 
+	})//ready
 
+</script>
 </body>
 </html>
