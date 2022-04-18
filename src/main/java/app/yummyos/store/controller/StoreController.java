@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import app.yummyos.board.mpick.dto.MCommDto;
-import app.yummyos.store.dto.ReviewDto;
 import app.yummyos.store.dto.StoreDto;
-import app.yummyos.store.service.ReviewService;
 import app.yummyos.store.service.StoreService;
 import app.yummyos.users.dto.UsersDto;
 
@@ -79,6 +76,7 @@ public class StoreController {
 			return "store/list";
 		}
 
+
 		@Autowired
 		ReviewService r_service;
 				
@@ -87,8 +85,6 @@ public class StoreController {
 		public String contentStore(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
-			List<ReviewDto> cList = r_service.selectReview(no);
-			m.addAttribute("cList", cList);
 			return "store/content";
 		}
 

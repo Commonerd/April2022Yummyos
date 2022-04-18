@@ -16,14 +16,14 @@ public class FsCommController {
 	@Autowired
 	FsCommService fsc_service;
 	
-	@PostMapping("/fscomm/insert")
+	@PostMapping("/fs_comm/insert")
 	@ResponseBody
 	public String insertComm(FsCommDto dto) {
 		int i = fsc_service.insertComm(dto);
 		return i+"";
 	}
 	
-	@DeleteMapping("/fscomm/delete/{fs_cno}")
+	@DeleteMapping("/fs_comm/delete/{fs_cno}")
 	@ResponseBody
 	public String deleteComm(@PathVariable int fs_cno) {
 		int i = fsc_service.deleteComm(fs_cno);

@@ -21,4 +21,8 @@ insert into wishlist(no, store_no, id, store_name, category) values(wl_seq.nextv
 select * from wishlist where no = #{no} </select>
 
 
+<select id="countWishlist" resultType="int"> select count(*) from wishlist </select>
+<select parameterType="int" id="storeWishlist" resultType="app.yummyos.wishlist.dto.WishlistDto"> 
+select * from wishlist where no = #{no} </select>
+
 </mapper>
