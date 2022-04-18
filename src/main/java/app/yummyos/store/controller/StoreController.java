@@ -75,7 +75,12 @@ public class StoreController {
 			m.addAttribute("count", count);
 			return "store/list";
 		}
-		
+
+
+		@Autowired
+		ReviewService r_service;
+				
+
 		@GetMapping("store/content/{no}")
 		public String contentStore(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
