@@ -2,25 +2,28 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="app.yummyos.board.fstory.dao.FstoryDao">
-  	<insert parameterType="app.yummyos.board.fstory.dto.FstoryDto" id="insert">
-  		insert into fstory(no, image, title, content, regdate, id) 
-  					values(f_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id})
-  	</insert>  
-  
-  	<update parameterType="app.yummyos.board.fstory.dto.FstoryDto" id="updateFstory">
-		update fstory set title=#{title}, content=#{content} where no=#{no} 	
+<mapper namespace="app.yummyos.board.fstory.dao.FstoryDao">
+	<insert parameterType="app.yummyos.board.fstory.dto.FstoryDto" id="insert">
+		insert into fstory(no, image, title, content, regdate, id)
+		values(f_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id})
+	</insert>
+
+	<update parameterType="app.yummyos.board.fstory.dto.FstoryDto"
+		id="updateFstory">
+		update fstory set title=#{title}, content=#{content} where no=#{no}
 	</update>
-	
+
 	<update id="addReadcount">
-		update fstory set readcount = readcount +1 where no=#{no}
+		update fstory set readcount = readcount +1 where
+		no=#{no}
 	</update>
-	
+
 	<delete parameterType="int" id="deleteFstory">
 		delete from fstory where no=#{no}
 	</delete>
-	
-	<select id="fstoryList" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
+
+	<select id="fstoryList" parameterType="map"
+		resultType="app.yummyos.board.fstory.dto.FstoryDto">
 		<![CDATA[
 		select * from
 		(select no, image, title, content, regdate, readcount, id, rownum r
@@ -29,41 +32,38 @@
  		]]>
 		<!-- start, end 가 key값으로 인식 됨 = parameterType이 map타인 경우 -->
 	</select>
-  
+
 	<select id="count" resultType="int">
-		select count(*) from fstory	
+		select count(*) from fstory
 	</select>
-  
-  	<select parameterType="int" id="fstoryOne" resultType="app.yummyos.board.fstory.dto.FstoryDto">
-  		select * from fstory where no=#{no}
-  	</select>
 
-  	<select id="countSearch" resultType="int" parameterType="map">
-  		select count(*) from fstory	
-  		<where>
+	<select parameterType="int" id="fstoryOne"
+		resultType="app.yummyos.board.fstory.dto.FstoryDto">
+		select * from fstory where no=#{no}
+	</select>
+
+	<select id="countSearch" resultType="int" parameterType="map">
+		select count(*) from fstory
+		<where>
 			<choose>
-				<when test="searchn == 0">title like '%'||#{search}||'%'</when>
-				<when test="searchn == 1"> content like '%'||#{search}||'%'</when>
-				<when test="searchn == 2"> id like '%'||#{search}||'%' </when>
+				<when test="searchn == 0">title  like '%'||#{search}||'%'</when>
+				<when test="searchn == 1">id  like '%'||#{search}||'%'</when>
 			</choose>
-		</where>
-  	</select>
-  	
-  	<select id="fstoryListSearch" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
+		</where> 
+	</select>
 
-		select * from 
-		
-		(select no, image, title, content, regdate, readcount, id, rownum r
-		from (select * from fstory
+	<select id="fstoryListSearch" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
+		select * from
+			(select no, image, title, content, regdate, readcount, id, rownum r
+			from (select * from fstory order by regdate desc)
 			<where>
 				<choose>
 					<when test="searchn == 0">title like '%'||#{search}||'%'</when>
-					<when test="searchn == 1"> content like '%'||#{search}||'%' </when>
-					<when test="searchn == 2"> id like '%'||#{search}||'%' </when>
+					<when test="searchn == 1">id like '%'||#{search}||'%'</when>
 				</choose>
 			</where>
 			 order by regdate desc)
-		order by regdate desc
-		) where r >= #{start} AND r &lt;= #{end}
+			where r >= #{start} AND r &lt;= #{end}
 	</select>
-  </mapper>
+	
+</mapper>

@@ -79,8 +79,7 @@ a {
 		<form action="search">
 			<select name="searchn">
 				<option value="0">제목</option>
-				<option value="1">내용</option>
-				<option value="2">작성자</option>
+				<option value="1">작성자</option>
 			</select> 
 			<input type="text" name="search" size="15" maxlength="50" /> 
 			<input type="submit" value="검색" />
