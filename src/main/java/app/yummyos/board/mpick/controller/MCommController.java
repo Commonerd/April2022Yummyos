@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import app.yummyos.board.mpick.dto.MCommDto;
 import app.yummyos.board.mpick.service.MCommService;
 
-
 @Controller
 public class MCommController {
 

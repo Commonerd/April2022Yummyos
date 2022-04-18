@@ -4,15 +4,18 @@ import lombok.Data;
 
 @Data
 public class StoreDto {
+
 		private int no;
 		private String name;
 		private String category;
-		private String opentime;
 		private String address;
-		private double map_x;
-		private double map_y;
-		private long viewcount;
-		
+		private String phone;
+		private double map_lt;
+		private double map_ln;
+		private String menu;
+		private String detail;
+		private int view_count;
+
 
 	}
 
