@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="app.yummyos.board.notice.dao.NoticeDao">
+  <mapper namespace="app.yummyos.store.dao.StoreDao">
 
 <insert parameterType="app.yummyos.board.notice.dto.NoticeDto" id="insert"> 
 insert into notice(no, id, title, content, regdate) values(n_seq.nextval, #{id}, #{title}, #{content},sysdate) </insert>
@@ -27,37 +27,6 @@ update notice set title=#{title}, content=#{content} where no=#{no} </update>
 <select parameterType="int" id="noticeOne" resultType="app.yummyos.board.notice.dto.NoticeDto"> 
 select * from notice where no = #{no} </select>
 
-<select id="countSearch" resultType="int" parameterType="map">
-		select count(*) from notice 	
-		<where>
-			<choose>
-				<when test="searchn == 0">
-				title  like '%'||#{search}||'%' </when>
-				<when test="searchn == 1"> content  like '%'||#{search}||'%'</when>
-				<when test="searchn == 2"> id  like '%'||#{search}||'%' </when>
-			</choose>
-		</where> 
-</select>
-
-<select id="noticeListSearch" parameterType="map" resultType="app.yummyos.board.notice.dto.NoticeDto">
-		
-		select * from
-		(select no, image,title, content, regdate, readcount, id, rownum r
-		from (select * from notice order by regdate desc) 
-		<where>
-			<choose>
-				<when test="searchn == 0">
-				title like '%'||#{search}||'%'</when>
-				<!--  테이블이 long타입이라 검색안됨. 윤정화씨가 해쉬태그 만들어야 수정가능한 부분.
-				 <when test="searchn == 1"> content like '%'||#{search}||'%' </when> -->
-				<when test="searchn == 2"> id like '%'||#{search}||'%' </when>
-			</choose>
-		</where> 
-		order by regdate desc 
-		
-		) where r >= #{start} AND r &lt;= #{end}
- 		
-</select>
 
 
 </mapper>
