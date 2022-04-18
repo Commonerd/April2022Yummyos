@@ -51,12 +51,21 @@ a {
 	<tr><td>메뉴</td><td>${dto.menu}</td>
 	<tr><td>설명</td><td>${dto.detail}</td>
 	<tr><td>조회수</td><td>${dto.view_count}</td>
-	
+
 	<tr><td colspan="2" align="right">
 	<a href="/store/update/${dto.no}">맛집 수정 </a> 
 	<a id="${dto.no}" href="#">맛집 삭제</a>
-	<a href="/store/list">목록 이동</a> 
-	
+	<a href="/store/list">목록 이동</a>
+					<c:choose>
+						<c:when test="${ltlike ==0}">
+							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>					
+						<c:when test="${ltlike ==1}">
+							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>
+					</c:choose>	
 	</td></tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -139,18 +148,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 		<hr>
 	</c:forEach>
 	<textarea name="content" id="content" rows="5" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><button id="add">등록</button>
-	<td id="like">
-					<c:choose>
-						<c:when test="${ltlike ==0}">
-							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
-							<input type="hidden" id="likecheck" value="${ltlike }">
-						</c:when>					
-						<c:when test="${ltlike ==1}">
-							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
-							<input type="hidden" id="likecheck" value="${ltlike }">
-						</c:when>
-					</c:choose>					
-				</td>
+	
 </div>
 <script>
 	$(function(){
