@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="app.yummyos.search.dao.SearchDao">
+
+<select id="listAll" resultType="app.yummyos.store.dto.StoreDto">
+	select name, category, address, phone, menu from store 
+	order by riew_count desc
+		where r >= #{start} AND r &lt;= #{end}
+	
+</select>
+
+	<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
+		select * from no, name, category, address, phone, menu, detail, map_lt, map_ln, view_count, rownum r
+		from (select *from store where 
+		<where>
+			<choose>
+				<when test="searchn  == All">name like '%'||#{keyword}||'%'
+											or category like '%'||#{keyword}||'%'
+											or menu like '%'||#{keyword}||'%'</when>
+			</choose>
+		</where>
+		 order by riew_count desc)
+		order by riew_count desc
+		) where r >= #{start} AND r &lt;= #{end}
+	
+	</select>
+	
+	
+	<select id="tags" ></select>
+	
+	
+	
+</mapper>
