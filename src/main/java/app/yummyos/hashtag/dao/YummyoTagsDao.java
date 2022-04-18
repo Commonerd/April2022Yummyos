@@ -12,6 +12,8 @@ import app.yummyos.hashtag.dto.YummyoTags;
 public interface YummyoTagsDao {
 	
 	 List<YummyoTags> findAllByHashtag(HashtagDto hashtagdto);
+
+	Collection<? extends HashtagDto> yummyoTagsdao(int no);
 	 
 
 }
