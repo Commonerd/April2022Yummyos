@@ -66,7 +66,7 @@ a {
 							<input type="hidden" id="likecheck" value="${ltlike }">
 						</c:when>
 					</c:choose>	
-	<a href="/store/list">목록 이동</a> 
+	<br> 
 	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
 	<a href="/wishlist">위시리스트 바로가기</a>
 	</td></tr>
@@ -252,17 +252,13 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 		});
 		
 		function likeupdate(){
-			var root = getContextPath(),
-			likeurl = "/like/likeupdate",
-			id = $('#id').val(),
-			no = $('#no').val(),
-			count = $('#likecheck').val(),
-			data = {"ltmid" : id,
-					"ltbid" : no,
-					"count" : count};
+			likeurl = "/like/likeupdate";
+			data = {"ltmid" : '${user.id}',
+					"ltbid" : ${dto.no},
+					"count" : ${check}};
 			
 		$.ajax({
-			url : root + likeurl,
+			url : likeurl,
 			type : 'POST',
 			contentType: 'application/json',
 			data : JSON.stringify(data),
@@ -283,11 +279,6 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 			
 			});
 		};
-		
-		function getContextPath() {
-		    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
-		    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
-		} 
 		
 		
 	})//ready
