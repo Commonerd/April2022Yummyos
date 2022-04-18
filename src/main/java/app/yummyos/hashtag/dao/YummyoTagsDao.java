@@ -13,7 +13,5 @@ public interface YummyoTagsDao {
 	
 	 List<YummyoTags> findAllByHashtag(HashtagDto hashtagdto);
 	 
-	 Collection<? extends HashtagDto> fstorytags(int no);
-	 
 
 }
