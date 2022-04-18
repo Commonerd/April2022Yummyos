@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import app.yummyos.board.mpick.dto.MCommDto;
+import app.yummyos.store.dto.ReviewDto;
 import app.yummyos.store.dto.StoreDto;
+import app.yummyos.store.service.ReviewService;
 import app.yummyos.store.service.StoreService;
 import app.yummyos.users.dto.UsersDto;
 
@@ -77,20 +79,23 @@ public class StoreController {
 			return "store/list";
 		}
 		
-		/*
-		 * @Autowired ReviewService r_service;
-		 * 
-		 * @GetMapping("store/content/{no}") public String contentStore(@PathVariable
-		 * int no, Model m) { StoreDto dto = service.storeOne(no); m.addAttribute("dto",
-		 * dto); List<ReviewDto> cList = r_service.selectReview(no);
-		 * m.addAttribute("cList", cList); return "store/content"; }
-		 * 
-		 */
+		@Autowired
+		ReviewService r_service;
+				
+		@GetMapping("store/content/{no}")
+		public String contentStore(@PathVariable int no, Model m) {
+			StoreDto dto = service.storeOne(no);
+			m.addAttribute("dto", dto);
+			List<ReviewDto> cList = r_service.selectReview(no);
+			m.addAttribute("cList", cList);
+			return "store/content";
+		}
 		@GetMapping("store/update/{no}")
 		public String updateForm(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
 			return "store/updateForm";
+
 		}
 		
 		@PutMapping("store/update/store/update")
@@ -99,6 +104,7 @@ public class StoreController {
 			return "redirect:/store/list";   
 		}
 		
+
 		@DeleteMapping("store/delete")
 		@ResponseBody
 		public String delete(int no) {
@@ -143,4 +149,6 @@ public class StoreController {
 		}
 
 		
+
 	}
+
