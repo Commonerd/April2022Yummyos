@@ -55,7 +55,6 @@ a {
 	<tr><td colspan="2" align="right">
 	<a href="/store/update/${dto.no}">맛집 수정 </a> 
 	<a id="${dto.no}" href="#">맛집 삭제</a>
-<<<<<<< HEAD
 	<a href="/store/list">목록 이동</a>
 					<c:choose>
 						<c:when test="${ltlike ==0}">
@@ -67,11 +66,9 @@ a {
 							<input type="hidden" id="likecheck" value="${ltlike }">
 						</c:when>
 					</c:choose>	
-=======
 	<a href="/store/list">목록 이동</a> 
 	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
 	<a href="/wishlist">위시리스트 바로가기</a>
->>>>>>> refs/heads/master
 	</td></tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -109,19 +106,6 @@ $("#addwishlist").click(function(){
 	
 
 </script>
-<!--  cList -->
-<div>
-	<c:forEach items="${cList}" var="comm">
-		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
-		<div>${comm.content} 
-		<c:if test="${comm.id == user.id }">
-		<button class="dbtn" id="${comm.cno}">삭제</button>
-		</c:if>
-		</div>
-		<hr>
-	</c:forEach>
-	<input name="content" id="content"><button id="add">등록</button>
-</div>
 
 <script>
 	$(function(){
@@ -212,7 +196,6 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
     } 
 });    
 </script>
-<<<<<<< HEAD
 <hr>
 <br>리뷰 등록
 <!--  cList -->
@@ -308,8 +291,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 		
 		
 	})//ready
-=======
->>>>>>> refs/heads/master
-
-</body>
+	
+	</script>
+	</body>
 </html>
