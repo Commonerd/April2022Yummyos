@@ -125,13 +125,13 @@
 	<a href="delete">회원 탈퇴</a>
 	<a href="logout">로그아웃</a>
 	<a href="board/notice/list">공지사항</a>
-
 	
 	<a href="wishlist">위시리스트</a>
 
 	<a href="store/list">맛집 상세보기</a>
 
 	<a href="board/mpick/list">미디어픽</a>
+	<a href="board/fstory/list">맛있는 이야기</a>
 
 
 	<br>
