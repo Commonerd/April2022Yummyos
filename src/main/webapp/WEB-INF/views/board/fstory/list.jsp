@@ -6,6 +6,32 @@
 <html>
 <head>
 <title>맛있는 이야기</title>
+<style>
+#center {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+table {
+	border: 1px solid black;
+	width: 700px;
+	border-collapse: collapse;
+}
+th {
+	border: 1px solid black;
+	background-color: orange;
+	width: 150px;
+}
+td {
+	border: 1px solid black;
+}
+a {
+	margin: 10px auto;
+}
+#page {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 <div id="center">
@@ -22,7 +48,7 @@
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${fList}" var="fstoryboard">
+				<c:forEach items="${fList}" var="fstory">
 					<tr>
 						<td><a href ="content/${fstory.no}">${fstory.title}</a></td>
 						<td>${fstory.id }</td>
@@ -48,7 +74,6 @@
 		아직 입력한 글이 없습니다.
 		</c:if>
 	</div>
-
 
 	<div id="search" align="center">
 		<form action="search">

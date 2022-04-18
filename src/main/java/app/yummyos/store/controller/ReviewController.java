@@ -1,4 +1,4 @@
-package app.yummyos.board.mpick.controller;
+package app.yummyos.store.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,26 +7,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import app.yummyos.board.mpick.dto.MCommDto;
-import app.yummyos.board.mpick.service.MCommService;
+import app.yummyos.store.dto.ReviewDto;
+import app.yummyos.store.service.ReviewService;
 
 @Controller
-public class MCommController {
+public class ReviewController {
 
 	@Autowired
-	MCommService service;
-
-	@PostMapping("/mp_comm/insert")
+	ReviewService service;
+	
+	@PostMapping("/review/insert")
 	@ResponseBody
-	public String insertMComm(MCommDto dto) {
-		int i = service.insertMComm(dto);
+	public String insertReview(ReviewDto dto) {
+		int i = service.insertReview(dto);
 		return i+"";
 	}
-
-	@DeleteMapping("/mp_comm/delete/{mp_cno}")
+	
+	@DeleteMapping("/review/delete/{no}")
 	@ResponseBody
-	public String deleteMComm(@PathVariable int mp_cno) {
-		int i = service.deleteMComm(mp_cno);
+	public String deleteReview(@PathVariable int no) {
+		int i = service.deleteReview(no);
 		return i+"";
 	}
 }
