@@ -79,7 +79,6 @@ public class StoreController {
 			return "store/list";
 		}
 		
-
 		@Autowired
 		ReviewService r_service;
 				
@@ -91,9 +90,6 @@ public class StoreController {
 			m.addAttribute("cList", cList);
 			return "store/content";
 		}
-
-
-		
 		@GetMapping("store/update/{no}")
 		public String updateForm(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
