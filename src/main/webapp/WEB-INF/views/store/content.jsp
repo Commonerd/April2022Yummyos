@@ -42,21 +42,36 @@ a {
 </style>
 
 <body>
+
 <table border="1">
-	<tr><td>상호명</td><td>${dto.name}</td>
+	<tr><td>상호명</td><td>${dto.name}${check }</td>
 	<tr><td>카테고리</td><td>${dto.category}</td>
 	<tr><td>전화번호</td><td>${dto.phone}</td>
 	<tr><td>주소</td><td>${dto.address}</td>
 	<tr><td>메뉴</td><td>${dto.menu}</td>
 	<tr><td>설명</td><td>${dto.detail}</td>
 	<tr><td>조회수</td><td>${dto.view_count}</td>
-	
+
 	<tr><td colspan="2" align="right">
 	<a href="/store/update/${dto.no}">맛집 수정 </a> 
 	<a id="${dto.no}" href="#">맛집 삭제</a>
+<<<<<<< HEAD
+	<a href="/store/list">목록 이동</a>
+					<c:choose>
+						<c:when test="${ltlike ==0}">
+							<button type="button" class="btn btn-light" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>					
+						<c:when test="${ltlike ==1}">
+							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
+							<input type="hidden" id="likecheck" value="${ltlike }">
+						</c:when>
+					</c:choose>	
+=======
 	<a href="/store/list">목록 이동</a> 
 	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
 	<a href="/wishlist">위시리스트 바로가기</a>
+>>>>>>> refs/heads/master
 	</td></tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -197,6 +212,104 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
     } 
 });    
 </script>
+<<<<<<< HEAD
+<hr>
+<br>리뷰 등록
+<!--  cList -->
+<div>
+	<c:forEach items="${cList}" var="review">
+		<div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
+		<div>${review.content} 
+		<c:if test="${review.id == user.id }">
+		<button class="dbtn" id="${review.no}">삭제</button>
+		</c:if>
+		</div>
+		<hr>
+	</c:forEach>
+	<textarea name="content" id="content" rows="5" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><button id="add">등록</button>
+	
+</div>
+<script>
+	$(function(){
+		$("a[id]").click(function(){
+			let store_no = $(this).attr("id");
+			$.ajax({url:"/store/delete", data:"no="+store_no, method:"delete"}
+			).done(function(){
+				location.href="/store/list";
+			})
+			return false;
+		})//click
+		
+	
+		$("#add").click(function(){
+			let id = '${user.id}';
+			let content = $("#content").val();
+			let store_no = ${dto.no};
+			
+			$.ajax({url:"/review/insert",
+					data:"store_no="+store_no+"&id="+id+"&content="+content,
+					method:"post"
+			}).done(function(){
+					location.reload();
+				});
+			
+		})//click
+		$(".dbtn").click(function(){
+			let no = $(this).attr("id");
+			$.ajax({url:"/review/delete/"+no,
+				method:"delete"
+		}).done(function(){
+				location.reload();
+			});
+			
+		})//click 
+		
+		$('#likebtn').click(function(){
+			likeupdate();
+		});
+		
+		function likeupdate(){
+			var root = getContextPath(),
+			likeurl = "/like/likeupdate",
+			id = $('#id').val(),
+			no = $('#no').val(),
+			count = $('#likecheck').val(),
+			data = {"ltmid" : id,
+					"ltbid" : no,
+					"count" : count};
+			
+		$.ajax({
+			url : root + likeurl,
+			type : 'POST',
+			contentType: 'application/json',
+			data : JSON.stringify(data),
+			success : function(result){
+				console.log("수정" + result.result);
+				if(count == 1){
+					console.log("좋아요 취소");
+					 $('#likecheck').val(0);
+					 $('#likebtn').attr('class','btn btn-light');
+				}else if(count == 0){
+					console.log("좋아요!");
+					$('#likecheck').val(1);
+					$('#likebtn').attr('class','btn btn-danger');
+				}
+			}, error : function(result){
+				console.log("에러" + result.result)
+			}
+			
+			});
+		};
+		
+		function getContextPath() {
+		    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+		    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+		} 
+		
+		
+	})//ready
+=======
+>>>>>>> refs/heads/master
 
 </body>
 </html>
