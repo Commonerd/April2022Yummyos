@@ -76,20 +76,20 @@ public class FstoryService {
 		
 		return dao.countSearch(m);
 	}
-
-public List<HashtagDto> yummyoTagsdao(int no) {
+/*
+		public List<HashtagDto> yummyoTagsdao(int no) {
 		
 		List<HashtagDto> list = new ArrayList<>();
-		list.addAll(yummyoTagsdao.fstorytags(no));
-		/*
-		 * list.addAll(yummyoTagsdao.loctags(no));
-		 * list.addAll(yummyoTagsdao.withtags(no));
-		 * list.addAll(yummyoTagsdao.moodtags(no));
-		 * list.addAll(yummyoTagsdao.factags(no));
-		 * list.addAll(yummyoTagsdao.agetags(no));
-		 */
+		list.addAll(yummyoTagsdao.yummyoTagsdao(no));
+		 list.addAll(yummyoTagsdao.loctags(no));
+		 list.addAll(yummyoTagsdao.withtags(no));
+		 list.addAll(yummyoTagsdao.moodtags(no));
+		 list.addAll(yummyoTagsdao.factags(no));
+		 list.addAll(yummyoTagsdao.agetags(no));
+		 
 		return list;
 	}
+	*/
 
 
 

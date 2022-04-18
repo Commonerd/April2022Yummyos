@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="app.yummyos.store.dao.LikeDao">
+
+  <select id="ltlikecount" resultType="Integer" parameterType="app.yummyos.store.dto.LikeDto">
+		select count(ltlike) from liketable where ltmid=#{ltmid} and ltbid=#{ltbid}
+	</select>
+	
+	<insert id="likeinsert" parameterType="app.yummyos.store.dto.LikeDto">
+		insert into liketable(ltmid,ltbid)
+		values (#{ltmid},#{ltbid})
+	</insert>
+	
+	<select id="ltlikegetinfo" resultType="Integer" parameterType="app.yummyos.store.dto.LikeDto">
+		select ltlike from liketable where ltmid=#{ltmid} and ltbid=#{ltbid}
+	</select>
+	
+	<update id="likeupdate" parameterType="app.yummyos.store.dto.LikeDto">
+		update liketable
+		set <include refid="cal"></include>
+		where ltmid=#{ltmid} and ltbid=#{ltbid}
+	</update>
+	
+	<sql id="cal">
+		<if test="count == 1">
+			ltlike = 0
+		</if> 
+		
+		<if test="count == 0">
+			ltlike = ltlike + 1 
+		</if>
+	</sql>
+
+</mapper>

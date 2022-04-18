@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 import app.yummyos.users.dto.UsersDto;
 
 
-
 @Mapper
 public interface UsersDao {
 
@@ -14,5 +13,11 @@ public interface UsersDao {
 	UsersDto login(UsersDto dto);
 	int updateUsers(UsersDto dto);
 	int deleteUsers(String id);
+	
+	String findId(UsersDto dto);
+	String findPassword(UsersDto dto);
+	int updatePassword(UsersDto dto);
+	
+
 }
 

@@ -1,5 +1,6 @@
 package app.yummyos.hashtag.dto;
 
+import app.yummyos.store.dto.ReviewDto;
 import lombok.Data;
 
 @Data
@@ -9,23 +10,17 @@ public class Storetags {
 
 	private HashtagDto hashtag;
 	
+	private ReviewDto reviewdto;
 
-	//private ReviewDto review;
-    
 	public Storetags() {}
 	
-
 	public void setHashtag(HashtagDto hashtag) {
 		this.hashtag = hashtag;
 	}
 
-
-
-	//public void setReview(ReviewDto review) {
-	//	this.review = review;
-	//}
-
-
+	public void setReview(ReviewDto review) {
+		this.reviewdto = review;
+	}
 
 	public long getNum() {
 		return num;
@@ -34,17 +29,14 @@ public class Storetags {
 	public HashtagDto getHashtag() {
 		return hashtag;
 	}
-
-	/*
-	 * public Review getReview() { return review; }
-	 */
-
-
+	
+	public ReviewDto getReviewddto() { 
+		 return reviewdto; 
+	 }
+	 
 	@Override
 	public String toString() {
-		return "Storetags [num=" + num + ", hashtag=" + hashtag 
-				//+ ", "	+ "review=" + review
-				+ "]";
+		return "Storetags [num=" + num + ", hashtag=" + hashtag + ", "	+ "review=" + reviewdto + "]";
 	}
 
 }

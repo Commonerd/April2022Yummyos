@@ -20,3 +20,5 @@ public interface StoreDao {
 		int addViewcount(int no);
 		
 	}
+
+

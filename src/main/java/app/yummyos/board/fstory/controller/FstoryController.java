@@ -22,8 +22,7 @@ import app.yummyos.board.fstory.dto.FsCommDto;
 import app.yummyos.board.fstory.dto.FstoryDto;
 import app.yummyos.board.fstory.service.FsCommService;
 import app.yummyos.board.fstory.service.FstoryService;
-import app.yummyos.hashtag.dto.HashtagDto;
-import app.yummyos.search.dao.BasicResponse;
+
 import app.yummyos.users.dto.UsersDto;
 
 @Controller
@@ -149,6 +148,8 @@ public class FstoryController {
 
 		return "board/fstory/search";
 	}
+	
+	
 
 
 

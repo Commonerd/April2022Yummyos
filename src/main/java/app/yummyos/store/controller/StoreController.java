@@ -16,10 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import app.yummyos.board.mpick.dto.MCommDto;
+
+import app.yummyos.store.dto.LikeDto;
 import app.yummyos.store.dto.ReviewDto;
+
 import app.yummyos.store.dto.StoreDto;
+
+import app.yummyos.store.service.LikeService;
 import app.yummyos.store.service.ReviewService;
+
 import app.yummyos.store.service.StoreService;
 import app.yummyos.users.dto.UsersDto;
 
@@ -30,6 +35,8 @@ public class StoreController {
 
 		@Autowired
 		StoreService service;
+		@Autowired
+		LikeService likeservice;
 		
 		@ModelAttribute("user")
 		public UsersDto getDto() {
@@ -78,24 +85,47 @@ public class StoreController {
 			m.addAttribute("count", count);
 			return "store/list";
 		}
-		
+
+
 		@Autowired
 		ReviewService r_service;
 				
 		@GetMapping("store/content/{no}")
-		public String contentStore(@PathVariable int no, Model m) {
+		public String contentStore(@PathVariable int no, Model m, @ModelAttribute("User") UsersDto n) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
 			List<ReviewDto> cList = r_service.selectReview(no);
 			m.addAttribute("cList", cList);
+			
+			LikeDto likedto = new LikeDto();
+			likedto.setLtbid(no);
+			likedto.setLtmid(n.getId());
+			
+			int ltlike = 0;
+			
+			int check = likeservice.ltlikecount(likedto);
+			
+			/*
+			 * if(check ==0) {
+			 * 
+			 * likeservice.likeinsert(likedto);
+			 * 
+			 * }else if(check==1) {
+			 * 
+			 * ltlike = likeservice.ltlikegetinfo(likedto); }
+			 */
+			
+			m.addAttribute("ltlike",ltlike);
+			m.addAttribute("check", check);
 			return "store/content";
 		}
+
+
 		@GetMapping("store/update/{no}")
 		public String updateForm(@PathVariable int no, Model m) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
 			return "store/updateForm";
-
 		}
 		
 		@PutMapping("store/update/store/update")
@@ -104,7 +134,6 @@ public class StoreController {
 			return "redirect:/store/list";   
 		}
 		
-
 		@DeleteMapping("store/delete")
 		@ResponseBody
 		public String delete(int no) {
@@ -149,6 +178,6 @@ public class StoreController {
 		}
 
 		
-
 	}
+
 

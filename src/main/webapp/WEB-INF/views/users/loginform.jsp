@@ -12,16 +12,19 @@
 <table border="1" cellpadding="0" cellspacing="0">				
 	<tr>
 		<td bgcolor="Aquamarine" >아이디</td>
-		<td><input name="id" type="text" size="10"></td>
+		<td><input name="id" type="text" size="20"></td>
 	</tr>
 	<tr>
 		<td bgcolor="Aquamarine" >비밀번호</td>
-		<td><input name="password" type="password" size="10"></td>
+		<td><input name="password" type="password" size="20"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
 			<input type="submit" value="로그인">
 			<a href="/insert">회원 가입</a>
+			<a href="/findId">아이디찾기</a>
+			<a href="/findPassword">비밀번호찾기</a>
+
 		</td>  
 	</tr>
 </table>
