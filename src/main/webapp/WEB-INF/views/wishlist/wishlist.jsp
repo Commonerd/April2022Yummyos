@@ -51,14 +51,12 @@ a {
 				</tr>
 			
 				<c:forEach items="${wList}" var="wishlist">
-					<%-- <c:if test="${wishlist.id == user.id }"> 이 짓을 하면 과부하 걸린다. 하나하나 다 비교하게 됨.--%> 
 					<tr>	
 						<td><a href="store/content/${wishlist.store_no}">${wishlist.store_no}</a></td>
 						<td><a href="store/content/${wishlist.store_no}">${wishlist.store_name}</a></td>
 						<td><a href="store/content/${wishlist.store_no}">${wishlist.category}</a></td>
 						<td><a id="${wishlist.store_no}" href="#">삭제</a></td>
 					</tr>
-					<%-- </c:if> --%>
 				</c:forEach>
 			</table>
 			<div id="page">
@@ -92,7 +90,7 @@ a {
 			return false;
 		})//click
 	})//ready
-	
+	////
 
 </script>
 </body>
