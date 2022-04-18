@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import app.yummyos.store.dto.StoreDto;
+import app.yummyos.store.service.ReviewService;
 import app.yummyos.store.service.StoreService;
 import app.yummyos.users.dto.UsersDto;
 

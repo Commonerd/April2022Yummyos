@@ -148,6 +148,8 @@ public class FstoryController {
 
 		return "board/fstory/search";
 	}
+	
+	
 
 
 
