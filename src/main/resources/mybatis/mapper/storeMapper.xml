@@ -26,6 +26,34 @@ address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},map_lt=#{map_lt}
  		
 </select>
 
+
+<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
+		
+		select * from
+		(select no, name, category, address, phone, menu, detail, map_lt, map_ln, rownum r
+		from (select * from store order by no desc) 
+		<where>
+			<choose>
+				<when test="searchn == 0"> name like '%'||#{search}||'%'</when>
+				<when test="searchn == 1"> category like '%'||#{search}||'%' </when>
+		</choose>
+		</where> 
+		order by no desc 
+		
+		) where r >= #{start} AND r &lt;= #{end}
+ 		
+</select>
+
+	<select id="countSearch" resultType="int" parameterType="map">
+		select count(*) from store
+		<where>
+			<choose>
+				<when test="searchn == 0"> name like '%'||#{search}||'%'</when>
+				<when test="searchn == 1"> category like '%'||#{search}||'%' </when>
+			</choose>
+		</where> 
+	</select>
+
 <select id="countStore" resultType="int"> select count(*) from store </select>
 <select parameterType="int" id="storeOne" resultType="app.yummyos.store.dto.StoreDto"> 
 select * from store where no = #{no} </select>

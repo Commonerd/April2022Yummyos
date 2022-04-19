@@ -141,7 +141,7 @@ public class StoreController {
 			return ""+i;
 		}
 		
-		@GetMapping("store/store/search")
+		@GetMapping("store/search")
 		public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
 			int count = service.countSearch(searchn,search);
 			if(count > 0) {
