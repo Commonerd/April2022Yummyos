@@ -47,17 +47,22 @@ a {
 					<th>순번</th>
 					<th>상호명</th>
 					<th>테마</th>
+					<th>좋아요</th>
 					<th>조회수</th>
 				</tr>
+			<tbody id="tbody">
 				<c:forEach items="${sList}" var="store">
 					<tr>
 						<td>${store.no}</td>
 						<td><a href ="/store/content/${store.no}">${store.name }</a></td>
 						<td>${store.category}</td>
+						<td>${store.blike }</td>
 						<td>${store.view_count}</td>
 					</tr>
 				</c:forEach>
-			</table>
+				</tbody>
+				<%-- <span id="ltlikecount">${store.blike }</span> --%>
+			</table>   
 			<div id="page">
 				<c:if test="${begin > pageNum }">
 					<a href="list?p=${begin-1 }">[이전]</a>
