@@ -6,6 +6,8 @@
 <head>
 <title>맛집 상세</title>
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 <style>
 #center {
 	width: 500px;
@@ -44,7 +46,7 @@ a {
 <body>
 
 <table border="1">
-	<tr><td>상호명</td><td>${dto.name}${check }</td>
+	<tr><td>상호명</td><td>${dto.name} <span id="count">${allCount }</span></td>
 	<tr><td>카테고리</td><td>${dto.category}</td>
 	<tr><td>전화번호</td><td>${dto.phone}</td>
 	<tr><td>주소</td><td>${dto.address}</td>
@@ -65,13 +67,16 @@ a {
 							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
 						</c:when>
-					</c:choose>	
+					</c:choose>
+					
 	<br> 
 	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
 	<a href="/wishlist">위시리스트 바로가기</a>
 	</td></tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 <script>
 
 //위시리스트 등록
@@ -214,6 +219,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 </div>
 <script>
 	$(function(){
+			
 		$("a[id]").click(function(){
 			let store_no = $(this).attr("id");
 			$.ajax({url:"/store/delete", data:"no="+store_no, method:"delete"}
@@ -254,8 +260,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 		function likeupdate(){
 			likeurl = "/like/likeupdate";
 			data = {"ltmid" : '${user.id}',
-					"ltbid" : ${dto.no},
-					"count" : ${check}};
+					"ltbid" : ${dto.no}};
 			
 		$.ajax({
 			url : likeurl,
@@ -263,15 +268,18 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 			contentType: 'application/json',
 			data : JSON.stringify(data),
 			success : function(result){
-				console.log("수정" + result.result);
-				if(count == 1){
+				console.log(result.count);
+				let count = result.count;
+				if(count == 0){
 					console.log("좋아요 취소");
 					 $('#likecheck').val(0);
 					 $('#likebtn').attr('class','btn btn-light');
-				}else if(count == 0){
+					 $("#count").text( parseInt($("#count").text())-1);
+				}else if(count == 1){
 					console.log("좋아요!");
 					$('#likecheck').val(1);
 					$('#likebtn').attr('class','btn btn-danger');
+					 $("#count").text( parseInt($("#count").text())+1);   
 				}
 			}, error : function(result){
 				console.log("에러" + result.result)
