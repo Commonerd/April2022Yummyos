@@ -7,7 +7,16 @@
 <title>글 상세보기</title>
 </head>
 <body>
+	<c:if test="${ user.id != null }">
+		<a>${user.id}님</a>
+		<a href="/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		<a href="/login">로그인</a>
+		<a href="/insert">회원가입</a>
+		</c:if>
 <table border="1">
+
 	<tr><td>제목</td><td>${dto.title}</td>
 	<tr><td>작성자</td><td>${dto.id}</td>
 	<tr><td>내용</td><td>${dto.content}</td>

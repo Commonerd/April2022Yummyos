@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,10 +34,23 @@ a {
 </style>
 </head>
 <body>
+	<c:if test="${ user.id != null }">
+		<a>${user.id}님</a>
+		<a href="/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		<a href="/login">로그인</a>
+		<a href="/insert">회원가입</a>
+		</c:if>
+
+
 	<div id="center">
 		<h1></h1>
 		<div align="right">
-			<a href="/main">main</a><a href="insert">가게 등록</a>
+			<a href="/main">main</a>
+			<c:if test="${ user.role == 'role_admin'}">
+			<a href="insert">가게 등록</a>
+			</c:if>
 		</div>
 
 		<c:if test="${count != 0 }">
@@ -55,7 +67,7 @@ a {
 						<td><a href ="/store/content/${store.no}">${store.name }</a></td>
 						<td>${store.category}</td>
 						<td>${store.view_count}</td>
-					</tr>
+					</tr>	
 				</c:forEach>
 			</table>
 			<div id="page">

@@ -25,9 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.util.UrlPathHelper;
 
-import com.fasterxml.jackson.databind.JsonNode;
 
 import app.yummyos.users.dto.UsersDto;
 import app.yummyos.users.service.UsersService;
@@ -184,9 +182,5 @@ public class UsersController {
 			return "users/loginform";
 		}
 	}
-	
-	 
-	    
-	 
 
 }
