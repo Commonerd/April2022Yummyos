@@ -50,7 +50,11 @@ a {
 	<tr><td>주소</td><td>${dto.address}</td>
 	<tr><td>메뉴</td><td>${dto.menu}</td>
 	<tr><td>설명</td><td>${dto.detail}</td>
-	<tr><td>조회수</td><td>${dto.view_count}</td>
+	<tr><td>해시태그</td><td>
+	<c:forEach items="${hash}" var="hashtag" begin="1">
+	<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+</c:forEach>
+	</td>
 
 	<tr><td colspan="2" align="right">
 	<a href="/store/update/${dto.no}">맛집 수정 </a> 
@@ -199,40 +203,20 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 	
 <hr>
 
+ <!-- 해시태그 -->
+   
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
-	$("#btnK").click(function(){ 
-		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%ED%95%9C%EA%B5%AD")
-	}) 
-	$("#btnJ").click(function(){ 
-		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%EC%9D%BC%EB%B3%B8")
-	})
-	$("#btnC").click(function(){ 
-		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%EC%A4%91%EA%B5%AD") 
-	}) 
-	$("#btnB").click(function(){ 
-		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%EB%B2%A0%ED%8A%B8%EB%82%A8") 	
-	}) 
-	$("#btnT").click(function(){ 
-		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%ED%84%B0%ED%82%A4") 
-	}) 
-	$("#btnM").click(function(){ 
-		$(location).attr("href=store/list", "http://localhost:8087/store/search?searchn=1&search=%EB%A9%95%EC%8B%9C%EC%BD%94")
-	}) 
+	$("#btnHash").click(function(){ 
+		$(location).attr("href=/store/search?")
 })
+
 </script> 
-		<div class="Hashtag">
-		<button type="button" id="btnK"># 한식</button> 
-		<button type="button" id="btnJ"># 일식</button> 
-		<button type="button" id="btnC"># 중식</button>
-		<button type="button" id="btnB"># 베트남</button> 
-		<button type="button" id="btnT"># 터키</button>
-		<button type="button" id="btnM"># 멕시코</button>
-		</div>
 		
 <hr>
-
 
 <br>리뷰 등록
 <!--  cList -->

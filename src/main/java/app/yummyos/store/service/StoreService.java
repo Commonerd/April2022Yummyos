@@ -59,6 +59,13 @@ public class StoreService {
 			m.put("searchn", searchn);
 			m.put("search", search);
 			return dao.countSearch(m);
+		}
+
+		public List<StoreDto> hashtag(String search, int startRow, int endRow) {
+			System.out.println(search);
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("search", search);
+			return dao.hasgtag(m);
 		}		
 		
 }

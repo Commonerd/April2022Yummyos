@@ -5,12 +5,12 @@
 <mapper namespace="app.yummyos.store.dao.StoreDao">
 
 <insert parameterType="app.yummyos.store.dto.StoreDto" id="insertStore"> 
-insert into store(no, name, category, address, phone, menu, detail, map_lt, map_ln) 
-values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{map_lt},#{map_ln}) </insert>
+insert into store(no, name, category, address, phone, menu, detail, hashtag, map_lt, map_ln) 
+values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{map_lt},#{map_ln}) </insert>
 
 <update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore"> 
 update store set name=#{name}, category=#{category}, 
-address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no} </update>
+address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no} </update>
 
 <update id="addViewcount" parameterType="int">
 	update store set view_count = view_count + 1 where no = #{no} </update>
@@ -56,6 +56,9 @@ address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},map_lt=#{map_lt}
 
 <select id="countStore" resultType="int"> select count(*) from store </select>
 <select parameterType="int" id="storeOne" resultType="app.yummyos.store.dto.StoreDto"> 
-select * from store where no = #{no} </select>
+select * from store where no = #{no}
+ </select>
+ 
+
 
 </mapper>
