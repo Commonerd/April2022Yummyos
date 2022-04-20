@@ -28,15 +28,11 @@
 			<td class="Aquamarine">전화번호</td>
 			<td><input name="phone"/></td>
 		</tr>
-<<<<<<< HEAD
 		<tr>  
 			<td class="Aquamarine">해시태그</td>
 			<td><input name="hashtag"/></td>
 		</tr>
-=======
-		
->>>>>>> refs/heads/master
-		<tr>
+<tr>
 			<td class="Aquamarine">메뉴</td>
 			<td><div id="smarteditor">
         	<textarea name="content" id="editorTxt" 
