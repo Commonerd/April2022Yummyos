@@ -44,9 +44,12 @@ a {
 		<a href="/insert">회원가입</a>
 		</c:if>
 	<div id="center">
-		<h1>공지사항</h1>
+		<h1>게시글 목록</h1>
 		<div align="right">
-			<a href="/main">main</a><a href="write">새글 등록</a>
+			<a href="/main">main</a> 
+			<c:if test="${ user.role == 'role_admin' }">
+			<a href="write">새글 등록</a>
+			</c:if>
 		</div>
 
 		<c:if test="${count != 0 }">

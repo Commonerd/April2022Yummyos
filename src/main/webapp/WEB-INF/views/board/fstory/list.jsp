@@ -52,7 +52,7 @@ a {
 		<h1>게시글 목록</h1>
 		<div align="right">
 			<a href="/main">main </a>
-			<c:if test="${ user.role == role_admin }">
+			<c:if test="${ user.role == 'role_admin' }">
 			<a href="write"> 새글 등록</a>
 			</c:if>
 		</div>
