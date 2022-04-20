@@ -89,8 +89,8 @@ a {
 							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
 						</c:when>
-					</c:choose>	
-	<a href="/store/list">목록 이동</a> 
+					</c:choose>
+	<br>	
 	<c:if test="${ user.id != null }">
 	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
 	<a href="/wishlist">위시리스트 바로가기</a>
