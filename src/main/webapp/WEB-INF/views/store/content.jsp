@@ -204,19 +204,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 <hr>
 
  <!-- 해시태그 -->
-   
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-	$("#btnHash").click(function(){ 
-		$(location).attr("href=/store/search?")
-})
-
-</script> 
-		
-<hr>
 
 <br>리뷰 등록
 <!--  cList -->
