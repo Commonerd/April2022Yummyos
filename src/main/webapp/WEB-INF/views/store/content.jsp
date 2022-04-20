@@ -33,6 +33,11 @@ a {
 #page {
 	text-align: center;
 }
+
+
+
+
+
 </style>
 
 <style>
@@ -207,16 +212,31 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 <div>
 	<c:forEach items="${cList}" var="review">
 		<div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
-		<div>${review.content} 
+		<div><img src="/review/img/${review.image}" width="100px"><br>
+		 ${review.content} 		
 		<c:if test="${review.id == user.id }">
 		<button class="dbtn" id="${review.no}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
 	</c:forEach>
-	<textarea name="content" id="content" rows="5" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><button id="add">등록</button>
-	
 </div>
+<br>
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm"> 	
+  <textarea id="review" name="content" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><br> 	
+  <input type="file" name="files"> 	
+  <input type="hidden" name="store_no" value="${dto.no}">
+  <input type="hidden" name="id" value="${user.id}">
+ <button id="add">등록</button>
+</form> 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 <script>
 	$(function(){
 			
@@ -228,30 +248,6 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 			})
 			return false;
 		})//click
-		
-	
-		$("#add").click(function(){
-			let id = '${user.id}';
-			let content = $("#content").val();
-			let store_no = ${dto.no};
-			
-			$.ajax({url:"/review/insert",
-					data:"store_no="+store_no+"&id="+id+"&content="+content,
-					method:"post"
-			}).done(function(){
-					location.reload();
-				});
-			
-		})//click
-		$(".dbtn").click(function(){
-			let no = $(this).attr("id");
-			$.ajax({url:"/review/delete/"+no,
-				method:"delete"
-		}).done(function(){
-				location.reload();
-			});
-			
-		})//click 
 		
 		$('#likebtn').click(function(){
 			likeupdate();
@@ -288,6 +284,45 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 			});
 		};
 		
+		$("#add").click(function (event) {         
+			//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
+			//event.preventDefault();          
+		    // Get form         
+		    var form = $('#fileUploadForm')[0];  	    
+		    // Create an FormData object          
+		    var data = new FormData(form);  	   
+		    // disabled the submit button         
+		    //$("#btnSubmit").prop("disabled", true);   
+		    
+		    $.ajax({             
+		    	type: "POST",          
+		        enctype: 'multipart/form-data',  
+		        url: "/review/insert",        
+		        data: data,          
+		        processData: false,    
+		        contentType: false,      
+		        cache: false,           
+		        timeout: 600000,       
+		        success: function (data) { 
+		        	location.reload();       
+		        	//$("#btnSubmit").prop("disabled", false);      
+		        },          
+		        error: function (e) {  
+		        	console.log("ERROR : ", e);     
+		            //$("#btnSubmit").prop("disabled", false);    
+		            alert("fail");      
+		         }     
+			});
+		});
+		$(".dbtn").click(function(){
+			let no = $(this).attr("id");
+			$.ajax({url:"/review/delete/"+no,
+				method:"delete"
+		}).done(function(){
+				location.reload();
+			});
+			
+		})//click 
 		
 	})//ready
 	
