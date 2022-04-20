@@ -40,10 +40,21 @@ a {
 </style>
 </head>
 <body>
+	<c:if test="${ user.id != null }">
+		<a>${user.id}님</a>
+		<a href="/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		<a href="/login">로그인</a>
+		<a href="/insert">회원가입</a>
+		</c:if>
 	<div id="center">
 		<h1>게시글 목록</h1>
 		<div align="right">
-			<a href="/main">main</a> <a href="write">새글 등록</a>
+			<a href="/main">main</a> 
+			<c:if test="${ user.role == role_admin }">
+			<a href="write">새글 등록</a>
+			</c:if>
 		</div>
 
 		<c:if test="${count != 0 }">

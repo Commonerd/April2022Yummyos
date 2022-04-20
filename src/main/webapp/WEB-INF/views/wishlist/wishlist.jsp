@@ -35,6 +35,14 @@ a {
 </style>
 </head>
 <body>
+	<c:if test="${ user.id != null }">
+		<a>${user.id}님</a>
+		<a href="/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		<a href="/login">로그인</a>
+		<a href="/insert">회원가입</a>
+		</c:if>
 	<div id="center">
 		<h1>위시리스트</h1>
 		<div align="right">
@@ -61,13 +69,13 @@ a {
 			</table>
 			<div id="page">
 				<c:if test="${begin > pageNum }">
-					<a href="list?p=${begin-1 }">[이전]</a>
+					<a href="wishlist?p=${begin-1 }">[이전]</a>
 				</c:if>
 				<c:forEach begin="${begin }" end="${end}" var="i">
-					<a href="list?p=${i}">${i}</a>
+					<a href="wishlist?p=${i}">${i}</a>
 				</c:forEach>
 				<c:if test="${end < totalPages }">
-					<a href="list?p=${end+1}">[다음]</a>
+					<a href="wishlist?p=${end+1}">[다음]</a>
 				</c:if>
 			</div>
 
@@ -90,7 +98,7 @@ a {
 			return false;
 		})//click
 	})//ready
-	////
+
 
 </script>
 </body>

@@ -49,6 +49,14 @@ a {
 </style>
 
 <body>
+		<c:if test="${ user.id != null }">
+		<a>${user.id}님</a>
+		<a href="/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		<a href="/login">로그인</a>
+		<a href="/insert">회원가입</a>
+		</c:if>
 
 <table border="1">
 	<tr><td>상호명</td><td>${dto.name} <span id="count">${allCount }</span></td>
@@ -58,10 +66,14 @@ a {
 	<tr><td>메뉴</td><td>${dto.menu}</td>
 	<tr><td>설명</td><td>${dto.detail}</td>
 	<tr><td>조회수</td><td>${dto.view_count}</td>
+	<tr><td>해시태그</td><td>${dto.hashtag}</td>
 
 	<tr><td colspan="2" align="right">
+	<c:if test="${ user.role == 'role_admin'}">
 	<a href="/store/update/${dto.no}">맛집 수정 </a> 
 	<a id="${dto.no}" href="#">맛집 삭제</a>
+	</c:if>
+
 	<a href="/store/list">목록 이동</a>
 					<c:choose>
 						<c:when test="${ltlike ==0}">
@@ -72,12 +84,12 @@ a {
 							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
 						</c:when>
-					</c:choose>
-					
-	<br> 
+					</c:choose>	
+	<a href="/store/list">목록 이동</a> 
+	<c:if test="${ user.id != null }">
 	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
 	<a href="/wishlist">위시리스트 바로가기</a>
-	</td></tr>
+	</c:if></td></tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
