@@ -46,7 +46,11 @@ a {
 	<div id="center">
 		<h1>게시글 목록</h1>
 		<div align="right">
+<<<<<<< HEAD
+			<a href="/main">main</a>
+=======
 			<a href="/main">main</a> 
+>>>>>>> refs/heads/master
 			<c:if test="${ user.role == 'role_admin' }">
 			<a href="write">새글 등록</a>
 			</c:if>
