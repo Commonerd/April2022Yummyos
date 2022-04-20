@@ -13,6 +13,8 @@ public interface LikeDao {
 	
 	public void likeinsert(LikeDto likedto);
 	
-	public void likeupdate(LikeDto likedto); 
+	public int likeupdate(LikeDto likedto);
+	public int getAllltlike(int ltbid);
+	
 
 }

@@ -94,8 +94,10 @@ public class StoreController {
 		public String contentStore(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
+					
 			List<ReviewDto> cList = r_service.selectReview(no);
 			m.addAttribute("cList", cList);
+			
 			
 			LikeDto likedto = new LikeDto();
 			likedto.setLtbid(no);
@@ -141,7 +143,7 @@ public class StoreController {
 			return ""+i;
 		}
 		
-		@GetMapping("store/store/search")
+		@GetMapping("store/search")
 		public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
 			int count = service.countSearch(searchn,search);
 			if(count > 0) {
@@ -173,10 +175,9 @@ public class StoreController {
 			
 			return "store/search";
 		}
-		public void test() {
-			
-		}
 
+		
+	
 		
 	}
 

@@ -31,6 +31,11 @@ a {
 #page {
 	text-align: center;
 }
+#hashTag_area {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
 </style>
 </head>
 <body>
@@ -51,7 +56,6 @@ a {
 			<a href="write"> 새글 등록</a>
 			</c:if>
 		</div>
-
 		<c:if test="${count != 0 }">
 			<table>
 				<tr>
