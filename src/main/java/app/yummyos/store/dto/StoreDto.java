@@ -15,6 +15,8 @@ public class StoreDto {
 		private String detail;
 		private int view_count;
 		private String hashtag;
+
 		private int blike;
+
 	}
 

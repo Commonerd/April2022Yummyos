@@ -94,7 +94,11 @@ public class StoreController {
 		public String contentStore(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
-					
+
+			String hashs = dto.getHashtag();
+			String [] h = hashs.split("#");
+			m.addAttribute("hash", h);
+			
 			List<ReviewDto> cList = r_service.selectReview(no);
 			m.addAttribute("cList", cList);
 			

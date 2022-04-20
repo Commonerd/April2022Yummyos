@@ -61,7 +61,7 @@ public class StoreService {
 			m.put("search", search);
 			return dao.countSearch(m);
 		}
-		
+
 		public List<StoreDto> getstorelist(int start, int end){
 			Map<String,Object> m = new HashMap<String, Object>();
 			m.put("start", start);
@@ -69,5 +69,6 @@ public class StoreService {
 			
 			return dao.getstorelist(m);	
 		}
+
 		
 }
