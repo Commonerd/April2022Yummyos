@@ -49,12 +49,12 @@ a {
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${nList}" var="notice">
+				<c:forEach items="${sList}" var="store">
 					<tr>
-						<td><a href ="content/${notice.no}">${notice.title}</a></td>
-						<td>${notice.id }</td>
-						<td><fmt:formatDate value="${notice.regdate }" dateStyle="short"/> </td>
-						<td>${notice.readcount }</td>
+						<td>${store.no}</td>
+						<td><a href ="store/content/${store.no}">${store.name}</a></td>
+						<td>${store.category}</td>
+						<td>${store.view_count}</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -77,9 +77,9 @@ a {
 <div id="search" align="center">
 <form action="search">
 <select name="searchn">
-<option value="0">제목</option>
-<!-- <option value="1">내용</option> 윤정화씨의 해시태그로 대체할 것-->
-<option value="2">작성자</option>
+<option value="0">상호명</option>
+
+<option value="1">테마</option>
 </select>
 <input type="text" name="search" size="15" maxlength="50" /> 
 <input type="submit" value="검색" />

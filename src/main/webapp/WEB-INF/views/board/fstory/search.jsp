@@ -83,6 +83,8 @@ a {
 <input type="text" name="search" size="15" maxlength="50" /> 
 <input type="submit" value="검색" />
 
+
+
 </form>	
 	</div>
 	</div>

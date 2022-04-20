@@ -20,11 +20,16 @@ table {
 	border-collapse: collapse;
 }
 
-th {border: 1px solid black;
+th {
+	border: 1px solid black;
 	background-color: Aquamarine;
 	width: 30px;
 }
-td{border: 1px solid black;}
+
+td {
+	border: 1px solid black;
+}
+
 a {
 	margin: 10px auto;
 }
@@ -41,6 +46,7 @@ a {
 			<a href="/main">main</a><a href="insert">가게 등록</a>
 		</div>
 
+
 		<c:if test="${count != 0 }">
 			<table>
 				<tr>
@@ -54,7 +60,7 @@ a {
 				<c:forEach items="${sList}" var="store">
 					<tr>
 						<td>${store.no}</td>
-						<td><a href ="/store/content/${store.no}">${store.name }</a></td>
+						<td><a href="/store/content/${store.no}">${store.name }</a></td>
 						<td>${store.category}</td>
 						<td>${store.blike }</td>
 						<td>${store.view_count}</td>
@@ -81,16 +87,14 @@ a {
 </c:if>
 
 	</div>
-		<div id="search" align="center">
-<form action="search">
-<select name="searchn">
-<option value="0">상호명</option>
-<!-- <option value="1">내용</option> 윤정화씨의 해시태그로 구현할 부분.-->
-<option value="2">테마</option>
-</select>
-<input type="text" name="search" size="15" maxlength="50" /> 
-<input type="submit" value="검색" />
-</form>	
-</div>
+	<div id="search" align="center">
+		<form action="search">
+			<select name="searchn">
+				<option value="0">상호명</option>
+				<option value="1">테마</option>
+			</select> <input type="text" name="search" size="15" maxlength="50" /> <input
+				type="submit" value="검색" />
+		</form>
+	</div>
 </body>
 </html>
