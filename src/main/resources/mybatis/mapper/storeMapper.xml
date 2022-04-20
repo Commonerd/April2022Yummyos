@@ -3,28 +3,39 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="app.yummyos.store.dao.StoreDao">
-
 <insert parameterType="app.yummyos.store.dto.StoreDto" id="insertStore"> 
+<<<<<<< HEAD
 insert into store(no, name, category, address, phone, menu, detail, hashtag, map_lt, map_ln) 
+=======
+insert into store(no, name, category, address, phone, menu, detail, hashtag,map_lt, map_ln) 
+>>>>>>> refs/heads/master
 values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{map_lt},#{map_ln}) </insert>
 
 <update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore"> 
 update store set name=#{name}, category=#{category}, 
+<<<<<<< HEAD
 address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no} </update>
+=======
+address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no} </update>
+>>>>>>> refs/heads/master
 
-<update id="addViewcount" parameterType="int">
-	update store set view_count = view_count + 1 where no = #{no} </update>
-	
-<delete parameterType="int" id="deleteStore"> 
-	delete from store where no = #{no} </delete>
+	<update id="addViewcount" parameterType="int">
+		update store set view_count = view_count + 1 where no = #{no}
+	</update>
 
-<select id="storeList" resultType="app.yummyos.store.dto.StoreDto">
+	<delete parameterType="int" id="deleteStore">
+		delete from store where no = #{no}
+	</delete>
+
+	<select id="storeList"
+		resultType="app.yummyos.store.dto.StoreDto">
 		select no, name, category, view_count from
-		(select no, name, category,view_count, rownum r
-		from (select * from store order by no desc)
+		(select no, name,
+		category,view_count, rownum r
+		from (select * from store order by no
+		desc)
 		order by no desc) where r >= #{start} AND r &lt;= #{end}
- 		
-</select>
+
 
 
 <select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
@@ -61,4 +72,49 @@ select * from store where no = #{no}
  
 
 
+	</select>
+
+	<select id="countStore" resultType="int"> select count(*) from store
+	</select>
+	<select parameterType="int" id="storeOne"
+		resultType="app.yummyos.store.dto.StoreDto">
+		select * from store where no = #{no}
+	</select>
+
+	<select id="readstore" parameterType="Integer"
+		resultType="app.yummyos.store.dto.StoreDto">
+		select no, name, category, address , phone, map_lt, map_ln,
+		menu, detail, view_count
+		(select count(ltlike) from liketable where
+		ltbid=#{no} and ltlike=1)as blike
+		from store
+		where no=#{no}
+	</select>
+	<select id="getstorelist"
+		resultType="app.yummyos.store.dto.StoreDto"
+		parameterType="map">
+		select no, name, category, address , phone, map_lt,
+		map_ln, menu, detail, view_count,
+		(select count(ltlike) from liketable where ltbid=no and ltlike=1) as blike
+		from (select ROW_NUMBER() over(order by no desc) as RNUM, store.*
+		from store)store
+		where RNUM between #{start} and #{end}
+	</select>
+
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

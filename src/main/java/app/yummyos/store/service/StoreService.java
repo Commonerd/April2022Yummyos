@@ -26,6 +26,7 @@ public class StoreService {
 		
 		public StoreDto storeOne(int no) {
 			dao.addViewcount(no);
+			System.out.println("실행");
 			return dao.storeOne(no);
 		}
 		public int updateStore(StoreDto dto) {
@@ -61,11 +62,13 @@ public class StoreService {
 			return dao.countSearch(m);
 		}
 
-		public List<StoreDto> hashtag(String search, int startRow, int endRow) {
-			System.out.println(search);
+		public List<StoreDto> getstorelist(int start, int end){
 			Map<String,Object> m = new HashMap<String, Object>();
-			m.put("search", search);
-			return dao.hasgtag(m);
-		}		
+			m.put("start", start);
+			m.put("end", end);
+			
+			return dao.getstorelist(m);	
+		}
+
 		
 }

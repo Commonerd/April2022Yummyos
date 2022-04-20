@@ -5,23 +5,30 @@
 
 <mapper namespace="app.yummyos.store.dao.LikeDao">
 
+	<select id="getAllltlike" parameterType="int" resultType="int">
+		select count(*) from liketable where ltbid=#{ltbid} and ltlike=1
+	</select>
+
   <select id="ltlikecount" resultType="Integer" parameterType="app.yummyos.store.dto.LikeDto">
 		select count(ltlike) from liketable where ltmid=#{ltmid} and ltbid=#{ltbid}
 	</select>
 	
 	<insert id="likeinsert" parameterType="app.yummyos.store.dto.LikeDto">
-		insert into liketable(ltmid,ltbid)
-		values (#{ltmid},#{ltbid})
+		insert into liketable
+		values (#{ltmid},#{ltbid},1)
 	</insert>
 	
 	<select id="ltlikegetinfo" resultType="Integer" parameterType="app.yummyos.store.dto.LikeDto">
 		select ltlike from liketable where ltmid=#{ltmid} and ltbid=#{ltbid}
 	</select>
 	
-	<update id="likeupdate" parameterType="app.yummyos.store.dto.LikeDto">
+	<update id="likeupdate" parameterType="app.yummyos.store.dto.LikeDto" >
 		update liketable
 		set <include refid="cal"></include>
 		where ltmid=#{ltmid} and ltbid=#{ltbid}
+	<selectKey keyProperty="count" order="AFTER" resultType="Integer">
+			select count(ltlike) from liketable where ltbid=#{ltbid} and ltlike=1
+	</selectKey>
 	</update>
 	
 	<sql id="cal">
@@ -30,8 +37,10 @@
 		</if> 
 		
 		<if test="count == 0">
-			ltlike = ltlike + 1 
+			ltlike = 1 
 		</if>
 	</sql>
+	
+
 
 </mapper>

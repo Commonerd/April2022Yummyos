@@ -19,7 +19,8 @@ public interface StoreDao {
 		int countSearch(Map<String, Object> m); //검색 글 갯수
 		int addViewcount(int no);
 		
-		List<StoreDto> hasgtag(Map<String, Object> m);
+		public List<StoreDto> getstorelist(Map<String, Object> m);
+
 		
 	}
 
