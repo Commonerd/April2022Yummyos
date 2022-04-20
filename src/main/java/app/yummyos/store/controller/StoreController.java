@@ -109,6 +109,13 @@ public class StoreController {
 
 		int check = likeservice.ltlikecount(likedto);
 		
+
+		@GetMapping("store/search")
+		public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
+			int count = service.countSearch(searchn,search);
+			if(count > 0) {
+			
+
 		if (check == 1) {
 			ltlike = likeservice.ltlikegetinfo(likedto);
 		}
@@ -144,6 +151,7 @@ public class StoreController {
 		int count = service.countSearch(searchn, search);
 		if (count > 0) {
 
+
 			int perPage = 20; // 한 페이지에 보일 글의 갯수
 			int startRow = (page - 1) * perPage + 1;
 			int endRow = page * perPage;
@@ -172,8 +180,6 @@ public class StoreController {
 		return "store/search";
 	}
 
-	public void test() {
 
-	}
 
 }

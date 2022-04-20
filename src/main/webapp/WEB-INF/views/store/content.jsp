@@ -206,7 +206,44 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
     } 
 });    
 </script>
+	
 <hr>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btnK").click(function(){ 
+		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%ED%95%9C%EA%B5%AD")
+	}) 
+	$("#btnJ").click(function(){ 
+		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%EC%9D%BC%EB%B3%B8")
+	})
+	$("#btnC").click(function(){ 
+		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%EC%A4%91%EA%B5%AD") 
+	}) 
+	$("#btnB").click(function(){ 
+		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%EB%B2%A0%ED%8A%B8%EB%82%A8") 	
+	}) 
+	$("#btnT").click(function(){ 
+		$(location).attr("href", "http://localhost:8087/store/search?searchn=1&search=%ED%84%B0%ED%82%A4") 
+	}) 
+	$("#btnM").click(function(){ 
+		$(location).attr("href=store/list", "http://localhost:8087/store/search?searchn=1&search=%EB%A9%95%EC%8B%9C%EC%BD%94")
+	}) 
+})
+</script> 
+		<div class="Hashtag">
+		<button type="button" id="btnK"># 한식</button> 
+		<button type="button" id="btnJ"># 일식</button> 
+		<button type="button" id="btnC"># 중식</button>
+		<button type="button" id="btnB"># 베트남</button> 
+		<button type="button" id="btnT"># 터키</button>
+		<button type="button" id="btnM"># 멕시코</button>
+		</div>
+		
+<hr>
+
+
 <br>리뷰 등록
 <!--  cList -->
 <div>
@@ -221,6 +258,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 		<hr>
 	</c:forEach>
 </div>
+
 <br>
 <form method="POST" enctype="multipart/form-data" id="fileUploadForm"> 	
   <textarea id="review" name="content" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><br> 	
@@ -236,6 +274,12 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 <br>
 <br>
 
+
+
+
+
+
+		
 
 <script>
 	$(function(){
@@ -327,5 +371,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 	})//ready
 	
 	</script>
+
+
 	</body>
 </html>
