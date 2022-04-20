@@ -126,6 +126,41 @@ public class StoreController {
 			return "store/content";
 		}
 
+		@GetMapping("store/store/content/{no}")
+		public String hashtag(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
+			StoreDto dto = service.storeOne(no);
+			m.addAttribute("dto", dto);
+
+			String hashs = dto.getHashtag();
+			String [] h = hashs.split("#");
+			m.addAttribute("hash", h);
+			
+			List<ReviewDto> cList = r_service.selectReview(no);
+			m.addAttribute("cList", cList);
+			
+			
+			LikeDto likedto = new LikeDto();
+			likedto.setLtbid(no);
+			likedto.setLtmid(n.getId());
+			
+			int ltlike = 0;
+			
+			int check = likeservice.ltlikecount(likedto);
+			
+			/*
+			 * if(check ==0) {
+			 * 
+			 * likeservice.likeinsert(likedto);
+			 * 
+			 * }else if(check==1) {
+			 * 
+			 * ltlike = likeservice.ltlikegetinfo(likedto); }
+			 */
+			
+			m.addAttribute("ltlike",ltlike);
+			m.addAttribute("check", check);
+			return "store/content";
+		}
 
 		@GetMapping("store/update/{no}")
 		public String updateForm(@PathVariable int no, Model m) {
