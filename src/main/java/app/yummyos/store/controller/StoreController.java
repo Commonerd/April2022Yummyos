@@ -159,18 +159,7 @@ public class StoreController {
          likedto.setLtbid(no);
          likedto.setLtmid(n.getId());
 
-<<<<<<< HEAD
-         String hashs = dto.getHashtag();
-         String [] h = hashs.split("#");
-         m.addAttribute("hash", h);
-               
-         int allCount = likeservice.getAllltlike(no);
-         
-         int ltlike = 0;
-         
-         int check = likeservice.ltlikecount(likedto);
-         
-=======
+
 			String hashs = dto.getHashtag();
 			String [] h = hashs.split("#");
 			m.addAttribute("hash", h);
@@ -202,66 +191,8 @@ public class StoreController {
 			m.addAttribute("check", check);
 			return "store/content";
 		}
->>>>>>> refs/heads/master
 
-<<<<<<< HEAD
-         if (check == 1) {
-            ltlike = likeservice.ltlikegetinfo(likedto);
-         }
-         System.out.println("check::"+check+ " ltlike::"+ltlike);
-         m.addAttribute("allCount", allCount);
-         m.addAttribute("ltlike", ltlike);
-   /*
-          * if(check ==0) {
-          * 
-          * likeservice.likeinsert(likedto);
-          * 
-          * }else if(check==1) {
-          * 
-          * ltlike = likeservice.ltlikegetinfo(likedto); }
-          */
-         
-         m.addAttribute("ltlike",ltlike);
-         m.addAttribute("check", check);
-         return "store/content";
-      }
-=======
-		@GetMapping("store/store/content/{no}")
-		public String hashtag(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
-			StoreDto dto = service.storeOne(no);
-			m.addAttribute("dto", dto);
-			
-			String hashs = dto.getHashtag();
-			String [] h = hashs.split("#");
-			m.addAttribute("hash", h);
-			
-			List<ReviewDto> cList = r_service.selectReview(no);
-			m.addAttribute("cList", cList);
-			
-			
-			LikeDto likedto = new LikeDto();
-			likedto.setLtbid(no);
-			likedto.setLtmid(n.getId());
-			
-			int ltlike = 0;
-			
-			int check = likeservice.ltlikecount(likedto);
-			
-			/*
-			 * if(check ==0) {
-			 * 
-			 * likeservice.likeinsert(likedto);
-			 * 
-			 * }else if(check==1) {
-			 * 
-			 * ltlike = likeservice.ltlikegetinfo(likedto); }
-			 */
-			
-			m.addAttribute("ltlike",ltlike);
-			m.addAttribute("check", check);
-			return "store/content";
-		}
->>>>>>> refs/heads/master
+
 
       @GetMapping("store/store/content/{no}")
       public String hashtag(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
@@ -334,7 +265,6 @@ public class StoreController {
          List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow);
          m.addAttribute("sList", storeList);
 
-<<<<<<< HEAD
          int pageNum = 5;
          int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수
          
@@ -354,22 +284,7 @@ public class StoreController {
          m.addAttribute("search", search);
          
          return "store/search";
-      }
-=======
-
-		public void test() {
-			
-		}
->>>>>>> refs/heads/master
-
-<<<<<<< HEAD
-=======
-		
-	}
->>>>>>> refs/heads/master
-
-      public void test() {
-         
+     
       }
 
       
