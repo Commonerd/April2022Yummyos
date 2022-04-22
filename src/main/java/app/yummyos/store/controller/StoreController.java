@@ -168,7 +168,7 @@ public class StoreController {
 			int ltlike = 0;
 			
 			int check = likeservice.ltlikecount(likedto);
-			
+			//
 
 			if (check == 1) {
 				ltlike = likeservice.ltlikegetinfo(likedto);
