@@ -24,4 +24,8 @@ public interface FstoryDao {
 	
 	int addReadcount(int no);
 
+	List<FstoryDto> AllSearchFstoryList(Map<String, Object> m);
+
+
+
 }

@@ -66,9 +66,15 @@ a {
 	<tr><td>메뉴</td><td>${dto.menu}</td>
 	<tr><td>조회수</td><td>${dto.view_count}</td>
 	<tr><td>해시태그</td><td>
+<<<<<<< HEAD
 	<c:forEach items="${hash}" var="hashtag" begin="1">
 	<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
 	</c:forEach>
+=======
+		<c:forEach items="${hash}" var="hashtag" begin="1">
+		<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+		</c:forEach>
+>>>>>>> refs/heads/master
 	</td>
 
 	<tr><td colspan="2" align="right">
@@ -225,13 +231,17 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
   <input type="hidden" name="store_no" value="${dto.no}">
   <input type="hidden" name="id" value="${user.id}">
  <button id="add">등록</button>
-</form> 
+</form>
 
 <br>
 <br>
 <br>
 <br>
+<<<<<<< HEAD
 <br>	
+=======
+<br>
+>>>>>>> refs/heads/master
 
 <script>
 	$(function(){

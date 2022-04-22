@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.yummyos.store.dao.StoreDao;
+import app.yummyos.store.dto.ReviewDto;
 import app.yummyos.store.dto.StoreDto;
 
 @Service
@@ -70,5 +71,22 @@ public class StoreService {
 			return dao.getstorelist(m);	
 		}
 
+		public List<StoreDto> AllSearchStoreList(String search, int startRow, int endRow) {
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("search", search);
+			m.put("start", startRow);
+			m.put("end", endRow);
+			return dao.AllSearchStoreList(m);
+		}
+
+
+		public List<StoreDto> storeListView(int start, int end){
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("start", start);
+			m.put("end", end);
+			
+			return dao.storeListView(m);	
+		}
 		
+
 }

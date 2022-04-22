@@ -65,4 +65,9 @@
 			where r >= #{start} AND r &lt;= #{end}
 	</select>
 	
+		<select id="AllSearchFstoryList" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
+		select * from fstory where title like '%'||#{search}||'%' 
+	</select>
+	
+	
 </mapper>

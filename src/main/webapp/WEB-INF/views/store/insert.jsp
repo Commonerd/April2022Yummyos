@@ -9,7 +9,7 @@
 </style>
 </head>
 <body>
-<form method="post" id="insertform" action="insert">
+<form method="post" id="insertform" action="insert" enctype="multipart/form-data" >
 	<table border="1">
 		<tr>  
 			<td class="Aquamarine">상호명</td>
@@ -32,7 +32,12 @@
 			<td class="Aquamarine">해시태그</td>
 			<td><input name="hashtag"/></td>
 		</tr>
-<tr>
+		<tr>  
+		
+			<td class="Aquamarine">대표이미지</td>
+			<td><input type="file" name="files"></td>
+		</tr>
+		<tr>
 			<td class="Aquamarine">메뉴</td>
 			<td><div id="smarteditor">
         	<textarea name="content" id="editorTxt" 
@@ -61,6 +66,7 @@
 	</table>
 
 </form>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script>
@@ -98,6 +104,39 @@ function addPost(){
         }
     }).open();
 }
+</script>
+
+<script>
+$("#add").click(function (event) {         
+	//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
+	//event.preventDefault();          
+    // Get form         
+    var form = $('#fileUploadForm')[0];  	    
+    // Create an FormData object          
+    var data = new FormData(form);  	   
+    // disabled the submit button         
+    //$("#btnSubmit").prop("disabled", true);   
+    
+    $.ajax({             
+    	type: "POST",          
+        enctype: 'multipart/form-data',  
+        url: "/store/imginsert",
+        data: data,          
+        processData: false,    
+        contentType: false,      
+        cache: false,           
+        timeout: 600000,       
+        success: function (data) { 
+        	location.reload();       
+        	//$("#btnSubmit").prop("disabled", false);      
+        },          
+        error: function (e) {  
+        	console.log("ERROR : ", e);     
+            //$("#btnSubmit").prop("disabled", false);    
+            alert("fail");      
+         }     
+	});
+});
 </script>
 </body>
 </html>	

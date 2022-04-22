@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import app.yummyos.store.dto.ReviewDto;
 import app.yummyos.store.dto.StoreDto;
 
 @Mapper
@@ -20,8 +21,11 @@ public interface StoreDao {
 		int addViewcount(int no);
 		
 		public List<StoreDto> getstorelist(Map<String, Object> m);
-
 		
+		List<StoreDto> AllSearchStoreList(Map<String, Object> m);
+	
+		List<StoreDto> storeListView(Map<String, Object> m);
+
 	}
 
 
