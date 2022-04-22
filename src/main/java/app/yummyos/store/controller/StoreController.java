@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-<<<<<<< HEAD
-=======
 import org.springframework.web.multipart.MultipartFile;
->>>>>>> refs/heads/master
 
 import app.yummyos.store.dto.LikeDto;
 import app.yummyos.store.dto.ReviewDto;
@@ -173,14 +170,12 @@ public class StoreController {
 			
 			int check = likeservice.ltlikecount(likedto);
 			
-<<<<<<< HEAD
 			if (check == 1) {
 				ltlike = likeservice.ltlikegetinfo(likedto);
 			}
 			System.out.println("check::"+check+ " ltlike::"+ltlike);
 			m.addAttribute("allCount", allCount);
 			m.addAttribute("ltlike", ltlike);
-=======
 			/*
 			 * if(check ==0) {
 			 * 
@@ -228,7 +223,6 @@ public class StoreController {
 			 */
 			
 			m.addAttribute("ltlike",ltlike);
->>>>>>> refs/heads/master
 			m.addAttribute("check", check);
 			return "store/content";
 		}
@@ -289,15 +283,12 @@ public class StoreController {
 			return "store/search";
 		}
 
-<<<<<<< HEAD
 		public void test() {
 			
 		}
-=======
 		
 		
 
->>>>>>> refs/heads/master
 	
 		
 	}
