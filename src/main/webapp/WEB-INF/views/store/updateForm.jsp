@@ -9,7 +9,7 @@
 </style>
 </head>
 <body>
-<form method="post" id="updateform" action="store/update" >
+<form method="post" id="updateform" action="store/update" enctype="multipart/form-data">
 <input type="hidden" name="_method" value="put">
 	<table border="2">
 		<tr>	
@@ -19,7 +19,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="Aquamarin">카테고리</td>
+			<td class="Aquamarin">테마</td>
 			<td><input name="category" value="${dto.category}"></td>
 		</tr>
 		<tr>
@@ -30,6 +30,15 @@
 			<td class="Aquamarin">주소</td>
 			<td><input name="address" id="address" value="${dto.address}">
 				<input type="button" id="addbtn" value="주소 검색" onclick="addPost()"></td>
+		</tr>
+		<tr>  
+			<td class="Aquamarine">해시태그</td>
+			<td><input name="hashtag" id="hashtag" value="${dto.hashtag}"/></td>
+		</tr>
+		<tr>  
+		
+			<td class="Aquamarine">대표이미지</td>
+			<td><input type="file" name="files" value="${dto.image}"/></td>
 		</tr>
 		<tr>
 			<td class="orange">메뉴</td>
