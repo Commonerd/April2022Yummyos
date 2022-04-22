@@ -66,10 +66,9 @@ a {
 	<tr><td>메뉴</td><td>${dto.menu}</td>
 	<tr><td>조회수</td><td>${dto.view_count}</td>
 	<tr><td>해시태그</td><td>
-	<c:forEach items="${hash}" var="hashtag" begin="1">
-
-	<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
-</c:forEach>
+		<c:forEach items="${hash}" var="hashtag" begin="1">
+		<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+		</c:forEach>
 	</td>
 
 
@@ -125,7 +124,7 @@ $("#addwishlist").click(function(){
 			let no = $(this).attr("id");
 			$.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/notice/list";
+				location.href="/store/list";
 			})
 			return false;
 		})//click
@@ -258,13 +257,6 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 <br>
 <br>
 <br>
-
-
-
-
-
-
-		
 
 <script>
 	$(function(){

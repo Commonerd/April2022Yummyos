@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,9 +134,18 @@
 
 	<a href="board/mpick/list">미디어픽</a>
 	<a href="board/fstory/list">맛있는 이야기</a>
-
-
-	<br>
+	
+	
+<div id="search">
+	<form action="/all/search">
+		<c:forEach items="${search}" var="search">
+			<a href="/search/search?search=${search}">${search}</a>
+		</c:forEach>	
+	
+			<input name="search" id="search" type="search">
+		<input type="submit" value="검색" />
+	</form>
+</div>
 
 	<!-- <iframe
   width="600"

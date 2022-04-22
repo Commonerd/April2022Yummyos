@@ -70,5 +70,17 @@ public class StoreService {
 			return dao.getstorelist(m);	
 		}
 
+		public List<StoreDto> AllSearchStoreList(String search, int startRow, int endRow) {
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("search", search);
+			m.put("start", startRow);
+			m.put("end", endRow);
+			return dao.AllSearchStoreList(m);
+		}
+
+	
+		
+		
+
 		
 }

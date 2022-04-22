@@ -18,5 +18,6 @@ public class StoreDto {
 
 		private int blike;
 
+		
 	}
 

@@ -44,9 +44,9 @@ a {
 		<c:if test="${count != 0 }">
 			<table>
 				<tr>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>작성일</th>
+					<th>순번</th>
+					<th>상호명</th>
+					<th>테마</th>
 					<th>조회수</th>
 				</tr>
 				<c:forEach items="${sList}" var="store">
