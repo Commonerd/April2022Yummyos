@@ -91,6 +91,8 @@ public class FstoryController {
 		m.addAttribute("dto", dto);
 		List<FsCommDto> cList = fsc_service.selectfsComm(no);
 		m.addAttribute("cList", cList);
+		
+		
 		return "board/fstory/content";
 	}
 

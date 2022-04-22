@@ -85,6 +85,12 @@ select * from store where no = #{no}
 		where RNUM between #{start} and #{end}
 	</select>
 
+<<<<<<< HEAD
+	<select id="AllSearchStoreList" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
+		select * from store
+		where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%'
+	</select>
+=======
 <select id="storeListView"
 		resultType="app.yummyos.store.dto.StoreDto">
 		select no, name, category, view_count, image from
@@ -93,6 +99,7 @@ select * from store where no = #{no}
 		from (select * from store order by view_count
 		desc)
 		order by view_count desc) where r >= #{start} AND r &lt;= #{end}
+>>>>>>> refs/heads/master
 
 </select>
 <!-- select no, name, category, view_count, image from

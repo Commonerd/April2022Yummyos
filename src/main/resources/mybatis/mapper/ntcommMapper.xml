@@ -12,7 +12,7 @@
 	</delete>
 	<select id="selectNtComm" parameterType="int" 
 	resultType="app.yummyos.board.notice.dto.NtCommDto">
-		select * from ntcomm where no = #{no} order by regdate desc
+		select * from ntcomm where cno = #{cno} order by regdate desc
 	</select>
 </mapper>
 	

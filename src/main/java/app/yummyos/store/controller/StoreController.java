@@ -188,7 +188,7 @@ public class StoreController {
 		public String hashtag(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
-
+			
 			String hashs = dto.getHashtag();
 			String [] h = hashs.split("#");
 			m.addAttribute("hash", h);
@@ -245,12 +245,13 @@ public class StoreController {
 		@GetMapping("store/search")
 		public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
 			int count = service.countSearch(searchn,search);
+						
 			if(count > 0) {
 			
 			int perPage = 20; // 한 페이지에 보일 글의 갯수
 			int startRow = (page - 1) * perPage + 1;
 			int endRow = page * perPage;
-			
+						
 			List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow);
 			m.addAttribute("sList", storeList);
 

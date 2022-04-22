@@ -18,5 +18,6 @@ public class StoreDto {
 		private String image;
 		private int blike;
 
+		
 	}
 
