@@ -67,6 +67,7 @@ a {
 					<th>테마</th>
 					<th>좋아요</th>
 					<th>조회수</th>
+					<th>대표사진</th>
 				</tr>
 			<tbody id="tbody">
 				<c:forEach items="${sList}" var="store">
@@ -76,6 +77,7 @@ a {
 						<td>${store.category}</td>
 						<td>${store.blike }</td>
 						<td>${store.view_count}</td>
+						<td><a href="/store/content/${store.no}"><img src="/store/img/${store.image}" style="width:150px; height:100px;"></a></td>
 					</tr>	
 				</c:forEach>
 				</tbody>
