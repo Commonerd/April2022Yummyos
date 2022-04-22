@@ -59,18 +59,23 @@ a {
 		</c:if>
 
 <table border="1">
-	<tr><td>상호명</td><td>${dto.name} <span id="count">${allCount }</span></td>
+	<tr><td>상호명</td><td>${dto.name} 좋아요<span id="count">${allCount }</span></td>
 	<tr><td>카테고리</td><td>${dto.category}</td>
 	<tr><td>전화번호</td><td>${dto.phone}</td>
 	<tr><td>주소</td><td>${dto.address}</td>
 	<tr><td>메뉴</td><td>${dto.menu}</td>
 	<tr><td>조회수</td><td>${dto.view_count}</td>
 	<tr><td>해시태그</td><td>
+<<<<<<< HEAD
+	<c:forEach items="${hash}" var="hashtag" begin="1">
+	<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+	</c:forEach>
+=======
 		<c:forEach items="${hash}" var="hashtag" begin="1">
 		<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
 		</c:forEach>
+>>>>>>> refs/heads/master
 	</td>
-
 
 	<tr><td colspan="2" align="right">
 	<c:if test="${ user.role == 'role_admin'}">
@@ -142,31 +147,7 @@ $("#addwishlist").click(function(){
 				location.href="/store/list";
 			})
 			return false;
-		})//click
-		
-		/* 지훈이형 리뷰로 처리 할 곳
-		$("#add").click(function(){
-			let id = '${user.id}';
-			let content = $("#content").val();
-			let no = ${dto.no};
-			
-			$.ajax({url:"/comm/insert",
-					data:"no="+no+"&id="+id+"&content="+content,
-					method:"post"
-			}).done(function(){
-					location.reload();
-				});
-			
-		})//click
-		$(".dbtn").click(function(){
-			let cno = $(this).attr("id");
-			$.ajax({url:"/comm/delete/"+cno,
-				method:"delete"
-		}).done(function(){
-				location.reload();
-			});
-			
-		})//click */
+		})//click		
 	})//ready
 
 </script>
@@ -256,7 +237,11 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 <br>
 <br>
 <br>
+<<<<<<< HEAD
+<br>	
+=======
 <br>
+>>>>>>> refs/heads/master
 
 <script>
 	$(function(){
