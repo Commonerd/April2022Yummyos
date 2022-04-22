@@ -18,10 +18,10 @@ public class FsCommService {
 		return dao.selectfsComm(f_no);
 	}
 	
-	public int insertComm(FsCommDto dto) {
+	public int insertfsComm(FsCommDto dto) {
 		return dao.insertfsComm(dto);
 	}
-	public int deleteComm(int fs_cno) {
+	public int deletefsComm(int fs_cno) {
 		return dao.deletefsComm(fs_cno);
 	}
 

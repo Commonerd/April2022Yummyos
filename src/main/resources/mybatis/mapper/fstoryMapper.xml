@@ -8,14 +8,12 @@
 		values(f_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id})
 	</insert>
 
-	<update parameterType="app.yummyos.board.fstory.dto.FstoryDto"
-		id="updateFstory">
+	<update parameterType="app.yummyos.board.fstory.dto.FstoryDto" id="updateFstory">
 		update fstory set title=#{title}, content=#{content} where no=#{no}
 	</update>
 
 	<update id="addReadcount">
-		update fstory set readcount = readcount +1 where
-		no=#{no}
+		update fstory set readcount = readcount +1 where no=#{no}
 	</update>
 
 	<delete parameterType="int" id="deleteFstory">

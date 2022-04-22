@@ -18,15 +18,15 @@ public class FsCommController {
 	
 	@PostMapping("/fs_comm/insert")
 	@ResponseBody
-	public String insertComm(FsCommDto dto) {
-		int i = fsc_service.insertComm(dto);
+	public String insertfsComm(FsCommDto dto) {
+		int i = fsc_service.insertfsComm(dto);
 		return i+"";
 	}
 	
 	@DeleteMapping("/fs_comm/delete/{fs_cno}")
 	@ResponseBody
-	public String deleteComm(@PathVariable int fs_cno) {
-		int i = fsc_service.deleteComm(fs_cno);
+	public String deletefsComm(@PathVariable int fs_cno) {
+		int i = fsc_service.deletefsComm(fs_cno);
 		return i+"";
 	}
 }

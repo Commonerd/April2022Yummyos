@@ -4,66 +4,66 @@
 <head>
 <title>Insert title here</title>
 <style>
-	.Aquamarine{background-color: Aquamarine; width: 150px;}
-	table{border-collapse : collapse; width: 900px;}
+   .Aquamarine{background-color: Aquamarine; width: 150px;}
+   table{border-collapse : collapse; width: 900px;}
 </style>
 </head>
 <body>
 <form method="post" id="insertform" action="insert" enctype="multipart/form-data" >
-	<table border="1">
-		<tr>  
-			<td class="Aquamarine">상호명</td>
-			<td><input name="name"/></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">테마</td>
-			<td><input name="category" placeholder="'한국','일본','중국','미국' 등"></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">주소</td>
-			<td><input name="address" id="address">
-					<input type="button" id="addbtn" value="주소 검색" onclick="addPost()"></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">전화번호</td>
-			<td><input name="phone"/></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">해시태그</td>
-			<td><input name="hashtag"/></td>
-		</tr>
-		<tr>  
-		
-			<td class="Aquamarine">대표이미지</td>
-			<td><input type="file" name="files"></td>
-		</tr>
-		<tr>
-			<td class="Aquamarine">메뉴</td>
-			<td><div id="smarteditor">
-        	<textarea name="content" id="editorTxt" 
+   <table border="1">
+      <tr>  
+         <td class="Aquamarine">상호명</td>
+         <td><input name="name"/></td>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">테마</td>
+         <td><input name="category" placeholder="'한국','일본','중국','미국' 등"></td>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">주소</td>
+         <td><input name="address" id="address">
+               <input type="button" id="addbtn" value="주소 검색" onclick="addPost()"></td>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">전화번호</td>
+         <td><input name="phone"/></td>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">해시태그</td>
+         <td><input name="hashtag"/></td>
+      </tr>
+      <tr>  
+      
+         <td class="Aquamarine">대표이미지</td>
+         <td><input type="file" name="files"></td>
+      </tr>
+      <tr>
+         <td class="Aquamarine">메뉴</td>
+         <td><div id="smarteditor">
+           <textarea name="content" id="editorTxt" 
                   rows="20" cols="10" 
                   placeholder="메뉴와 사진을 입력해주세요."
                   style="width: 700px"></textarea>
       </div></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">맛집설명</td>
-			<td><input name="detail"/></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">지도위도</td>
-			<td><input name="map_lt"/></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">지도경도</td>
-			<td><input name="map_ln"/></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<input type="button" id="save" value="새 맛집 등록"> 
-			</td>
-		</tr>
-	</table>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">맛집설명</td>
+         <td><input name="detail"/></td>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">지도위도</td>
+         <td><input name="map_lt"/></td>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">지도경도</td>
+         <td><input name="map_ln"/></td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center">
+            <input type="button" id="save" value="새 맛집 등록"> 
+         </td>
+      </tr>
+   </table>
 
 </form>
 
@@ -87,8 +87,8 @@
       smartEditor() 
       
       $("#save").click(function(){
-    	  oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
-    	  $("#insertform").submit();
+         oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+         $("#insertform").submit();
       });
       
     })
@@ -99,8 +99,8 @@
 function addPost(){
     new daum.Postcode({
         oncomplete: function(data) {
-            	document.querySelector("#address").value = data.address;
-            	alert("나머지 주소도 입력하세요.");
+               document.querySelector("#address").value = data.address;
+               alert("나머지 주소도 입력하세요.");
         }
     }).open();
 }
@@ -108,17 +108,17 @@ function addPost(){
 
 <script>
 $("#add").click(function (event) {         
-	//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
-	//event.preventDefault();          
+   //preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
+   //event.preventDefault();          
     // Get form         
-    var form = $('#fileUploadForm')[0];  	    
+    var form = $('#fileUploadForm')[0];         
     // Create an FormData object          
-    var data = new FormData(form);  	   
+    var data = new FormData(form);        
     // disabled the submit button         
     //$("#btnSubmit").prop("disabled", true);   
     
     $.ajax({             
-    	type: "POST",          
+       type: "POST",          
         enctype: 'multipart/form-data',  
         url: "/store/imginsert",
         data: data,          
@@ -127,16 +127,16 @@ $("#add").click(function (event) {
         cache: false,           
         timeout: 600000,       
         success: function (data) { 
-        	location.reload();       
-        	//$("#btnSubmit").prop("disabled", false);      
+           location.reload();       
+           //$("#btnSubmit").prop("disabled", false);      
         },          
         error: function (e) {  
-        	console.log("ERROR : ", e);     
+           console.log("ERROR : ", e);     
             //$("#btnSubmit").prop("disabled", false);    
             alert("fail");      
          }     
-	});
+   });
 });
 </script>
 </body>
-</html>	
+</html>   
