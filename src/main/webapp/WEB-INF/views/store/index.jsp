@@ -63,7 +63,7 @@ a {
 						<td><a href="/store/content/${store.no}">${store.name }</a></td>
 						<td>${store.category}</td>
 						<td><a href="/store/content/${store.no}"><img src="/store/img/${store.image}" style=width:300px; height:100px></a></td>
-						<td><br></td>
+					
 					</tr>		
 				</c:forEach>
 				</tbody>

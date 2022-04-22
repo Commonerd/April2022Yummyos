@@ -21,7 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 import app.yummyos.store.dto.LikeDto;
 import app.yummyos.store.dto.ReviewDto;
 
@@ -170,13 +173,21 @@ public class StoreController {
 			
 			int check = likeservice.ltlikecount(likedto);
 			
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 			if (check == 1) {
 				ltlike = likeservice.ltlikegetinfo(likedto);
 			}
 			System.out.println("check::"+check+ " ltlike::"+ltlike);
 			m.addAttribute("allCount", allCount);
 			m.addAttribute("ltlike", ltlike);
+<<<<<<< HEAD
 			/*
+=======
+	/*
+>>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 			 * if(check ==0) {
 			 * 
 			 * likeservice.likeinsert(likedto);
@@ -283,13 +294,23 @@ public class StoreController {
 			return "store/search";
 		}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 		public void test() {
 			
 		}
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 		
 	}
 
