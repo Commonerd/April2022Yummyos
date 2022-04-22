@@ -27,6 +27,7 @@ import app.yummyos.store.service.ReviewService;
 import app.yummyos.store.service.StoreService;
 import app.yummyos.users.dto.UsersDto;
 
+
 @SessionAttributes("user")
 @Controller
 public class StoreController {
@@ -64,7 +65,7 @@ public class StoreController {
 			int startRow = (page - 1) * perPage + 1;
 			int endRow = page * perPage;
 			
-			List<StoreDto> storeList = service.getstorelist(startRow, endRow);
+			List<StoreDto> storeList = service.storeList(startRow, endRow);
 			m.addAttribute("sList", storeList);
 			
 			System.out.println(storeList);
@@ -94,29 +95,70 @@ public class StoreController {
 		public String contentStore(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
 			StoreDto dto = service.storeOne(no);
 			m.addAttribute("dto", dto);
-			List<ReviewDto> cList = r_service.selectReview(no);
-			m.addAttribute("cList", cList);
-			
-			LikeDto likedto = new LikeDto();
-			likedto.setLtbid(no);
-			likedto.setLtmid(n.getId());
 
 			String hashs = dto.getHashtag();
 			String [] h = hashs.split("#");
 			m.addAttribute("hash", h);
-					
-			int allCount = likeservice.getAllltlike(no);
+			
+			List<ReviewDto> cList = r_service.selectReview(no);
+			m.addAttribute("cList", cList);
+			
+			
+			LikeDto likedto = new LikeDto();
+			likedto.setLtbid(no);
+			likedto.setLtmid(n.getId());
 			
 			int ltlike = 0;
 			
 			int check = likeservice.ltlikecount(likedto);
 			
-			if (check == 1) {
-				ltlike = likeservice.ltlikegetinfo(likedto);
-			}
-			System.out.println("check::"+check+ " ltlike::"+ltlike);
-			m.addAttribute("allCount", allCount);
-			m.addAttribute("ltlike", ltlike);
+			/*
+			 * if(check ==0) {
+			 * 
+			 * likeservice.likeinsert(likedto);
+			 * 
+			 * }else if(check==1) {
+			 * 
+			 * ltlike = likeservice.ltlikegetinfo(likedto); }
+			 */
+			
+			m.addAttribute("ltlike",ltlike);
+			m.addAttribute("check", check);
+			return "store/content";
+		}
+
+		@GetMapping("store/store/content/{no}")
+		public String hashtag(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
+			StoreDto dto = service.storeOne(no);
+			m.addAttribute("dto", dto);
+
+			String hashs = dto.getHashtag();
+			String [] h = hashs.split("#");
+			m.addAttribute("hash", h);
+			
+			List<ReviewDto> cList = r_service.selectReview(no);
+			m.addAttribute("cList", cList);
+			
+			
+			LikeDto likedto = new LikeDto();
+			likedto.setLtbid(no);
+			likedto.setLtmid(n.getId());
+			
+			int ltlike = 0;
+			
+			int check = likeservice.ltlikecount(likedto);
+			
+			/*
+			 * if(check ==0) {
+			 * 
+			 * likeservice.likeinsert(likedto);
+			 * 
+			 * }else if(check==1) {
+			 * 
+			 * ltlike = likeservice.ltlikegetinfo(likedto); }
+			 */
+			
+			m.addAttribute("ltlike",ltlike);
 			m.addAttribute("check", check);
 			return "store/content";
 		}
@@ -174,9 +216,7 @@ public class StoreController {
 			return "store/search";
 		}
 
-		public void test() {
-			
-		}
+		
 	
 		
 	}
