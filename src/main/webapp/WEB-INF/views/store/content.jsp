@@ -125,7 +125,7 @@ $("#addwishlist").click(function(){
 			let no = $(this).attr("id");
 			$.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/notice/list";
+				location.href="/store/list";
 			})
 			return false;
 		})//click
@@ -251,7 +251,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
   <input type="hidden" name="store_no" value="${dto.no}">
   <input type="hidden" name="id" value="${user.id}">
  <button id="add">등록</button>
-</form> 
+</form>
 
 <br>
 <br>
