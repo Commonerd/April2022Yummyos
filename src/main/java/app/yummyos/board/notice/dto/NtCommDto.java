@@ -10,5 +10,6 @@ public class NtCommDto {
 	private String content;
 	private Date regdate;
 	private int no;
+	
 }
 

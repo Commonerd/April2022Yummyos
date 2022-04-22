@@ -168,7 +168,6 @@ public class StoreController {
 			int ltlike = 0;
 			
 			int check = likeservice.ltlikecount(likedto);
-			//
 
 			if (check == 1) {
 				ltlike = likeservice.ltlikegetinfo(likedto);
@@ -176,16 +175,7 @@ public class StoreController {
 			System.out.println("check::"+check+ " ltlike::"+ltlike);
 			m.addAttribute("allCount", allCount);
 			m.addAttribute("ltlike", ltlike);
-	/*
-			 * if(check ==0) {
-			 * 
-			 * likeservice.likeinsert(likedto);
-			 * 
-			 * }else if(check==1) {
-			 * 
-			 * ltlike = likeservice.ltlikegetinfo(likedto); }
-			 */
-			
+
 			m.addAttribute("ltlike",ltlike);
 			m.addAttribute("check", check);
 			return "store/content";
@@ -283,11 +273,9 @@ public class StoreController {
 			return "store/search";
 		}
 
-
 		public void test() {
 			
 		}
-
 		
 	}
 
