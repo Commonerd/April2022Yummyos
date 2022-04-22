@@ -97,12 +97,6 @@ select * from store where no = #{no}
 		desc)
 		order by view_count desc) where r >= #{start} AND r &lt;= #{end}
 </select>
-<!-- select no, name, category, view_count, image from
-		(select no, name,
-		category,view_count, image, rownum r
-		from (select * from store order by view_count
-		desc)
-		order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
 </mapper>
 
 
