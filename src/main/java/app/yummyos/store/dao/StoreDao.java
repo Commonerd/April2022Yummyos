@@ -21,9 +21,7 @@ public interface StoreDao {
 		int addViewcount(int no);
 		
 		public List<StoreDto> getstorelist(Map<String, Object> m);
-		
 		List<StoreDto> AllSearchStoreList(Map<String, Object> m);
-	
 		List<StoreDto> storeListView(Map<String, Object> m);
 
 	}

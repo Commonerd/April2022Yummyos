@@ -5,8 +5,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <!--  nList begin end count pageNum totalPages -->
 <title>글 목록</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 <style>
 #center {
 	width: 700px;
@@ -21,7 +33,7 @@ table {
 }
 
 th {border: 1px solid black;
-	background-color: Aquamarine;
+	background-color: gold;
 	width: 150px;
 }
 td{border: 1px solid black;}
@@ -35,6 +47,22 @@ a {
 </style>
 </head>
 <body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+<button type="button" class="btn btn-primary" ><a href="/board/notice">공지사항</a></button>
+<button type="button" class="btn btn-secondary"><a href="/ladder">오늘 뭐먹지?</a></button>
+<button type="button" class="btn btn-success"><a href="/store/list">맛집리스트</a></button>
+<button type="button" class="btn btn-info"><a href="/board/mpick">미디어픽</a></button>
+<button type="button" class="btn btn-warning"><a href="/board/fstory">푸드스토리</a></button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-dark">
 	<c:if test="${ user.id != null }">
 		<a>${user.id}님</a>
 		<a href="/logout">로그아웃</a>
@@ -43,8 +71,12 @@ a {
 		<a href="/login">로그인</a>
 		<a href="/insert">회원가입</a>
 		</c:if>
+		</button>
+
+
+
 	<div id="center">
-		<h1>게시글 목록</h1>
+		<h1>공지사항</h1>
 		<div align="right">
 		
 			<a href="/main">main</a> 

@@ -6,28 +6,24 @@
 <insert parameterType="app.yummyos.store.dto.StoreDto" id="insertStore"> 
 
 insert into store(no, name, category, address, phone, menu, detail, hashtag, image, map_lt, map_ln) 
-values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) </insert>
+   values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
+</insert>
 
-<update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore"> 
-<<<<<<< HEAD
+<update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore">
 
-update store set name=#{name}, category=#{category}, address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag}, image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no} </update>
-=======
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
-
-<<<<<<< HEAD
+   update store set name=#{name}, category=#{category}, address=#{address},
+   phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
+   image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
+</update>
+  
    <update id="addViewcount" parameterType="int">
       update store set view_count = view_count + 1 where no = #{no}
    </update>
-=======
-update store set name=#{name}, category=#{category}, address=#{address},phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag}, image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no} </update>
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 
    <delete parameterType="int" id="deleteStore">
       delete from store where no = #{no}
    </delete>
 
-<<<<<<< HEAD
    <select id="storeList"
       resultType="app.yummyos.store.dto.StoreDto">
       select no, name, category, view_count, image from
@@ -35,25 +31,9 @@ update store set name=#{name}, category=#{category}, address=#{address},phone=#{
       from 
       (select * from store order by no desc)
       order by no desc) where r >= #{start} AND r &lt;= #{end}
-=======
-	<delete parameterType="int" id="deleteStore">
-		delete from store where no = #{no}
-	</delete>
+   </select>
 
-	<select id="storeList"
-		resultType="app.yummyos.store.dto.StoreDto">
-		select no, name, category, view_count, image from
-		(select no, name, category,view_count, image, rownum r
-		from 
-		(select * from store order by no desc)
-		order by no desc) where r >= #{start} AND r &lt;= #{end}
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
-
-</select>
-
-<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
-<<<<<<< HEAD
-      
+<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">      
       select * from
       (select no, name, category, address, phone, menu, detail, map_lt, map_ln, hashtag, rownum r      
       from (select * from store order by no desc) 
@@ -67,22 +47,6 @@ update store set name=#{name}, category=#{category}, address=#{address},phone=#{
       
       ) where r >= #{start} AND r &lt;= #{end}
        
-=======
-		
-		select * from
-		(select no, name, category, address, phone, menu, detail, map_lt, map_ln, hashtag, rownum r		
-		from (select * from store order by no desc) 
-		<where>
-			<choose>
-				<when test="searchn == 0"> name like '%'||#{search}||'%'</when>
-				<when test="searchn == 1"> category like '%'||#{search}||'%' </when>
-		</choose>
-		</where> 
-		order by no desc 
-		
-		) where r >= #{start} AND r &lt;= #{end}
- 		
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 </select>
 
    <select id="countSearch" resultType="int" parameterType="map">
@@ -101,7 +65,6 @@ update store set name=#{name}, category=#{category}, address=#{address},phone=#{
 select * from store where no = #{no}
  </select>
 
-<<<<<<< HEAD
    <select id="readstore" parameterType="Integer"
       resultType="app.yummyos.store.dto.StoreDto">
       select no, name, category, address , phone, map_lt, map_ln,
@@ -121,67 +84,41 @@ select * from store where no = #{no}
       from store)store
       where RNUM between #{start} and #{end}
    </select>
-=======
-	<select id="readstore" parameterType="Integer"
-		resultType="app.yummyos.store.dto.StoreDto">
-		select no, name, category, address , phone, map_lt, map_ln,
-		menu, detail, view_count, hashtag, image,
-		(select count(ltlike) from liketable where
-		ltbid=#{no} and ltlike=1)as blike
-		from store
-		where no=#{no}
-	</select>
-	<select id="getstorelist"
-		resultType="app.yummyos.store.dto.StoreDto"
-		parameterType="map">
-		select no, name, category, address , phone, map_lt,
-		map_ln, menu, detail, view_count, hashtag, image,
-		(select count(ltlike) from liketable where ltbid=no and ltlike=1) as blike
-		from (select ROW_NUMBER() over(order by no desc) as RNUM, store.*
-		from store)store
-		where RNUM between #{start} and #{end}
-	</select>
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 
-<<<<<<< HEAD
    <select id="AllSearchStoreList" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
       select * from store
       where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%'
    </select>
-=======
-	<select id="AllSearchStoreList" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
-		select * from store
-		where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%'
-	</select>
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
 
 <select id="storeListView"
-<<<<<<< HEAD
-      resultType="app.yummyos.store.dto.StoreDto">
-      select no, name, category, view_count, image from
-      (select no, name,
-      category,view_count, image, rownum r
-      from (select * from store order by view_count
-      desc)
-      order by view_count desc) where r >= #{start} AND r &lt;= #{end}
-=======
-		resultType="app.yummyos.store.dto.StoreDto">
-		select no, name, category, view_count, image from
-		(select no, name,
-		category,view_count, image, rownum r
-		from (select * from store order by view_count
-		desc)
-		order by view_count desc) where r >= #{start} AND r &lt;= #{end}
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
+      resultType="app.yummyos.store.dto.StoreDto"
+      parameterType="map">
+       select no, name, category, address , phone, map_lt,
+      map_ln, menu, detail, view_count, hashtag, image,
+      (select count(ltlike) from liketable where ltbid=no and ltlike=1) as blike
+      from (select ROW_NUMBER() over(order by no desc) as RNUM, store.*
+      from store)store
+      where RNUM between #{start} and #{end} order by view_count desc
+      
+   
+
 </select>
-<<<<<<< HEAD
+
+
 <!-- select no, name, category, view_count, image from
       (select no, name,
       category,view_count, image, rownum r
       from (select * from store order by view_count
       desc)
       order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
-=======
->>>>>>> branch 'master' of https://github.com/Commonerd/April2022Yummyos
+
+
 </mapper>
+
+
+
+
+
+
+
 

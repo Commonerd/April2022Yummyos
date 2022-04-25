@@ -5,122 +5,66 @@
 <head>
 <title>로그인</title>
 </head>
-<body>
-<h5>id와 password를 입력하세요</h5>
-<form:form action="login" method="post" modelAttribute="command">
-<form:errors element="div"/>
-<table border="1" cellpadding="0" cellspacing="0">				
-	<tr>
-		<td bgcolor="Aquamarine" >아이디</td>
-		<td><input name="id" type="text" size="20"></td>
-	</tr>
-	<tr>
-		<td bgcolor="Aquamarine" >비밀번호</td>
-		<td><input name="password" type="password" size="20"></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-			<input type="submit" value="로그인">
-			<a href="/insert">회원 가입</a>
-			<a href="/findId">아이디찾기</a>
-			<a href="/findPassword">비밀번호찾기</a>
 
-		</td>  
-	</tr>
-</table>
-</form:form>	
-<!-- e2937f4a07074c718e1c8b3e8a1f4f9b -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<ul>
-	<li onclick="kakaoLogin();">
-      <a href="javascript:void(0)">
-          <span>카카오 로그인</span>
-      </a>
-	</li>
-	<li onclick="kakaoLogout();">
-      <a href="javascript:void(0)">
-          <span>카카오 로그아웃</span>
-      </a>
-	</li>
-</ul>
-<!-- 카카오 스크립트 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+ <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
+
+<style>
+.input-box{ position:relative; margin:10px 0; }
+
+.input-box > input{ background:transparent; border:none; border-bottom: solid 1px #ccc; padding:20px 0px 5px 0px; font-size:14pt; width:100%; }
+
+input::placeholder{ color:transparent; }
+
+input:placeholder-shown + label{ color:#aaa; font-size:14pt; top:15px; }
+
+input:focus + label, label{ color:#8aa1a1; font-size:10pt; pointer-events: none; position: absolute; left:0px; top:0px; transition: all 0.2s ease ; -webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; }
+
+input:focus, input:not(:placeholder-shown){ border-bottom: solid 1px #8aa1a1; outline:none; }
+
+</style>
+<body>
+<header> 
+<h2>Login</h2> 
+</header> 
+<form:form action="login" method="POST" modelAttribute="command"> 
+<form:errors element="div"/>
+<div class="input-box"> 
+<input id="id" type="text" name="id" placeholder="아이디"><label for="username">아이디</label></div> 
+<div class="input-box"> 
+<input id="password" type="password" name="password" placeholder="비밀번호"> 
+<label for="password">비밀번호</label> 
+</div> 
+<button type="button" class="btn btn-danger" value="로그인"><input type="submit" value="로그인"></button>
+</form:form>
+
+<button type="button" class="btn btn-danger" value="회원가입"><a href="/insert">회원 가입</a></button>
+<button type="button" class="btn btn-danger" value="아이디찾기"><a href="/findId">아이디찾기</a></button>`
+<button type="button" class="btn btn-danger" value="비밀번호찾기"><a href="/findPassword">비밀번호찾기</a>
+
+
+<div id="forgot">비밀번호 찾기</div> 
+<input type="submit" value="로그인"> 
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-Kakao.init('e2937f4a07074c718e1c8b3e8a1f4f9b'); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
-//카카오로그인
-function kakaoLogin() {
-    Kakao.Auth.login({
-      success: function (response) {
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-        	  console.log(response)
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
-//카카오로그아웃  
-function kakaoLogout() {
-    if (Kakao.Auth.getAccessToken()) {
-      Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-        	console.log(response)
-        },
-      
-        fail: function (error) {
-          console.log(error)
-        },
-      })
-      Kakao.Auth.setAccessToken(undefined)
-      
-    }
-  }  
+	$(function(){
+		$("#login").click(function(){
+			let no = $(this).attr("id");
+			$.ajax({url:"/boa", method:"post"}
+			).done(function(){
+				location.href="/board/notice/list";
+			})
+			return false;
+		})//click
 </script>
 
- <a href="javascript:kakaoLogin();"><img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" alt="카카오계정 로그인" style="height: 100px;"/></a>
- <a href="javascript:kakaoLogout();"><img src="./kakao_logout.png" alt="카카오계정 로그아웃" style="height: 100px;"/></a>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
-        window.Kakao.init('e2937f4a07074c718e1c8b3e8a1f4f9b');
 
-        function kakaoLogin() {
-            window.Kakao.Auth.login({
-                scope: 'profile_nickname, account_email, gender, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-                success: function(response) {
-                    console.log(response) // 로그인 성공하면 받아오는 데이터
-                    window.Kakao.API.request({ // 사용자 정보 가져오기 
-                        url: '/v2/user/me',
-                        success: (res) => {
-                            const kakao_account = res.kakao_account;
-                            console.log(kakao_account)
-                        }
-                    });
-                   window.location.href='/store/list' //리다이렉트 되는 코드
-                },
-                fail: function(error) {
-                    console.log(error);
-                }
-            });
-        }
-    	function kakaoLogout() {
-        	if (!Kakao.Auth.getAccessToken()) {
-    		    console.log('Not logged in.');
-    		    return;
-    	    }
-    	    Kakao.Auth.logout(function(response) {
-        		alert(response +' logout');
-    		    window.location.href='/'
-    	    });
-    };
-    </script>
+
 </body>
 </html>
