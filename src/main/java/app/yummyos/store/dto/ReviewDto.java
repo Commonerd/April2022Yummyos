@@ -12,4 +12,5 @@ public class ReviewDto {
 	private Date day;
 	private int store_no;
 	private String id;
+	private String image;
 }

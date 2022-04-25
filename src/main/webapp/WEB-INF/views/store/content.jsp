@@ -6,6 +6,8 @@
 <head>
 <title>맛집 상세</title>
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
 <style>
 #center {
 	width: 500px;
@@ -31,6 +33,11 @@ a {
 #page {
 	text-align: center;
 }
+
+
+
+
+
 </style>
 
 <style>
@@ -42,19 +49,35 @@ a {
 </style>
 
 <body>
+		<c:if test="${ user.id != null }">
+		<a>${user.id}님</a>
+		<a href="/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		<a href="/login">로그인</a>
+		<a href="/insert">회원가입</a>
+		</c:if>
 
 <table border="1">
-	<tr><td>상호명</td><td>${dto.name}${check }</td>
+	<tr><td>상호명</td><td>${dto.name} 좋아요<span id="count">${allCount }</span></td>
 	<tr><td>카테고리</td><td>${dto.category}</td>
 	<tr><td>전화번호</td><td>${dto.phone}</td>
 	<tr><td>주소</td><td>${dto.address}</td>
 	<tr><td>메뉴</td><td>${dto.menu}</td>
-	<tr><td>설명</td><td>${dto.detail}</td>
 	<tr><td>조회수</td><td>${dto.view_count}</td>
+	<tr><td>해시태그</td><td>
+
+	<c:forEach items="${hash}" var="hashtag" begin="1">
+	<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+	</c:forEach>
+	</td>
 
 	<tr><td colspan="2" align="right">
+	<c:if test="${ user.role == 'role_admin'}">
 	<a href="/store/update/${dto.no}">맛집 수정 </a> 
 	<a id="${dto.no}" href="#">맛집 삭제</a>
+	</c:if>
+
 	<a href="/store/list">목록 이동</a>
 					<c:choose>
 						<c:when test="${ltlike ==0}">
@@ -65,13 +88,16 @@ a {
 							<button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
 							<input type="hidden" id="likecheck" value="${ltlike }">
 						</c:when>
-					</c:choose>	
-	<a href="/store/list">목록 이동</a> 
+					</c:choose>
+	<br>	
+	<c:if test="${ user.id != null }">
 	<button id="addwishlist" name="addwishlist">위시리스트 등록</button>
 	<a href="/wishlist">위시리스트 바로가기</a>
-	</td></tr>
+	</c:if></td></tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 <script>
 
 //위시리스트 등록
@@ -98,7 +124,7 @@ $("#addwishlist").click(function(){
 			let no = $(this).attr("id");
 			$.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/notice/list";
+				location.href="/store/list";
 			})
 			return false;
 		})//click
@@ -116,31 +142,7 @@ $("#addwishlist").click(function(){
 				location.href="/store/list";
 			})
 			return false;
-		})//click
-		
-		/* 지훈이형 리뷰로 처리 할 곳
-		$("#add").click(function(){
-			let id = '${user.id}';
-			let content = $("#content").val();
-			let no = ${dto.no};
-			
-			$.ajax({url:"/comm/insert",
-					data:"no="+no+"&id="+id+"&content="+content,
-					method:"post"
-			}).done(function(){
-					location.reload();
-				});
-			
-		})//click
-		$(".dbtn").click(function(){
-			let cno = $(this).attr("id");
-			$.ajax({url:"/comm/delete/"+cno,
-				method:"delete"
-		}).done(function(){
-				location.reload();
-			});
-			
-		})//click */
+		})//click		
 	})//ready
 
 </script>
@@ -196,24 +198,47 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
     } 
 });    
 </script>
+	
 <hr>
+
+ <!-- 해시태그 -->
+
+
 <br>리뷰 등록
 <!--  cList -->
 <div>
 	<c:forEach items="${cList}" var="review">
 		<div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
-		<div>${review.content} 
+		<div><img src="/review/img/${review.image}" width="100px"><br>
+		 ${review.content} 		
 		<c:if test="${review.id == user.id }">
 		<button class="dbtn" id="${review.no}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
 	</c:forEach>
-	<textarea name="content" id="content" rows="5" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><button id="add">등록</button>
-	
 </div>
+
+<br>
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm"> 	
+  <textarea id="review" name="content" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><br> 	
+  <input type="file" name="files"> 	
+  <input type="hidden" name="store_no" value="${dto.no}">
+  <input type="hidden" name="id" value="${user.id}">
+ <button id="add">등록</button>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>	
+<br>
+
+
 <script>
 	$(function(){
+			
 		$("a[id]").click(function(){
 			let store_no = $(this).attr("id");
 			$.ajax({url:"/store/delete", data:"no="+store_no, method:"delete"}
@@ -223,20 +248,71 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 			return false;
 		})//click
 		
-	
-		$("#add").click(function(){
-			let id = '${user.id}';
-			let content = $("#content").val();
-			let store_no = ${dto.no};
+		$('#likebtn').click(function(){
+			likeupdate();
+		});
+		
+		function likeupdate(){
+			likeurl = "/like/likeupdate";
+			data = {"ltmid" : '${user.id}',
+					"ltbid" : ${dto.no}};
 			
-			$.ajax({url:"/review/insert",
-					data:"store_no="+store_no+"&id="+id+"&content="+content,
-					method:"post"
-			}).done(function(){
-					location.reload();
-				});
+		$.ajax({
+			url : likeurl,
+			type : 'POST',
+			contentType: 'application/json',
+			data : JSON.stringify(data),
+			success : function(result){
+				console.log(result.count);
+				let count = result.count;
+				if(count == 0){
+					console.log("좋아요 취소");
+					 $('#likecheck').val(0);
+					 $('#likebtn').attr('class','btn btn-light');
+					 $("#count").text( parseInt($("#count").text())-1);
+				}else if(count == 1){
+					console.log("좋아요!");
+					$('#likecheck').val(1);
+					$('#likebtn').attr('class','btn btn-danger');
+					 $("#count").text( parseInt($("#count").text())+1);   
+				}
+			}, error : function(result){
+				console.log("에러" + result.result)
+			}
 			
-		})//click
+			});
+		};
+		
+		$("#add").click(function (event) {         
+			//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
+			//event.preventDefault();          
+		    // Get form         
+		    var form = $('#fileUploadForm')[0];  	    
+		    // Create an FormData object          
+		    var data = new FormData(form);  	   
+		    // disabled the submit button         
+		    //$("#btnSubmit").prop("disabled", true);   
+		    
+		    $.ajax({             
+		    	type: "POST",          
+		        enctype: 'multipart/form-data',  
+		        url: "/review/insert",        
+		        data: data,          
+		        processData: false,    
+		        contentType: false,      
+		        cache: false,           
+		        timeout: 600000,       
+		        success: function (data) { 
+		        	location.reload();       
+		        	//$("#btnSubmit").prop("disabled", false);      
+		        },          
+		        error: function (e) {  
+		        	console.log("ERROR : ", e);     
+		            //$("#btnSubmit").prop("disabled", false);    
+		            alert("fail");      
+		         }     
+			});
+		});
 		$(".dbtn").click(function(){
 			let no = $(this).attr("id");
 			$.ajax({url:"/review/delete/"+no,
@@ -247,51 +323,10 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 			
 		})//click 
 		
-		$('#likebtn').click(function(){
-			likeupdate();
-		});
-		
-		function likeupdate(){
-			var root = getContextPath(),
-			likeurl = "/like/likeupdate",
-			id = $('#id').val(),
-			no = $('#no').val(),
-			count = $('#likecheck').val(),
-			data = {"ltmid" : id,
-					"ltbid" : no,
-					"count" : count};
-			
-		$.ajax({
-			url : root + likeurl,
-			type : 'POST',
-			contentType: 'application/json',
-			data : JSON.stringify(data),
-			success : function(result){
-				console.log("수정" + result.result);
-				if(count == 1){
-					console.log("좋아요 취소");
-					 $('#likecheck').val(0);
-					 $('#likebtn').attr('class','btn btn-light');
-				}else if(count == 0){
-					console.log("좋아요!");
-					$('#likecheck').val(1);
-					$('#likebtn').attr('class','btn btn-danger');
-				}
-			}, error : function(result){
-				console.log("에러" + result.result)
-			}
-			
-			});
-		};
-		
-		function getContextPath() {
-		    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
-		    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
-		} 
-		
-		
 	})//ready
 	
 	</script>
+
+
 	</body>
 </html>

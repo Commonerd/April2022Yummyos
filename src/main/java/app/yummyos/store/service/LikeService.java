@@ -25,6 +25,11 @@ public class LikeService {
 	}
 	
 	public void likeupdate(LikeDto likedto) {
-		likedao.likeupdate(likedto);
+		 likedao.likeupdate(likedto);
+	}
+
+	public int getAllltlike(int ltbid) {
+		// TODO Auto-generated method stub
+		return likedao.getAllltlike(ltbid);
 	}
 }

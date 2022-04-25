@@ -20,4 +20,6 @@ public interface MpickDao {
 	
 	int addReadcount(int no);
 	
+	List<MpickDto> AllSearchMpickList(Map<String, Object> m);
+	
 }

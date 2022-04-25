@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import app.yummyos.board.fstory.dto.FstoryDto;
-import app.yummyos.hashtag.dto.HashtagDto;
+
 
 @Mapper
 public interface FstoryDao {
@@ -23,5 +23,9 @@ public interface FstoryDao {
 	int countSearch(Map<String,Object> m);//전체 검색 글 수
 	
 	int addReadcount(int no);
+
+	List<FstoryDto> AllSearchFstoryList(Map<String, Object> m);
+
+
 
 }

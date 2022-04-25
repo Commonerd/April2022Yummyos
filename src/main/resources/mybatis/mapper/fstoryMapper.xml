@@ -22,8 +22,7 @@
 		delete from fstory where no=#{no}
 	</delete>
 
-	<select id="fstoryList" parameterType="map"
-		resultType="app.yummyos.board.fstory.dto.FstoryDto">
+	<select id="fstoryList" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
 		<![CDATA[
 		select * from
 		(select no, image, title, content, regdate, readcount, id, rownum r
@@ -65,5 +64,10 @@
 			 order by regdate desc)
 			where r >= #{start} AND r &lt;= #{end}
 	</select>
+	
+		<select id="AllSearchFstoryList" parameterType="map" resultType="app.yummyos.board.fstory.dto.FstoryDto">
+		select * from fstory where title like '%'||#{search}||'%' 
+	</select>
+	
 	
 </mapper>

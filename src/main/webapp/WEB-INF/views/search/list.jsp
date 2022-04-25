@@ -5,74 +5,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>메인 검색 글 목록</title>
+<title>SERACH LIST</title>
 <style>
 #center {
 	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 }
-
 table {
 	border: 1px solid black;
 	width: 700px;
 	border-collapse: collapse;
 }
-
-th {border: 1px solid black;
+th {
+	border: 1px solid black;
 	background-color: orange;
 	width: 150px;
 }
-td{border: 1px solid black;}
+td {
+	border: 1px solid black;
+}
 a {
 	margin: 10px auto;
 }
-
 #page {
 	text-align: center;
+}
+#hashTag_area {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
 }
 </style>
 </head>
 <body>
-	<div id="center">
-		<h1>게시글 목록</h1>
-		<c:if test="${count != 0 }">
+
+<div id="center">
+<h1>${search}로 검색한 결과입니다.</h1>
+		<h1>STORE</h1>
+	<%-- 	<c:if test="${size != 0 }"> --%>
 			<table>
 				<tr>
-					<th>식당 이름</th>
+					<th>순번</th>
+					<th>상호명</th>
+					<th>테마</th>
+					<th>조회수</th>
 				</tr>
-				<c:forEach items="${sList}" var="sList">
+				<tbody id="tbody">
+					<c:forEach items="${sList}" var="store">
+						<tr>
+							<td>${store.no}</td>
+							<td><a href="store/content/${store.no}">${store.name }</a></td>
+							<td>${store.category}</td>
+							<td>${store.view_count}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+				<%-- <span id="ltlikecount">${store.blike }</span> --%>
+			</table>
+		<%-- 	</c:if> --%>
+
+		<h1>FOODSTORY</h1>
+		<%-- <c:if test="${count != 0 }"> --%>
+			<table>
+				<tr>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+					<th>조회수</th>
+				</tr>
+				<c:forEach items="${fList}" var="fstory">
 					<tr>
-						<td><a href ="store/${store.no}">${store.name}</a></td>
-						<td>${store.id }</td>
+						<td><a href ="board/fstory/content/${fstory.no}">${fstory.title}</a></td>
+						<td>${fstory.id }</td>
+						<td><fmt:formatDate value="${fstory.regdate }" dateStyle="short"/> </td>
+						<td>${fstory.readcount }</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<div id="page">
-				<c:if test="${begin > pageNum }">
-					<a href="list?p=${begin-1 }">[이전]</a> <!-- ? 쿼리문자 = url에서 확인 -->
-				</c:if>
-				<c:forEach begin="${begin }" end="${end}" var="i">
-					<a href="list?p=${i}">${i}</a>
+		
+
+<%-- 		</c:if> --%>
+			<h1>MPICK</h1>
+		<%-- <c:if test="${count != 0 }"> --%>
+			<table>
+				<tr>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+					<th>조회수</th>
+				</tr>
+				<c:forEach items="${mList}" var="mpick">
+					<tr>
+						<td><a href="board/mpcik/content/${mpick.no}">${mpick.title}</a></td>
+						<td>${mpick.id}</td>
+						<td><fmt:formatDate value="${mpick.regdate }" dateStyle="short" /></td>
+						<td>${mpick.readcount }</td>
+					</tr>
 				</c:forEach>
-				<c:if test="${end < totalPages }">
-					<a href="list?p=${end+1}">[다음]</a>
-				</c:if>
-			</div>
+			</table>
+			
+<%-- 		</c:if> --%>
 
-		</c:if>
-	
-	</div>
 
-	<div id="search" align="center">
-		<form action="search">
-			<select name="searchn">
-				<option value=All">검색</option>
-				
-			</select> 
-			<input type="text" name="search" size="15" maxlength="50" /> 
-			<input type="submit" value="검색" />
-		</form>
+<c:if test="${count == 0 }">
+	아직 등록된 정보가 없습니다.
+</c:if>
 	</div>
 
 </body>

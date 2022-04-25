@@ -5,21 +5,21 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import app.yummyos.store.dto.StoreDto;
+import app.yummyos.board.fstory.dao.FstoryDao;
+import app.yummyos.board.mpick.dao.MpickDao;
+import app.yummyos.search.dto.SearchDto;
+import app.yummyos.store.dao.StoreDao;
 
 @Mapper
 public interface SearchDao {
-	List<StoreDto> boardList(Map<String, Object> m);
-	List<StoreDto> boardListSearch(Map<String, Object> m);
-	int countSearch(Map<String, Object> m);// 전체 검색 글 수
 	
-	/*
-	List<SearchDto> findAllByStoreAndCategory(StoreDto store, String category);
-	SearchDto findByStoreAndSearchname(StoreDto store, String searchname);
+	public static final StoreDao storeDao = null;
+	
+	public static final FstoryDao fstoryDao = null;
+	
+	public static final MpickDao mpickDao = null;
 
-	int countSearch(Map<String, Object> m);
-	List<StoreDto> findAll();
-	*/
+	List<SearchDto> searchList(Map<String,Object>m);
 
 	
 

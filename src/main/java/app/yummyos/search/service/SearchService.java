@@ -7,47 +7,49 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.yummyos.board.fstory.dao.FstoryDao;
+import app.yummyos.board.fstory.dto.FstoryDto;
+import app.yummyos.board.fstory.service.FstoryService;
+import app.yummyos.board.mpick.dao.MpickDao;
+import app.yummyos.board.mpick.service.MpickService;
+import app.yummyos.search.dao.SearchDao;
+import app.yummyos.search.dto.SearchDto;
 import app.yummyos.store.dao.StoreDao;
-import app.yummyos.store.dto.StoreDto;
+import app.yummyos.store.service.StoreService;
+
+
 
 @Service
 public class SearchService {
-	
 	@Autowired
-	StoreDao dao;
+	SearchDao searchDao;
+
+	@Autowired 
+	StoreDao storeDao;
+
+	@Autowired 
+	FstoryDao fstoyDao;
+	 
+	@Autowired
+	MpickDao mpickDao;
 	
+	StoreService storeService;
 	
-	public List<StoreDto> boardList(int start, int end){
-		Map<String, Object> m = new HashMap<String, Object>();
-		m.put("start", start);
-		m.put("end", end);
-		
-		return dao.storeList(m);
-	}
+	FstoryService fstoryService;
 	
-	public List<StoreDto> boardListSearch(int searchn, String search,int start, int end){
+	MpickService mpickService;
+	
+	public List<SearchDto> searchList(String search) {
 		Map<String,Object> m = new HashMap<String, Object>();
-		m.put("searchn",searchn);
 		m.put("search", search);
-		m.put("start", start);
-		m.put("end", end);
-		
-		return dao.storeListSearch(m);
+
+		return searchDao.searchList(m);
+	
 	}
-	public int countSearch(int searchn, String search) {
-		Map<String,Object> m = new HashMap<String, Object>();
-		m.put("searchn",searchn);
-		m.put("search", search);
-		return dao.countSearch(m);
-	}
+
+
+
+
 	
-	
-	
-	
-	/*
-	public boolean addStore(int no, String name); 
-	public List<TagsResponse> tagSearch();
-	List<SearchDto> storeList(int no);
-	public int countSearch(String searchn);
-	*/
+
 }

@@ -7,6 +7,14 @@
 <title>글 상세보기</title>
 </head>
 <body>
+	<c:if test="${ user.id != null }">
+		<a>${user.id}님</a>
+		<a href="/logout">로그아웃</a>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		<a href="/login">로그인</a>
+		<a href="/insert">회원가입</a>
+		</c:if>
 <table border="1">
 	<tr><td>제목</td><td>${dto.title}</td>
 	<tr><td>작성자</td><td>${dto.id}</td>
@@ -40,8 +48,8 @@
 	<c:forEach items="${cList}" var="comm">
 		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
 		<div>${comm.content} 
-		<c:if test="${comm.id == user.id }">
-		<button class="dbtn" id="${comm.cno}">삭제</button>
+		<c:if test="${ntcomm.id == user.id }">
+		<button class="dbtn" id="${ntcomm.cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
@@ -55,7 +63,7 @@
 			let no = $(this).attr("id");
 			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/list";
+				location.href="/board/notice/list";
 			})
 			return false;
 		})//click

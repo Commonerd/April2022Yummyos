@@ -1,6 +1,5 @@
 package app.yummyos.board.fstory.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,21 +9,12 @@ import org.springframework.stereotype.Service;
 
 import app.yummyos.board.fstory.dao.FstoryDao;
 import app.yummyos.board.fstory.dto.FstoryDto;
-import app.yummyos.hashtag.dao.HashtagDao;
-import app.yummyos.hashtag.dao.YummyoTagsDao;
-import app.yummyos.hashtag.dto.HashtagDto;
 
 @Service
 public class FstoryService {
 
 	@Autowired
 	FstoryDao dao;
-	
-	@Autowired
-	HashtagDao hashdao;
-	
-	@Autowired
-	YummyoTagsDao yummyoTagsdao; 
 	
 	public int count() {
 		return dao.count();
@@ -76,21 +66,16 @@ public class FstoryService {
 		
 		return dao.countSearch(m);
 	}
-/*
-		public List<HashtagDto> yummyoTagsdao(int no) {
-		
-		List<HashtagDto> list = new ArrayList<>();
-		list.addAll(yummyoTagsdao.yummyoTagsdao(no));
-		 list.addAll(yummyoTagsdao.loctags(no));
-		 list.addAll(yummyoTagsdao.withtags(no));
-		 list.addAll(yummyoTagsdao.moodtags(no));
-		 list.addAll(yummyoTagsdao.factags(no));
-		 list.addAll(yummyoTagsdao.agetags(no));
-		 
-		return list;
-	}
-	*/
 
+
+
+	public List<FstoryDto> AllSearchFstoryList(String search, int startRow, int endRow) {
+		Map<String,Object> m = new HashMap<String, Object>();
+		m.put("search", search);
+		m.put("start", startRow);
+		m.put("end", endRow);
+		return dao.AllSearchFstoryList(m);
+	}
 
 
 }

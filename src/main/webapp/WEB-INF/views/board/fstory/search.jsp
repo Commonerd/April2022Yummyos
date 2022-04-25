@@ -49,12 +49,12 @@ a {
 					<th>작성일</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="${fList}" var="fList">
+				<c:forEach items="${fList}" var="fstory">
 					<tr>
 						<td><a href ="content/${fstory.no}">${fstory.title}</a></td>
-						<td>${fList.id }</td>
+						<td>${fstory.id }</td>
 						<td><fmt:formatDate value="${fstory.regdate }" dateStyle="short"/> </td>
-						<td>${fList.readcount }</td>
+						<td>${fstory.readcount }</td>
 					</tr>
 				</c:forEach>
 			</table>
@@ -82,6 +82,8 @@ a {
 </select>
 <input type="text" name="search" size="15" maxlength="50" /> 
 <input type="submit" value="검색" />
+
+
 
 </form>	
 	</div>

@@ -2,34 +2,21 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="app.yummyos.search.dao.SearchDao">
 
-<select id="listAll" resultType="app.yummyos.store.dto.StoreDto">
-	select name, category, address, phone, menu from store 
-	order by riew_count desc
-		where r >= #{start} AND r &lt;= #{end}
-	
-</select>
+<mapper namespace ="app.yummyos.search.dao.SearchDao">
 
-	<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
-		select * from no, name, category, address, phone, menu, detail, map_lt, map_ln, view_count, rownum r
-		from (select *from store where 
-		<where>
-			<choose>
-				<when test="searchn  == All">name like '%'||#{keyword}||'%'
-											or category like '%'||#{keyword}||'%'
-											or menu like '%'||#{keyword}||'%'</when>
-			</choose>
-		</where>
-		 order by riew_count desc)
-		order by riew_count desc
-		) where r >= #{start} AND r &lt;= #{end}
-	
+	<select id="AllSearchstoreList" parameterType="map" resultType="app.yummyos.search.dto.SearchDto">
+		select * from store
+		where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%'
 	</select>
-	
-	
-	<select id="tags" ></select>
-	
-	
-	
+
+	<select id="AllSearchFstoryList" parameterType="map" resultType="app.yummyos.search.dto.SearchDto">
+		select * from fstory where title like '%'||#{search}||'%' OR content like '%'||#{search}||'%'
+	</select>
+
+	<select id="AllSearchMpickList" parameterType="map" resultType="app.yummyos.search.dto.SearchDto">
+		select * from mpick where title like '%'||#{search}||'%' OR content like '%'||#{search}||'%'
+
+	</select>
+
 </mapper>
