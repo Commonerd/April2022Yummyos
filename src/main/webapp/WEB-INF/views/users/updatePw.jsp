@@ -1,11 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>비밀번호찾기</title>
+<title>Insert title here</title>
+</head>
+
  <style>
             a {
                 color: #333;
@@ -107,6 +106,7 @@
                 font-size: 16px;
                 color: #fff;
                 background-color: #000;
+                text-align: center;
             }
             .login_append {
                 overflow: hidden;
@@ -123,62 +123,43 @@
         }
     }
     </style>
-</head>
+    
+    
 <body>
- <div class="inner_findPw" id="inner_findPw" style="display:block">
+<form method="post" class="form-signin" action="update_password" name="findform">
+<div class="inner_updatePw" id="inner_updatePw">
         <div class="login_tistory">
-            <form method="post" class="form-signin" action="find_password" name="findform">
-                <fieldset>
-                    <p>비밀번호 찾기</p>
-                    <legend class="screen_out">비밀번호 찾기 입력폼</legend>
-                    <div class="box_login">
-                        <div class="inp_text">
-                            <label for="id" class="screen_out">아이디</label>
-                            <input type="text" id="id" name="id" class="form-control" placeholder="아이디 입력"/>
-                        </div>
-                        <div class="inp_text">
-                            <label for="birth" class="screen_out">생년월일</label>
-                            <input type="text" id="birth" name="birth" placeholder="생년월일 입력 ex) 19800101">
-                        </div>
-                         <div class="inp_text">
-                            <label for="email" class="screen_out">이메일</label>
-                            <input type="email" id="email" name="email" placeholder="이메일주소 입력 ex) abc@abc.com">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn_findPw" id="btn_findPw" onclick="move()">찾기</button>
-                    <div class="login_append">
-                        <span class="txt_find">
-                            <a href="/loginform" class="link_find">로그인</a>
-                            /
-                            <a href="/findId" class="link_find">아이디 찾기</a>
-                            /
-                            <a href="/insert">회원 가입</a>
-                        </span>
-                    </div>
-                </fieldset>
-                </form>
-        </div>
-     </div>
+        <fieldset>
+			<p>비밀번호를 변경해주세요</p>
+                    <legend class="screen_out">비밀번호 변경 입력폼</legend>
+                    <div class="inp_text">
+					<input type="hidden" id="id" name="updateid" value="${updateid }">
+					<input type="password" id="password" name="password" class="form-control" placeholder="새로운 비밀번호를 입력해주세요"/>
+					</div>
+                     <div class="inp_text">
+					<input type="password" id="confirmpassword" name="confirmpassword" class="form-control" placeholder="비밀번호를 한 번 더 입력해주세요"/>
+					</div>
+					
+					<input type="button" class="btn_findPw" onclick="updatePassword()" value="비밀번호변경">
+					</fieldset>
+					</div>
+					</div>
+					</form>
+					<script type="text/javascript">
+		function updatePassword(){
+			if(document.findform.password.value==""){	
+				alert("비밀번호를 입력해주세요.");			
+				document.findform.password.focus();
+			} else if(document.findform.password.value != document.findform.confirmpassword.value){
+				alert("비밀번호가 일치하지 않습니다.");
+				document.findform.confirmpassword.focus();
+			} else {
+				document.findform.action="update_password";
+				alert("비밀번호가 성공적으로 변경되었습니다")
+				document.findform.submit();
+			}
+		}
+	</script>
 
-		<!--아이디와 비밀번호가 일치하지 않을 때-->
-		<c:if test="${check == 1}">
-			<script>
-			document.findform.id.value = "";
-			document.findform.birth.value = "";
-			document.findform.email.value = "";
-			alert("일치하는 정보가 없습니다.");
-			</script>
-		</c:if>
-
-		<!-- 아이디와 비밀번호가 일치할 때  -->
-		<c:if test="${check == 0 }">
-		<script type="text/javascript"> 
-		function move(){ location.href = /updatePw; } 
-		</script>
-</c:if>
-		
-		
-	
-	
 </body>
 </html>

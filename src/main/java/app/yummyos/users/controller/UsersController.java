@@ -101,7 +101,7 @@ public class UsersController {
 				model.addAttribute("updateid", user);
 			}
 			
-			return "users/findPassword";
+			return "users/updatePw";
 		}
 		
 	    // 비밀번호 바꾸기 실행

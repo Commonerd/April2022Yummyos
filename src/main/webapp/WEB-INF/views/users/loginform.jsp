@@ -4,67 +4,151 @@
 <html>
 <head>
 <title>로그인</title>
-</head>
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-
- <meta name="viewport" content="width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
 
 <style>
-.input-box{ position:relative; margin:10px 0; }
+a {
+    color: #333;
+    text-decoration: none;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+.inner_login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -145px 0 0 -160px;
+}
+.login_tistory{
+        position: relative;
+        width: 320px;
+        margin: 0 auto;
+    }
+.screen_out {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: 0;
+    text-indent: -9999px;    
+}
+body, button, input, select, td, textarea, th {
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}    
+fieldset, img {
+    border: 0;
+}
+.login_tistory .box_login {
+    margin: 35px 0 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.login_tistory .inp_text {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 18px 19px 19px;
+    box-sizing: border-box;
+}
+.inp_text input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    color: #000;
+    border: none;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
+.btn_login {
+    margin: 20px 0 0;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+}
+.login_append {
+    overflow: hidden;
+    padding: 15px 0 0;
+}
 
-.input-box > input{ background:transparent; border:none; border-bottom: solid 1px #ccc; padding:20px 0px 5px 0px; font-size:14pt; width:100%; }
+.login_append .txt_find {
+    float: right;
+    color: #777;
+}
+p {
+    text-align:center;
+     font-size: 20px;
+}
 
-input::placeholder{ color:transparent; }
-
-input:placeholder-shown + label{ color:#aaa; font-size:14pt; top:15px; }
-
-input:focus + label, label{ color:#8aa1a1; font-size:10pt; pointer-events: none; position: absolute; left:0px; top:0px; transition: all 0.2s ease ; -webkit-transition: all 0.2s ease; -moz-transition: all 0.2s ease; -o-transition: all 0.2s ease; }
-
-input:focus, input:not(:placeholder-shown){ border-bottom: solid 1px #8aa1a1; outline:none; }
-
+}}
 </style>
-<body>
-<header> 
-<h2>Login</h2> 
-</header> 
-<form:form action="login" method="POST" modelAttribute="command"> 
-<form:errors element="div"/>
-<div class="input-box"> 
-<input id="id" type="text" name="id" placeholder="아이디"><label for="username">아이디</label></div> 
-<div class="input-box"> 
-<input id="password" type="password" name="password" placeholder="비밀번호"> 
-<label for="password">비밀번호</label> 
-</div> 
-<button type="button" class="btn btn-danger" value="로그인"><input type="submit" value="로그인"></button>
-</form:form>
 
-<button type="button" class="btn btn-danger" value="회원가입"><a href="/insert">회원 가입</a></button>
-<button type="button" class="btn btn-danger" value="아이디찾기"><a href="/findId">아이디찾기</a></button>`
-<button type="button" class="btn btn-danger" value="비밀번호찾기"><a href="/findPassword">비밀번호찾기</a>
+</head>
 
 
-<div id="forgot">비밀번호 찾기</div> 
-<input type="submit" value="로그인"> 
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-	$(function(){
-		$("#login").click(function(){
-			let no = $(this).attr("id");
-			$.ajax({url:"/boa", method:"post"}
-			).done(function(){
-				location.href="/board/notice/list";
-			})
-			return false;
-		})//click
-</script>
-
-
+<div class="inner_login">
+    <div class="login_tistory">
+	 <form:form method="post" id="login" action="login" modelAttribute="command">
+ 		<form:errors element="div"/>
+            <input type="hidden" name="redirectUrl" value="https://blogpack.tistory.com/manage">
+            <fieldset>
+           <p>아이디와 비밀번호를 입력해주세요</p>
+            <legend class="screen_out">로그인 정보 입력폼</legend>
+            <div class="box_login">
+                <div class="inp_text">
+                <label for="id" class="screen_out">아이디</label>
+                 <input type="text" id="id" name="id" placeholder="ID" >
+                </div>
+                <div class="inp_text">
+                <label for="password" class="screen_out">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="Password" >
+                </div>
+            </div>
+            <button type="submit" class="btn_login">로그인</button>
+            <div class="login_append">
+                <span class="txt_find">
+                
+                <a href="/findId" class="link_find">아이디</a>
+                    / 
+                <a href="/findPassword" class="link_find">비밀번호 찾기</a>
+                	/
+                <a href="/insert">회원 가입</a>
+                </span>
+            </div>
+            
+            </fieldset>
+        </form:form>
+        
+    </div>
+</div>
 
 </body>
 </html>
