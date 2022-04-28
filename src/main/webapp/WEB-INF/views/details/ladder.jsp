@@ -5,19 +5,26 @@
 <head>
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+   crossorigin="anonymous">
 
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+   crossorigin="anonymous"></script>
+<script
+   src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+   crossorigin="anonymous"></script>
+<script
+   src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+   crossorigin="anonymous"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-          
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>룰렛</title>
-<meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
 
@@ -49,23 +56,28 @@ html, body, button {
     box-sizing: border-box;
 } */
 
+table, tr, td {
 
-.parent{
-    width: 90%;
-    margin: 10px auto;
-    overflow: hidden;
+border-collapse: collapse;
+
 }
+
+.cell_padding {
+
+padding : 1em;
+
+}
+
 .box-roulette {
     border: 1px solid red;
 	float:left;
     width:30%;
     box-sizing: border-box;
 }
-.map_wrap{
-	left:550px;
+.map_wrap{	
     border: 1px solid green;
     /* flex:1; */
-    margin: 0px 5%;
+    margin: 15px 15%;
     width:50%;
     box-sizing: border-box;
 }
@@ -83,7 +95,6 @@ button {
 
 .box-roulette {
 	position: relative;
-	top:-30px;
 	margin: 50px auto;
 	width: 500px;
 	height: 500px;
@@ -158,7 +169,7 @@ button {
 <style>
 .map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-.map_wrap {position:relative;width:60%;height:500px;}
+.map_wrap {position:relative;width:100%;height:500px;}
 #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
 .bg_white {background:#fff;}
 #menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
@@ -202,55 +213,75 @@ button {
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">메인</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <a class="navbar-brand" href="/">메인</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+         data-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false"
+         aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/details/ladder">오늘 뭐먹지?<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/store/list">맛집창고</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/board/notice/list">공지사항</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          테마맛집기행
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/">미디어픽</a>
-          <a class="dropdown-item" href="#">푸드스토리</a>
-        </div>
-      </li>
-    </ul>
-       <div id="search">
-   <form class="form-inline my-2 my-lg-0" action="/all/search">
-      <c:forEach items="${search}" var="search">
-         <a href="/search/search?search=${search}">${search}</a>
-      </c:forEach>
-         <br>
-         <input name="search" id="search" type="search" style="width: 800px;" class="form-control mr-sm-2" placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search">
-      <input type="submit" value="검색" class="btn btn-outline-success my-3 my-sm-0" style="color:black;border-color:black;" aria-label="Search">
-   </form>
-</div>
- <a href="loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
- <a href="/insert" id="join" class="btn btn-primary" style="width:120px; height:55px;">회원가입</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav ">
+            <li class="nav-item active"><a class="nav-link"
+               href="/details/ladder">오늘 뭐먹지?<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/store/list">맛집창고</a>
+            </li>
+            <li class="nav-item"><a class="nav-link"
+               href="/board/notice/list">공지사항</a></li>
+            <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> 테마맛집기행 </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/">미디어픽</a> <a
+                     class="dropdown-item" href="#">푸드스토리</a>
+               </div></li>
+         </ul>
+         <div id="search">
+            <form class="form-inline my-2 my-lg-0" action="/all/search">
+               <c:forEach items="${search}" var="search">
+                  <a href="/all/search?search=${search}">${search}</a>
+               </c:forEach>
+               <br> <input name="search" id="search" type="search"
+                  style="width: 500px;" class="form-control mr-sm-2"
+                  placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search"> <input
+                  type="submit" value="검색"
+                  class="btn btn-outline-success my-3 my-sm-0"
+                  style="color: black; border-color: black;" aria-label="Search">
+            </form>
+         </div>
+         <ul class="navbar-nav ml-auto">
+            <li><a href="loginform" id="login" class="btn btn-primary"
+               style="width: 100px; height: 40px;">로그인</a> <a href="/insert"
+               id="join" class="btn btn-primary"
+               style="width: 120px; height: 40px;">회원가입</a>
+         </ul>
+      </div>
+   </nav>
 
-  </div>
-</nav>
 
 
 
 
 
-<h4><span style="float:left;width:38%;"class="badge rounded-pill bg-warning text-dark">↓↓아래 룰렛버튼을 클릭해주세요↓↓</span></h4>
-<h4><span style="float:right;width:60%;"class="badge rounded-pill bg-warning text-dark">아래 지도에서 원하시는 맛집을 찾아보세요</span></h4>
-<div class= parent> 
+
+
+
+<table >
+
+<th>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">↓↓아래 룰렛버튼을 클릭해주세요↓↓</span></h4>
+</th>
+<th>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">아래 지도에서 원하시는 맛집을 찾아보세요</span></h4>
+</th>
+
+<tr>
+
+<td class="cell_padding">
+
 <div class="box-roulette">
 	<div class="markers"></div>
 	<button type="button" id="btn-start">
@@ -259,8 +290,10 @@ button {
 	<div class="roulette" id="roulette"></div>
 	
 </div>
+</td>
 
-<div class="map_wrap">
+<td class="cell_padding" width="100%">
+<div  class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:absolute;overflow:hidden;"></div>
 
     <div id="menu_wrap" class="bg_white">
@@ -277,6 +310,19 @@ button {
         <div id="pagination"></div>
     </div>
 </div>
+</td>
+
+</tr>
+
+
+
+
+</table>
+
+
+
+
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2937f4a07074c718e1c8b3e8a1f4f9b&libraries=services"></script>
 <script>
@@ -593,11 +639,11 @@ function removeAllChildNods(el) {
 					});
 
 					function rotation() {
-						let arr = ['패스트푸드','국밥','갈비','삼겹살','돈까스','치킨','피자','햄버거','일식','중식','한식'];
-						let n1 =  r(5, 9);
-						let n2 =  r(0, 360)
-						//var completeA = 360 * n1 + n2;
-						var completeA = 360 * 0 + n2;
+						let arr = ['국밥','갈비','삼겹살','돈까스','치킨','피자','햄버거','일식','중식','한식','패스트푸드'];
+						let n1 =  r(2, 4);
+						let n2 =  r(0, 359)
+						var completeA = 360 * n1 + n2;
+						//var completeA = 360 * 0 + n2;
 
 						$roulette.rotate({
 							angle: angle,
@@ -611,7 +657,7 @@ function removeAllChildNods(el) {
 								
 								console.log(currentA);
 								
-								let index = Math.ceil(n2/36);
+								let index = Math.floor(n2*11/360);
 							
 								console.log(arr[index] + ' '+index);
 								$("#keyword").val(arr[index]);
