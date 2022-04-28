@@ -9,24 +9,24 @@ import org.springframework.stereotype.Service;
 
 import app.yummyos.board.fstory.dao.FstoryDao;
 import app.yummyos.board.fstory.dto.FstoryDto;
+import app.yummyos.users.dto.UsersDto;
 
 @Service
 public class FstoryService {
 
 	@Autowired
 	FstoryDao dao;
-	
-	public int count() {
-		return dao.count();
+
+	public int count(String kind) {
+		return dao.count(kind);
 	}
+
 	
-	
-	
-	public List<FstoryDto> fstoryList(int start, int end){
+	public List<FstoryDto> fstoryList(int start, int end, String kind){
 		Map<String,Object> m = new HashMap<String, Object>();
 		m.put("start", start);
 		m.put("end", end);
-		
+		m.put("kind", kind);
 		return dao.fstoryList(m);	
 	}
 
@@ -47,7 +47,6 @@ public class FstoryService {
 	public int deleteFstory(int no) {
 		return dao.deleteFstory(no);
 	}
-	
 	public List<FstoryDto> fstoryListSearch(int searchn, String search,int start, int end) {
 		Map<String,Object> m = new HashMap<String,Object>();
 		m.put("searchn", searchn);
@@ -76,6 +75,8 @@ public class FstoryService {
 		m.put("end", endRow);
 		return dao.AllSearchFstoryList(m);
 	}
+
+
 
 
 }

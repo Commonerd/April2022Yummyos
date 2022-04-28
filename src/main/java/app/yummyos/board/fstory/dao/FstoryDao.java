@@ -14,7 +14,7 @@ public interface FstoryDao {
 	int insert(FstoryDto dto);
 	
 	List<FstoryDto> fstoryList(Map<String,Object> m);
-	int count(); //전체 글 갯수
+	int count(String kind); //전체 글 갯수
 	FstoryDto fstoryOne(int no);
 	int updateFstory(FstoryDto dto);
 	int deleteFstory(int no);
@@ -25,6 +25,8 @@ public interface FstoryDao {
 	int addReadcount(int no);
 
 	List<FstoryDto> AllSearchFstoryList(Map<String, Object> m);
+
+	
 
 
 
