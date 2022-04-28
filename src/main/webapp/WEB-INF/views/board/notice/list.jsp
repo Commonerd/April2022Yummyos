@@ -40,7 +40,7 @@
 }
 
 table {
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 	width: 700px;
 	border-collapse: collapse;
 }

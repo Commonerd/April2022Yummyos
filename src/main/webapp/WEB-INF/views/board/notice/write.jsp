@@ -142,7 +142,7 @@ p.count {
                <thead>
                   <tr>
                      <th colspan="2"
-                        style="background-color: #eeeeee; text-align: center;">게시글을 작성해주세요.
+                        style="background-color: #eeeeee; text-align: center;">공지사항을 작성해주세요.
                         </th>
                   </tr>
                </thead>
@@ -154,7 +154,6 @@ p.count {
                   </tr>
                   <tr align="left">
 
-                   
                   </tr>
                   <tr>
                      <td><div id="smarteditor">
