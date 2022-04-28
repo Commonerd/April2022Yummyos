@@ -10,8 +10,7 @@
 	<delete id="deleteMComm" parameterType="int">
 		delete from mp_comm where mp_cno = #{mp_cno}
 	</delete>
-	<select id="selectMComm" parameterType="int" 
-	resultType="app.yummyos.board.mpick.dto.MCommDto">
+	<select id="selectMComm" parameterType="int" resultType="app.yummyos.board.mpick.dto.MCommDto">
 		select * from mp_comm where mp_no = #{mp_no} order by regdate desc
 	</select>
 </mapper>

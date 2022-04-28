@@ -14,41 +14,41 @@ import app.yummyos.store.service.LikeService;
 @RestController
 public class likecontroller {
 
-	@Autowired
-	LikeService likeservice;
+   @Autowired
+   LikeService likeservice;
 
-	@PostMapping("/like/likeupdate")
-	public Map<String, String> likeupdate(@RequestBody LikeDto likedto) {
-		Map<String, String> map = new HashMap<String, String>();
+   @PostMapping("/like/likeupdate")
+   public Map<String, String> likeupdate(@RequestBody LikeDto likedto) {
+      Map<String, String> map = new HashMap<String, String>();
 
-		int ltlike = 0;
+      int ltlike = 0;
 
-		int check = likeservice.ltlikecount(likedto);
+      int check = likeservice.ltlikecount(likedto);
 
-		if (check == 0) {
+      if (check == 0) {
 
-			likeservice.likeinsert(likedto);// 좋아요 추가
-			map.put("count", "1");
-		
-		} else if (check == 1) {
-			try {
-				check = likeservice.ltlikegetinfo(likedto);
-				likedto.setCount(check);
-				
-				likeservice.likeupdate(likedto);
-				
-				ltlike = likeservice.ltlikegetinfo(likedto);
-				map.put("count", ltlike+"");
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+         likeservice.likeinsert(likedto);// 좋아요 추가
+         map.put("count", "1");
+      
+      } else if (check == 1) {
+         try {
+            check = likeservice.ltlikegetinfo(likedto);
+            likedto.setCount(check);
+            
+            likeservice.likeupdate(likedto);
+            
+            ltlike = likeservice.ltlikegetinfo(likedto);
+            map.put("count", ltlike+"");
+            
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
 
-		}
-		
-		System.out.println(map.get("count"));
-		
-		return map;
-	}
+      }
+      
+      System.out.println(map.get("count"));
+      
+      return map;
+   }
 
 }

@@ -6,28 +6,28 @@
 </head>
 <style>
 #center {
-	width: 500px;
-	margin-left: auto;
-	margin-right: auto;
+   width: 500px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 table {
-	border: 1px solid black;
-	width: 500px;
-	border-collapse: collapse;
+   border: 1px solid black;
+   width: 500px;
+   border-collapse: collapse;
 }
 
 th {border: 1px solid black;
-	background-color: Aquamarine;
-	width: 100px;
+   background-color: Aquamarine;
+   width: 100px;
 }
 td{border: 1px solid black;}
 a {
-	margin: 10px auto;
+   margin: 10px auto;
 }
 
 #page {
-	text-align: center;
+   text-align: center;
 }
 </style>
 
@@ -42,28 +42,28 @@ a {
 
 <body>
 
-<form action="addwishlist" method="get" id="addwishlist">	
+<form action="addwishlist" method="get" id="addwishlist">   
 <input type="submit" value="위시리스트 등록">
 </form>
 <table>
-				<tr>
-					<th>상호명</th>
-					<th>카테고리</th>
-					<th>전화번호</th>
-					<th>주소</th>
-					<th>메뉴</th>
-					<th>상세정보</th>
-				</tr>
-				<c:forEach items="${sList}" var="store">
-					<tr>	
-						<td>${store.no}"</td>
-						<td>${store.category}</td>
-						<td>${store.opentime}</td>
-						<td>${store.address}</td>
-					</tr>
-				</c:forEach>
-			</table>
-			
+            <tr>
+               <th>상호명</th>
+               <th>카테고리</th>
+               <th>전화번호</th>
+               <th>주소</th>
+               <th>메뉴</th>
+               <th>상세정보</th>
+            </tr>
+            <c:forEach items="${sList}" var="store">
+               <tr>   
+                  <td>${store.no}"</td>
+                  <td>${store.category}</td>
+                  <td>${store.opentime}</td>
+                  <td>${store.address}</td>
+               </tr>
+            </c:forEach>
+         </table>
+         
 
 <br>
 <br>

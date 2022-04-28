@@ -78,7 +78,11 @@ p {
 
 #center {
 <<<<<<< HEAD
+<<<<<<< HEAD
    width: 700px;
+=======
+   width: 500px;
+>>>>>>> refs/heads/master
    margin-left: auto;
    margin-right: auto;
 =======
@@ -91,7 +95,11 @@ p {
 table {
 <<<<<<< HEAD
    border: 1px solid black;
+<<<<<<< HEAD
    width: 700px;
+=======
+   width: 500px;
+>>>>>>> refs/heads/master
    border-collapse: collapse;
 =======
 	border: 1px solid black;
@@ -100,6 +108,11 @@ table {
 >>>>>>> refs/heads/master
 }
 
+<<<<<<< HEAD
+th {border: 1px solid black;
+   background-color: Aquamarine;
+   width: 100px;
+=======
 th {
 <<<<<<< HEAD
    border: 1px solid black;
@@ -297,6 +310,16 @@ a {
 </style>
 
 <body>
+<<<<<<< HEAD
+      <c:if test="${ user.id != null }">
+      <a>${user.id}님</a>
+      <a href="/logout">로그아웃</a>
+      </c:if>
+      <c:if test="${ user.id == null }">
+      <a href="/login">로그인</a>
+      <a href="/insert">회원가입</a>
+      </c:if>
+=======
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">메인</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -362,6 +385,7 @@ a {
 </nav>		
 >>>>>>> refs/heads/master
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -483,6 +507,82 @@ a {
       
       <div id="map" style="width:400px;height:300px;"></div>
 =======
+<table border="1">
+
+   <tr><td>상호명</td><td>${dto.name} 좋아요<span id="count">${allCount }</span></td>
+   <tr><td>카테고리</td><td>${dto.category}</td>
+   <tr><td>전화번호</td><td>${dto.phone}</td>
+   <tr><td>주소</td><td>${dto.address}</td>
+   <tr><td>메뉴</td><td>${dto.menu}</td>
+   <tr><td>조회수</td><td>${dto.view_count}</td>
+   <tr><td>해시태그</td><td>
+
+   <c:forEach items="${hash}" var="hashtag" begin="1">
+   <a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+   </c:forEach>
+
+   </td>
+
+   <tr><td colspan="2" align="right">
+   <c:if test="${ user.role == 'role_admin'}">
+   <a href="/store/update/${dto.no}">맛집 수정 </a> 
+   <a id="${dto.no}" href="#">맛집 삭제</a>
+   </c:if>
+
+   <a href="/store/list">목록 이동</a>
+               <c:choose>
+                  <c:when test="${ltlike ==0}">
+                     <button type="button" class="btn btn-light" id="likebtn">좋아요</button>
+                     <input type="hidden" id="likecheck" value="${ltlike }">
+                  </c:when>               
+                  <c:when test="${ltlike ==1}">
+                     <button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
+                     <input type="hidden" id="likecheck" value="${ltlike }">
+                  </c:when>
+               </c:choose>
+   <br>   
+   <c:if test="${ user.id != null }">
+   <button id="addwishlist" name="addwishlist">위시리스트 등록</button>
+   <a href="/wishlist">위시리스트 바로가기</a>
+   </c:if></td></tr>
+</table>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<script>
+
+//위시리스트 등록
+$("#addwishlist").click(function(){
+         let id = '${user.id}';
+         let store_no = ${dto.no};
+         let store_name = '${dto.name}';
+         let category = '${dto.category}';
+         
+         $.ajax({url:"/wishlist/add",
+               data:"no="+store_no+"&id="+id+"&name="+store_name+"&category="+category,
+               method:"post"
+         }).done(function(){
+               location.reload();
+            });
+         
+      })//click
+</script>
+
+<script>
+   //맛집 삭제
+   $(function(){
+      $("a[id]").click(function(){
+         let no = $(this).attr("id");
+         $.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
+         ).done(function(){
+            location.href="/store/list";
+         })
+         return false;
+      })//click
+   })//ready
+   
+>>>>>>> refs/heads/master
+=======
 			<div class="container">         
             <div class="row">
                <div class="col-md-4 mb-5" >
@@ -544,9 +644,37 @@ a {
 		})//click
 	})//ready
 	 
+>>>>>>> refs/heads/master
 
 </script>
 
+<<<<<<< HEAD
+<script>
+   $(function(){
+      $("a[id]").click(function(){
+         let no = $(this).attr("id");
+         $.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
+         ).done(function(){
+            location.href="/store/list";
+         })
+         return false;
+      })//click      
+   })//ready
+
+</script>
+
+
+<br>
+
+<p style="margin-top:-12px">
+    <em class="link">
+        <a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+            혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+        </a>
+    </em>
+</p>
+<div id="map" style="width:30%;height:300px;"></div>
+=======
 		<div class="container">         
             <div class="row">
                <div class="col-md-4 mb-5" style="position:abolute; top: -740px; left: 400px;">
@@ -605,6 +733,15 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 });    
 </script>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+   
+<hr>
+
+ <!-- 해시태그 -->
+=======
+>>>>>>> refs/heads/master
+>>>>>>> refs/heads/master
 
 
 <!--  cList -->
@@ -619,6 +756,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
       </div>
       <hr>
    </c:forEach>
+<<<<<<< HEAD
 </div>
 
 <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="position:absolute; top:1000px;left:400px;">
@@ -704,17 +842,36 @@ $("#addwishlist").click(function(){
 		</div>
 		<hr>
 	</c:forEach>
+=======
+>>>>>>> refs/heads/master
 </div>
 
+<<<<<<< HEAD
+<br>
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm">    
+  <textarea id="review" name="content" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><br>    
+  <input type="file" name="files">    
+=======
 <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="position:absolute; top:1000px;left:400px;">
 <h5 class="card-title">리뷰 등록 </h5>	
   <textarea id="review" name="content" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><br> 	
   <input type="file" name="files" style="color:black;"> 	
+>>>>>>> refs/heads/master
   <input type="hidden" name="store_no" value="${dto.no}">
   <input type="hidden" name="id" value="${user.id}">
  <button id="add" class="btn btn-dark">등록</button>
 </form>
 
+<<<<<<< HEAD
+<br>
+<br>
+<br>
+<br>
+
+<br>	
+
+<br>
+=======
 	
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -918,6 +1075,7 @@ $("#addwishlist").click(function(){
 
 <<<<<<< HEAD
    </body>
+<<<<<<< HEAD
    <footer>
    <div class="container">
       <footer class="row row-cols-5 py-5 my-5 border-top">
@@ -954,6 +1112,8 @@ $("#addwishlist").click(function(){
    </div>
    <div class="b-example-divider"></div>
    </footer>
+=======
+>>>>>>> refs/heads/master
 =======
 	</body>
 	<footer>

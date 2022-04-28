@@ -10,17 +10,17 @@ import app.yummyos.store.dto.ReviewDto;
 
 @Service
 public class ReviewService {
-	@Autowired
-	ReviewDao dao;
-	
-	public List<ReviewDto> selectReview(int store_no){
-		return dao.selectReview(store_no);
-	}
-	public int insertReview(ReviewDto dto) {
-		return dao.insertReview(dto);
-	}
-	public int deleteReview(int no) {
-		return dao.deleteReview(no);
-	}
-	
+   @Autowired
+   ReviewDao dao;
+   
+   public List<ReviewDto> selectReview(int store_no){
+      return dao.selectReview(store_no);
+   }
+   public int insertReview(ReviewDto dto) {
+      return dao.insertReview(dto);
+   }
+   public int deleteReview(int no) {
+      return dao.deleteReview(no);
+   }
+   
 }
