@@ -12,7 +12,7 @@ import app.yummyos.store.dto.StoreDto;
 public interface StoreDao {
 		int insertStore(StoreDto dto);
 		List<StoreDto> storeList(Map<String, Object> m);
-		int countStore();//전체글 갯수
+		int countStore(String kind);//전체글 갯수
 		StoreDto storeOne(int no);
 		int updateStore(StoreDto dto);
 		int deleteStore(int no);
@@ -21,9 +21,7 @@ public interface StoreDao {
 		int addViewcount(int no);
 		
 		public List<StoreDto> getstorelist(Map<String, Object> m);
-		
 		List<StoreDto> AllSearchStoreList(Map<String, Object> m);
-	
 		List<StoreDto> storeListView(Map<String, Object> m);
 
 	}

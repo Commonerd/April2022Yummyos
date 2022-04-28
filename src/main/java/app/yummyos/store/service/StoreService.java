@@ -14,6 +14,7 @@ import app.yummyos.store.dto.StoreDto;
 @Service
 public class StoreService {
 
+<<<<<<< HEAD
       @Autowired
       StoreDao dao;
       
@@ -51,6 +52,45 @@ public class StoreService {
          m.put("search", search);
          m.put("start", start);
          m.put("end", end);
+=======
+		@Autowired
+		StoreDao dao;
+		
+		public int count(String kind) {
+			return dao.countStore(kind);
+		}
+		
+		public int insertStore(StoreDto dto) {
+			return dao.insertStore(dto);
+		}
+		
+		public StoreDto storeOne(int no) {
+			dao.addViewcount(no);
+			System.out.println("실행");
+			return dao.storeOne(no);
+		}
+		public int updateStore(StoreDto dto) {
+			return dao.updateStore(dto);
+		}
+		public int deleteStore(int no) {
+			return dao.deleteStore(no);
+		}
+		
+		public List<StoreDto> storeList(int start, int end, String kind){
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("start", start);
+			m.put("end", end);
+			m.put("kind", kind);
+			return dao.storeList(m);	
+		}
+		
+		public List<StoreDto> storeListSearch(int searchn, String search, int start, int end){
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("searchn", searchn);
+			m.put("search", search);
+			m.put("start", start);
+			m.put("end", end);
+>>>>>>> refs/heads/master
 
          return dao.storeListSearch(m);
       }
@@ -63,6 +103,7 @@ public class StoreService {
          return dao.countSearch(m);
       }
 
+<<<<<<< HEAD
       public List<StoreDto> getstorelist(int start, int end){
          Map<String,Object> m = new HashMap<String, Object>();
          m.put("start", start);
@@ -70,6 +111,16 @@ public class StoreService {
          
          return dao.getstorelist(m);   
       }
+=======
+		public List<StoreDto> getstorelist(int start, int end, String kind){
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("start", start);
+			m.put("end", end);
+			m.put("kind", kind);
+			
+			return dao.getstorelist(m);	
+		}
+>>>>>>> refs/heads/master
 
       public List<StoreDto> AllSearchStoreList(String search, int startRow, int endRow) {
          Map<String,Object> m = new HashMap<String, Object>();
@@ -81,6 +132,7 @@ public class StoreService {
       }
 
 
+<<<<<<< HEAD
       public List<StoreDto> storeListView(int start, int end){
          Map<String,Object> m = new HashMap<String, Object>();
          m.put("start", start);
@@ -89,5 +141,16 @@ public class StoreService {
          return dao.storeListView(m);   
       }
       
+=======
+		public List<StoreDto> storeListView(int start, int end, String kind){
+			Map<String,Object> m = new HashMap<String, Object>();
+			m.put("start", start);
+			m.put("end", end);
+			m.put("end", end);
+			m.put("kind", kind);
+			return dao.storeListView(m);	
+		}
+		
+>>>>>>> refs/heads/master
 
 }

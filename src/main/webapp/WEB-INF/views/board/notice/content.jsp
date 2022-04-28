@@ -48,8 +48,8 @@
 	<c:forEach items="${cList}" var="comm">
 		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
 		<div>${comm.content} 
-		<c:if test="${comm.id == user.id }">
-		<button class="dbtn" id="${comm.cno}">삭제</button>
+		<c:if test="${ntcomm.id == user.id }">
+		<button class="dbtn" id="${ntcomm.cno}">삭제</button>
 		</c:if>
 		</div>
 		<hr>
@@ -63,7 +63,7 @@
 			let no = $(this).attr("id");
 			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/list";
+				location.href="/board/notice/list";
 			})
 			return false;
 		})//click

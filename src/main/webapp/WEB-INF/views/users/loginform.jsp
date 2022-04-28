@@ -4,123 +4,151 @@
 <html>
 <head>
 <title>로그인</title>
-</head>
-<body>
-<h5>id와 password를 입력하세요</h5>
-<form:form action="login" method="post" modelAttribute="command">
-<form:errors element="div"/>
-<table border="1" cellpadding="0" cellspacing="0">				
-	<tr>
-		<td bgcolor="Aquamarine" >아이디</td>
-		<td><input name="id" type="text" size="20"></td>
-	</tr>
-	<tr>
-		<td bgcolor="Aquamarine" >비밀번호</td>
-		<td><input name="password" type="password" size="20"></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-			<input type="submit" value="로그인">
-			<a href="/insert">회원 가입</a>
-			<a href="/findId">아이디찾기</a>
-			<a href="/findPassword">비밀번호찾기</a>
 
-		</td>  
-	</tr>
-</table>
-</form:form>	
-<!-- e2937f4a07074c718e1c8b3e8a1f4f9b -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<ul>
-	<li onclick="kakaoLogin();">
-      <a href="javascript:void(0)">
-          <span>카카오 로그인</span>
-      </a>
-	</li>
-	<li onclick="kakaoLogout();">
-      <a href="javascript:void(0)">
-          <span>카카오 로그아웃</span>
-      </a>
-	</li>
-</ul>
-<!-- 카카오 스크립트 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script>
-Kakao.init('e2937f4a07074c718e1c8b3e8a1f4f9b'); //발급받은 키 중 javascript키를 사용해준다.
-console.log(Kakao.isInitialized()); // sdk초기화여부판단
-//카카오로그인
-function kakaoLogin() {
-    Kakao.Auth.login({
-      success: function (response) {
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: function (response) {
-        	  console.log(response)
-          },
-          fail: function (error) {
-            console.log(error)
-          },
-        })
-      },
-      fail: function (error) {
-        console.log(error)
-      },
-    })
-  }
-//카카오로그아웃  
-function kakaoLogout() {
-    if (Kakao.Auth.getAccessToken()) {
-      Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-        	console.log(response)
-        },
-      
-        fail: function (error) {
-          console.log(error)
-        },
-      })
-      Kakao.Auth.setAccessToken(undefined)
-      
+<style>
+a {
+    color: #333;
+    text-decoration: none;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+.inner_login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -145px 0 0 -160px;
+}
+.login_tistory{
+        position: relative;
+        width: 320px;
+        margin: 0 auto;
     }
-  }  
-</script>
+.screen_out {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: 0;
+    text-indent: -9999px;    
+}
+body, button, input, select, td, textarea, th {
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}    
+fieldset, img {
+    border: 0;
+}
+.login_tistory .box_login {
+    margin: 35px 0 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.login_tistory .inp_text {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 18px 19px 19px;
+    box-sizing: border-box;
+}
+.inp_text input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    color: #000;
+    border: none;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
+.btn_login {
+    margin: 20px 0 0;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000;
+}
+.login_append {
+    overflow: hidden;
+    padding: 15px 0 0;
+}
 
- <a href="javascript:kakaoLogin();"><img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" alt="카카오계정 로그인" style="height: 100px;"/></a>
- <a href="javascript:kakaoLogout();"><img src="./kakao_logout.png" alt="카카오계정 로그아웃" style="height: 100px;"/></a>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>
-        window.Kakao.init('e2937f4a07074c718e1c8b3e8a1f4f9b');
+.login_append .txt_find {
+    float: right;
+    color: #777;
+}
+p {
+    text-align:center;
+     font-size: 20px;
+}
 
-        function kakaoLogin() {
-            window.Kakao.Auth.login({
-                scope: 'profile_nickname, account_email, gender, birthday', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
-                success: function(response) {
-                    console.log(response) // 로그인 성공하면 받아오는 데이터
-                    window.Kakao.API.request({ // 사용자 정보 가져오기 
-                        url: '/v2/user/me',
-                        success: (res) => {
-                            const kakao_account = res.kakao_account;
-                            console.log(kakao_account)
-                        }
-                    });
-                   window.location.href='/store/list' //리다이렉트 되는 코드
-                },
-                fail: function(error) {
-                    console.log(error);
-                }
-            });
-        }
-    	function kakaoLogout() {
-        	if (!Kakao.Auth.getAccessToken()) {
-    		    console.log('Not logged in.');
-    		    return;
-    	    }
-    	    Kakao.Auth.logout(function(response) {
-        		alert(response +' logout');
-    		    window.location.href='/'
-    	    });
-    };
-    </script>
+}}
+</style>
+
+</head>
+
+
+<div class="inner_login">
+    <div class="login_tistory">
+	 <form:form method="post" id="login" action="login" modelAttribute="command">
+ 		<form:errors element="div"/>
+            <input type="hidden" name="redirectUrl" value="https://blogpack.tistory.com/manage">
+            <fieldset>
+           <p>아이디와 비밀번호를 입력해주세요</p>
+            <legend class="screen_out">로그인 정보 입력폼</legend>
+            <div class="box_login">
+                <div class="inp_text">
+                <label for="id" class="screen_out">아이디</label>
+                 <input type="text" id="id" name="id" placeholder="ID" >
+                </div>
+                <div class="inp_text">
+                <label for="password" class="screen_out">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="Password" >
+                </div>
+            </div>
+            <button type="submit" class="btn_login">로그인</button>
+            <div class="login_append">
+                <span class="txt_find">
+                
+                <a href="/findId" class="link_find">아이디</a>
+                    / 
+                <a href="/findPassword" class="link_find">비밀번호 찾기</a>
+                	/
+                <a href="/insert">회원 가입</a>
+                </span>
+            </div>
+            
+            </fieldset>
+        </form:form>
+        
+    </div>
+</div>
+
 </body>
 </html>
