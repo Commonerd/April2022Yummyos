@@ -76,6 +76,7 @@ public class StoreService {
          m.put("search", search);
          m.put("start", startRow);
          m.put("end", endRow);
+     
          return dao.AllSearchStoreList(m);
       }
 

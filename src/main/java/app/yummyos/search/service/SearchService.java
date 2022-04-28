@@ -39,17 +39,15 @@ public class SearchService {
 	
 	MpickService mpickService;
 	
-	public List<SearchDto> searchList(String search) {
-		Map<String,Object> m = new HashMap<String, Object>();
-		m.put("search", search);
-
+	public List<SearchDto> searchList(String search, int start, int end){
+	      
+	      Map<String, Object> m = new HashMap<String, Object>();
+	      m.put("start", start);
+	      m.put("end", end);   
+	      m.put("search", search);
 		return searchDao.searchList(m);
 	
 	}
 
-
-
-
-	
 
 }

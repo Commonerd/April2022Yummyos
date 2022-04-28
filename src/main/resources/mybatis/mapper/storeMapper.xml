@@ -87,7 +87,7 @@ select * from store where no = #{no}
 
    <select id="AllSearchStoreList" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
       select * from store
-      where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%'
+      where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%' OR menu like '%'||#{search}||'%'
    </select>
 
 <select id="storeListView"

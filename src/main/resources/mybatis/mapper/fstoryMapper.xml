@@ -34,8 +34,7 @@
 		select count(*) from fstory
 	</select>
 
-	<select parameterType="int" id="fstoryOne"
-		resultType="app.yummyos.board.fstory.dto.FstoryDto">
+	<select parameterType="int" id="fstoryOne" resultType="app.yummyos.board.fstory.dto.FstoryDto">
 		select * from fstory where no=#{no}
 	</select>
 

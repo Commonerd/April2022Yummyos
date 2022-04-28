@@ -59,7 +59,7 @@ a {
       </c:if>
 
 <table border="1">
-<<<<<<< HEAD
+
    <tr><td>상호명</td><td>${dto.name} 좋아요<span id="count">${allCount }</span></td>
    <tr><td>카테고리</td><td>${dto.category}</td>
    <tr><td>전화번호</td><td>${dto.phone}</td>
@@ -67,20 +67,6 @@ a {
    <tr><td>메뉴</td><td>${dto.menu}</td>
    <tr><td>조회수</td><td>${dto.view_count}</td>
    <tr><td>해시태그</td><td>
-=======
-	<tr><td>상호명</td><td>${dto.name} 좋아요<span id="count">${allCount }</span></td>
-	<tr><td>카테고리</td><td>${dto.category}</td>
-	<tr><td>전화번호</td><td>${dto.phone}</td>
-	<tr><td>주소</td><td>${dto.address}</td>
-	<tr><td>메뉴</td><td>${dto.menu}</td>
-	<tr><td>조회수</td><td>${dto.view_count}</td>
-	<tr><td>해시태그</td><td>
-
-	<c:forEach items="${hash}" var="hashtag" begin="1">
-	<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
-	</c:forEach>
-	</td>
->>>>>>> refs/heads/master
 
    <c:forEach items="${hash}" var="hashtag" begin="1">
    <a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
@@ -248,10 +234,9 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 <br>
 <br>
 <br>
-<<<<<<< HEAD
-=======
+
 <br>	
->>>>>>> refs/heads/master
+
 <br>
 
 
