@@ -11,5 +11,6 @@ public interface NtCommDao {
 	List<NtCommDto> selectNtComm(int no);
 	int insertNtComm(NtCommDto dto);
 	int deleteNtComm(int cno);
+	
 }
 
