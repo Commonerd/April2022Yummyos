@@ -34,6 +34,30 @@ public class MpickController {
 		return new UsersDto();
 	}
 
+	@GetMapping("/footer/tservice")
+	public String moveTservice() {
+		return "/footer/tservice";
+	}
+	
+	@GetMapping("/footer/nmembers")
+	public String moveNmembers() {
+		return "/footer/nmembers";
+	}
+	@GetMapping("/footer/gps")
+	public String moveGps() {
+		return "/footer/gps";
+	}
+	
+	@GetMapping("/footer/inquiry")
+	public String moveInquiry() {
+		return "/footer/inquiry";
+	}
+	
+	@GetMapping("/footer/privacy")
+	public String movePrivacy() {
+		return "/footer/privacy";
+	}
+	
 	@GetMapping("/board/mpick/write")
 	public String writeForm(@ModelAttribute("user") UsersDto dto) {
 		return "board/mpick/write";
@@ -49,16 +73,16 @@ public class MpickController {
 	//전체 글 갯수에 맞춰 페이징 처리
 	
 	@RequestMapping("/board/mpick/list")
-	public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
-
+	public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
+		System.out.println("kind"+kind);
 		//글이 있는지 체크
-		int count = service.count();
+		int count = service.count(kind);
 		if(count > 0 ) {
-		int perPage = 10; // 한 페이지에 보일 글의 갯수
+		int perPage = 6; // 한 페이지에 보일 글의 갯수
 		int startRow = (page - 1) * perPage + 1;
 		int endRow = page * perPage;
 		
-		List<MpickDto> mpickList = service.mpickList(startRow, endRow);
+		List<MpickDto> mpickList = service.mpickList(startRow, endRow, kind);
 		m.addAttribute("mList", mpickList);
 
 		int pageNum = 5;
@@ -74,7 +98,9 @@ public class MpickController {
 		m.addAttribute("pageNum", pageNum);
 		m.addAttribute("totalPages", totalPages);
 		}
+		m.addAttribute("page", page);
 		m.addAttribute("count", count);
+		m.addAttribute("kind", kind);
 		return "board/mpick/list";
 	}
 	

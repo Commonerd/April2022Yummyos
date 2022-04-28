@@ -16,19 +16,27 @@ public class MpickService {
 	@Autowired
 	MpickDao dao;
 	
-	public int count() {
-		return dao.count();
+	public int count(String kind) {
+		return dao.count(kind);
 	}
 	
-	public List<MpickDto> mpickList(int start, int end){
+	public List<MpickDto> mpickList(int start, int end, String kind){
 		
 		Map<String, Object> m = new HashMap<String, Object>();
 		m.put("start", start);
 		m.put("end", end);
+		m.put("kind", kind);
 		return dao.mpickList(m);
 	}
 	
 	public int insert(MpickDto dto) {
+		String title = dto.getTitle();
+		
+		if(title.indexOf("맛있는") >= 0) {
+			dto.setImage("d.jpg");
+		}else if(title.indexOf("수요미식회") >= 0) {
+			dto.setImage("wed.jpg");
+		}
 		return dao.insert(dto);
 	}
 	

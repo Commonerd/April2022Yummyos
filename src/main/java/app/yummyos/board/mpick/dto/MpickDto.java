@@ -14,5 +14,7 @@ public class MpickDto {
 	private String content;
 	private Date regdate;
 	private int readcount;
+	private String stitle;
+	private int kind;
 	
 }

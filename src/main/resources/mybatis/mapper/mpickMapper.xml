@@ -4,8 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="app.yummyos.board.mpick.dao.MpickDao">
 
+<sql id="kindPick">
+<where>
+<if test="kind == null">
+			
+		</if> 
+<if test="kind == 1">
+			title like '%'||'맛있는 녀석들'||'%'
+		</if> 
+		
+		<if test="kind == 2">
+			title like '%'||'수요미식회'||'%'
+		</if>
+</where>
+</sql>
+
+
 <insert parameterType="app.yummyos.board.mpick.dto.MpickDto" id="insert"> 
-insert into mpick(no, image, title, content, regdate, id) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}) </insert>
+insert into mpick(no, image, title, content, regdate, id, stitle) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}, #{stitle}) </insert>
 
 <update parameterType="app.yummyos.board.mpick.dto.MpickDto" id="updateMpick"> 
 update mpick set title=#{title}, content=#{content} where no=#{no} </update>
@@ -17,16 +33,22 @@ update mpick set title=#{title}, content=#{content} where no=#{no} </update>
 
 <select parameterType="map" id="mpickList" resultType="app.yummyos.board.mpick.dto.MpickDto">
 
-<![CDATA[
+
 		select * from
-		(select no, image, title, content, regdate, readcount, id, rownum r
-		from (select * from mpick order by regdate desc)
-		order by regdate desc)where r >= #{start} AND r <= #{end}
- 		]]>
+		(select no, image, title, content, regdate, readcount, id, stitle, rownum r
+		from (select * from mpick
+		
+		<include refid="kindPick"></include>
+		
+		 order by regdate desc)
+		order by regdate desc)where r >= #{start} AND r &lt;= #{end}
+ 		
 
 </select>
 
-<select id="count" resultType="int"> select count(*) from mpick </select>
+<select id="count" resultType="int" parameterType="string"> select count(*) from mpick <include refid="kindPick"></include> </select>
+
+
 <select parameterType="int" id="mpickOne" resultType="app.yummyos.board.mpick.dto.MpickDto"> 
 select * from mpick where no = #{no} </select>
 
@@ -45,7 +67,7 @@ select * from mpick where no = #{no} </select>
 <select id="mpickListSearch" parameterType="map" resultType="app.yummyos.board.mpick.dto.MpickDto">
 		
 		select * from
-		(select no, image, title, content, regdate, readcount, id, rownum r
+		(select no, image, title, content, regdate, readcount, id, stitle, rownum r
 		from (select * from mpick order by regdate desc) 
 		<where>
 			<choose>
