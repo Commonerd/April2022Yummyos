@@ -18,6 +18,7 @@
     
           
 </head>
+
 <style>
 #login {
 	margin-right:0px;
@@ -31,9 +32,8 @@ margin-right:5px;
   box-sizing: content-box;
 }
 
-
 h1 {
- color: red;
+ color: black;
  text-align:center;
   padding:50px;
    margin: 20px;
@@ -84,8 +84,9 @@ a {
 </style>
 <body>
 
+<div id=cooking>
 <h1>언제 어디서든 JMT 식사하세요, 야미요</h1>
-	
+	</div>
 	
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">메인</a>
@@ -103,14 +104,14 @@ a {
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/board/notice/list">공지사항</a>
-      </li>
+      </li>	
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           테마맛집기행
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/">미디어픽</a>
-          <a class="dropdown-item" href="#">푸드스토리</a>
+          <a class="dropdown-item" href="/board/mpick/list">미디어픽</a>
+          <a class="dropdown-item" href="/board/fstory/list">푸드스토리</a>
         </div>
       </li>
     </ul>
@@ -124,9 +125,25 @@ a {
 		<input type="submit" value="검색" class="btn btn-outline-success my-3 my-sm-0" style="color:black;border-color:black;" aria-label="Search">
 	</form>
 </div>
- <a href="loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
- <a href="/insert" id="join" class="btn btn-primary" style="width:120px; height:55px;">회원가입</a>
 
+<c:if test="${ user.id != null }">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ${user.id}님 환영합니다
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="wishlist">위시리스트</a>
+          <a class="dropdown-item" href="update">회원 정보 수정</a>
+          <a class="dropdown-item" href="logout">로그아웃</a>
+        </div>
+      </li>
+		</c:if>
+		<c:if test="${ user.id == null }">
+		 <a href="loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
+ 		<a href="/insert" id="join" class="btn btn-primary" style="width:120px; height:55px;">회원가입</a>
+		</c:if>
   </div>
 </nav>
 
@@ -142,6 +159,10 @@ a {
                      <div class="card-body">
                         <h5 class="card-title">${store.name}</h5>
                         <h6 class="card-text">${store.category}</h6>
+                        <h6 class="card-text">${store.detail}</h6>
+                        <c:forEach items="${hash}" var="hashtag" begin="1">
+						<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+						</c:forEach>
                         <p class="card-text">좋아요♥ ${store.blike}</p>
                         <a href="/store/content/${store.no}" class="btn btn-primary">맛집보기</a>
                      </div>
@@ -150,18 +171,7 @@ a {
             </c:forEach>
             </div>   
 				
-				<%-- <span id="ltlikecount">${store.blike }</span> --%>
-			<div id="page">
-				<c:if test="${begin > pageNum }">
-					<a href="/?p=${begin-1 }">[이전]</a>
-				</c:if>
-				<c:forEach begin="${begin }" end="${end}" var="i">
-					<a href="/?p=${i}">${i}</a>
-				</c:forEach>
-				<c:if test="${end < totalPages }">
-					<a href="/?p=${end+1}">[다음]</a>
-				</c:if>
-			</div>
+				
 
 		</c:if>
 		<c:if test="${count == 0 }">
@@ -174,53 +184,38 @@ a {
 </body>
 <footer>
 <div class="container">
-  <footer class="row row-cols-5 py-5 my-5 border-top">
-    <div class="col">
-      <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      </a>
-      <p class="text-muted">&copy; 2021</p>
-    </div>
+      <footer class="row row-cols-5 py-5 my-5 border-top">
+         <div class="col">
+            <a href="/"
+               class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+               <svg class="bi me-2" width="40" height="32">
+                  <use xlink:href="#bootstrap" /></svg>
+            </a>
+            <p class="text-muted">&copy; 2022 YUMMYO Project </p>
+         </div>
 
-    <div class="col">
+         <div class="col"></div>
+         <div class="col">
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2"><a href="/footer/tservice"
+                  class="nav-link p-0 text-muted">이용약관</a></li>
+               <li class="nav-item mb-2"><a href="/footer/nmembers"
+                  class="nav-link p-0 text-muted">비회원 이용정책</a></li>
+               <li class="nav-item mb-2"><a href="/footer/gps"
+                  class="nav-link p-0 text-muted">위치기반 서비스 이용약관</a></li>
+            </ul>
+         </div>
 
-    </div>
-
-    <div class="col">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-      </ul>
-    </div>
-
-    <div class="col">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-      </ul>
-    </div>
-
-    <div class="col">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-      </ul>
-    </div>
-  </footer>
-</div>
-
-<div class="b-example-divider"></div>
+         <div class="col">            
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2"><a href="/footer/inquiry"
+                  class="nav-link p-0 text-muted">문의하기</a></li>
+               <li class="nav-item mb-2"><a href="/footer/privacy"
+                  class="nav-link p-0 text-muted">개인정보 처리방침</a></li>
+            </ul>
+         </div>
+      </footer>
+   </div>
+   <div class="b-example-divider"></div>
 </footer>
 </html>

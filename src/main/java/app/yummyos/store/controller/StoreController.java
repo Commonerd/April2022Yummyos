@@ -81,16 +81,16 @@ public class StoreController {
 		//전체 글 갯수에 맞춰 페이징 처리
 		
 		@RequestMapping("store/list")
-		public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
+		public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
 
 			//글이 있는지 체크
-			int count = service.count();
+			int count = service.count(kind);
 			if(count > 0 ) {
-			int perPage = 20; // 한 페이지에 보일 글의 갯수
+			int perPage = 9; // 한 페이지에 보일 글의 갯수
 			int startRow = (page - 1) * perPage + 1;
 			int endRow = page * perPage;
 			
-			List<StoreDto> storeList = service.getstorelist(startRow, endRow);
+			List<StoreDto> storeList = service.getstorelist(startRow, endRow, kind);
 			m.addAttribute("sList", storeList);
 			
 			System.out.println(storeList);
@@ -108,22 +108,24 @@ public class StoreController {
 			m.addAttribute("pageNum", pageNum);
 			m.addAttribute("totalPages", totalPages);
 			}
+			m.addAttribute("page", page);
 			m.addAttribute("count", count);
+			m.addAttribute("kind", kind);
 			return "store/list";
 		}
 		
 		@RequestMapping("/")
-		public String indexlist(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
+		public String indexlist(@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
 			
 			//글이 있는지 체크
-			int count = service.count();
+			int count = service.count(kind);
 			System.out.println("count"+count);
 			if(count > 0 ) {
 			int perPage = 9; // 한 페이지에 보일 글의 갯수
 			int startRow = (page - 1) * perPage + 1;
 			int endRow = page * perPage;
 			
-			List<StoreDto> storeListView = service.storeListView(startRow, endRow);
+			List<StoreDto> storeListView = service.storeListView(startRow, endRow, kind);
 			m.addAttribute("sList", storeListView);
 
 			int pageNum = 5;
@@ -140,9 +142,11 @@ public class StoreController {
 			m.addAttribute("totalPages", totalPages);
 			}
 			m.addAttribute("count", count);
+			m.addAttribute("kind", kind);
 			return "store/index";
 		}
-
+		
+		
 
 
 		@Autowired

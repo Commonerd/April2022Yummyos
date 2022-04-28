@@ -17,8 +17,8 @@ public class StoreService {
 		@Autowired
 		StoreDao dao;
 		
-		public int count() {
-			return dao.countStore();
+		public int count(String kind) {
+			return dao.countStore(kind);
 		}
 		
 		public int insertStore(StoreDto dto) {
@@ -37,11 +37,11 @@ public class StoreService {
 			return dao.deleteStore(no);
 		}
 		
-		public List<StoreDto> storeList(int start, int end){
+		public List<StoreDto> storeList(int start, int end, String kind){
 			Map<String,Object> m = new HashMap<String, Object>();
 			m.put("start", start);
 			m.put("end", end);
-			
+			m.put("kind", kind);
 			return dao.storeList(m);	
 		}
 		
@@ -63,10 +63,11 @@ public class StoreService {
 			return dao.countSearch(m);
 		}
 
-		public List<StoreDto> getstorelist(int start, int end){
+		public List<StoreDto> getstorelist(int start, int end, String kind){
 			Map<String,Object> m = new HashMap<String, Object>();
 			m.put("start", start);
 			m.put("end", end);
+			m.put("kind", kind);
 			
 			return dao.getstorelist(m);	
 		}
@@ -80,11 +81,12 @@ public class StoreService {
 		}
 
 
-		public List<StoreDto> storeListView(int start, int end){
+		public List<StoreDto> storeListView(int start, int end, String kind){
 			Map<String,Object> m = new HashMap<String, Object>();
 			m.put("start", start);
 			m.put("end", end);
-			
+			m.put("end", end);
+			m.put("kind", kind);
 			return dao.storeListView(m);	
 		}
 		

@@ -152,7 +152,7 @@ h3 {
 <body>
 <div class="inner_login">
     <div class="login_tistory">
-
+	
 <form action="update" method="post" id="updateform">
 <input type="hidden" name="_method" value="put">
 <h3>${user.id}님의 정보를 수정합니다.</h3>
@@ -184,6 +184,12 @@ h3 {
                 </div>
                 <hr>
 				<button type="submit" class="btn_login" id="btn_join">수정</button>
+				<div class="login_append">
+                <span class="txt_find">
+                
+                <a href="/findId" class="link_find">회원탈퇴</a>
+                /
+                <a href="/" class="link_find">메인으로 돌아가기</a>
 </form>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

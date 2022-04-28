@@ -125,7 +125,6 @@ a {
 <form action="search">
 <select name="searchn">
 <option value="0">제목</option>
-<!-- <option value="1">내용</option> 윤정화씨의 해시태그로 구현할 부분.-->
 <option value="2">작성자</option>
 </select>
 <input type="text" name="search" size="15" maxlength="50" /> 
