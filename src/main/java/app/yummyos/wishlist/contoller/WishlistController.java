@@ -46,7 +46,7 @@ public class WishlistController {
 		int count = service.count(dto.getId());
 		System.out.println("count :: "+count);
 		if(count > 0 ) {
-		int perPage = 10; // 한 페이지에 보일 글의 갯수
+		int perPage = 9; // 한 페이지에 보일 글의 갯수
 		int startRow = (page - 1) * perPage + 1;
 		int endRow = page * perPage;
 		

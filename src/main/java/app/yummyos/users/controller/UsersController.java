@@ -101,7 +101,7 @@ public class UsersController {
 				model.addAttribute("updateid", user);
 			}
 			
-			return "users/findPassword";
+			return "users/updatePw";
 		}
 		
 	    // 비밀번호 바꾸기 실행
@@ -147,7 +147,7 @@ public class UsersController {
 		} else {// 로그인 성공
 			m.addAttribute("user", resultDto);
 		}
-		return "redirect:/main";
+		return "redirect:/";
 	}
 
 	@GetMapping("/logout")
@@ -178,7 +178,7 @@ public class UsersController {
 		return "users/deleteform";
 	}
 
-	@DeleteMapping("/delete")
+	@PostMapping("/delete")
 	public String delete(String formpw, @ModelAttribute("user") UsersDto dto, SessionStatus status) {
 
 		int i = service.deleteUsers(formpw, dto);
