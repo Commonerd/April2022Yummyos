@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>맛집등록</title>
 
 <meta name="viewport"
    content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,10 +27,7 @@
    crossorigin="anonymous"></script>
 
 <style>
-<<<<<<< HEAD
-   .Aquamarine{background-color: Aquamarine; width: 150px;}
-   table{border-collapse : collapse; width: 900px;}
-=======
+
 .selector-for-some-widget {
    box-sizing: content-box;
 }
@@ -73,7 +70,6 @@ p.count {
    color: gray;
    font-size: 0.8em;
 }
->>>>>>> refs/heads/master
 </style>
 </head>
 <body>
