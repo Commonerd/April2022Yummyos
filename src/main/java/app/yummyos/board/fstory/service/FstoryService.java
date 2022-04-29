@@ -73,6 +73,7 @@ public class FstoryService {
 		m.put("search", search);
 		m.put("start", startRow);
 		m.put("end", endRow);
+
 		return dao.AllSearchFstoryList(m);
 	}
 
