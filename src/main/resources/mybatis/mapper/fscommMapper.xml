@@ -10,8 +10,7 @@
 	<delete id="deletefsComm" parameterType="int">
 		delete from fs_comm where fs_cno = #{fs_cno}
 	</delete>
-	<select id="selectfsComm" parameterType="int" 
-	resultType="app.yummyos.board.fstory.dto.FsCommDto">
+	<select id="selectfsComm" parameterType="int" resultType="app.yummyos.board.fstory.dto.FsCommDto">
 		select * from fs_comm where f_no = #{f_no} order by regdate desc
 	</select>
 </mapper>

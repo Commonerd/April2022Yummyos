@@ -4,59 +4,59 @@
 <head>
 <title>글 수정</title>
 <style>
-	.Aquamarin{background-color: Aquamarin; width: 50px;}
-	table{border-collapse : collapse; width: 800px;}
+   .Aquamarin{background-color: Aquamarin; width: 50px;}
+   table{border-collapse : collapse; width: 800px;}
 </style>
 </head>
 <body>
 <form method="post" id="updateform" action="store/update" enctype="multipart/form-data">
 <input type="hidden" name="_method" value="put">
-	<table border="2">
-		<tr>	
-			<td class="Aquamarin">상호명</td>
-			<td><input name="name" value="${dto.name }"/>
-				<input name="no" value="${dto.no}" type="hidden"> 
-			</td>
-		</tr>
-		<tr>
-			<td class="Aquamarin">테마</td>
-			<td><input name="category" value="${dto.category}"></td>
-		</tr>
-		<tr>
-			<td class="Aquamarin">전화번호</td>
-			<td><input name="phone" value="${dto.phone}"></td>
-		</tr>
-		<tr>
-			<td class="Aquamarin">주소</td>
-			<td><input name="address" id="address" value="${dto.address}">
-				<input type="button" id="addbtn" value="주소 검색" onclick="addPost()"></td>
-		</tr>
-		<tr>  
-			<td class="Aquamarine">해시태그</td>
-			<td><input name="hashtag" id="hashtag" value="${dto.hashtag}"/></td>
-		</tr>
-		<tr>  
-		
-			<td class="Aquamarine">대표이미지</td>
-			<td><input type="file" name="files" value="${dto.image}"/></td>
-		</tr>
-		<tr>
-			<td class="orange">메뉴</td>
-			<td><div id="smarteditor">
-        	<textarea name="menu" id="editorTxt" 
+   <table border="2">
+      <tr>   
+         <td class="Aquamarin">상호명</td>
+         <td><input name="name" value="${dto.name }"/>
+            <input name="no" value="${dto.no}" type="hidden"> 
+         </td>
+      </tr>
+      <tr>
+         <td class="Aquamarin">테마</td>
+         <td><input name="category" value="${dto.category}"></td>
+      </tr>
+      <tr>
+         <td class="Aquamarin">전화번호</td>
+         <td><input name="phone" value="${dto.phone}"></td>
+      </tr>
+      <tr>
+         <td class="Aquamarin">주소</td>
+         <td><input name="address" id="address" value="${dto.address}">
+            <input type="button" id="addbtn" value="주소 검색" onclick="addPost()"></td>
+      </tr>
+      <tr>  
+         <td class="Aquamarine">해시태그</td>
+         <td><input name="hashtag" id="hashtag" value="${dto.hashtag}"/></td>
+      </tr>
+      <tr>  
+      
+         <td class="Aquamarine">대표이미지</td>
+         <td><input type="file" name="files" value="${dto.image}"/></td>
+      </tr>
+      <tr>
+         <td class="orange">메뉴</td>
+         <td><div id="smarteditor">
+           <textarea name="menu" id="editorTxt" 
                   rows="20" cols="10" 
                   style="width: 100%"></textarea></div></td>
-		</tr>
-		<tr>
-			<td class="Aquamarin">설명</td>
-			<td><input name="detail" value="${dto.detail}"></td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<input type="button" id="save" value="맛집 수정 완료"> 
-			</td>
-		</tr>
-	</table>
+      </tr>
+      <tr>
+         <td class="Aquamarin">설명</td>
+         <td><input name="detail" value="${dto.detail}"></td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center">
+            <input type="button" id="save" value="맛집 수정 완료"> 
+         </td>
+      </tr>
+   </table>
 
 </form>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -80,8 +80,8 @@
       smartEditor() 
       
       $("#save").click(function(){
-    	  oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
-    	  $("#updateform").submit();
+         oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+         $("#updateform").submit();
       });
       
     })
@@ -91,8 +91,8 @@
 function addPost(){
     new daum.Postcode({
         oncomplete: function(data) {
-            	document.querySelector("#address").value = data.address;
-            	alert("나머지 주소도 입력하세요.");
+               document.querySelector("#address").value = data.address;
+               alert("나머지 주소도 입력하세요.");
         }
     }).open();
 }
