@@ -63,7 +63,7 @@ public class NoticeController {
 		List<NoticeDto> noticeList = service.noticeList(startRow, endRow);
 		m.addAttribute("nList", noticeList);
 
-		int pageNum = 5;
+		int pageNum = 2;
 		int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
 		
 		int begin = (page - 1) / pageNum * pageNum + 1;
