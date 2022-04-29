@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -7,16 +6,14 @@
 <insert parameterType="app.yummyos.store.dto.StoreDto" id="insertStore"> 
 
 insert into store(no, name, category, address, phone, menu, detail, hashtag, image, map_lt, map_ln) 
-	values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
+   values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
 </insert>
 
 <update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore">
 
-
-	update store set name=#{name}, category=#{category}, address=#{address},
-	phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
-	image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
-
+   update store set name=#{name}, category=#{category}, address=#{address},
+   phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
+   image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
 </update>
   
    <update id="addViewcount" parameterType="int">
@@ -34,208 +31,6 @@ insert into store(no, name, category, address, phone, menu, detail, hashtag, ima
       from 
       (select * from store order by no desc)
       order by no desc) where r >= #{start} AND r &lt;= #{end}
-
-   </select>
-
-<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">      
-      select * from
-      (select no, name, category, address, phone, menu, detail, map_lt, map_ln, hashtag, rownum r      
-      from (select * from store order by no desc) 
-      <where>
-         <choose>
-            <when test="searchn == 0"> name like '%'||#{search}||'%'</when>
-            <when test="searchn == 1"> category like '%'||#{search}||'%' </when>
-      </choose>
-      </where> 
-      order by no desc 
-      
-      ) where r >= #{start} AND r &lt;= #{end}
-       
-</select>
-
-   <select id="countSearch" resultType="int" parameterType="map">
-      select count(*) from store
-      <where>
-         <choose>
-            <when test="searchn == 0"> name like '%'||#{search}||'%'</when>
-            <when test="searchn == 1"> category like '%'||#{search}||'%' </when>
-         </choose>
-      </where> 
-   </select>
-
-
-<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">      
-      select * from
-      (select no, name, category, address, phone, menu, detail, map_lt, map_ln, hashtag, rownum r      
-      from (select * from store order by no desc) 
-      <where>
-         <choose>
-            <when test="searchn == 0"> name like '%'||#{search}||'%'</when>
-            <when test="searchn == 1"> category like '%'||#{search}||'%' </when>
-      </choose>
-      </where> 
-      order by no desc 
-      
-      ) where r >= #{start} AND r &lt;= #{end}
-       
-</select>
-
-   <select id="countSearch" resultType="int" parameterType="map">
-      select count(*) from store
-      <where>
-         <choose>
-            <when test="searchn == 0"> name like '%'||#{search}||'%'</when>
-            <when test="searchn == 1"> category like '%'||#{search}||'%' </when>
-         </choose>
-      </where> 
-   </select>
-
-<select id="countStore" resultType="int"> select count(*) from store </select>
-
-<select parameterType="int" id="storeOne" resultType="app.yummyos.store.dto.StoreDto"> 
-select * from store where no = #{no}
- </select>
-
-   <select id="readstore" parameterType="Integer"
-      resultType="app.yummyos.store.dto.StoreDto">
-      select no, name, category, address , phone, map_lt, map_ln,
-      menu, detail, view_count, hashtag, image,
-      (select count(ltlike) from liketable where
-      ltbid=#{no} and ltlike=1)as blike
-      from store
-      where no=#{no}
-   </select>
-   <select id="getstorelist"
-      resultType="app.yummyos.store.dto.StoreDto"
-      parameterType="map">
-      select no, name, category, address , phone, map_lt,
-      map_ln, menu, detail, view_count, hashtag, image,
-      (select count(ltlike) from liketable where ltbid=no and ltlike=1) as blike
-      from (select ROW_NUMBER() over(order by no desc) as RNUM, store.*
-      from store)store
-      where RNUM between #{start} and #{end}
-   </select>
-
-   <select id="AllSearchStoreList" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
-      select * from store
-      where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%' OR menu like '%'||#{search}||'%'
-
-   </select>
-
-<select id="storeListView"
-      resultType="app.yummyos.store.dto.StoreDto"
-      parameterType="map">
-       select no, name, category, address , phone, map_lt,
-      map_ln, menu, detail, view_count, hashtag, image,
-      (select count(ltlike) from liketable where ltbid=no and ltlike=1) as blike
-      from (select ROW_NUMBER() over(order by no desc) as RNUM, store.*
-      from store)store
-      where RNUM between #{start} and #{end} order by view_count desc
-      
-   
-
-</select>
-
-
-<!-- select no, name, category, view_count, image from
-      (select no, name,
-      category,view_count, image, rownum r
-      from (select * from store order by view_count
-      desc)
-      order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
-
-
-</mapper>
->>>>>>> refs/heads/master
-
-      resultType="app.yummyos.store.dto.StoreDto">
-      select no, name, category, view_count, image from
-      (select no, name,
-      category,view_count, image, rownum r
-      from (select * from store order by view_count
-      desc)
-      order by view_count desc) where r >= #{start} AND r &lt;= #{end}
-
-</select>
-<!-- select no, name, category, view_count, image from
-      (select no, name,
-      category,view_count, image, rownum r
-      from (select * from store order by view_count
-      desc)
-      order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
-
-
-</mapper>
-
-
-
-
-
-
-
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="app.yummyos.store.dao.StoreDao">
-<insert parameterType="app.yummyos.store.dto.StoreDto" id="insertStore"> 
-
-insert into store(no, name, category, address, phone, menu, detail, hashtag, image, map_lt, map_ln) 
-
-	values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
-
-</insert>
-
-<update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore">
-	update store set name=#{name}, category=#{category}, address=#{address},
-	phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
-	image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
-
-</update>
-  
-   <update id="addViewcount" parameterType="int">
-      update store set view_count = view_count + 1 where no = #{no}
-   </update>
-
-   <delete parameterType="int" id="deleteStore">
-      delete from store where no = #{no}
-   </delete>
-
-   <select id="storeList"
-      resultType="app.yummyos.store.dto.StoreDto">
-      select no, name, category, view_count, image from
-      (select no, name, category,view_count, image, rownum r
-      from 
-      (select * from store order by no desc)
-      order by no desc) where r >= #{start} AND r &lt;= #{end}
-
-   </select>
-
-<select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">      
-      select * from
-      (select no, name, category, address, phone, menu, detail, map_lt, map_ln, hashtag, rownum r      
-      from (select * from store order by no desc) 
-      <where>
-         <choose>
-            <when test="searchn == 0"> name like '%'||#{search}||'%'</when>
-            <when test="searchn == 1"> category like '%'||#{search}||'%' </when>
-      </choose>
-      </where> 
-      order by no desc 
-      
-      ) where r >= #{start} AND r &lt;= #{end}
-       
-</select>
-
-   <select id="countSearch" resultType="int" parameterType="map">
-      select count(*) from store
-      <where>
-         <choose>
-            <when test="searchn == 0"> name like '%'||#{search}||'%'</when>
-            <when test="searchn == 1"> category like '%'||#{search}||'%' </when>
-         </choose>
-      </where> 
    </select>
 
 <select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">      
@@ -292,8 +87,7 @@ select * from store where no = #{no}
 
    <select id="AllSearchStoreList" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
       select * from store
-      where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%' OR menu like '%'||#{search}||'%'
-
+      where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%'
    </select>
 
 <select id="storeListView"
@@ -318,27 +112,13 @@ select * from store where no = #{no}
       desc)
       order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
 
-</mapper>
-
-
-      resultType="app.yummyos.store.dto.StoreDto">
-      select no, name, category, view_count, image from
-      (select no, name,
-      category,view_count, image, rownum r
-      from (select * from store order by view_count
-      desc)
-      order by view_count desc) where r >= #{start} AND r &lt;= #{end}
-
-</select>
-<!-- select no, name, category, view_count, image from
-      (select no, name,
-      category,view_count, image, rownum r
-      from (select * from store order by view_count
-      desc)
-      order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
-
 
 </mapper>
 
 
->>>>>>> refs/remotes/origin/master
+
+
+
+
+
+

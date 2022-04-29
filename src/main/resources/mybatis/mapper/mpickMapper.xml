@@ -7,101 +7,85 @@
 <sql id="kindPick">
 <where>
 <if test="kind == null">
-			
-		</if> 
+         
+      </if> 
 <if test="kind == 1">
-			title like '%'||'맛있는 녀석들'||'%'
-		</if> 
-		
-		<if test="kind == 2">
-			title like '%'||'수요미식회'||'%'
-		</if>
+         title like '%'||'맛있는 녀석들'||'%'
+      </if> 
+      
+      <if test="kind == 2">
+         title like '%'||'수요미식회'||'%'
+      </if>
 </where>
 </sql>
 
 
 <insert parameterType="app.yummyos.board.mpick.dto.MpickDto" id="insert"> 
-<<<<<<< HEAD
 insert into mpick(no, image, title, content, regdate, id, stitle) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}, #{stitle}) </insert>
-=======
-insert into mpick(no, image, title, content, regdate, id) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}) 
-</insert>
->>>>>>> refs/heads/master
 
 <update parameterType="app.yummyos.board.mpick.dto.MpickDto" id="updateMpick"> 
-update mpick set title=#{title}, content=#{content} where no=#{no}
-</update>
+update mpick set title=#{title}, content=#{content} where no=#{no} </update>
 
 <update id="addReadcount" parameterType="int">
-	update mpick set readcount = readcount + 1 where no = #{no} 
-	</update>
-	
-<delete parameterType="int" id="deleteMpick"> 
-delete from mpick where no = #{no}
- </delete>
+   update mpick set readcount = readcount + 1 where no = #{no} </update>
+   
+<delete parameterType="int" id="deleteMpick"> delete from mpick where no = #{no} </delete>
 
 <select parameterType="map" id="mpickList" resultType="app.yummyos.board.mpick.dto.MpickDto">
 
 
-		select * from
-		(select no, image, title, content, regdate, readcount, id, stitle, rownum r
-		from (select * from mpick
-		
-		<include refid="kindPick"></include>
-		
-		 order by regdate desc)
-		order by regdate desc)where r >= #{start} AND r &lt;= #{end}
- 		
+      select * from
+      (select no, image, title, content, regdate, readcount, id, stitle, rownum r
+      from (select * from mpick
+      
+      <include refid="kindPick"></include>
+      
+       order by regdate desc)
+      order by regdate desc)where r >= #{start} AND r &lt;= #{end}
+       
 
 </select>
 
-<<<<<<< HEAD
 <select id="count" resultType="int" parameterType="string"> select count(*) from mpick <include refid="kindPick"></include> </select>
 
-=======
-<select id="count" resultType="int"> 
-select count(*) from mpick 
-</select>
->>>>>>> refs/heads/master
 
 <select parameterType="int" id="mpickOne" resultType="app.yummyos.board.mpick.dto.MpickDto"> 
-select * from mpick where no = #{no} 
-</select>
+select * from mpick where no = #{no} </select>
 
 <select id="countSearch" resultType="int" parameterType="map">
-		select count(*) from mpick 
-		<where>
-			<choose>
-				<when test="searchn == 0">
-				title  like '%'||#{search}||'%' </when>
-				<when test="searchn == 1"> content  like '%'||#{search}||'%'</when>
-				<when test="searchn == 2"> id  like '%'||#{search}||'%' </when>
-			</choose>
-		</where> 
+      select count(*) from mpick 
+      <where>
+         <choose>
+            <when test="searchn == 0">
+            title  like '%'||#{search}||'%' </when>
+            <when test="searchn == 1"> content  like '%'||#{search}||'%'</when>
+            <when test="searchn == 2"> id  like '%'||#{search}||'%' </when>
+         </choose>
+      </where> 
 </select>
 
 <select id="mpickListSearch" parameterType="map" resultType="app.yummyos.board.mpick.dto.MpickDto">
-		
-		select * from
-		(select no, image, title, content, regdate, readcount, id, stitle, rownum r
-		from (select * from mpick order by regdate desc) 
-		<where>
-			<choose>
-				<when test="searchn == 0">
-				title like '%'||#{search}||'%'</when>
-				<when test="searchn == 1"> content like '%'||#{search}||'%' </when>
-				<when test="searchn == 2"> id like '%'||#{search}||'%' </when>
-			</choose>
-		</where> 
-		order by regdate desc 
-		
-		) where r >= #{start} AND r &lt;= #{end}
- 		
+      
+      select * from
+      (select no, image, title, content, regdate, readcount, id, stitle, rownum r
+      from (select * from mpick order by regdate desc) 
+      <where>
+         <choose>
+            <when test="searchn == 0">
+            title like '%'||#{search}||'%'</when>
+            <when test="searchn == 1"> content like '%'||#{search}||'%' </when>
+            <when test="searchn == 2"> id like '%'||#{search}||'%' </when>
+         </choose>
+      </where> 
+      order by regdate desc 
+      
+      ) where r >= #{start} AND r &lt;= #{end}
+       
 </select>
 
-	<select id="AllSearchMpickList" parameterType="map" resultType="app.yummyos.board.mpick.dto.MpickDto">
-		select * from mpick where title like '%'||#{search}||'%' 
-	</select>
+   <select id="AllSearchMpickList" parameterType="map" resultType="app.yummyos.board.mpick.dto.MpickDto">
+      select * from mpick where title like '%'||#{search}||'%' 
+   </select>
 
 
 </mapper>
