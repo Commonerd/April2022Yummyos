@@ -20,6 +20,30 @@
 
 <style>
 #login {
+<<<<<<< HEAD
+   margin-right:0px;
+}
+
+#join {
+margin-right:5px;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+h1 {
+ color: black;
+ text-align:center;
+  padding:50px;
+   margin: 20px;
+}
+
+h2 {
+   color: lightslategray;
+   text-align:center;
+     padding:50px;
+=======
 	margin-right:0px;
 }
 
@@ -42,6 +66,7 @@ h2 {
 	color: lightslategray;
 	text-align:center;
 	  padding:50px;
+>>>>>>> refs/heads/master
    margin: 20px;
 }
 
@@ -53,7 +78,11 @@ p {
 
 #center {
 <<<<<<< HEAD
+<<<<<<< HEAD
+   width: 700px;
+=======
    width: 500px;
+>>>>>>> refs/heads/master
    margin-left: auto;
    margin-right: auto;
 =======
@@ -66,7 +95,11 @@ p {
 table {
 <<<<<<< HEAD
    border: 1px solid black;
+<<<<<<< HEAD
+   width: 700px;
+=======
    width: 500px;
+>>>>>>> refs/heads/master
    border-collapse: collapse;
 =======
 	border: 1px solid black;
@@ -81,6 +114,11 @@ th {border: 1px solid black;
    width: 100px;
 =======
 th {
+<<<<<<< HEAD
+   border: 1px solid black;
+   background-color: Aquamarine;
+   width: 30px;
+=======
 	border: 1px solid black;
 	background-color: Aquamarine;
 	width: 30px;
@@ -88,7 +126,11 @@ th {
 }
 
 td {
+<<<<<<< HEAD
+   border: 1px solid black;
+=======
 	border: 1px solid black;
+>>>>>>> refs/heads/master
 }
 
 a {
@@ -100,28 +142,57 @@ a {
 }
 
 #center {
+<<<<<<< HEAD
+   width: 700px;
+   margin-left: auto;
+   margin-right: auto;
+=======
 	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
+>>>>>>> refs/heads/master
 }
 
 table {
+<<<<<<< HEAD
+   border: 1px solid black;
+   width: 700px;
+   border-collapse: collapse;
+=======
 	border: 1px solid black;
 	width: 700px;
 	border-collapse: collapse;
+>>>>>>> refs/heads/master
 }
 
 th {
+<<<<<<< HEAD
+   border: 1px solid black;
+   background-color: Aquamarine;
+   width: 30px;
+=======
 	border: 1px solid black;
 	background-color: Aquamarine;
 	width: 30px;
+>>>>>>> refs/heads/master
 }
 
 td {
+<<<<<<< HEAD
+   border: 1px solid black;
+=======
 	border: 1px solid black;
+>>>>>>> refs/heads/master
 }
 
 a {
+<<<<<<< HEAD
+   margin: 10px auto;
+}
+
+#page {
+   text-align: center;
+=======
 	margin: 10px auto;
 }
 
@@ -219,6 +290,7 @@ a {
 
 #page {
 	text-align: center;
+>>>>>>> refs/heads/master
 }
 #map{
  position: absolute;
@@ -253,6 +325,8 @@ a {
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+<<<<<<< HEAD
+=======
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -312,6 +386,127 @@ a {
 >>>>>>> refs/heads/master
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/details/ladder">오늘 뭐먹지?<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/store/list">맛집창고</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/board/notice/list">공지사항</a>
+      </li>   
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          테마맛집기행
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/board/mpick/list">미디어픽</a>
+          <a class="dropdown-item" href="/board/fstory/list">푸드스토리</a>
+        </div>
+      </li>
+    </ul>
+       <div id="search">
+   <form class="form-inline my-2 my-lg-0" action="/all/search">
+      <c:forEach items="${search}" var="search">
+         <a href="/search/search?search=${search}">${search}</a>
+      </c:forEach>
+         <br>
+         <input name="search" id="search" type="search" style="width: 800px;" class="form-control mr-sm-2" placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search">
+      <input type="submit" value="검색" class="btn btn-outline-success my-3 my-sm-0" style="color:black;border-color:black;" aria-label="Search">
+   </form>
+</div>
+
+<c:if test="${ user.id != null }">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ${user.id}님 환영합니다
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="wishlist">위시리스트</a>
+          <a class="dropdown-item" href="update">회원 정보 수정</a>
+             <c:if test="${ user.role == 'role_admin'}">
+      <a class="dropdown-item" href="insert">가게 등록</a>
+         </c:if>
+          <a class="dropdown-item" href="/logout">로그아웃</a>
+        </div>
+      </li>
+      </c:if>
+      <c:if test="${ user.id == null }">
+       <a href="/loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
+       <a href="/insert" id="join" class="btn btn-primary" style="width:120px; height:55px;">회원가입</a>
+      </c:if>
+  </div>
+</nav>      
+
+         <div class="container">         
+            <div class="row">
+               <div class="col-md-4 mb-5" >
+                  <div class="card" style="width: 100%">
+                     <div class="card-body">
+                     
+                     <h6 class="card-title"><strong>상호명  : ${dto.name}</strong></h6>
+                     <h6 class="card-text" style="color:red;">좋아요♥ <span id="count">${allCount }</span></h6>
+                     <h6 class="card-text">카테고리  : ${dto.category}</h6>
+                     <h6 class="card-text">전화번호  : ${dto.phone}</h6>
+                     <h6 class="card-text">주소  : ${dto.address}</h6>
+                     <h6 class="card-text">상세설명  : ${store.detail}</h6>
+                     <h6 class="card-text">조회수  : ${dto.view_count}</h6>
+                     <h6 class="card-text">해시태그  : <c:forEach items="${hash}" var="hashtag" begin="1">
+   <a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+   </c:forEach></h6>
+                     </div>
+                     <hr>
+                     <c:if test="${ user.id != null }">
+                     <c:choose>
+                  <c:when test="${ltlike ==0}">
+                     <button type="button" class="btn btn-light" id="likebtn">좋아요</button>
+                     <input type="hidden" id="likecheck" value="${ltlike }">
+                  </c:when>               
+                  <c:when test="${ltlike ==1}">
+                     <button type="button" class="btn btn-danger" id="likebtn">좋아요</button>
+                     <input type="hidden" id="likecheck" value="${ltlike }">
+                  </c:when>
+               </c:choose>
+               
+   <button type="button"  id="addwishlist" name="addwishlist" class="btn btn-light">위시리스트 등록</button>
+   <button type="button" class="btn btn-light"><a href="/wishlist" style="color:black;" >위시리스트 바로가기</a></button>
+   </c:if>
+   <button type="button" class="btn btn-light"><a href="/store/list" style="color:black;">맛집 목록 이동</a></button>
+                     <c:if test="${ user.role == 'role_admin'}">
+   <button type="button" class="btn btn-light"><a href="/store/update/${dto.no}" style="color:black;">맛집 수정</a></button>
+   <button type="button" class="btn btn-light"><a id="${dto.no}" href="store/delete" style="color:black;">맛집 삭제</a></button>
+   </c:if>
+   
+               
+                  </div>
+                  
+               </div>
+               
+            </div>   
+            
+      </div>
+      <div class="container">         
+            <div class="row">
+               <div class="col-md-4 mb-5" style="position:abolute; top: -740px; left: 400px;">
+                  <div class="card" style="width: 100%; height: 85%;">
+                     <div class="card-body">
+                     
+                     <h5 class="card-text">${dto.menu}</h5>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>   
+      </div>
+      
+      
+      <div id="map" style="width:400px;height:300px;"></div>
+=======
 <table border="1">
 
    <tr><td>상호명</td><td>${dto.name} 좋아요<span id="count">${allCount }</span></td>
@@ -386,6 +581,7 @@ $("#addwishlist").click(function(){
       })//click
    })//ready
    
+>>>>>>> refs/heads/master
 =======
 			<div class="container">         
             <div class="row">
@@ -537,11 +733,14 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 });    
 </script>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
    
 <hr>
 
  <!-- 해시태그 -->
 =======
+>>>>>>> refs/heads/master
 >>>>>>> refs/heads/master
 
 
@@ -557,6 +756,94 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
       </div>
       <hr>
    </c:forEach>
+<<<<<<< HEAD
+</div>
+
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="position:absolute; top:1000px;left:400px;">
+<h5 class="card-title">리뷰 등록 </h5>   
+  <textarea id="review" name="content" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><br>    
+  <input type="file" name="files" style="color:black;">    
+  <input type="hidden" name="store_no" value="${dto.no}">
+  <input type="hidden" name="id" value="${user.id}">
+ <button id="add" class="btn btn-dark">등록</button>
+</form>
+
+   
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<script>
+
+//위시리스트 등록
+$("#addwishlist").click(function(){
+         let id = '${user.id}';
+         let store_no = ${dto.no};
+         let store_name = '${dto.name}';
+         let category = '${dto.category}';
+         
+         $.ajax({url:"/wishlist/add",
+               data:"no="+store_no+"&id="+id+"&name="+store_name+"&category="+category,
+               method:"post"
+         }).done(function(){
+               location.reload();
+            });
+         
+      })//click
+</script>
+
+<script>
+   //맛집 삭제
+   $(function(){
+      $("a[id]").click(function(){
+         let no = $(this).attr("id");
+         $.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
+         ).done(function(){
+            location.href="/store/list";
+         })
+         return false;
+      })//click
+   })//ready
+   
+
+</script>
+
+<script>
+   $(function(){
+      $("a[id]").click(function(){
+         let no = $(this).attr("id");
+         $.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
+         ).done(function(){
+            location.href="/store/list";
+         })
+         return false;
+      })//click      
+   })//ready
+
+</script>
+
+
+
+ <!-- 해시태그 -->
+=======
+>>>>>>> refs/heads/master
+
+
+<<<<<<< HEAD
+=======
+<!--  cList -->
+<div>
+	<c:forEach items="${cList}" var="review">
+		<div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
+		<div><img src="/review/img/${review.image}" width="100px"><br>
+		 ${review.content} 		
+		<c:if test="${review.id == user.id }">
+		<button class="dbtn" id="${review.no}">삭제</button>
+		</c:if>
+		</div>
+		<hr>
+	</c:forEach>
+=======
+>>>>>>> refs/heads/master
 </div>
 
 <<<<<<< HEAD
@@ -788,6 +1075,45 @@ $("#addwishlist").click(function(){
 
 <<<<<<< HEAD
    </body>
+<<<<<<< HEAD
+   <footer>
+   <div class="container">
+      <footer class="row row-cols-5 py-5 my-5 border-top">
+         <div class="col">
+            <a href="/"
+               class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+               <svg class="bi me-2" width="40" height="32">
+                  <use xlink:href="#bootstrap" /></svg>
+            </a>
+            <p class="text-muted">&copy; 2022 YUMMYO Project </p>
+         </div>
+
+         <div class="col"></div>
+         <div class="col">
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2"><a href="/footer/tservice"
+                  class="nav-link p-0 text-muted">이용약관</a></li>
+               <li class="nav-item mb-2"><a href="/footer/nmembers"
+                  class="nav-link p-0 text-muted">비회원 이용정책</a></li>
+               <li class="nav-item mb-2"><a href="/footer/gps"
+                  class="nav-link p-0 text-muted">위치기반 서비스 이용약관</a></li>
+            </ul>
+         </div>
+
+         <div class="col">            
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2"><a href="/footer/inquiry"
+                  class="nav-link p-0 text-muted">문의하기</a></li>
+               <li class="nav-item mb-2"><a href="/footer/privacy"
+                  class="nav-link p-0 text-muted">개인정보 처리방침</a></li>
+            </ul>
+         </div>
+      </footer>
+   </div>
+   <div class="b-example-divider"></div>
+   </footer>
+=======
+>>>>>>> refs/heads/master
 =======
 	</body>
 	<footer>
