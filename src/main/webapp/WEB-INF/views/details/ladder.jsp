@@ -3,16 +3,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>룰렛</title>
-<meta charset="EUC-KR">
+
+
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+   crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+   crossorigin="anonymous"></script>
+<script
+   src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+   crossorigin="anonymous"></script>
+<script
+   src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+   crossorigin="anonymous"></script>
+
 <title>Insert title here</title>
 <style type="text/css">
+
+
 html, body, button {
 	font-family: Arial, "돋움", Dotum, "굴림", Gulim, "Apple SD Gothic Neo",
 		AppleGothic, sans-serif;
 }
 
+
+
+
+/* .parent{
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+}
+.box-roulette {
+    border: 1px solid red;
+    flex:1;
+    width:30%;
+    box-sizing: border-box;
+}
+.map_wrap{
+    border: 1px solid green;
+    flex:1;
+    margin: 0px 5%;
+    width:30%;
+    box-sizing: border-box;
+} */
+
+table, tr, td {
+
+border-collapse: collapse;
+
+}
+
+.cell_padding {
+
+padding : 1em;
+
+}
+
+.box-roulette {
+    border: 1px solid red;
+	float:left;
+    width:30%;
+    box-sizing: border-box;
+}
+.map_wrap{	
+    border: 1px solid green;
+    /* flex:1; */
+    margin: 15px 15%;
+    width:50%;
+    box-sizing: border-box;
+}
+ 
 button {
 	border: 0;
 	margin: 0;
@@ -143,13 +212,75 @@ button {
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </head>
 <body>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">메인</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+         data-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false"
+         aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav ">
+            <li class="nav-item active"><a class="nav-link"
+               href="/details/ladder">오늘 뭐먹지?<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/store/list">맛집창고</a>
+            </li>
+            <li class="nav-item"><a class="nav-link"
+               href="/board/notice/list">공지사항</a></li>
+            <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> 테마맛집기행 </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/">미디어픽</a> <a
+                     class="dropdown-item" href="#">푸드스토리</a>
+               </div></li>
+         </ul>
+         <div id="search">
+            <form class="form-inline my-2 my-lg-0" action="/all/search">
+               <c:forEach items="${search}" var="search">
+                  <a href="/all/search?search=${search}">${search}</a>
+               </c:forEach>
+               <br> <input name="search" id="search" type="search"
+                  style="width: 500px;" class="form-control mr-sm-2"
+                  placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search"> <input
+                  type="submit" value="검색"
+                  class="btn btn-outline-success my-3 my-sm-0"
+                  style="color: black; border-color: black;" aria-label="Search">
+            </form>
+         </div>
+         <ul class="navbar-nav ml-auto">
+            <li><a href="loginform" id="login" class="btn btn-primary"
+               style="width: 100px; height: 40px;">로그인</a> <a href="/insert"
+               id="join" class="btn btn-primary"
+               style="width: 120px; height: 40px;">회원가입</a>
+         </ul>
+      </div>
+   </nav>
 
 
 
 
 
 
-<p class="title">종류를 고민하는 그대에게 선택을</p>
+
+
+
+<table >
+
+<th>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">↓↓아래 룰렛버튼을 클릭해주세요↓↓</span></h4>
+</th>
+<th>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">아래 지도에서 원하시는 맛집을 찾아보세요</span></h4>
+</th>
+
+<tr>
+
+<td class="cell_padding">
 
 <div class="box-roulette">
 	<div class="markers"></div>
@@ -158,23 +289,17 @@ button {
 	</button>
 	<div class="roulette" id="roulette"></div>
 	
-	
-	
-	
-
-	
-	
-	
-	
 </div>
-<h3>결과를 아래 검색창에 넣어주세요</h3>
-<div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+</td>
+
+<td class="cell_padding" width="100%">
+<div  class="map_wrap">
+    <div id="map" style="width:100%;height:100%;position:absolute;overflow:hidden;"></div>
 
     <div id="menu_wrap" class="bg_white">
         <div class="option">
             <div>
-                <form onsubmit="searchPlaces(); return false;">
+                <form id="searchForm" onsubmit="searchPlaces(); return false;">
                     키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
                     <button type="submit">검색하기</button> 
                 </form>
@@ -185,6 +310,19 @@ button {
         <div id="pagination"></div>
     </div>
 </div>
+</td>
+
+</tr>
+
+
+
+
+</table>
+
+
+
+
+
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2937f4a07074c718e1c8b3e8a1f4f9b&libraries=services"></script>
 <script>
@@ -420,8 +558,8 @@ function removeAllChildNods(el) {
 
 				var defaults = {
 					angle: 0,
-					angleOffset: -45,
-					speed: 5000,
+					angleOffset: 0,
+					speed: 3000,
 					easing: "easeInOutElastic",
 				};
 
@@ -441,8 +579,8 @@ function removeAllChildNods(el) {
 						{ color: '#e6471d', text: '삼겹살' },
 						{ color: '#dc0936', text: '갈비' },
 						{ color: '#e5177b', text: '국밥' },
-						{ color: '#be107f', text: '도시락' },
 						{ color: '#881f7e', text: '패스트푸드' }
+						
 					];
 
 					var $wrap = $(this),
@@ -501,8 +639,11 @@ function removeAllChildNods(el) {
 					});
 
 					function rotation() {
-
-						var completeA = 360 * r(5, 10) + r(0, 360);
+						let arr = ['국밥','갈비','삼겹살','돈까스','치킨','피자','햄버거','일식','중식','한식','패스트푸드'];
+						let n1 =  r(2, 4);
+						let n2 =  r(0, 359)
+						var completeA = 360 * n1 + n2;
+						//var completeA = 360 * 0 + n2;
 
 						$roulette.rotate({
 							angle: angle,
@@ -511,9 +652,16 @@ function removeAllChildNods(el) {
 							easing: $.easing.esing,
 							callback: function() {
 								var currentA = $(this).getRotateAngle();
-
+								console.log(n2 / 36);
+								console.log("n1 : "+n1 + " n2:"+n2);
+								
 								console.log(currentA);
-
+								
+								let index = Math.floor(n2*11/360);
+							
+								console.log(arr[index] + ' '+index);
+								$("#keyword").val(arr[index]);
+								$("#searchForm").submit();
 							},
 							duration: speed
 						});
@@ -531,12 +679,20 @@ function removeAllChildNods(el) {
 	$(function() {
 
 		$('.box-roulette').roulette();
-
+		
+		
+		
+		$(".text").click(function(){	
+			let f = $(this).text();
+			$("#keyword").val(f);
+			$("#searchForm").submit();
+		})
 	});
+	
 		
 	</script>
 
-
+</div>
 
 
 

@@ -11,7 +11,7 @@ import app.yummyos.board.mpick.dto.MpickDto;
 public interface MpickDao {
 	int insert(MpickDto dto);
 	List<MpickDto> mpickList(Map<String, Object> m);
-	int count();//전체글 갯수
+	int count(String kind);//전체글 갯수
 	MpickDto mpickOne(int no);
 	int updateMpick(MpickDto dto);
 	int deleteMpick(int no);
