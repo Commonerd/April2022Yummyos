@@ -20,7 +20,7 @@
 
 <style>
 #login {
-<<<<<<< HEAD
+
    margin-right:0px;
 }
 
@@ -43,7 +43,7 @@ h2 {
    color: lightslategray;
    text-align:center;
      padding:50px;
-=======
+
 	margin-right:0px;
 }
 
@@ -65,9 +65,8 @@ h1 {
 h2 {
 	color: lightslategray;
 	text-align:center;
-	  padding:50px;
->>>>>>> refs/heads/master
-   margin: 20px;
+	padding:50px;
+    margin: 20px;
 }
 
 p {
@@ -77,38 +76,22 @@ p {
 }
 
 #center {
-<<<<<<< HEAD
-<<<<<<< HEAD
-   width: 700px;
-=======
-   width: 500px;
->>>>>>> refs/heads/master
-   margin-left: auto;
-   margin-right: auto;
-=======
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
->>>>>>> refs/heads/master
+
 }
 
 table {
-<<<<<<< HEAD
-   border: 1px solid black;
-<<<<<<< HEAD
-   width: 700px;
-=======
-   width: 500px;
->>>>>>> refs/heads/master
-   border-collapse: collapse;
-=======
 	border: 1px solid black;
 	width: 700px;
 	border-collapse: collapse;
->>>>>>> refs/heads/master
 }
 
-<<<<<<< HEAD
+
 th {border: 1px solid black;
    background-color: Aquamarine;
    width: 100px;
