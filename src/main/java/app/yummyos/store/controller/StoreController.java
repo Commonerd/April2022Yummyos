@@ -151,7 +151,7 @@ public class StoreController {
       @Autowired
       ReviewService r_service;
             
-      @GetMapping("store/content/{no}")
+      @RequestMapping("store/content/{no}")
       public String contentStore(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
          StoreDto dto = service.storeOne(no);
          m.addAttribute("dto", dto);

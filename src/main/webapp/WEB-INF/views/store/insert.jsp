@@ -27,10 +27,6 @@
    crossorigin="anonymous"></script>
 
 <style>
-<<<<<<< HEAD
-   .Aquamarine{background-color: Aquamarine; width: 150px;}
-   table{border-collapse : collapse; width: 900px;}
-=======
 .selector-for-some-widget {
    box-sizing: content-box;
 }
@@ -73,7 +69,7 @@ p.count {
    color: gray;
    font-size: 0.8em;
 }
->>>>>>> refs/heads/master
+
 </style>
 </head>
 <body>
@@ -336,64 +332,6 @@ p.count {
    <div class="b-example-divider"></div>
 
 
-<form method="post" id="insertform" action="insert" enctype="multipart/form-data" >
-   <table border="1">
-      <tr>  
-         <td class="Aquamarine">상호명</td>
-         <td><input name="name"/></td>
-      </tr>
-      <tr>  
-         <td class="Aquamarine">테마</td>
-         <td><input name="category" placeholder="'한국','일본','중국','미국' 등"></td>
-      </tr>
-      <tr>  
-         <td class="Aquamarine">주소</td>
-         <td><input name="address" id="address">
-               <input type="button" id="addbtn" value="주소 검색" onclick="addPost()"></td>
-      </tr>
-      <tr>  
-         <td class="Aquamarine">전화번호</td>
-         <td><input name="phone"/></td>
-      </tr>
-      <tr>  
-         <td class="Aquamarine">해시태그</td>
-         <td><input name="hashtag"/></td>
-      </tr>
-      <tr>  
-      
-         <td class="Aquamarine">대표이미지</td>
-         <td><input type="file" name="files"></td>
-      </tr>
-      <tr>
-         <td class="Aquamarine">메뉴</td>
-         <td><div id="smarteditor">
-           <textarea name="content" id="editorTxt" 
-                  rows="20" cols="10" 
-                  placeholder="메뉴와 사진을 입력해주세요."
-                  style="width: 700px"></textarea>
-      </div></td>
-      </tr>
-      <tr>  
-         <td class="Aquamarine">맛집설명</td>
-         <td><input name="detail"/></td>
-      </tr>
-      <tr>  
-         <td class="Aquamarine">지도위도</td>
-         <td><input name="map_lt"/></td>
-      </tr>
-      <tr>  
-         <td class="Aquamarine">지도경도</td>
-         <td><input name="map_ln"/></td>
-      </tr>
-      <tr>
-         <td colspan="2" align="center">
-            <input type="button" id="save" value="새 맛집 등록"> 
-         </td>
-      </tr>
-   </table>
-
-</form>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script>
@@ -465,5 +403,39 @@ $("#add").click(function (event) {
    });
 });
 </script>
+		<div class="container">
+		<footer class="row row-cols-5 py-5 my-5 border-top">
+			<div class="col">
+				<a href="/"
+					class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+					<svg class="bi me-2" width="40" height="32">
+						<use xlink:href="#bootstrap" /></svg>
+				</a>
+				<p class="text-muted">&copy; 2022 YUMMYO Project </p>
+			</div>
+
+			<div class="col"></div>
+			<div class="col">
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="/footer/tservice"
+						class="nav-link p-0 text-muted">이용약관</a></li>
+					<li class="nav-item mb-2"><a href="/footer/nmembers"
+						class="nav-link p-0 text-muted">비회원 이용정책</a></li>
+					<li class="nav-item mb-2"><a href="/footer/gps"
+						class="nav-link p-0 text-muted">위치기반 서비스 이용약관</a></li>
+				</ul>
+			</div>
+
+			<div class="col">				
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="/footer/inquiry"
+						class="nav-link p-0 text-muted">문의하기</a></li>
+					<li class="nav-item mb-2"><a href="/footer/privacy"
+						class="nav-link p-0 text-muted">개인정보 처리방침</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<div class="b-example-divider"></div>
 </body>
 </html>   
