@@ -26,9 +26,69 @@
    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
    crossorigin="anonymous"></script>
 
-
+ 
 <style>
+#login {
+   margin-right:0px;
+}
 
+#join {
+margin-right:5px;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+h1 {
+ color: black;
+ text-align:center;
+  padding:50px;
+   margin: 20px;
+}
+
+h2 {
+   color: lightslategray;
+   text-align:center;
+     padding:50px;
+   margin: 20px;
+}
+
+p {
+ color:red !important;
+ font-size: 0.9em;
+ line-ehight: 2.0;
+}
+
+#center {
+   width: 700px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+table {
+   border: 1px solid black;
+   width: 700px;
+   border-collapse: collapse;
+}
+
+th {
+   border: 1px solid black;
+   background-color: Aquamarine;
+   width: 30px;
+}
+
+td {
+   border: 1px solid black;
+}
+
+a {
+   margin: 10px auto;
+}
+
+#page {
+   text-align: center;
+}
 .selector-for-some-widget {
    box-sizing: content-box;
 }
@@ -143,6 +203,8 @@ p.count {
           <a class="dropdown-item" href="/logout">로그아웃</a>
         </div>
       </li>
+	</ul>
+	</div>
 		</c:if>
 		<c:if test="${ user.id == null }">
 		 <a href="/loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
@@ -245,22 +307,17 @@ p.count {
                   </tr>
                </tbody>
             </table>
-                  <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="position:relative;left:320px;">
+                 <form method="POST" enctype="multipart/form-data" id="fileUploadForm" style="position:relative;left:320px;">
 <h5 class="card-title">리뷰 등록 </h5>   
   <textarea id="review" name="content" cols="50" placeholder="회원님은 응원 댓글이 저희에게는 큰도움이 됩니다."></textarea><br>    
-  <input type="file" name="files" style="color:black;">    
   <input type="hidden" name="store_no" value="${dto.no}">
   <input type="hidden" name="id" value="${user.id}">
+  <input type="file" name="files" style="color:black;">    
  <button id="add" class="btn btn-dark">등록</button>
 </form>
       </div>
    </div>
    <div id="map" style="width:1200px;height:300px;"></div>
-
-         
-      
-      
-      
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -368,9 +425,11 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 
 
 <!--  cList -->
-<div>
+<%-- <div>
    <c:forEach items="${cList}" var="review">
-      <div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
+      <div>${review.id} /
+      <br>
+      <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
       <div><img src="/review/img/${review.image}" width="100px"><br>
        ${review.content}       
       <c:if test="${review.id == user.id }">
@@ -379,9 +438,52 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
       </div>
       <hr>
    </c:forEach>
-</div>
+</div> --%>
 
-
+		<div class="container">         
+            <div class="row">
+            <c:forEach items="${cList}" var="review">
+               <div class="col-md-4 mb-5" >
+                  <div class="card" style="width: 100%">
+                     <img src="/review/img/${review.content}" class="card-img-top" alt="...">
+                     <div class="card-body">
+                        <h5 class="card-title">${review.id}</h5>
+                        <h6 class="card-text">${review.image}</h6>
+                        <p class="card-text"> <c:if test="${review.id == user.id }"> <button class="dbtn" id="${review.no}" style="background-color:black;color:white;">삭제</button>   </c:if></p>
+        				<fmt:formatDate value="${review.day }" dateStyle="short"/>
+                     </div>
+                  </div>
+               </div>
+               
+            </c:forEach>
+            </div>   
+            </div>
+				
+			<%--  <div id="page">
+         <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+               <li class="page-item disabled">
+               <c:if test="${begin > pageNum }">
+                     <a class="page-link" href="/store/content/list?p=${begin-1 }&kind=${kind}">[이전]</a>
+                  </c:if></li>
+               <li class="page-item active" aria-current="page"><c:forEach
+                     begin="${begin }" end="${end}" var="i">
+                     <c:if test="${page == i }">
+                        <li class="/store/content/page-item active"><a class="page-link"
+                           href="list?p=${i}&kind=${kind}">${i}</a></li>
+                     </c:if>
+                     <c:if test="${page != i }">
+                        <li class="page-item"><a class="page-link"
+                           href="/store/content/list?p=${i}&kind=${kind}">${i}</a></li>
+                     </c:if>
+                  </c:forEach>
+               <li class="page-item"><c:if test="${end < totalPages }">
+                     <a class="page-link" href="/store/content/list?p=${end+1}">[다음]</a>
+                  </c:if></li>
+            </ul>
+         </nav> --%>
+         
+         
 
    
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -438,7 +540,7 @@ $("#addwishlist").click(function(){
 
 
 <!--  cList -->
-<div>
+<%-- <div>
 	<c:forEach items="${cList}" var="review">
 		<div>${review.id} / <fmt:formatDate value="${review.day }" dateStyle="short"/></div>
 		<div><img src="/review/img/${review.image}" width="100px"><br>
@@ -449,7 +551,7 @@ $("#addwishlist").click(function(){
 		</div>
 		<hr>
 	</c:forEach>
-</div>
+</div> --%>
 
 
 	
@@ -532,9 +634,9 @@ $("#addwishlist").click(function(){
           // disabled the submit button         
           //$("#btnSubmit").prop("disabled", true);   
           
-          $.ajax({             
-             type: "POST",          
-              enctype: 'multipart/form-data',  
+          $.ajax({
+             type: "POST",
+              enctype: 'multipart/form-data',
               url: "/review/insert",        
               data: data,          
               processData: false,    
@@ -603,48 +705,7 @@ $("#addwishlist").click(function(){
 			});
 		};
 		
-		$("#add").click(function (event) {         
-			//preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
-			//event.preventDefault();          
-		    // Get form         
-		    var form = $('#fileUploadForm')[0];  	    
-		    // Create an FormData object          
-		    var data = new FormData(form);  	   
-		    // disabled the submit button         
-		    //$("#btnSubmit").prop("disabled", true);   
-		    
-		    $.ajax({             
-		    	type: "POST",          
-		        enctype: 'multipart/form-data',  
-		        url: "/review/insert",        
-		        data: data,          
-		        processData: false,    
-		        contentType: false,      
-		        cache: false,           
-		        timeout: 600000,       
-		        success: function (data) { 
-		        	location.reload();       
-		        	//$("#btnSubmit").prop("disabled", false);      
-		        },          
-		        error: function (e) {  
-		        	console.log("ERROR : ", e);     
-		            //$("#btnSubmit").prop("disabled", false);    
-		            alert("fail");      
-		         }     
-			});
-		});
-		$(".dbtn").click(function(){
-			let no = $(this).attr("id");
-			$.ajax({url:"/review/delete/"+no,
-				method:"delete"
-		}).done(function(){
-				location.reload();
-			});
-			
-		})//click 
 		
-	})//ready
-	
 	</script>
 
 	</body>

@@ -8,7 +8,7 @@ import app.yummyos.store.dto.ReviewDto;
 
 @Mapper
 public interface ReviewDao {
-	List<ReviewDto> selectReview(int store_no);
-	int insertReview(ReviewDto dto);
-	int deleteReview(int no);
+   List<ReviewDto> selectReview(int store_no);
+   int insertReview(ReviewDto dto);
+   int deleteReview(int no);
 }

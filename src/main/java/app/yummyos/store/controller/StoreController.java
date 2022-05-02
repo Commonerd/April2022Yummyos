@@ -148,7 +148,7 @@ public class StoreController {
       @Autowired
       ReviewService r_service;
             
-      @GetMapping("store/content/{no}")
+      @RequestMapping("store/content/{no}")
       public String contentStore(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
          StoreDto dto = service.storeOne(no);
          m.addAttribute("dto", dto);
@@ -241,16 +241,16 @@ public class StoreController {
       }
       
       @GetMapping("store/search")
-      public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
-         int count = service.countSearch(searchn,search);
+      public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
+         int count = service.countSearch(searchn,search,kind);
                   
          if(count > 0) {
          
-         int perPage = 20; // 한 페이지에 보일 글의 갯수
+         int perPage = 9; // 한 페이지에 보일 글의 갯수
          int startRow = (page - 1) * perPage + 1;
          int endRow = page * perPage;
                   
-         List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow);
+         List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow, kind);
          m.addAttribute("sList", storeList);
 
 
@@ -271,6 +271,7 @@ public class StoreController {
          m.addAttribute("count", count);
          m.addAttribute("searchn", searchn);
          m.addAttribute("search", search);
+         m.addAttribute("kind", kind);
          
          return "store/search";
      
