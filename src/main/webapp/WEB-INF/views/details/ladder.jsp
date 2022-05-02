@@ -1,37 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 
 
-<meta name="viewport"
-   content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-   crossorigin="anonymous">
+<!-- Bootstrap CSS -->
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-   crossorigin="anonymous"></script>
-<script
-   src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-   crossorigin="anonymous"></script>
-<script
-   src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-   crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 
-<title>Insert title here</title>
+
+<title>ë£°ë ›</title>
 <style type="text/css">
 
 
 html, body, button {
-	font-family: Arial, "µ¸¿ò", Dotum, "±¼¸²", Gulim, "Apple SD Gothic Neo",
-		AppleGothic, sans-serif;
+   font-family: Arial, "ë‹ì›€", Dotum, "êµ´ë¦¼", Gulim, "Apple SD Gothic Neo",
+      AppleGothic, sans-serif;
 }
 
 
@@ -70,11 +61,11 @@ padding : 1em;
 
 .box-roulette {
     border: 1px solid red;
-	float:left;
+   float:left;
     width:30%;
     box-sizing: border-box;
 }
-.map_wrap{	
+.map_wrap{   
     border: 1px solid green;
     /* flex:1; */
     margin: 15px 15%;
@@ -83,91 +74,91 @@ padding : 1em;
 }
  
 button {
-	border: 0;
-	margin: 0;
-	padding: 0;
+   border: 0;
+   margin: 0;
+   padding: 0;
 }
 
 .title {
-	margin-top: 50px;
-	text-align: center;
+   margin-top: 50px;
+   text-align: center;
 }
 
 .box-roulette {
-	position: relative;
-	margin: 50px auto;
-	width: 500px;
-	height: 500px;
-	border: 10px solid #ccc;
-	border-radius: 50%;
-	background: #ccc;
-	overflow: hidden;
+   position: relative;
+   margin: 50px auto;
+   width: 500px;
+   height: 500px;
+   border: 10px solid #ccc;
+   border-radius: 50%;
+   background: #ccc;
+   overflow: hidden;
 }
 
 .box-roulette .markers {
-	position: absolute;
-	left: 50%;
-	top: 0;
-	margin-left: -25px;
-	width: 0;
-	height: 0;
-	border: 25px solid #fff;
-	border-left-color: transparent;
-	border-right-color: transparent;
-	border-bottom-color: transparent;
-	z-index: 9999;
+   position: absolute;
+   left: 50%;
+   top: 0;
+   margin-left: -25px;
+   width: 0;
+   height: 0;
+   border: 25px solid #fff;
+   border-left-color: transparent;
+   border-right-color: transparent;
+   border-bottom-color: transparent;
+   z-index: 9999;
 }
 
 .box-roulette .roulette {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+   position: relative;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
 }
 
 .box-roulette .item {
-	position: absolute;
-	top: 0;
-	width: 0;
-	height: 0;
-	border: 0 solid transparent;
-	transform-origin: 0 100%;
+   position: absolute;
+   top: 0;
+   width: 0;
+   height: 0;
+   border: 0 solid transparent;
+   transform-origin: 0 100%;
 }
 
 .box-roulette .label {
-	position: absolute;
-	left: 0;
-	top: 0;
-	color: #fff;
-	white-space: nowrap;
-	transform-origin: 0 0;
+   position: absolute;
+   left: 0;
+   top: 0;
+   color: #fff;
+   white-space: nowrap;
+   transform-origin: 0 0;
 }
 
 .box-roulette .label .text {
-	display: inline-block;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 1;
-	vertical-align: middle;
+   display: inline-block;
+   font-size: 20px;
+   font-weight: bold;
+   line-height: 1;
+   vertical-align: middle;
 }
 
 #btn-start {
-	display: block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin: -50px 0 0 -50px;
-	width: 100px;
-	height: 100px;
-	font-weight: bold;
-	background: #fff;
-	border-radius: 50px;
-	z-index: 9999;
-	cursor: pointer;
+   display: block;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   margin: -50px 0 0 -50px;
+   width: 100px;
+   height: 100px;
+   font-weight: bold;
+   background: #fff;
+   border-radius: 50px;
+   z-index: 9999;
+   cursor: pointer;
 }
 </style>
 <style>
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'µ¸¿ò',sans-serif;font-size:12px;}
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'ë‹ì›€',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {position:relative;width:100%;height:500px;}
 #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
@@ -205,60 +196,76 @@ button {
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 </style>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script
-	src="https://cdn.sobekrepository.org/includes/jquery-rotate/2.2/jquery-rotate.min.js"></script>
+   src="https://cdn.sobekrepository.org/includes/jquery-rotate/2.2/jquery-rotate.min.js"></script>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+   src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">¸ŞÀÎ</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-         data-target="#navbarSupportedContent"
-         aria-controls="navbarSupportedContent" aria-expanded="false"
-         aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav ">
-            <li class="nav-item active"><a class="nav-link"
-               href="/details/ladder">¿À´Ã ¹¹¸ÔÁö?<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="/store/list">¸ÀÁıÃ¢°í</a>
-            </li>
-            <li class="nav-item"><a class="nav-link"
-               href="/board/notice/list">°øÁö»çÇ×</a></li>
-            <li class="nav-item dropdown"><a
-               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-               role="button" data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false"> Å×¸¶¸ÀÁı±âÇà </a>
-               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/">¹Ìµğ¾îÇÈ</a> <a
-                     class="dropdown-item" href="#">Çªµå½ºÅä¸®</a>
-               </div></li>
-         </ul>
+      <div class="container-fluid">
+         <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <a class="navbar-brand" href="/">ë©”ì¸</a>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item active"><a class="nav-link active"
+                  aria-current="page" href="/details/ladder">ì˜¤ëŠ˜ ë­ë¨¹ì§€?<span
+                     class="sr-only"></span></a></li>
+               <li class="nav-item"><a class="nav-link" href="/store/list">ìµœì‹ ë§›ì§‘</a></li>
+               <li class="nav-item"><a class="nav-link"
+                  href="/board/notice/list">ê³µì§€ì‚¬í•­</a></li>
+               <li class="nav-item dropdown"><a
+                  class="nav-link dropdown-toggle" href="#"
+                  id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">í…Œë§ˆë§›ì§‘ê¸°í–‰</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                     <li><a class="dropdown-item" href="/board/mpick/list">ë¯¸ë””ì–´í”½</a></li>
+                     <li><a class="dropdown-item" href="/board/fstory/list">í‘¸ë“œìŠ¤í† ë¦¬</a></li>
+                  </ul></li>
+            </ul>
+         </div>
          <div id="search">
-            <form class="form-inline my-2 my-lg-0" action="/all/search">
+            <form class="d-flex" action="/all/search">
                <c:forEach items="${search}" var="search">
-                  <a href="/all/search?search=${search}">${search}</a>
+                  <a href="/search/search?search=${search}">${search}</a>
                </c:forEach>
-               <br> <input name="search" id="search" type="search"
-                  style="width: 500px;" class="form-control mr-sm-2"
-                  placeholder="¿øÇÏ½Ã´Â ¸Ş´º¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä" aria-label="Search"> <input
-                  type="submit" value="°Ë»ö"
-                  class="btn btn-outline-success my-3 my-sm-0"
-                  style="color: black; border-color: black;" aria-label="Search">
+               <input class="form-control me-2" name="search" id="search"
+                  type="search" style="width: 500px;" placeholder="ì›í•˜ì‹œëŠ” ë©”ë‰´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”"
+                  aria-label="Search">
+               <button class="btn btn-outline-success" type="submit">ê²€ìƒ‰</button>
             </form>
          </div>
-         <ul class="navbar-nav ml-auto">
-            <li><a href="loginform" id="login" class="btn btn-primary"
-               style="width: 100px; height: 40px;">·Î±×ÀÎ</a> <a href="/insert"
-               id="join" class="btn btn-primary"
-               style="width: 120px; height: 40px;">È¸¿ø°¡ÀÔ</a>
-         </ul>
       </div>
+      <c:if test="${ user.id != null }">
+         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+               <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ${user.id}ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤ </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                     <li><a class="dropdown-item" href="/wishlist">ìœ„ì‹œë¦¬ìŠ¤íŠ¸</a></li> 
+                     <li><a class="dropdown-item" href="/update">íšŒì› ì •ë³´ ìˆ˜ì •</a></li>
+                     <c:if test="${ user.role == 'role_admin'}">
+                        <li><a class="dropdown-item" href="/board/mpick/write">ìƒˆê¸€ ë“±ë¡</a></li>
+                     </c:if>
+                     <li><a class="dropdown-item" href="/logout">ë¡œê·¸ì•„ì›ƒ</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </c:if>
+      <c:if test="${ user.id == null }">
+         <a href="/loginform" id="login" class="btn btn-primary"
+            style="width: 100px; height: 35px;">ë¡œê·¸ì¸</a>
+         <a href="/insert" id="join" class="btn btn-primary"
+            style="width: 120px; height: 35px;">íšŒì›ê°€ì…</a>
+      </c:if>
+      
    </nav>
 
 
@@ -272,10 +279,10 @@ button {
 <table >
 
 <th>
-<h4 align=center><span class="badge rounded-pill bg-warning text-dark">¡é¡é¾Æ·¡ ·ê·¿¹öÆ°À» Å¬¸¯ÇØÁÖ¼¼¿ä¡é¡é</span></h4>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">â†“â†“ì•„ë˜ ë£°ë ›ë²„íŠ¼ì„ í´ë¦­í•´ì£¼ì„¸ìš”â†“â†“</span></h4>
 </th>
 <th>
-<h4 align=center><span class="badge rounded-pill bg-warning text-dark">¾Æ·¡ Áöµµ¿¡¼­ ¿øÇÏ½Ã´Â ¸ÀÁıÀ» Ã£¾Æº¸¼¼¿ä</span></h4>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">ì•„ë˜ ì§€ë„ì—ì„œ ì›í•˜ì‹œëŠ” ë§›ì§‘ì„ ì°¾ì•„ë³´ì„¸ìš”</span></h4>
 </th>
 
 <tr>
@@ -283,12 +290,12 @@ button {
 <td class="cell_padding">
 
 <div class="box-roulette">
-	<div class="markers"></div>
-	<button type="button" id="btn-start">
-		¾ß¹Ì¿ä<br>¿À´Ã ¹¹¸ÔÁö??<br>click
-	</button>
-	<div class="roulette" id="roulette"></div>
-	
+   <div class="markers"></div>
+   <button type="button" id="btn-start">
+      ì•¼ë¯¸ìš”<br>ì˜¤ëŠ˜ ë­ë¨¹ì§€??<br>click
+   </button>
+   <div class="roulette" id="roulette"></div>
+   
 </div>
 </td>
 
@@ -300,8 +307,8 @@ button {
         <div class="option">
             <div>
                 <form id="searchForm" onsubmit="searchPlaces(); return false;">
-                    Å°¿öµå : <input type="text" value="ÀÌÅÂ¿ø ¸ÀÁı" id="keyword" size="15"> 
-                    <button type="submit">°Ë»öÇÏ±â</button> 
+                    í‚¤ì›Œë“œ : <input type="text" value="ì´íƒœì› ë§›ì§‘" id="keyword" size="15"> 
+                    <button type="submit">ê²€ìƒ‰í•˜ê¸°</button> 
                 </form>
             </div>
         </div>
@@ -326,66 +333,66 @@ button {
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2937f4a07074c718e1c8b3e8a1f4f9b&libraries=services"></script>
 <script>
-// ¸¶Ä¿¸¦ ´ãÀ» ¹è¿­ÀÔ´Ï´Ù
+// ë§ˆì»¤ë¥¼ ë‹´ì„ ë°°ì—´ì…ë‹ˆë‹¤
 var markers = [];
 
-var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
+var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
     mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-        level: 3 // ÁöµµÀÇ È®´ë ·¹º§
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+        level: 3 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
     };  
 
-// Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù    
+// ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-// Àå¼Ò °Ë»ö °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
+// ì¥ì†Œ ê²€ìƒ‰ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 var ps = new kakao.maps.services.Places();  
 
-// °Ë»ö °á°ú ¸ñ·ÏÀÌ³ª ¸¶Ä¿¸¦ Å¬¸¯ÇßÀ» ¶§ Àå¼Ò¸íÀ» Ç¥ÃâÇÒ ÀÎÆ÷À©µµ¿ì¸¦ »ı¼ºÇÕ´Ï´Ù
+// ê²€ìƒ‰ ê²°ê³¼ ëª©ë¡ì´ë‚˜ ë§ˆì»¤ë¥¼ í´ë¦­í–ˆì„ ë•Œ ì¥ì†Œëª…ì„ í‘œì¶œí•  ì¸í¬ìœˆë„ìš°ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
-// Å°¿öµå·Î Àå¼Ò¸¦ °Ë»öÇÕ´Ï´Ù
+// í‚¤ì›Œë“œë¡œ ì¥ì†Œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
 searchPlaces();
 
-// Å°¿öµå °Ë»öÀ» ¿äÃ»ÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// í‚¤ì›Œë“œ ê²€ìƒ‰ì„ ìš”ì²­í•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function searchPlaces() {
 
     var keyword = document.getElementById('keyword').value;
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        alert('Å°¿öµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!');
+        alert('í‚¤ì›Œë“œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!');
         return false;
     }
 
-    // Àå¼Ò°Ë»ö °´Ã¼¸¦ ÅëÇØ Å°¿öµå·Î Àå¼Ò°Ë»öÀ» ¿äÃ»ÇÕ´Ï´Ù
+    // ì¥ì†Œê²€ìƒ‰ ê°ì²´ë¥¼ í†µí•´ í‚¤ì›Œë“œë¡œ ì¥ì†Œê²€ìƒ‰ì„ ìš”ì²­í•©ë‹ˆë‹¤
     ps.keywordSearch( keyword, placesSearchCB); 
 }
 
-// Àå¼Ò°Ë»öÀÌ ¿Ï·áµÆÀ» ¶§ È£ÃâµÇ´Â Äİ¹éÇÔ¼ö ÀÔ´Ï´Ù
+// ì¥ì†Œê²€ìƒ‰ì´ ì™„ë£Œëì„ ë•Œ í˜¸ì¶œë˜ëŠ” ì½œë°±í•¨ìˆ˜ ì…ë‹ˆë‹¤
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
-        // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é
-        // °Ë»ö ¸ñ·Ï°ú ¸¶Ä¿¸¦ Ç¥ÃâÇÕ´Ï´Ù
+        // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´
+        // ê²€ìƒ‰ ëª©ë¡ê³¼ ë§ˆì»¤ë¥¼ í‘œì¶œí•©ë‹ˆë‹¤
         displayPlaces(data);
 
-        // ÆäÀÌÁö ¹øÈ£¸¦ Ç¥ÃâÇÕ´Ï´Ù
+        // í˜ì´ì§€ ë²ˆí˜¸ë¥¼ í‘œì¶œí•©ë‹ˆë‹¤
         displayPagination(pagination);
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-        alert('°Ë»ö °á°ú°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.');
+        alert('ê²€ìƒ‰ ê²°ê³¼ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');
         return;
 
     } else if (status === kakao.maps.services.Status.ERROR) {
 
-        alert('°Ë»ö °á°ú Áß ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.');
+        alert('ê²€ìƒ‰ ê²°ê³¼ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.');
         return;
 
     }
 }
 
-// °Ë»ö °á°ú ¸ñ·Ï°ú ¸¶Ä¿¸¦ Ç¥ÃâÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// ê²€ìƒ‰ ê²°ê³¼ ëª©ë¡ê³¼ ë§ˆì»¤ë¥¼ í‘œì¶œí•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function displayPlaces(places) {
 
     var listEl = document.getElementById('placesList'), 
@@ -394,26 +401,26 @@ function displayPlaces(places) {
     bounds = new kakao.maps.LatLngBounds(), 
     listStr = '';
     
-    // °Ë»ö °á°ú ¸ñ·Ï¿¡ Ãß°¡µÈ Ç×¸ñµéÀ» Á¦°ÅÇÕ´Ï´Ù
+    // ê²€ìƒ‰ ê²°ê³¼ ëª©ë¡ì— ì¶”ê°€ëœ í•­ëª©ë“¤ì„ ì œê±°í•©ë‹ˆë‹¤
     removeAllChildNods(listEl);
 
-    // Áöµµ¿¡ Ç¥½ÃµÇ°í ÀÖ´Â ¸¶Ä¿¸¦ Á¦°ÅÇÕ´Ï´Ù
+    // ì§€ë„ì— í‘œì‹œë˜ê³  ìˆëŠ” ë§ˆì»¤ë¥¼ ì œê±°í•©ë‹ˆë‹¤
     removeMarker();
     
     for ( var i=0; i<places.length; i++ ) {
 
-        // ¸¶Ä¿¸¦ »ı¼ºÇÏ°í Áöµµ¿¡ Ç¥½ÃÇÕ´Ï´Ù
+        // ë§ˆì»¤ë¥¼ ìƒì„±í•˜ê³  ì§€ë„ì— í‘œì‹œí•©ë‹ˆë‹¤
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i), 
-            itemEl = getListItem(i, places[i]); // °Ë»ö °á°ú Ç×¸ñ Element¸¦ »ı¼ºÇÕ´Ï´Ù
+            itemEl = getListItem(i, places[i]); // ê²€ìƒ‰ ê²°ê³¼ í•­ëª© Elementë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 
-        // °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÏ±âÀ§ÇØ
-        // LatLngBounds °´Ã¼¿¡ ÁÂÇ¥¸¦ Ãß°¡ÇÕ´Ï´Ù
+        // ê²€ìƒ‰ëœ ì¥ì†Œ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ ë²”ìœ„ë¥¼ ì¬ì„¤ì •í•˜ê¸°ìœ„í•´
+        // LatLngBounds ê°ì²´ì— ì¢Œí‘œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤
         bounds.extend(placePosition);
 
-        // ¸¶Ä¿¿Í °Ë»ö°á°ú Ç×¸ñ¿¡ mouseover ÇßÀ»¶§
-        // ÇØ´ç Àå¼Ò¿¡ ÀÎÆ÷À©µµ¿ì¿¡ Àå¼Ò¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
-        // mouseout ÇßÀ» ¶§´Â ÀÎÆ÷À©µµ¿ì¸¦ ´İ½À´Ï´Ù
+        // ë§ˆì»¤ì™€ ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì— mouseover í–ˆì„ë•Œ
+        // í•´ë‹¹ ì¥ì†Œì— ì¸í¬ìœˆë„ìš°ì— ì¥ì†Œëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
+        // mouseout í–ˆì„ ë•ŒëŠ” ì¸í¬ìœˆë„ìš°ë¥¼ ë‹«ìŠµë‹ˆë‹¤
         (function(marker, title) {
             kakao.maps.event.addListener(marker, 'mouseover', function() {
                 displayInfowindow(marker, title);
@@ -435,15 +442,15 @@ function displayPlaces(places) {
         fragment.appendChild(itemEl);
     }
 
-    // °Ë»ö°á°ú Ç×¸ñµéÀ» °Ë»ö°á°ú ¸ñ·Ï Element¿¡ Ãß°¡ÇÕ´Ï´Ù
+    // ê²€ìƒ‰ê²°ê³¼ í•­ëª©ë“¤ì„ ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ Elementì— ì¶”ê°€í•©ë‹ˆë‹¤
     listEl.appendChild(fragment);
     menuEl.scrollTop = 0;
 
-    // °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÕ´Ï´Ù
+    // ê²€ìƒ‰ëœ ì¥ì†Œ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ ë²”ìœ„ë¥¼ ì¬ì„¤ì •í•©ë‹ˆë‹¤
     map.setBounds(bounds);
 }
 
-// °Ë»ö°á°ú Ç×¸ñÀ» Element·Î ¹İÈ¯ÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ Elementë¡œ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
@@ -467,28 +474,28 @@ function getListItem(index, places) {
     return el;
 }
 
-// ¸¶Ä¿¸¦ »ı¼ºÇÏ°í Áöµµ À§¿¡ ¸¶Ä¿¸¦ Ç¥½ÃÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// ë§ˆì»¤ë¥¼ ìƒì„±í•˜ê³  ì§€ë„ ìœ„ì— ë§ˆì»¤ë¥¼ í‘œì‹œí•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function addMarker(position, idx, title) {
-    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // ¸¶Ä¿ ÀÌ¹ÌÁö url, ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁö¸¦ ¾¹´Ï´Ù
-        imageSize = new kakao.maps.Size(36, 37),  // ¸¶Ä¿ ÀÌ¹ÌÁöÀÇ Å©±â
+    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // ë§ˆì»¤ ì´ë¯¸ì§€ url, ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€ë¥¼ ì”ë‹ˆë‹¤
+        imageSize = new kakao.maps.Size(36, 37),  // ë§ˆì»¤ ì´ë¯¸ì§€ì˜ í¬ê¸°
         imgOptions =  {
-            spriteSize : new kakao.maps.Size(36, 691), // ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁöÀÇ Å©±â
-            spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁö Áß »ç¿ëÇÒ ¿µ¿ªÀÇ ÁÂ»ó´Ü ÁÂÇ¥
-            offset: new kakao.maps.Point(13, 37) // ¸¶Ä¿ ÁÂÇ¥¿¡ ÀÏÄ¡½ÃÅ³ ÀÌ¹ÌÁö ³»¿¡¼­ÀÇ ÁÂÇ¥
+            spriteSize : new kakao.maps.Size(36, 691), // ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€ì˜ í¬ê¸°
+            spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€ ì¤‘ ì‚¬ìš©í•  ì˜ì—­ì˜ ì¢Œìƒë‹¨ ì¢Œí‘œ
+            offset: new kakao.maps.Point(13, 37) // ë§ˆì»¤ ì¢Œí‘œì— ì¼ì¹˜ì‹œí‚¬ ì´ë¯¸ì§€ ë‚´ì—ì„œì˜ ì¢Œí‘œ
         },
         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
             marker = new kakao.maps.Marker({
-            position: position, // ¸¶Ä¿ÀÇ À§Ä¡
+            position: position, // ë§ˆì»¤ì˜ ìœ„ì¹˜
             image: markerImage 
         });
 
-    marker.setMap(map); // Áöµµ À§¿¡ ¸¶Ä¿¸¦ Ç¥ÃâÇÕ´Ï´Ù
-    markers.push(marker);  // ¹è¿­¿¡ »ı¼ºµÈ ¸¶Ä¿¸¦ Ãß°¡ÇÕ´Ï´Ù
+    marker.setMap(map); // ì§€ë„ ìœ„ì— ë§ˆì»¤ë¥¼ í‘œì¶œí•©ë‹ˆë‹¤
+    markers.push(marker);  // ë°°ì—´ì— ìƒì„±ëœ ë§ˆì»¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤
 
     return marker;
 }
 
-// Áöµµ À§¿¡ Ç¥½ÃµÇ°í ÀÖ´Â ¸¶Ä¿¸¦ ¸ğµÎ Á¦°ÅÇÕ´Ï´Ù
+// ì§€ë„ ìœ„ì— í‘œì‹œë˜ê³  ìˆëŠ” ë§ˆì»¤ë¥¼ ëª¨ë‘ ì œê±°í•©ë‹ˆë‹¤
 function removeMarker() {
     for ( var i = 0; i < markers.length; i++ ) {
         markers[i].setMap(null);
@@ -496,13 +503,13 @@ function removeMarker() {
     markers = [];
 }
 
-// °Ë»ö°á°ú ¸ñ·Ï ÇÏ´Ü¿¡ ÆäÀÌÁö¹øÈ£¸¦ Ç¥½Ã´Â ÇÔ¼öÀÔ´Ï´Ù
+// ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ í•˜ë‹¨ì— í˜ì´ì§€ë²ˆí˜¸ë¥¼ í‘œì‹œëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function displayPagination(pagination) {
     var paginationEl = document.getElementById('pagination'),
         fragment = document.createDocumentFragment(),
         i; 
 
-    // ±âÁ¸¿¡ Ãß°¡µÈ ÆäÀÌÁö¹øÈ£¸¦ »èÁ¦ÇÕ´Ï´Ù
+    // ê¸°ì¡´ì— ì¶”ê°€ëœ í˜ì´ì§€ë²ˆí˜¸ë¥¼ ì‚­ì œí•©ë‹ˆë‹¤
     while (paginationEl.hasChildNodes()) {
         paginationEl.removeChild (paginationEl.lastChild);
     }
@@ -527,8 +534,8 @@ function displayPagination(pagination) {
     paginationEl.appendChild(fragment);
 }
 
-// °Ë»ö°á°ú ¸ñ·Ï ¶Ç´Â ¸¶Ä¿¸¦ Å¬¸¯ÇßÀ» ¶§ È£ÃâµÇ´Â ÇÔ¼öÀÔ´Ï´Ù
-// ÀÎÆ÷À©µµ¿ì¿¡ Àå¼Ò¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
+// ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ ë˜ëŠ” ë§ˆì»¤ë¥¼ í´ë¦­í–ˆì„ ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
+// ì¸í¬ìœˆë„ìš°ì— ì¥ì†Œëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
 function displayInfowindow(marker, title) {
     var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
 
@@ -536,7 +543,7 @@ function displayInfowindow(marker, title) {
     infowindow.open(map, marker);
 }
 
- // °Ë»ö°á°ú ¸ñ·ÏÀÇ ÀÚ½Ä Element¸¦ Á¦°ÅÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+ // ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ì˜ ìì‹ Elementë¥¼ ì œê±°í•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function removeAllChildNods(el) {   
     while (el.hasChildNodes()) {
         el.removeChild (el.lastChild);
@@ -550,149 +557,188 @@ function removeAllChildNods(el) {
 
 
 
-	<script type="text/javascript">
-	(function($) {
-		$.fn.extend({
+   <script type="text/javascript">
+   (function($) {
+      $.fn.extend({
 
-			roulette: function(options) {
+         roulette: function(options) {
 
-				var defaults = {
-					angle: 0,
-					angleOffset: 0,
-					speed: 3000,
-					easing: "easeInOutElastic",
-				};
+            var defaults = {
+               angle: 0,
+               angleOffset: 0,
+               speed: 3000,
+               easing: "easeInOutElastic",
+            };
 
-				var opt = $.extend(defaults, options);
+            var opt = $.extend(defaults, options);
 
-				return this.each(function() {
-					var o = opt;
+            return this.each(function() {
+               var o = opt;
 
-					var data = [
-						{ color: '#3f297e', text: 'ÇÑ½Ä' },
-						{ color: '#1d61ac', text: 'Áß½Ä' },
-						{ color: '#169ed8', text: 'ÀÏ½Ä' },
-						{ color: '#209b6c', text: 'ÇÜ¹ö°Å' },
-						{ color: '#60b236', text: 'ÇÇÀÚ' },
-						{ color: '#efe61f', text: 'Ä¡Å²' },
-						{ color: '#f7a416', text: 'µ·±î½º' },
-						{ color: '#e6471d', text: '»ï°ã»ì' },
-						{ color: '#dc0936', text: '°¥ºñ' },
-						{ color: '#e5177b', text: '±¹¹ä' },
-						{ color: '#881f7e', text: 'ÆĞ½ºÆ®Çªµå' }
-						
-					];
+               var data = [
+                  { color: '#3f297e', text: 'í•œì‹' },
+                  { color: '#1d61ac', text: 'ì¤‘ì‹' },
+                  { color: '#169ed8', text: 'ì¼ì‹' },
+                  { color: '#209b6c', text: 'í–„ë²„ê±°' },
+                  { color: '#60b236', text: 'í”¼ì' },
+                  { color: '#efe61f', text: 'ì¹˜í‚¨' },
+                  { color: '#f7a416', text: 'ëˆê¹ŒìŠ¤' },
+                  { color: '#e6471d', text: 'ì‚¼ê²¹ì‚´' },
+                  { color: '#dc0936', text: 'ê°ˆë¹„' },
+                  { color: '#e5177b', text: 'êµ­ë°¥' },
+                  { color: '#881f7e', text: 'íŒ¨ìŠ¤íŠ¸í‘¸ë“œ' }
+                  
+               ];
 
-					var $wrap = $(this),
-							$btnStart = $wrap.find("#btn-start"),
-							$roulette = $wrap.find(".roulette"),
-							wrapW = $wrap.width(),
-							angle = o.angle,
-							angleOffset = o.angleOffset,
-							speed = o.speed,
-							esing = o.easing,
-							itemSize = data.length,
-							itemSelector = "item",
-							labelSelector = "label",
-							d = 360 / itemSize,
-							borderTopWidth = wrapW,
-							borderRightWidth = tanDeg(d);
+               var $wrap = $(this),
+                     $btnStart = $wrap.find("#btn-start"),
+                     $roulette = $wrap.find(".roulette"),
+                     wrapW = $wrap.width(),
+                     angle = o.angle,
+                     angleOffset = o.angleOffset,
+                     speed = o.speed,
+                     esing = o.easing,
+                     itemSize = data.length,
+                     itemSelector = "item",
+                     labelSelector = "label",
+                     d = 360 / itemSize,
+                     borderTopWidth = wrapW,
+                     borderRightWidth = tanDeg(d);
 
-					for(i=1; i<=itemSize; i+=1){
-						var idx = i-1,
-								rt = i*d + angleOffset,
-								itemHTML = $('<div class="'+ itemSelector +'">'),
-								labelHTML = '';
-								labelHTML += '<p class="'+ labelSelector +'">';
-								labelHTML += '	<span class="text">'+ data[idx].text +'</span>';
-								labelHTML += '</p>';
+               for(i=1; i<=itemSize; i+=1){
+                  var idx = i-1,
+                        rt = i*d + angleOffset,
+                        itemHTML = $('<div class="'+ itemSelector +'">'),
+                        labelHTML = '';
+                        labelHTML += '<p class="'+ labelSelector +'">';
+                        labelHTML += '   <span class="text">'+ data[idx].text +'</span>';
+                        labelHTML += '</p>';
 
-						$roulette.append(itemHTML);
-						$roulette.children("."+ itemSelector).eq(idx).append(labelHTML);
-						$roulette.children("."+ itemSelector).eq(idx).css({
-							"left": wrapW / 2,
-							"top": -wrapW / 2,
-							"border-top-width": borderTopWidth,
-							"border-right-width": borderRightWidth,
-							"border-top-color": data[idx].color,
-							"transform": "rotate("+ rt + "deg)"
-						});
+                  $roulette.append(itemHTML);
+                  $roulette.children("."+ itemSelector).eq(idx).append(labelHTML);
+                  $roulette.children("."+ itemSelector).eq(idx).css({
+                     "left": wrapW / 2,
+                     "top": -wrapW / 2,
+                     "border-top-width": borderTopWidth,
+                     "border-right-width": borderRightWidth,
+                     "border-top-color": data[idx].color,
+                     "transform": "rotate("+ rt + "deg)"
+                  });
 
-						var textH = parseInt(((2*Math.PI*wrapW)/d)*.5);
+                  var textH = parseInt(((2*Math.PI*wrapW)/d)*.5);
 
-						$roulette.children("."+ itemSelector).eq(idx).children("."+ labelSelector).css({
-							"height": textH+'px',
-							"lineHeight": textH+'px',
-							"transform": 'translateX('+  (textH*1.03) +'px) translateY('+ (wrapW*-.25) +'px) rotateZ('+ (90 + d*.5) +'deg)'
-						});
+                  $roulette.children("."+ itemSelector).eq(idx).children("."+ labelSelector).css({
+                     "height": textH+'px',
+                     "lineHeight": textH+'px',
+                     "transform": 'translateX('+  (textH*1.03) +'px) translateY('+ (wrapW*-.25) +'px) rotateZ('+ (90 + d*.5) +'deg)'
+                  });
 
-					}
+               }
 
-					function tanDeg(deg) {
-						var rad = deg * Math.PI/180;
-						return wrapW / (1/Math.tan(rad));
-					}
+               function tanDeg(deg) {
+                  var rad = deg * Math.PI/180;
+                  return wrapW / (1/Math.tan(rad));
+               }
 
 
-					$btnStart.on("click", function() {
-						rotation();
-					});
+               $btnStart.on("click", function() {
+                  rotation();
+               });
 
-					function rotation() {
-						let arr = ['±¹¹ä','°¥ºñ','»ï°ã»ì','µ·±î½º','Ä¡Å²','ÇÇÀÚ','ÇÜ¹ö°Å','ÀÏ½Ä','Áß½Ä','ÇÑ½Ä','ÆĞ½ºÆ®Çªµå'];
-						let n1 =  r(2, 4);
-						let n2 =  r(0, 359)
-						var completeA = 360 * n1 + n2;
-						//var completeA = 360 * 0 + n2;
+               function rotation() {
+                  let arr = ['êµ­ë°¥','ê°ˆë¹„','ì‚¼ê²¹ì‚´','ëˆê¹ŒìŠ¤','ì¹˜í‚¨','í”¼ì','í–„ë²„ê±°','ì¼ì‹','ì¤‘ì‹','í•œì‹','íŒ¨ìŠ¤íŠ¸í‘¸ë“œ'];
+                  let n1 =  r(2, 4);
+                  let n2 =  r(0, 359)
+                  var completeA = 360 * n1 + n2;
+                  //var completeA = 360 * 0 + n2;
 
-						$roulette.rotate({
-							angle: angle,
-							animateTo: completeA,
-							center: ["50%", "50%"],
-							easing: $.easing.esing,
-							callback: function() {
-								var currentA = $(this).getRotateAngle();
-								console.log(n2 / 36);
-								console.log("n1 : "+n1 + " n2:"+n2);
-								
-								console.log(currentA);
-								
-								let index = Math.floor(n2*11/360);
-							
-								console.log(arr[index] + ' '+index);
-								$("#keyword").val(arr[index]);
-								$("#searchForm").submit();
-							},
-							duration: speed
-						});
-					}
+                  $roulette.rotate({
+                     angle: angle,
+                     animateTo: completeA,
+                     center: ["50%", "50%"],
+                     easing: $.easing.esing,
+                     callback: function() {
+                        var currentA = $(this).getRotateAngle();
+                        console.log(n2 / 36);
+                        console.log("n1 : "+n1 + " n2:"+n2);
+                        
+                        console.log(currentA);
+                        
+                        let index = Math.floor(n2*11/360);
+                     
+                        console.log(arr[index] + ' '+index);
+                        $("#keyword").val(arr[index]);
+                        $("#searchForm").submit();
+                     },
+                     duration: speed
+                  });
+               }
 
-					function r(min, max) {
-						return Math.floor(Math.random() * (max - min + 1)) + min;
-					}
+               function r(min, max) {
+                  return Math.floor(Math.random() * (max - min + 1)) + min;
+               }
 
-				});
-			}
-		});
-	})(jQuery);
+            });
+         }
+      });
+   })(jQuery);
 
-	$(function() {
+   $(function() {
 
-		$('.box-roulette').roulette();
-		
-		
-		
-		$(".text").click(function(){	
-			let f = $(this).text();
-			$("#keyword").val(f);
-			$("#searchForm").submit();
-		})
-	});
-	
-		
-	</script>
+      $('.box-roulette').roulette();
+      
+      
+      
+      $(".text").click(function(){   
+         let f = $(this).text();
+         $("#keyword").val(f);
+         $("#searchForm").submit();
+      })
+   });
+   
+      
+   </script>
+<hr>
+   <br>
+   <br>
+   <br>
+  
+   <div class="container">
+      <footer class="row row-cols-5 py-5 my-5 border-top">
+         <div class="col">
+            <a href="/"
+               class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+               <svg class="bi me-2" width="40" height="32">
+                  <use xlink:href="#bootstrap" /></svg>
+            </a>
+            <p class="text-muted">&copy; 2022 YUMMYO Project </p>
+         </div>
 
-</div>
+         <div class="col"></div>
+         <div class="col">
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2"><a href="/footer/tservice"
+                  class="nav-link p-0 text-muted">ì´ìš©ì•½ê´€</a></li>
+               <li class="nav-item mb-2"><a href="/footer/nmembers"
+                  class="nav-link p-0 text-muted">ë¹„íšŒì› ì´ìš©ì •ì±…</a></li>
+               <li class="nav-item mb-2"><a href="/footer/gps"
+                  class="nav-link p-0 text-muted">ìœ„ì¹˜ê¸°ë°˜ ì„œë¹„ìŠ¤ ì´ìš©ì•½ê´€</a></li>
+            </ul>
+         </div>
+
+         <div class="col">            
+            <ul class="nav flex-column">
+               <li class="nav-item mb-2"><a href="/footer/inquiry"
+                  class="nav-link p-0 text-muted">ë¬¸ì˜í•˜ê¸°</a></li>
+               <li class="nav-item mb-2"><a href="/footer/privacy"
+                  class="nav-link p-0 text-muted">ê°œì¸ì •ë³´ ì²˜ë¦¬ë°©ì¹¨</a></li>
+            </ul>
+         </div>
+      </footer>
+   </div>
+   <div class="b-example-divider"></div>
+  
+
 
 
 
@@ -701,4 +747,3 @@ function removeAllChildNods(el) {
 
 </body>
 </html>
-
