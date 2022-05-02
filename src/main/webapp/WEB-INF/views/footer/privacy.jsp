@@ -79,11 +79,11 @@ h1{
 
 <p>&nbsp;</p>
 
-<p>주식회사 여기어때컴퍼니(이하 &quot;회사&quot;)는 이용자의 개인정보를 소중하게 생각하며 정보통신서비스 제공자가 준수하여야 하는 <strong>대한민국의 관계 법령</strong><strong>, </strong><strong>개인정보보호 규정 및 가이드라인을 준수하고자 노력하고 있습니다</strong><strong>.</strong></p>
+<p>주식회사 야미요컴퍼니(이하 &quot;회사&quot;)는 이용자의 개인정보를 소중하게 생각하며 정보통신서비스 제공자가 준수하여야 하는 <strong>대한민국의 관계 법령</strong><strong>, </strong><strong>개인정보보호 규정 및 가이드라인을 준수하고자 노력하고 있습니다</strong><strong>.</strong></p>
 
 <p>회사는 개인정보 처리방침을 통해 이용자의 개인정보 처리를 포함한 회사의 개인정보 보호를 위한 조치 내용을 이용자에게 알리고, 회사와 이용자 간의 권리 및 의무관계를 규정하여 이용자의 개인정보 자기결정권을 보장합니다.</p>
 
-<p><strong>본 개인정보 처리방침은 망고플레이트</strong><strong>, </strong><strong>망고웨잇</strong><strong>/</strong><strong>망고오더</strong><strong>, </strong><strong>망고플레이트 비즈니스 서비스 웹 및 앱에 적용됩니다</strong><strong>.</strong></p>
+<p><strong>본 개인정보 처리방침은 야미요</strong><strong>야미요 비즈니스 서비스 웹 및 앱에 적용됩니다</strong><strong>.</strong></p>
 
 <p>&nbsp;</p>
 

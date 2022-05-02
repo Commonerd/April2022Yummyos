@@ -129,7 +129,7 @@ p.count {
          <div id="search">
             <form class="d-flex" action="/all/search">
                <c:forEach items="${search}" var="search">
-                  <a href="/search/search?search=${search}">${search}</a>
+                  <a href="/search/search?search=${search}"></a>
                </c:forEach>
                <input class="form-control me-2" name="search" id="search"
                   type="search" style="width: 500px;" placeholder="원하시는 메뉴를 입력해주세요"
@@ -169,7 +169,7 @@ p.count {
 		<br> 
 		<div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
 			<nav id="TableOfContents" display="flex">
-				<a href="#store" type="button" class="btn btn-outline-secondary">SRORE</a>
+				<a href="#store" type="button" class="btn btn-outline-secondary">STORE</a>
 				<a href="#fstory" type="button" class="btn btn-outline-secondary">FSTORY</a> 
 				<a href="#mpick" type="button" class="btn btn-outline-secondary">MPICK</a>
 			</nav>

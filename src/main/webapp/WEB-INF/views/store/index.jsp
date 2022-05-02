@@ -135,7 +135,7 @@ a {
 							<li><a class="dropdown-item" href="/wishlist">위시리스트</a></li> 
 							<li><a class="dropdown-item" href="/update">회원 정보 수정</a></li>
 							<c:if test="${ user.role == 'role_admin'}">
-								<li><a class="dropdown-item" href="/board/mpick/write">새글 등록</a></li>
+								<li><a class="dropdown-item" href="/store/insert">새글 등록</a></li>
 							</c:if>
 							<li><a class="dropdown-item" href="/logout">로그아웃</a></li>
 						</ul>

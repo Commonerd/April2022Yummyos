@@ -262,13 +262,6 @@ button {
    </nav>
 
 
-
-
-
-
-
-
-
 <table >
 
 <th>
@@ -277,7 +270,6 @@ button {
 <th>
 <h4 align=center><span class="badge rounded-pill bg-warning text-dark">아래 지도에서 원하시는 맛집을 찾아보세요</span></h4>
 </th>
-
 <tr>
 
 <td class="cell_padding">
@@ -313,11 +305,11 @@ button {
 </td>
 
 </tr>
-
-
-
-
 </table>
+
+
+
+
 
 
 
@@ -687,17 +679,42 @@ function removeAllChildNods(el) {
 			$("#keyword").val(f);
 			$("#searchForm").submit();
 		})
-	});
-	
-		
+	});		
 	</script>
+		<div class="container">
+		<footer class="row row-cols-5 py-5 my-5 border-top">
+			<div class="col">
+				<a href="/"
+					class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+					<svg class="bi me-2" width="40" height="32">
+						<use xlink:href="#bootstrap" /></svg>
+				</a>
+				<p class="text-muted">&copy; 2022 YUMMYO Project </p>
+			</div>
 
-</div>
+			<div class="col"></div>
+			<div class="col">
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="/footer/tservice"
+						class="nav-link p-0 text-muted">이용약관</a></li>
+					<li class="nav-item mb-2"><a href="/footer/nmembers"
+						class="nav-link p-0 text-muted">비회원 이용정책</a></li>
+					<li class="nav-item mb-2"><a href="/footer/gps"
+						class="nav-link p-0 text-muted">위치기반 서비스 이용약관</a></li>
+				</ul>
+			</div>
 
-
-
-
-
+			<div class="col">				
+				<ul class="nav flex-column">
+					<li class="nav-item mb-2"><a href="/footer/inquiry"
+						class="nav-link p-0 text-muted">문의하기</a></li>
+					<li class="nav-item mb-2"><a href="/footer/privacy"
+						class="nav-link p-0 text-muted">개인정보 처리방침</a></li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<div class="b-example-divider"></div>
 
 </body>
 </html>

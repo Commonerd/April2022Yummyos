@@ -164,7 +164,7 @@ public class UsersController {
 	@PutMapping("/update")
 	public String update(@ModelAttribute("user") UsersDto dto) {
 		service.updateUsers(dto);
-		return "redirect:/main";
+		return "redirect:/";
 	}
 
 	@GetMapping("/delete")
@@ -186,7 +186,7 @@ public class UsersController {
 			return "redirect:/delete/wrongpw";
 		} else {
 			status.setComplete();
-			return "redirect:/main";
+			return "redirect:/";
 		}
 	}
 
