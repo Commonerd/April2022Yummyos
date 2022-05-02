@@ -21,7 +21,7 @@
 
 <style>
 #login {
-	margin-right:0px;
+   margin-right:0px;
 }
 
 #join {
@@ -40,9 +40,9 @@ h1 {
 }
 
 h2 {
-	color: lightslategray;
-	text-align:center;
-	  padding:50px;
+   color: lightslategray;
+   text-align:center;
+     padding:50px;
    margin: 20px;
 }
 
@@ -85,6 +85,7 @@ a {
 <body>
 <div id=cooking>
 <h1>언제 어디서든 JMT 식사하세요, 야미요</h1>
+
 	</div>
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -152,10 +153,10 @@ a {
 		
 	</nav>
 
-	<!--  nList begin end count pageNum totalPages -->
-	<h2>최근 핫플레이스 맛집 Top 9</h2>
-		<c:if test="${count != 0 }">
-			<div class="container">         
+   <!--  nList begin end count pageNum totalPages -->
+   <h2>최근 핫플레이스 맛집 Top 9</h2>
+      <c:if test="${count != 0 }">
+         <div class="container">         
             <div class="row">
             <c:forEach items="${sList}" var="store">
                <div class="col-md-4 mb-5" >
@@ -166,8 +167,8 @@ a {
                         <h6 class="card-text">${store.category}</h6>
                         <h6 class="card-text">${store.detail}</h6>
                         <c:forEach items="${hash}" var="hashtag" begin="1">
-						<a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
-						</c:forEach>
+                  <a href="/store/search?searchn=1&search=${hashtag}">#${hashtag} </a> 
+                  </c:forEach>
                         <p class="card-text">좋아요♥ ${store.blike}</p>
                         <a href="/store/content/${store.no}" class="btn btn-primary">맛집보기</a>
                      </div>
@@ -175,8 +176,7 @@ a {
                </div>
             </c:forEach>
             </div>   
-				
-				
+
 
       </c:if>
       <c:if test="${count == 0 }">

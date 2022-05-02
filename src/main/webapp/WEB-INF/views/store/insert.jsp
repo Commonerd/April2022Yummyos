@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>맛집등록</title>
 
 <meta name="viewport"
    content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,6 +27,7 @@
    crossorigin="anonymous"></script>
 
 <style>
+
 .selector-for-some-widget {
    box-sizing: content-box;
 }

@@ -7,10 +7,10 @@ import lombok.Data;
 @Data
 public class ReviewDto {
 
-	private int no;
-	private String content;
-	private Date day;
-	private int store_no;
-	private String id;
-	private String image;
+   private int no;
+   private String content;
+   private Date day;
+   private int store_no;
+   private String id;
+   private String image;
 }

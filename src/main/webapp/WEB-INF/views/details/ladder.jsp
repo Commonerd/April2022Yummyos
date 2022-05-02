@@ -30,7 +30,7 @@
 
 
 html, body, button {
-	font-family: Arial, "µ¸¿ò", Dotum, "±¼¸²", Gulim, "Apple SD Gothic Neo",
+	font-family: Arial, "ë‹ì›€", Dotum, "êµ´ë¦¼", Gulim, "Apple SD Gothic Neo",
 		AppleGothic, sans-serif;
 }
 
@@ -167,7 +167,7 @@ button {
 }
 </style>
 <style>
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'µ¸¿ò',sans-serif;font-size:12px;}
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'ë‹ì›€',sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {position:relative;width:100%;height:500px;}
 #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
@@ -213,7 +213,7 @@ button {
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">¸ŞÀÎ</a>
+      <a class="navbar-brand" href="/">ë©”ì¸</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse"
          data-target="#navbarSupportedContent"
          aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -224,19 +224,19 @@ button {
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav ">
             <li class="nav-item active"><a class="nav-link"
-               href="/details/ladder">¿À´Ã ¹¹¸ÔÁö?<span class="sr-only">(current)</span></a>
+               href="/details/ladder">ì˜¤ëŠ˜ ë­ë¨¹ì§€?<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="/store/list">¸ÀÁıÃ¢°í</a>
+            <li class="nav-item"><a class="nav-link" href="/store/list">ë§›ì§‘ì°½ê³ </a>
             </li>
             <li class="nav-item"><a class="nav-link"
-               href="/board/notice/list">°øÁö»çÇ×</a></li>
+               href="/board/notice/list">ê³µì§€ì‚¬í•­</a></li>
             <li class="nav-item dropdown"><a
                class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                role="button" data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false"> Å×¸¶¸ÀÁı±âÇà </a>
+               aria-expanded="false"> í…Œë§ˆë§›ì§‘ê¸°í–‰ </a>
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="/">¹Ìµğ¾îÇÈ</a> <a
-                     class="dropdown-item" href="#">Çªµå½ºÅä¸®</a>
+                  <a class="dropdown-item" href="/">ë¯¸ë””ì–´í”½</a> <a
+                     class="dropdown-item" href="#">í‘¸ë“œìŠ¤í† ë¦¬</a>
                </div></li>
          </ul>
          <div id="search">
@@ -246,30 +246,38 @@ button {
                </c:forEach>
                <br> <input name="search" id="search" type="search"
                   style="width: 500px;" class="form-control mr-sm-2"
-                  placeholder="¿øÇÏ½Ã´Â ¸Ş´º¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä" aria-label="Search"> <input
-                  type="submit" value="°Ë»ö"
+                  placeholder="ì›í•˜ì‹œëŠ” ë©”ë‰´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”" aria-label="Search"> <input
+                  type="submit" value="ê²€ìƒ‰"
                   class="btn btn-outline-success my-3 my-sm-0"
                   style="color: black; border-color: black;" aria-label="Search">
             </form>
          </div>
          <ul class="navbar-nav ml-auto">
             <li><a href="loginform" id="login" class="btn btn-primary"
-               style="width: 100px; height: 40px;">·Î±×ÀÎ</a> <a href="/insert"
+               style="width: 100px; height: 40px;">ë¡œê·¸ì¸</a> <a href="/insert"
                id="join" class="btn btn-primary"
-               style="width: 120px; height: 40px;">È¸¿ø°¡ÀÔ</a>
+               style="width: 120px; height: 40px;">íšŒì›ê°€ì…</a>
          </ul>
       </div>
    </nav>
 
 
+
+
+
+
+
+
+
 <table >
 
 <th>
-<h4 align=center><span class="badge rounded-pill bg-warning text-dark">¡é¡é¾Æ·¡ ·ê·¿¹öÆ°À» Å¬¸¯ÇØÁÖ¼¼¿ä¡é¡é</span></h4>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">â†“â†“ì•„ë˜ ë£°ë ›ë²„íŠ¼ì„ í´ë¦­í•´ì£¼ì„¸ìš”â†“â†“</span></h4>
 </th>
 <th>
-<h4 align=center><span class="badge rounded-pill bg-warning text-dark">¾Æ·¡ Áöµµ¿¡¼­ ¿øÇÏ½Ã´Â ¸ÀÁıÀ» Ã£¾Æº¸¼¼¿ä</span></h4>
+<h4 align=center><span class="badge rounded-pill bg-warning text-dark">ì•„ë˜ ì§€ë„ì—ì„œ ì›í•˜ì‹œëŠ” ë§›ì§‘ì„ ì°¾ì•„ë³´ì„¸ìš”</span></h4>
 </th>
+
 <tr>
 
 <td class="cell_padding">
@@ -277,7 +285,7 @@ button {
 <div class="box-roulette">
 	<div class="markers"></div>
 	<button type="button" id="btn-start">
-		¾ß¹Ì¿ä<br>¿À´Ã ¹¹¸ÔÁö??<br>click
+		ì•¼ë¯¸ìš”<br>ì˜¤ëŠ˜ ë­ë¨¹ì§€??<br>click
 	</button>
 	<div class="roulette" id="roulette"></div>
 	
@@ -292,8 +300,8 @@ button {
         <div class="option">
             <div>
                 <form id="searchForm" onsubmit="searchPlaces(); return false;">
-                    Å°¿öµå : <input type="text" value="ÀÌÅÂ¿ø ¸ÀÁı" id="keyword" size="15"> 
-                    <button type="submit">°Ë»öÇÏ±â</button> 
+                    í‚¤ì›Œë“œ : <input type="text" value="ì´íƒœì› ë§›ì§‘" id="keyword" size="15"> 
+                    <button type="submit">ê²€ìƒ‰í•˜ê¸°</button> 
                 </form>
             </div>
         </div>
@@ -305,11 +313,11 @@ button {
 </td>
 
 </tr>
+
+
+
+
 </table>
-
-
-
-
 
 
 
@@ -318,66 +326,66 @@ button {
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2937f4a07074c718e1c8b3e8a1f4f9b&libraries=services"></script>
 <script>
-// ¸¶Ä¿¸¦ ´ãÀ» ¹è¿­ÀÔ´Ï´Ù
+// ë§ˆì»¤ë¥¼ ë‹´ì„ ë°°ì—´ì…ë‹ˆë‹¤
 var markers = [];
 
-var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
+var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
     mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-        level: 3 // ÁöµµÀÇ È®´ë ·¹º§
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+        level: 3 // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
     };  
 
-// Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù    
+// ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-// Àå¼Ò °Ë»ö °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
+// ì¥ì†Œ ê²€ìƒ‰ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 var ps = new kakao.maps.services.Places();  
 
-// °Ë»ö °á°ú ¸ñ·ÏÀÌ³ª ¸¶Ä¿¸¦ Å¬¸¯ÇßÀ» ¶§ Àå¼Ò¸íÀ» Ç¥ÃâÇÒ ÀÎÆ÷À©µµ¿ì¸¦ »ı¼ºÇÕ´Ï´Ù
+// ê²€ìƒ‰ ê²°ê³¼ ëª©ë¡ì´ë‚˜ ë§ˆì»¤ë¥¼ í´ë¦­í–ˆì„ ë•Œ ì¥ì†Œëª…ì„ í‘œì¶œí•  ì¸í¬ìœˆë„ìš°ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
-// Å°¿öµå·Î Àå¼Ò¸¦ °Ë»öÇÕ´Ï´Ù
+// í‚¤ì›Œë“œë¡œ ì¥ì†Œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
 searchPlaces();
 
-// Å°¿öµå °Ë»öÀ» ¿äÃ»ÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// í‚¤ì›Œë“œ ê²€ìƒ‰ì„ ìš”ì²­í•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function searchPlaces() {
 
     var keyword = document.getElementById('keyword').value;
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        alert('Å°¿öµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!');
+        alert('í‚¤ì›Œë“œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!');
         return false;
     }
 
-    // Àå¼Ò°Ë»ö °´Ã¼¸¦ ÅëÇØ Å°¿öµå·Î Àå¼Ò°Ë»öÀ» ¿äÃ»ÇÕ´Ï´Ù
+    // ì¥ì†Œê²€ìƒ‰ ê°ì²´ë¥¼ í†µí•´ í‚¤ì›Œë“œë¡œ ì¥ì†Œê²€ìƒ‰ì„ ìš”ì²­í•©ë‹ˆë‹¤
     ps.keywordSearch( keyword, placesSearchCB); 
 }
 
-// Àå¼Ò°Ë»öÀÌ ¿Ï·áµÆÀ» ¶§ È£ÃâµÇ´Â Äİ¹éÇÔ¼ö ÀÔ´Ï´Ù
+// ì¥ì†Œê²€ìƒ‰ì´ ì™„ë£Œëì„ ë•Œ í˜¸ì¶œë˜ëŠ” ì½œë°±í•¨ìˆ˜ ì…ë‹ˆë‹¤
 function placesSearchCB(data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {
 
-        // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é
-        // °Ë»ö ¸ñ·Ï°ú ¸¶Ä¿¸¦ Ç¥ÃâÇÕ´Ï´Ù
+        // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´
+        // ê²€ìƒ‰ ëª©ë¡ê³¼ ë§ˆì»¤ë¥¼ í‘œì¶œí•©ë‹ˆë‹¤
         displayPlaces(data);
 
-        // ÆäÀÌÁö ¹øÈ£¸¦ Ç¥ÃâÇÕ´Ï´Ù
+        // í˜ì´ì§€ ë²ˆí˜¸ë¥¼ í‘œì¶œí•©ë‹ˆë‹¤
         displayPagination(pagination);
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-        alert('°Ë»ö °á°ú°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.');
+        alert('ê²€ìƒ‰ ê²°ê³¼ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');
         return;
 
     } else if (status === kakao.maps.services.Status.ERROR) {
 
-        alert('°Ë»ö °á°ú Áß ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.');
+        alert('ê²€ìƒ‰ ê²°ê³¼ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.');
         return;
 
     }
 }
 
-// °Ë»ö °á°ú ¸ñ·Ï°ú ¸¶Ä¿¸¦ Ç¥ÃâÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// ê²€ìƒ‰ ê²°ê³¼ ëª©ë¡ê³¼ ë§ˆì»¤ë¥¼ í‘œì¶œí•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function displayPlaces(places) {
 
     var listEl = document.getElementById('placesList'), 
@@ -386,26 +394,26 @@ function displayPlaces(places) {
     bounds = new kakao.maps.LatLngBounds(), 
     listStr = '';
     
-    // °Ë»ö °á°ú ¸ñ·Ï¿¡ Ãß°¡µÈ Ç×¸ñµéÀ» Á¦°ÅÇÕ´Ï´Ù
+    // ê²€ìƒ‰ ê²°ê³¼ ëª©ë¡ì— ì¶”ê°€ëœ í•­ëª©ë“¤ì„ ì œê±°í•©ë‹ˆë‹¤
     removeAllChildNods(listEl);
 
-    // Áöµµ¿¡ Ç¥½ÃµÇ°í ÀÖ´Â ¸¶Ä¿¸¦ Á¦°ÅÇÕ´Ï´Ù
+    // ì§€ë„ì— í‘œì‹œë˜ê³  ìˆëŠ” ë§ˆì»¤ë¥¼ ì œê±°í•©ë‹ˆë‹¤
     removeMarker();
     
     for ( var i=0; i<places.length; i++ ) {
 
-        // ¸¶Ä¿¸¦ »ı¼ºÇÏ°í Áöµµ¿¡ Ç¥½ÃÇÕ´Ï´Ù
+        // ë§ˆì»¤ë¥¼ ìƒì„±í•˜ê³  ì§€ë„ì— í‘œì‹œí•©ë‹ˆë‹¤
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i), 
-            itemEl = getListItem(i, places[i]); // °Ë»ö °á°ú Ç×¸ñ Element¸¦ »ı¼ºÇÕ´Ï´Ù
+            itemEl = getListItem(i, places[i]); // ê²€ìƒ‰ ê²°ê³¼ í•­ëª© Elementë¥¼ ìƒì„±í•©ë‹ˆë‹¤
 
-        // °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÏ±âÀ§ÇØ
-        // LatLngBounds °´Ã¼¿¡ ÁÂÇ¥¸¦ Ãß°¡ÇÕ´Ï´Ù
+        // ê²€ìƒ‰ëœ ì¥ì†Œ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ ë²”ìœ„ë¥¼ ì¬ì„¤ì •í•˜ê¸°ìœ„í•´
+        // LatLngBounds ê°ì²´ì— ì¢Œí‘œë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤
         bounds.extend(placePosition);
 
-        // ¸¶Ä¿¿Í °Ë»ö°á°ú Ç×¸ñ¿¡ mouseover ÇßÀ»¶§
-        // ÇØ´ç Àå¼Ò¿¡ ÀÎÆ÷À©µµ¿ì¿¡ Àå¼Ò¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
-        // mouseout ÇßÀ» ¶§´Â ÀÎÆ÷À©µµ¿ì¸¦ ´İ½À´Ï´Ù
+        // ë§ˆì»¤ì™€ ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì— mouseover í–ˆì„ë•Œ
+        // í•´ë‹¹ ì¥ì†Œì— ì¸í¬ìœˆë„ìš°ì— ì¥ì†Œëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
+        // mouseout í–ˆì„ ë•ŒëŠ” ì¸í¬ìœˆë„ìš°ë¥¼ ë‹«ìŠµë‹ˆë‹¤
         (function(marker, title) {
             kakao.maps.event.addListener(marker, 'mouseover', function() {
                 displayInfowindow(marker, title);
@@ -427,15 +435,15 @@ function displayPlaces(places) {
         fragment.appendChild(itemEl);
     }
 
-    // °Ë»ö°á°ú Ç×¸ñµéÀ» °Ë»ö°á°ú ¸ñ·Ï Element¿¡ Ãß°¡ÇÕ´Ï´Ù
+    // ê²€ìƒ‰ê²°ê³¼ í•­ëª©ë“¤ì„ ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ Elementì— ì¶”ê°€í•©ë‹ˆë‹¤
     listEl.appendChild(fragment);
     menuEl.scrollTop = 0;
 
-    // °Ë»öµÈ Àå¼Ò À§Ä¡¸¦ ±âÁØÀ¸·Î Áöµµ ¹üÀ§¸¦ Àç¼³Á¤ÇÕ´Ï´Ù
+    // ê²€ìƒ‰ëœ ì¥ì†Œ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì§€ë„ ë²”ìœ„ë¥¼ ì¬ì„¤ì •í•©ë‹ˆë‹¤
     map.setBounds(bounds);
 }
 
-// °Ë»ö°á°ú Ç×¸ñÀ» Element·Î ¹İÈ¯ÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ Elementë¡œ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
@@ -459,28 +467,28 @@ function getListItem(index, places) {
     return el;
 }
 
-// ¸¶Ä¿¸¦ »ı¼ºÇÏ°í Áöµµ À§¿¡ ¸¶Ä¿¸¦ Ç¥½ÃÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+// ë§ˆì»¤ë¥¼ ìƒì„±í•˜ê³  ì§€ë„ ìœ„ì— ë§ˆì»¤ë¥¼ í‘œì‹œí•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function addMarker(position, idx, title) {
-    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // ¸¶Ä¿ ÀÌ¹ÌÁö url, ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁö¸¦ ¾¹´Ï´Ù
-        imageSize = new kakao.maps.Size(36, 37),  // ¸¶Ä¿ ÀÌ¹ÌÁöÀÇ Å©±â
+    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // ë§ˆì»¤ ì´ë¯¸ì§€ url, ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€ë¥¼ ì”ë‹ˆë‹¤
+        imageSize = new kakao.maps.Size(36, 37),  // ë§ˆì»¤ ì´ë¯¸ì§€ì˜ í¬ê¸°
         imgOptions =  {
-            spriteSize : new kakao.maps.Size(36, 691), // ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁöÀÇ Å©±â
-            spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁö Áß »ç¿ëÇÒ ¿µ¿ªÀÇ ÁÂ»ó´Ü ÁÂÇ¥
-            offset: new kakao.maps.Point(13, 37) // ¸¶Ä¿ ÁÂÇ¥¿¡ ÀÏÄ¡½ÃÅ³ ÀÌ¹ÌÁö ³»¿¡¼­ÀÇ ÁÂÇ¥
+            spriteSize : new kakao.maps.Size(36, 691), // ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€ì˜ í¬ê¸°
+            spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€ ì¤‘ ì‚¬ìš©í•  ì˜ì—­ì˜ ì¢Œìƒë‹¨ ì¢Œí‘œ
+            offset: new kakao.maps.Point(13, 37) // ë§ˆì»¤ ì¢Œí‘œì— ì¼ì¹˜ì‹œí‚¬ ì´ë¯¸ì§€ ë‚´ì—ì„œì˜ ì¢Œí‘œ
         },
         markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
             marker = new kakao.maps.Marker({
-            position: position, // ¸¶Ä¿ÀÇ À§Ä¡
+            position: position, // ë§ˆì»¤ì˜ ìœ„ì¹˜
             image: markerImage 
         });
 
-    marker.setMap(map); // Áöµµ À§¿¡ ¸¶Ä¿¸¦ Ç¥ÃâÇÕ´Ï´Ù
-    markers.push(marker);  // ¹è¿­¿¡ »ı¼ºµÈ ¸¶Ä¿¸¦ Ãß°¡ÇÕ´Ï´Ù
+    marker.setMap(map); // ì§€ë„ ìœ„ì— ë§ˆì»¤ë¥¼ í‘œì¶œí•©ë‹ˆë‹¤
+    markers.push(marker);  // ë°°ì—´ì— ìƒì„±ëœ ë§ˆì»¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤
 
     return marker;
 }
 
-// Áöµµ À§¿¡ Ç¥½ÃµÇ°í ÀÖ´Â ¸¶Ä¿¸¦ ¸ğµÎ Á¦°ÅÇÕ´Ï´Ù
+// ì§€ë„ ìœ„ì— í‘œì‹œë˜ê³  ìˆëŠ” ë§ˆì»¤ë¥¼ ëª¨ë‘ ì œê±°í•©ë‹ˆë‹¤
 function removeMarker() {
     for ( var i = 0; i < markers.length; i++ ) {
         markers[i].setMap(null);
@@ -488,13 +496,13 @@ function removeMarker() {
     markers = [];
 }
 
-// °Ë»ö°á°ú ¸ñ·Ï ÇÏ´Ü¿¡ ÆäÀÌÁö¹øÈ£¸¦ Ç¥½Ã´Â ÇÔ¼öÀÔ´Ï´Ù
+// ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ í•˜ë‹¨ì— í˜ì´ì§€ë²ˆí˜¸ë¥¼ í‘œì‹œëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function displayPagination(pagination) {
     var paginationEl = document.getElementById('pagination'),
         fragment = document.createDocumentFragment(),
         i; 
 
-    // ±âÁ¸¿¡ Ãß°¡µÈ ÆäÀÌÁö¹øÈ£¸¦ »èÁ¦ÇÕ´Ï´Ù
+    // ê¸°ì¡´ì— ì¶”ê°€ëœ í˜ì´ì§€ë²ˆí˜¸ë¥¼ ì‚­ì œí•©ë‹ˆë‹¤
     while (paginationEl.hasChildNodes()) {
         paginationEl.removeChild (paginationEl.lastChild);
     }
@@ -519,8 +527,8 @@ function displayPagination(pagination) {
     paginationEl.appendChild(fragment);
 }
 
-// °Ë»ö°á°ú ¸ñ·Ï ¶Ç´Â ¸¶Ä¿¸¦ Å¬¸¯ÇßÀ» ¶§ È£ÃâµÇ´Â ÇÔ¼öÀÔ´Ï´Ù
-// ÀÎÆ÷À©µµ¿ì¿¡ Àå¼Ò¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
+// ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ ë˜ëŠ” ë§ˆì»¤ë¥¼ í´ë¦­í–ˆì„ ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
+// ì¸í¬ìœˆë„ìš°ì— ì¥ì†Œëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
 function displayInfowindow(marker, title) {
     var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
 
@@ -528,7 +536,7 @@ function displayInfowindow(marker, title) {
     infowindow.open(map, marker);
 }
 
- // °Ë»ö°á°ú ¸ñ·ÏÀÇ ÀÚ½Ä Element¸¦ Á¦°ÅÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù
+ // ê²€ìƒ‰ê²°ê³¼ ëª©ë¡ì˜ ìì‹ Elementë¥¼ ì œê±°í•˜ëŠ” í•¨ìˆ˜ì…ë‹ˆë‹¤
 function removeAllChildNods(el) {   
     while (el.hasChildNodes()) {
         el.removeChild (el.lastChild);
@@ -561,17 +569,17 @@ function removeAllChildNods(el) {
 					var o = opt;
 
 					var data = [
-						{ color: '#3f297e', text: 'ÇÑ½Ä' },
-						{ color: '#1d61ac', text: 'Áß½Ä' },
-						{ color: '#169ed8', text: 'ÀÏ½Ä' },
-						{ color: '#209b6c', text: 'ÇÜ¹ö°Å' },
-						{ color: '#60b236', text: 'ÇÇÀÚ' },
-						{ color: '#efe61f', text: 'Ä¡Å²' },
-						{ color: '#f7a416', text: 'µ·±î½º' },
-						{ color: '#e6471d', text: '»ï°ã»ì' },
-						{ color: '#dc0936', text: '°¥ºñ' },
-						{ color: '#e5177b', text: '±¹¹ä' },
-						{ color: '#881f7e', text: 'ÆĞ½ºÆ®Çªµå' }
+						{ color: '#3f297e', text: 'í•œì‹' },
+						{ color: '#1d61ac', text: 'ì¤‘ì‹' },
+						{ color: '#169ed8', text: 'ì¼ì‹' },
+						{ color: '#209b6c', text: 'í–„ë²„ê±°' },
+						{ color: '#60b236', text: 'í”¼ì' },
+						{ color: '#efe61f', text: 'ì¹˜í‚¨' },
+						{ color: '#f7a416', text: 'ëˆê¹ŒìŠ¤' },
+						{ color: '#e6471d', text: 'ì‚¼ê²¹ì‚´' },
+						{ color: '#dc0936', text: 'ê°ˆë¹„' },
+						{ color: '#e5177b', text: 'êµ­ë°¥' },
+						{ color: '#881f7e', text: 'íŒ¨ìŠ¤íŠ¸í‘¸ë“œ' }
 						
 					];
 
@@ -631,7 +639,7 @@ function removeAllChildNods(el) {
 					});
 
 					function rotation() {
-						let arr = ['±¹¹ä','°¥ºñ','»ï°ã»ì','µ·±î½º','Ä¡Å²','ÇÇÀÚ','ÇÜ¹ö°Å','ÀÏ½Ä','Áß½Ä','ÇÑ½Ä','ÆĞ½ºÆ®Çªµå'];
+						let arr = ['êµ­ë°¥','ê°ˆë¹„','ì‚¼ê²¹ì‚´','ëˆê¹ŒìŠ¤','ì¹˜í‚¨','í”¼ì','í–„ë²„ê±°','ì¼ì‹','ì¤‘ì‹','í•œì‹','íŒ¨ìŠ¤íŠ¸í‘¸ë“œ'];
 						let n1 =  r(2, 4);
 						let n2 =  r(0, 359)
 						var completeA = 360 * n1 + n2;
@@ -679,42 +687,17 @@ function removeAllChildNods(el) {
 			$("#keyword").val(f);
 			$("#searchForm").submit();
 		})
-	});		
+	});
+	
+		
 	</script>
-		<div class="container">
-		<footer class="row row-cols-5 py-5 my-5 border-top">
-			<div class="col">
-				<a href="/"
-					class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-					<svg class="bi me-2" width="40" height="32">
-						<use xlink:href="#bootstrap" /></svg>
-				</a>
-				<p class="text-muted">&copy; 2022 YUMMYO Project </p>
-			</div>
 
-			<div class="col"></div>
-			<div class="col">
-				<ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="/footer/tservice"
-						class="nav-link p-0 text-muted">ÀÌ¿ë¾à°ü</a></li>
-					<li class="nav-item mb-2"><a href="/footer/nmembers"
-						class="nav-link p-0 text-muted">ºñÈ¸¿ø ÀÌ¿ëÁ¤Ã¥</a></li>
-					<li class="nav-item mb-2"><a href="/footer/gps"
-						class="nav-link p-0 text-muted">À§Ä¡±â¹İ ¼­ºñ½º ÀÌ¿ë¾à°ü</a></li>
-				</ul>
-			</div>
+</div>
 
-			<div class="col">				
-				<ul class="nav flex-column">
-					<li class="nav-item mb-2"><a href="/footer/inquiry"
-						class="nav-link p-0 text-muted">¹®ÀÇÇÏ±â</a></li>
-					<li class="nav-item mb-2"><a href="/footer/privacy"
-						class="nav-link p-0 text-muted">°³ÀÎÁ¤º¸ Ã³¸®¹æÄ§</a></li>
-				</ul>
-			</div>
-		</footer>
-	</div>
-	<div class="b-example-divider"></div>
+
+
+
+
 
 </body>
 </html>

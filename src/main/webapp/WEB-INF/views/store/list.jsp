@@ -228,7 +228,9 @@ a {
                   </c:if></li>
             </ul>
          </nav>
+
 		</div>
+
 
 		</c:if>
 		<c:if test="${count == 0 }">
@@ -246,6 +248,7 @@ a {
 				type="submit" value="검색" />
 		</form>
 	</div> -->
+
 	
 		<div class="container">
 		<footer class="row row-cols-5 py-5 my-5 border-top">
@@ -281,6 +284,7 @@ a {
 		</footer>
 	</div>
 	<div class="b-example-divider"></div>
+
 </body>
 
 </html>

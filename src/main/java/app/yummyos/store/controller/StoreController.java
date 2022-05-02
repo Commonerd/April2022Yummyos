@@ -67,6 +67,7 @@ public class StoreController {
          String fileName = System.currentTimeMillis() + "_" + r.nextInt(50) + "." + ext;
 
 		try {
+
 				//String path = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
 				String path = request.getServletContext().getRealPath("/store/img");
 				File f = new File(path, fileName);
@@ -83,7 +84,6 @@ public class StoreController {
 		@RequestMapping("store/list")
 		public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
 
-
 			//글이 있는지 체크
 			int count = service.count(kind);
 			if(count > 0 ) {
@@ -95,7 +95,6 @@ public class StoreController {
 			m.addAttribute("sList", storeList);
 			
 			System.out.println(storeList);
-
 
 			int pageNum = 5;
 			int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
@@ -244,19 +243,18 @@ public class StoreController {
       }
       
       @GetMapping("store/search")
-      public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m) {
-         int count = service.countSearch(searchn,search);
+      public String search(int searchn, String search,@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
+         int count = service.countSearch(searchn,search,kind);
                   
          if(count > 0) {
          
-         int perPage = 20; // 한 페이지에 보일 글의 갯수
+         int perPage = 9; // 한 페이지에 보일 글의 갯수
          int startRow = (page - 1) * perPage + 1;
          int endRow = page * perPage;
                   
-         List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow);
+         List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow, kind);
          m.addAttribute("sList", storeList);
 
-	
          int pageNum = 5;
          int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수
          
@@ -273,13 +271,14 @@ public class StoreController {
          }
          m.addAttribute("count", count);
          m.addAttribute("searchn", searchn);
-         m.addAttribute("search", search);  
+         m.addAttribute("search", search);
+         m.addAttribute("kind", kind);
+
          
          return "store/search";
       
      
       }
-
       
    }
 
