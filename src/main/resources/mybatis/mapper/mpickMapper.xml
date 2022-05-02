@@ -21,24 +21,15 @@
 
 
 <insert parameterType="app.yummyos.board.mpick.dto.MpickDto" id="insert"> 
-<<<<<<< HEAD
 insert into mpick(no, image, title, content, regdate, id, stitle) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}, #{stitle}) </insert>
-=======
-insert into mpick(no, image, title, content, regdate, id) values(mp_seq.nextval, #{image}, #{title}, #{content}, sysdate, #{id}) 
-</insert>
->>>>>>> refs/heads/master
 
 <update parameterType="app.yummyos.board.mpick.dto.MpickDto" id="updateMpick"> 
-update mpick set title=#{title}, content=#{content} where no=#{no}
-</update>
+update mpick set title=#{title}, content=#{content} where no=#{no} </update>
 
 <update id="addReadcount" parameterType="int">
-	update mpick set readcount = readcount + 1 where no = #{no} 
-	</update>
+	update mpick set readcount = readcount + 1 where no = #{no} </update>
 	
-<delete parameterType="int" id="deleteMpick"> 
-delete from mpick where no = #{no}
- </delete>
+<delete parameterType="int" id="deleteMpick"> delete from mpick where no = #{no} </delete>
 
 <select parameterType="map" id="mpickList" resultType="app.yummyos.board.mpick.dto.MpickDto">
 
@@ -55,18 +46,11 @@ delete from mpick where no = #{no}
 
 </select>
 
-<<<<<<< HEAD
 <select id="count" resultType="int" parameterType="string"> select count(*) from mpick <include refid="kindPick"></include> </select>
 
-=======
-<select id="count" resultType="int"> 
-select count(*) from mpick 
-</select>
->>>>>>> refs/heads/master
 
 <select parameterType="int" id="mpickOne" resultType="app.yummyos.board.mpick.dto.MpickDto"> 
-select * from mpick where no = #{no} 
-</select>
+select * from mpick where no = #{no} </select>
 
 <select id="countSearch" resultType="int" parameterType="map">
 		select count(*) from mpick 

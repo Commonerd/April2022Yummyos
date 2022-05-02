@@ -115,10 +115,6 @@ p.count {
       
    </nav>   
 
-
-
-
-
 	<div class="container" align="center">
 		<div class="row">
 			<form method="post" id="updateform" action="/board/fstory/update" >
@@ -165,6 +161,7 @@ p.count {
 			</form>
 		</div>
 	</div>
+
 
 	<%-- 
 
@@ -271,8 +268,5 @@ p.count {
 	</div>
 	<div class="b-example-divider"></div>
 
-</body>
-</html>
-	
 </body>
 </html>

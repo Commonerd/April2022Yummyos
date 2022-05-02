@@ -66,25 +66,7 @@ public class StoreController {
          Random r = new Random();
          String fileName = System.currentTimeMillis() + "_" + r.nextInt(50) + "." + ext;
 
-<<<<<<< HEAD
-         try {
-            //String path = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
-            String path = request.getServletContext().getRealPath("/store/img");
-            File f = new File(path, fileName);
-            file.transferTo(f);
-         } catch (IllegalStateException | IOException e) {
-            e.printStackTrace();
-         }
-         return fileName;
-      }
-      
-      //요청 page 번호를 받아서 페이지에 맞는 글을 갯수에 맞게 꺼내옴
-      //전체 글 갯수에 맞춰 페이징 처리
-      
-      @RequestMapping("store/list")
-      public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
-=======
-			try {
+		try {
 				//String path = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
 				String path = request.getServletContext().getRealPath("/store/img");
 				File f = new File(path, fileName);
@@ -100,21 +82,8 @@ public class StoreController {
 		
 		@RequestMapping("store/list")
 		public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
->>>>>>> refs/heads/master
 
-<<<<<<< HEAD
-         //글이 있는지 체크
-         int count = service.count();
-         if(count > 0 ) {
-         int perPage = 20; // 한 페이지에 보일 글의 갯수
-         int startRow = (page - 1) * perPage + 1;
-         int endRow = page * perPage;
-         
-         List<StoreDto> storeList = service.getstorelist(startRow, endRow);
-         m.addAttribute("sList", storeList);
-         
-         System.out.println(storeList);
-=======
+
 			//글이 있는지 체크
 			int count = service.count(kind);
 			if(count > 0 ) {
@@ -126,40 +95,8 @@ public class StoreController {
 			m.addAttribute("sList", storeList);
 			
 			System.out.println(storeList);
->>>>>>> refs/heads/master
 
-<<<<<<< HEAD
-         int pageNum = 5;
-         int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
-         
-         int begin = (page - 1) / pageNum * pageNum + 1;
-         int end = begin + pageNum -1;
-         if(end > totalPages) {
-            end = totalPages;
-         }
-         m.addAttribute("begin", begin);
-         m.addAttribute("end", end);
-         m.addAttribute("pageNum", pageNum);
-         m.addAttribute("totalPages", totalPages);
-         }
-         m.addAttribute("count", count);
-         return "store/list";
-      }
-      
-      @RequestMapping("/")
-      public String indexlist(@RequestParam(name="p", defaultValue = "1") int page, Model m) {
-         
-         //글이 있는지 체크
-         int count = service.count();
-         System.out.println("count"+count);
-         if(count > 0 ) {
-         int perPage = 10; // 한 페이지에 보일 글의 갯수
-         int startRow = (page - 1) * perPage + 1;
-         int endRow = page * perPage;
-         
-         List<StoreDto> storeListView = service.storeListView(startRow, endRow);
-         m.addAttribute("sList", storeListView);
-=======
+
 			int pageNum = 5;
 			int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
 			
@@ -192,27 +129,7 @@ public class StoreController {
 			
 			List<StoreDto> storeListView = service.storeListView(startRow, endRow, kind);
 			m.addAttribute("sList", storeListView);
->>>>>>> refs/heads/master
 
-<<<<<<< HEAD
-         int pageNum = 5;
-         int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
-         
-         int begin = (page - 1) / pageNum * pageNum + 1;
-         int end = begin + pageNum -1;
-         if(end > totalPages) {
-            end = totalPages;
-         }
-         m.addAttribute("begin", begin);
-         m.addAttribute("end", end);
-         m.addAttribute("pageNum", pageNum);
-         m.addAttribute("totalPages", totalPages);
-         }
-         m.addAttribute("count", count);
-         return "store/index";
-      }
-
-=======
 			int pageNum = 5;
 			int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
 			
@@ -230,10 +147,6 @@ public class StoreController {
 			m.addAttribute("kind", kind);
 			return "store/index";
 		}
-		
-		
->>>>>>> refs/heads/master
-
 
       @Autowired
       ReviewService r_service;
@@ -271,9 +184,6 @@ public class StoreController {
 			m.addAttribute("check", check);
 			return "store/content";
 		}
-
-
-<<<<<<< HEAD
 
       @GetMapping("store/store/content/{no}")
       public String hashtag(@PathVariable int no, Model m, @ModelAttribute("user") UsersDto n) {
@@ -345,14 +255,8 @@ public class StoreController {
                   
          List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow);
          m.addAttribute("sList", storeList);
-=======
-		public void test() {
-			
-		}
-		
-	}
->>>>>>> refs/heads/master
 
+	
          int pageNum = 5;
          int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수
          
@@ -369,9 +273,10 @@ public class StoreController {
          }
          m.addAttribute("count", count);
          m.addAttribute("searchn", searchn);
-         m.addAttribute("search", search);
+         m.addAttribute("search", search);  
          
          return "store/search";
+      
      
       }
 

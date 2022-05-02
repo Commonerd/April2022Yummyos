@@ -17,7 +17,7 @@
 }
 
 #center {
-	width: 700px;
+
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -48,6 +48,12 @@ p.count {
 	font-size: 0.8em;
 }
 
+
+.container {
+
+
+      
+}
 
 </style>
 </head>
@@ -82,7 +88,7 @@ p.count {
          <div id="search">
             <form class="d-flex" action="/all/search">
                <c:forEach items="${search}" var="search">
-                  <a href="/search/search?search=${search}">${search}</a>
+                  <a href="/search/search?search=${search}"></a>
                </c:forEach>
                <input class="form-control me-2" name="search" id="search"
                   type="search" style="width: 500px;" placeholder="원하시는 메뉴를 입력해주세요"
@@ -122,14 +128,6 @@ p.count {
 	<div id="center">
 		<h3>푸드스토리 ${search} 검색한 결과</h3>
 		<hr>
-		<div id="center">
-			<div align="right">
-				<a href="/main">main </a>
-				<c:if test="${ user.role == 'role_admin' }">
-					<a href="write"> 새글 등록</a>
-				</c:if>
-			</div>
-		</div>
 
 		<c:if test="${count != 0 }">
 			<div class="container">
@@ -164,17 +162,17 @@ p.count {
 					<li class="page-item disabled"><c:if
 							test="${begin > pageNum }">
 							<a class="page-link"
-								href="search?p=${begin-1 }&search=${search}&searchn=${searchn}&kind=${kind}">[이전]</a>
+								href="search?p=${begin-1 }&search=${search}&searchn=${searchn}">[이전]</a>
 						</c:if></li>
 					<li class="page-item active" aria-current="page"><c:forEach
 							begin="${begin }" end="${end}" var="i">
 							<c:if test="${page == i }">
 								<li class="page-item active"><a class="page-link"
-									href="search?p=${i}&search=${search}&searchn=${searchn}&kind=${kind}">${i}</a></li>
+									href="search?p=${i}&search=${search}&searchn=${searchn}">${i}</a></li>
 							</c:if>
 							<c:if test="${page != i }">
 								<li class="page-item"><a class="page-link"
-									href="ssearch?p=${i}&search=${search}&searchn=${searchn}&kind=${kind}">${i}</a></li>
+									href="search?p=${i}&search=${search}&searchn=${searchn}">${i}</a></li>
 							</c:if>
 						</c:forEach>
 					<li class="page-item"><c:if test="${end < totalPages }">

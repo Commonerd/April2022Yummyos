@@ -18,7 +18,7 @@
 
 <style>
 #login {
-	margin-right:0px;
+   margin-right:0px;
 }
 
 #join {
@@ -37,9 +37,9 @@ h1 {
 }
 
 h2 {
-	color: lightslategray;
-	text-align:center;
-	  padding:50px;
+   color: lightslategray;
+   text-align:center;
+     padding:50px;
    margin: 20px;
 }
 
@@ -50,33 +50,33 @@ p {
 }
 
 #center {
-	width: 700px;
-	margin-left: auto;
-	margin-right: auto;
+   width: 700px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 table {
-	border: 1px solid black;
-	width: 700px;
-	border-collapse: collapse;
+   border: 1px solid black;
+   width: 700px;
+   border-collapse: collapse;
 }
 
 th {
-	border: 1px solid black;
-	background-color: Aquamarine;
-	width: 30px;
+   border: 1px solid black;
+   background-color: Aquamarine;
+   width: 30px;
 }
 
 td {
-	border: 1px solid black;
+   border: 1px solid black;
 }
 
 a {
-	margin: 10px auto;
+   margin: 10px auto;
 }
 
 #page {
-	text-align: center;
+   text-align: center;
 }
 
 #center {
@@ -111,17 +111,8 @@ a {
 </style>
 </head>
 <body>
-<<<<<<< HEAD
-   <c:if test="${ user.id != null }">
-      <a>${user.id}님</a>
-      <a href="/logout">로그아웃</a>
-      </c:if>
-      <c:if test="${ user.id == null }">
-      <a href="/login">로그인</a>
-      <a href="/insert">회원가입</a>
-      </c:if>
-=======
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">메인</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -137,7 +128,7 @@ a {
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/board/notice/list">공지사항</a>
-      </li>	
+      </li>   
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           테마맛집기행
@@ -148,15 +139,15 @@ a {
         </div>
       </li>
     </ul>
-    	<div id="search">
-	<form class="form-inline my-2 my-lg-0" action="/all/search">
-		<c:forEach items="${search}" var="search">
-			<a href="/search/search?search=${search}">${search}</a>
-		</c:forEach>
-			<br>
-			<input name="search" id="search" type="search" style="width: 800px;" class="form-control mr-sm-2" placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search">
-		<input type="submit" value="검색" class="btn btn-outline-success my-3 my-sm-0" style="color:black;border-color:black;" aria-label="Search">
-	</form>
+       <div id="search">
+   <form class="form-inline my-2 my-lg-0" action="/all/search">
+      <c:forEach items="${search}" var="search">
+         <a href="/search/search?search=${search}">${search}</a>
+      </c:forEach>
+         <br>
+         <input name="search" id="search" type="search" style="width: 800px;" class="form-control mr-sm-2" placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search">
+      <input type="submit" value="검색" class="btn btn-outline-success my-3 my-sm-0" style="color:black;border-color:black;" aria-label="Search">
+   </form>
 </div>
 
 <c:if test="${ user.id != null }">
@@ -169,74 +160,31 @@ a {
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/wishlist">위시리스트</a>
           <a class="dropdown-item" href="/update">회원 정보 수정</a>
-          	<c:if test="${ user.role == 'role_admin'}">
-		<a class="dropdown-item" href="insert">가게 등록</a>
-			</c:if>
+             <c:if test="${ user.role == 'role_admin'}">
+      <a class="dropdown-item" href="insert">가게 등록</a>
+         </c:if>
           <a class="dropdown-item" href="/logout">로그아웃</a>
         </div>
       </li>
-		</c:if>
-		<c:if test="${ user.id == null }">
-		 <a href="/loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
- 		<a href="/insert" id="join" class="btn btn-primary" style="width:120px; height:55px;">회원가입</a>
-		</c:if>
-  </div>
-</nav>
-	
->>>>>>> refs/heads/master
-
-
-<<<<<<< HEAD
-   <div id="center">
-      <h1></h1>
-      <div align="right">
-         <a href="/main">main</a>
-         <c:if test="${ user.role == 'role_admin'}">
-         <a href="insert">가게 등록</a>
-         </c:if>
+      </ul>
       </div>
+      </c:if>
+      
+      <c:if test="${ user.id == null }">
+       <a href="/loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
+       <a href="/insert" id="join" class="btn btn-primary" style="width:120px; height:55px;">회원가입</a>
+       
+      </c:if>
+   
+  </div>
+ 
+</nav>
 
 
-      <c:if test="${count != 0 }">
-         <table>
-            <tr>
-               <th>순번</th>
-               <th>상호명</th>
-               <th>테마</th>
-               <th>좋아요</th>
-               <th>조회수</th>
-               <th>대표사진</th>
-            </tr>
-         <tbody id="tbody">
-            <c:forEach items="${sList}" var="store">
-               <tr>
-                  <td>${store.no}</td>
-                  <td><a href="/store/content/${store.no}">${store.name }</a></td>
-                  <td>${store.category}</td>
-                  <td>${store.blike }</td>
-                  <td>${store.view_count}</td>
-                  <td><a href="/store/content/${store.no}"><img src="/store/img/${store.image}" style="width:150px; height:100px;"></a></td>
-               </tr>   
-            </c:forEach>
-            </tbody>
-            <%-- <span id="ltlikecount">${store.blike }</span> --%>
-         </table>   
-         <div id="page">
-            <c:if test="${begin > pageNum }">
-               <a href="list?p=${begin-1 }">[이전]</a>
-            </c:if>
-            <c:forEach begin="${begin }" end="${end}" var="i">
-               <a href="list?p=${i}">${i}</a>
-            </c:forEach>
-            <c:if test="${end < totalPages }">
-               <a href="list?p=${end+1}">[다음]</a>
-            </c:if>
-         </div>
-=======
 <!--  nList begin end count pageNum totalPages -->
 <h2>야미요가 엄선한, 인싸 최신 맛집</h2>
-		<c:if test="${count != 0 }">
-			<div class="container">         
+      <c:if test="${count != 0 }">
+         <div class="container">         
             <div class="row">
             <c:forEach items="${sList}" var="store">
                <div class="col-md-4 mb-5" >
@@ -256,8 +204,8 @@ a {
             </c:forEach>
             </div>   
             </div>
-				
-			 <div id="page">
+            
+          <div id="page">
          <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                <li class="page-item disabled">
@@ -280,22 +228,16 @@ a {
                   </c:if></li>
             </ul>
          </nav>
->>>>>>> refs/heads/master
+      </div>
 
-<<<<<<< HEAD
       </c:if>
       <c:if test="${count == 0 }">
-   아직 등록된 가게가 없습니다.
-=======
-		</c:if>
-		<c:if test="${count == 0 }">
-	아직 등록된 맛집이 없습니다.
->>>>>>> refs/heads/master
+   아직 등록된 맛집이 없습니다.
 </c:if>
 
-<<<<<<< HEAD
-   </div>
-   <div id="search" align="center">
+
+
+   <!-- <div id="search" align="center">
       <form action="search">
          <select name="searchn">
             <option value="0">상호명</option>
@@ -303,23 +245,9 @@ a {
          </select> <input type="text" name="search" size="15" maxlength="50" /> <input
             type="submit" value="검색" />
       </form>
-   </div>
-=======
-
-	</div>
-	<!-- <div id="search" align="center">
-		<form action="search">
-			<select name="searchn">
-				<option value="0">상호명</option>
-				<option value="1">테마</option>
-			</select> <input type="text" name="search" size="15" maxlength="50" /> <input
-				type="submit" value="검색" />
-		</form>
-	</div> -->
->>>>>>> refs/heads/master
-</body>
-<footer>
-<div class="container">
+   </div> -->
+   
+      <div class="container">
       <footer class="row row-cols-5 py-5 my-5 border-top">
          <div class="col">
             <a href="/"
@@ -353,5 +281,6 @@ a {
       </footer>
    </div>
    <div class="b-example-divider"></div>
-</footer>
+</body>
+
 </html>
