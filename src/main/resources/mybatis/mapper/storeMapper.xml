@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -5,15 +6,15 @@
 <mapper namespace="app.yummyos.store.dao.StoreDao">
 <insert parameterType="app.yummyos.store.dto.StoreDto" id="insertStore"> 
 
-insert into store(no, name, category, address, phone, menu, detail, hashtag, image, map_lt, map_ln) 
-   values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
+insert into store(no, name, category, address, phone, menu, detail, hashtag, image, map_lt, map_ln)
+	values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
+
 </insert>
 
 <update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore">
-
-   update store set name=#{name}, category=#{category}, address=#{address},
-   phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
-   image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
+	update store set name=#{name}, category=#{category}, address=#{address},
+	phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
+	image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
 </update>
   
    <update id="addViewcount" parameterType="int">
@@ -31,6 +32,7 @@ insert into store(no, name, category, address, phone, menu, detail, hashtag, ima
       from 
       (select * from store order by no desc)
       order by no desc) where r >= #{start} AND r &lt;= #{end}
+
    </select>
 
 <select id="storeListSearch" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">      
@@ -87,24 +89,20 @@ select * from store where no = #{no}
 
    <select id="AllSearchStoreList" parameterType="map" resultType="app.yummyos.store.dto.StoreDto">
       select * from store
-      where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%'
+      where name like '%'||#{search}||'%' OR category like '%'||#{search}||'%' OR menu like '%'||#{search}||'%'
+
    </select>
 
-<select id="storeListView"
-      resultType="app.yummyos.store.dto.StoreDto"
-      parameterType="map">
+<select id="storeListView" resultType="app.yummyos.store.dto.StoreDto" parameterType="map">
        select no, name, category, address , phone, map_lt,
       map_ln, menu, detail, view_count, hashtag, image,
       (select count(ltlike) from liketable where ltbid=no and ltlike=1) as blike
-      from (select ROW_NUMBER() over(order by no desc) as RNUM, store.*
-      from store)store
-      where RNUM between #{start} and #{end} order by view_count desc
+      from (select ROW_NUMBER() over(order by no desc) as RNUM, store.* from store)
+      store where RNUM between #{start} and #{end} order by view_count desc
       
    
 
 </select>
-
-
 <!-- select no, name, category, view_count, image from
       (select no, name,
       category,view_count, image, rownum r
@@ -112,13 +110,4 @@ select * from store where no = #{no}
       desc)
       order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
 
-
 </mapper>
-
-
-
-
-
-
-
-

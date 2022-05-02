@@ -1,28 +1,37 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 
 
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+   crossorigin="anonymous">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+   integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+   crossorigin="anonymous"></script>
+<script
+   src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+   crossorigin="anonymous"></script>
+<script
+   src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+   crossorigin="anonymous"></script>
 
-
-<title>룰렛</title>
+<title>Insert title here</title>
 <style type="text/css">
 
 
 html, body, button {
-   font-family: Arial, "돋움", Dotum, "굴림", Gulim, "Apple SD Gothic Neo",
-      AppleGothic, sans-serif;
+	font-family: Arial, "돋움", Dotum, "굴림", Gulim, "Apple SD Gothic Neo",
+		AppleGothic, sans-serif;
 }
 
 
@@ -61,11 +70,11 @@ padding : 1em;
 
 .box-roulette {
     border: 1px solid red;
-   float:left;
+	float:left;
     width:30%;
     box-sizing: border-box;
 }
-.map_wrap{   
+.map_wrap{	
     border: 1px solid green;
     /* flex:1; */
     margin: 15px 15%;
@@ -74,87 +83,87 @@ padding : 1em;
 }
  
 button {
-   border: 0;
-   margin: 0;
-   padding: 0;
+	border: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .title {
-   margin-top: 50px;
-   text-align: center;
+	margin-top: 50px;
+	text-align: center;
 }
 
 .box-roulette {
-   position: relative;
-   margin: 50px auto;
-   width: 500px;
-   height: 500px;
-   border: 10px solid #ccc;
-   border-radius: 50%;
-   background: #ccc;
-   overflow: hidden;
+	position: relative;
+	margin: 50px auto;
+	width: 500px;
+	height: 500px;
+	border: 10px solid #ccc;
+	border-radius: 50%;
+	background: #ccc;
+	overflow: hidden;
 }
 
 .box-roulette .markers {
-   position: absolute;
-   left: 50%;
-   top: 0;
-   margin-left: -25px;
-   width: 0;
-   height: 0;
-   border: 25px solid #fff;
-   border-left-color: transparent;
-   border-right-color: transparent;
-   border-bottom-color: transparent;
-   z-index: 9999;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	margin-left: -25px;
+	width: 0;
+	height: 0;
+	border: 25px solid #fff;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	z-index: 9999;
 }
 
 .box-roulette .roulette {
-   position: relative;
-   width: 100%;
-   height: 100%;
-   overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 .box-roulette .item {
-   position: absolute;
-   top: 0;
-   width: 0;
-   height: 0;
-   border: 0 solid transparent;
-   transform-origin: 0 100%;
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 0;
+	border: 0 solid transparent;
+	transform-origin: 0 100%;
 }
 
 .box-roulette .label {
-   position: absolute;
-   left: 0;
-   top: 0;
-   color: #fff;
-   white-space: nowrap;
-   transform-origin: 0 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #fff;
+	white-space: nowrap;
+	transform-origin: 0 0;
 }
 
 .box-roulette .label .text {
-   display: inline-block;
-   font-size: 20px;
-   font-weight: bold;
-   line-height: 1;
-   vertical-align: middle;
+	display: inline-block;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 1;
+	vertical-align: middle;
 }
 
 #btn-start {
-   display: block;
-   position: absolute;
-   left: 50%;
-   top: 50%;
-   margin: -50px 0 0 -50px;
-   width: 100px;
-   height: 100px;
-   font-weight: bold;
-   background: #fff;
-   border-radius: 50px;
-   z-index: 9999;
-   cursor: pointer;
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -50px 0 0 -50px;
+	width: 100px;
+	height: 100px;
+	font-weight: bold;
+	background: #fff;
+	border-radius: 50px;
+	z-index: 9999;
+	cursor: pointer;
 }
 </style>
 <style>
@@ -196,76 +205,60 @@ button {
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 </style>
 <script
-   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script
-   src="https://cdn.sobekrepository.org/includes/jquery-rotate/2.2/jquery-rotate.min.js"></script>
+	src="https://cdn.sobekrepository.org/includes/jquery-rotate/2.2/jquery-rotate.min.js"></script>
 <script
-   src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 </head>
 <body>
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-         <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <a class="navbar-brand" href="/">메인</a>
-         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               <li class="nav-item active"><a class="nav-link active"
-                  aria-current="page" href="/details/ladder">오늘 뭐먹지?<span
-                     class="sr-only"></span></a></li>
-               <li class="nav-item"><a class="nav-link" href="/store/list">최신맛집</a></li>
-               <li class="nav-item"><a class="nav-link"
-                  href="/board/notice/list">공지사항</a></li>
-               <li class="nav-item dropdown"><a
-                  class="nav-link dropdown-toggle" href="#"
-                  id="navbarDropdownMenuLink" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">테마맛집기행</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <li><a class="dropdown-item" href="/board/mpick/list">미디어픽</a></li>
-                     <li><a class="dropdown-item" href="/board/fstory/list">푸드스토리</a></li>
-                  </ul></li>
-            </ul>
-         </div>
+      <a class="navbar-brand" href="/">메인</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+         data-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" aria-expanded="false"
+         aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav ">
+            <li class="nav-item active"><a class="nav-link"
+               href="/details/ladder">오늘 뭐먹지?<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/store/list">맛집창고</a>
+            </li>
+            <li class="nav-item"><a class="nav-link"
+               href="/board/notice/list">공지사항</a></li>
+            <li class="nav-item dropdown"><a
+               class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+               role="button" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false"> 테마맛집기행 </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/">미디어픽</a> <a
+                     class="dropdown-item" href="#">푸드스토리</a>
+               </div></li>
+         </ul>
          <div id="search">
-            <form class="d-flex" action="/all/search">
+            <form class="form-inline my-2 my-lg-0" action="/all/search">
                <c:forEach items="${search}" var="search">
-                  <a href="/search/search?search=${search}">${search}</a>
+                  <a href="/all/search?search=${search}">${search}</a>
                </c:forEach>
-               <input class="form-control me-2" name="search" id="search"
-                  type="search" style="width: 500px;" placeholder="원하시는 메뉴를 입력해주세요"
-                  aria-label="Search">
-               <button class="btn btn-outline-success" type="submit">검색</button>
+               <br> <input name="search" id="search" type="search"
+                  style="width: 500px;" class="form-control mr-sm-2"
+                  placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search"> <input
+                  type="submit" value="검색"
+                  class="btn btn-outline-success my-3 my-sm-0"
+                  style="color: black; border-color: black;" aria-label="Search">
             </form>
          </div>
+         <ul class="navbar-nav ml-auto">
+            <li><a href="loginform" id="login" class="btn btn-primary"
+               style="width: 100px; height: 40px;">로그인</a> <a href="/insert"
+               id="join" class="btn btn-primary"
+               style="width: 120px; height: 40px;">회원가입</a>
+         </ul>
       </div>
-      <c:if test="${ user.id != null }">
-         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-               <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ${user.id}님 환영합니다 </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                     <li><a class="dropdown-item" href="/wishlist">위시리스트</a></li> 
-                     <li><a class="dropdown-item" href="/update">회원 정보 수정</a></li>
-                     <c:if test="${ user.role == 'role_admin'}">
-                        <li><a class="dropdown-item" href="/board/mpick/write">새글 등록</a></li>
-                     </c:if>
-                     <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-      </c:if>
-      <c:if test="${ user.id == null }">
-         <a href="/loginform" id="login" class="btn btn-primary"
-            style="width: 100px; height: 35px;">로그인</a>
-         <a href="/insert" id="join" class="btn btn-primary"
-            style="width: 120px; height: 35px;">회원가입</a>
-      </c:if>
-      
    </nav>
 
 
@@ -290,12 +283,12 @@ button {
 <td class="cell_padding">
 
 <div class="box-roulette">
-   <div class="markers"></div>
-   <button type="button" id="btn-start">
-      야미요<br>오늘 뭐먹지??<br>click
-   </button>
-   <div class="roulette" id="roulette"></div>
-   
+	<div class="markers"></div>
+	<button type="button" id="btn-start">
+		야미요<br>오늘 뭐먹지??<br>click
+	</button>
+	<div class="roulette" id="roulette"></div>
+	
 </div>
 </td>
 
@@ -557,188 +550,149 @@ function removeAllChildNods(el) {
 
 
 
-   <script type="text/javascript">
-   (function($) {
-      $.fn.extend({
+	<script type="text/javascript">
+	(function($) {
+		$.fn.extend({
 
-         roulette: function(options) {
+			roulette: function(options) {
 
-            var defaults = {
-               angle: 0,
-               angleOffset: 0,
-               speed: 3000,
-               easing: "easeInOutElastic",
-            };
+				var defaults = {
+					angle: 0,
+					angleOffset: 0,
+					speed: 3000,
+					easing: "easeInOutElastic",
+				};
 
-            var opt = $.extend(defaults, options);
+				var opt = $.extend(defaults, options);
 
-            return this.each(function() {
-               var o = opt;
+				return this.each(function() {
+					var o = opt;
 
-               var data = [
-                  { color: '#3f297e', text: '한식' },
-                  { color: '#1d61ac', text: '중식' },
-                  { color: '#169ed8', text: '일식' },
-                  { color: '#209b6c', text: '햄버거' },
-                  { color: '#60b236', text: '피자' },
-                  { color: '#efe61f', text: '치킨' },
-                  { color: '#f7a416', text: '돈까스' },
-                  { color: '#e6471d', text: '삼겹살' },
-                  { color: '#dc0936', text: '갈비' },
-                  { color: '#e5177b', text: '국밥' },
-                  { color: '#881f7e', text: '패스트푸드' }
-                  
-               ];
+					var data = [
+						{ color: '#3f297e', text: '한식' },
+						{ color: '#1d61ac', text: '중식' },
+						{ color: '#169ed8', text: '일식' },
+						{ color: '#209b6c', text: '햄버거' },
+						{ color: '#60b236', text: '피자' },
+						{ color: '#efe61f', text: '치킨' },
+						{ color: '#f7a416', text: '돈까스' },
+						{ color: '#e6471d', text: '삼겹살' },
+						{ color: '#dc0936', text: '갈비' },
+						{ color: '#e5177b', text: '국밥' },
+						{ color: '#881f7e', text: '패스트푸드' }
+						
+					];
 
-               var $wrap = $(this),
-                     $btnStart = $wrap.find("#btn-start"),
-                     $roulette = $wrap.find(".roulette"),
-                     wrapW = $wrap.width(),
-                     angle = o.angle,
-                     angleOffset = o.angleOffset,
-                     speed = o.speed,
-                     esing = o.easing,
-                     itemSize = data.length,
-                     itemSelector = "item",
-                     labelSelector = "label",
-                     d = 360 / itemSize,
-                     borderTopWidth = wrapW,
-                     borderRightWidth = tanDeg(d);
+					var $wrap = $(this),
+							$btnStart = $wrap.find("#btn-start"),
+							$roulette = $wrap.find(".roulette"),
+							wrapW = $wrap.width(),
+							angle = o.angle,
+							angleOffset = o.angleOffset,
+							speed = o.speed,
+							esing = o.easing,
+							itemSize = data.length,
+							itemSelector = "item",
+							labelSelector = "label",
+							d = 360 / itemSize,
+							borderTopWidth = wrapW,
+							borderRightWidth = tanDeg(d);
 
-               for(i=1; i<=itemSize; i+=1){
-                  var idx = i-1,
-                        rt = i*d + angleOffset,
-                        itemHTML = $('<div class="'+ itemSelector +'">'),
-                        labelHTML = '';
-                        labelHTML += '<p class="'+ labelSelector +'">';
-                        labelHTML += '   <span class="text">'+ data[idx].text +'</span>';
-                        labelHTML += '</p>';
+					for(i=1; i<=itemSize; i+=1){
+						var idx = i-1,
+								rt = i*d + angleOffset,
+								itemHTML = $('<div class="'+ itemSelector +'">'),
+								labelHTML = '';
+								labelHTML += '<p class="'+ labelSelector +'">';
+								labelHTML += '	<span class="text">'+ data[idx].text +'</span>';
+								labelHTML += '</p>';
 
-                  $roulette.append(itemHTML);
-                  $roulette.children("."+ itemSelector).eq(idx).append(labelHTML);
-                  $roulette.children("."+ itemSelector).eq(idx).css({
-                     "left": wrapW / 2,
-                     "top": -wrapW / 2,
-                     "border-top-width": borderTopWidth,
-                     "border-right-width": borderRightWidth,
-                     "border-top-color": data[idx].color,
-                     "transform": "rotate("+ rt + "deg)"
-                  });
+						$roulette.append(itemHTML);
+						$roulette.children("."+ itemSelector).eq(idx).append(labelHTML);
+						$roulette.children("."+ itemSelector).eq(idx).css({
+							"left": wrapW / 2,
+							"top": -wrapW / 2,
+							"border-top-width": borderTopWidth,
+							"border-right-width": borderRightWidth,
+							"border-top-color": data[idx].color,
+							"transform": "rotate("+ rt + "deg)"
+						});
 
-                  var textH = parseInt(((2*Math.PI*wrapW)/d)*.5);
+						var textH = parseInt(((2*Math.PI*wrapW)/d)*.5);
 
-                  $roulette.children("."+ itemSelector).eq(idx).children("."+ labelSelector).css({
-                     "height": textH+'px',
-                     "lineHeight": textH+'px',
-                     "transform": 'translateX('+  (textH*1.03) +'px) translateY('+ (wrapW*-.25) +'px) rotateZ('+ (90 + d*.5) +'deg)'
-                  });
+						$roulette.children("."+ itemSelector).eq(idx).children("."+ labelSelector).css({
+							"height": textH+'px',
+							"lineHeight": textH+'px',
+							"transform": 'translateX('+  (textH*1.03) +'px) translateY('+ (wrapW*-.25) +'px) rotateZ('+ (90 + d*.5) +'deg)'
+						});
 
-               }
+					}
 
-               function tanDeg(deg) {
-                  var rad = deg * Math.PI/180;
-                  return wrapW / (1/Math.tan(rad));
-               }
+					function tanDeg(deg) {
+						var rad = deg * Math.PI/180;
+						return wrapW / (1/Math.tan(rad));
+					}
 
 
-               $btnStart.on("click", function() {
-                  rotation();
-               });
+					$btnStart.on("click", function() {
+						rotation();
+					});
 
-               function rotation() {
-                  let arr = ['국밥','갈비','삼겹살','돈까스','치킨','피자','햄버거','일식','중식','한식','패스트푸드'];
-                  let n1 =  r(2, 4);
-                  let n2 =  r(0, 359)
-                  var completeA = 360 * n1 + n2;
-                  //var completeA = 360 * 0 + n2;
+					function rotation() {
+						let arr = ['국밥','갈비','삼겹살','돈까스','치킨','피자','햄버거','일식','중식','한식','패스트푸드'];
+						let n1 =  r(2, 4);
+						let n2 =  r(0, 359)
+						var completeA = 360 * n1 + n2;
+						//var completeA = 360 * 0 + n2;
 
-                  $roulette.rotate({
-                     angle: angle,
-                     animateTo: completeA,
-                     center: ["50%", "50%"],
-                     easing: $.easing.esing,
-                     callback: function() {
-                        var currentA = $(this).getRotateAngle();
-                        console.log(n2 / 36);
-                        console.log("n1 : "+n1 + " n2:"+n2);
-                        
-                        console.log(currentA);
-                        
-                        let index = Math.floor(n2*11/360);
-                     
-                        console.log(arr[index] + ' '+index);
-                        $("#keyword").val(arr[index]);
-                        $("#searchForm").submit();
-                     },
-                     duration: speed
-                  });
-               }
+						$roulette.rotate({
+							angle: angle,
+							animateTo: completeA,
+							center: ["50%", "50%"],
+							easing: $.easing.esing,
+							callback: function() {
+								var currentA = $(this).getRotateAngle();
+								console.log(n2 / 36);
+								console.log("n1 : "+n1 + " n2:"+n2);
+								
+								console.log(currentA);
+								
+								let index = Math.floor(n2*11/360);
+							
+								console.log(arr[index] + ' '+index);
+								$("#keyword").val(arr[index]);
+								$("#searchForm").submit();
+							},
+							duration: speed
+						});
+					}
 
-               function r(min, max) {
-                  return Math.floor(Math.random() * (max - min + 1)) + min;
-               }
+					function r(min, max) {
+						return Math.floor(Math.random() * (max - min + 1)) + min;
+					}
 
-            });
-         }
-      });
-   })(jQuery);
+				});
+			}
+		});
+	})(jQuery);
 
-   $(function() {
+	$(function() {
 
-      $('.box-roulette').roulette();
-      
-      
-      
-      $(".text").click(function(){   
-         let f = $(this).text();
-         $("#keyword").val(f);
-         $("#searchForm").submit();
-      })
-   });
-   
-      
-   </script>
-<hr>
-   <br>
-   <br>
-   <br>
-  
-   <div class="container">
-      <footer class="row row-cols-5 py-5 my-5 border-top">
-         <div class="col">
-            <a href="/"
-               class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-               <svg class="bi me-2" width="40" height="32">
-                  <use xlink:href="#bootstrap" /></svg>
-            </a>
-            <p class="text-muted">&copy; 2022 YUMMYO Project </p>
-         </div>
+		$('.box-roulette').roulette();
+		
+		
+		
+		$(".text").click(function(){	
+			let f = $(this).text();
+			$("#keyword").val(f);
+			$("#searchForm").submit();
+		})
+	});
+	
+		
+	</script>
 
-         <div class="col"></div>
-         <div class="col">
-            <ul class="nav flex-column">
-               <li class="nav-item mb-2"><a href="/footer/tservice"
-                  class="nav-link p-0 text-muted">이용약관</a></li>
-               <li class="nav-item mb-2"><a href="/footer/nmembers"
-                  class="nav-link p-0 text-muted">비회원 이용정책</a></li>
-               <li class="nav-item mb-2"><a href="/footer/gps"
-                  class="nav-link p-0 text-muted">위치기반 서비스 이용약관</a></li>
-            </ul>
-         </div>
-
-         <div class="col">            
-            <ul class="nav flex-column">
-               <li class="nav-item mb-2"><a href="/footer/inquiry"
-                  class="nav-link p-0 text-muted">문의하기</a></li>
-               <li class="nav-item mb-2"><a href="/footer/privacy"
-                  class="nav-link p-0 text-muted">개인정보 처리방침</a></li>
-            </ul>
-         </div>
-      </footer>
-   </div>
-   <div class="b-example-divider"></div>
-  
-
+</div>
 
 
 
@@ -747,3 +701,4 @@ function removeAllChildNods(el) {
 
 </body>
 </html>
+

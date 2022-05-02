@@ -27,8 +27,9 @@ insert into mpick(no, image, title, content, regdate, id, stitle) values(mp_seq.
 update mpick set title=#{title}, content=#{content} where no=#{no} </update>
 
 <update id="addReadcount" parameterType="int">
-   update mpick set readcount = readcount + 1 where no = #{no} </update>
-   
+
+	update mpick set readcount = readcount + 1 where no = #{no} </update>
+
 <delete parameterType="int" id="deleteMpick"> delete from mpick where no = #{no} </delete>
 
 <select parameterType="map" id="mpickList" resultType="app.yummyos.board.mpick.dto.MpickDto">

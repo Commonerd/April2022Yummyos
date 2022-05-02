@@ -113,22 +113,7 @@ h1{
 
 </script>
 <!--  cList -->
-<<<<<<< HEAD
 
-=======
-<div>
-	<c:forEach items="${cList}" var="comm">
-		<div>${comm.id} / <fmt:formatDate value="${comm.regdate }" dateStyle="short"/></div>
-		<div>${comm.content} 
-		<c:if test="${ntcomm.id == user.id }">
-		<button class="dbtn" id="${ntcomm.cno}">삭제</button>
-		</c:if>
-		</div>
-		<hr>
-	</c:forEach>
-	<input name="content" id="content"><button id="add">등록</button>
-</div>
->>>>>>> refs/heads/master
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(function(){
@@ -136,7 +121,7 @@ h1{
 			let no = $(this).attr("id");
 			$.ajax({url:"/board/delete", data:"no="+no, method:"delete"}
 			).done(function(){
-				location.href="/board/notice/list";
+				location.href="/board/list";
 			})
 			return false;
 		})//click

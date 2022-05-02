@@ -9,6 +9,7 @@
 <meta name="viewport"
    content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
 <link rel="stylesheet"
    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -88,7 +89,14 @@ a {
 
 #page {
    text-align: center;
-}
+
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+-->
+
+<style>
+
 .selector-for-some-widget {
    box-sizing: content-box;
 }
@@ -102,7 +110,24 @@ style>.orange {
 table {
    border-collapse: collapse;
    width: 800px;
+
 }
+.selector-for-some-widget {
+   box-sizing: content-box;
+}
+
+
+<
+style>.orange {
+   background-color: orange;
+   width: 50px;
+}
+
+table {
+   border-collapse: collapse;
+   width: 800px;
+}
+
 
 #center {
    width: 700px;
@@ -133,8 +158,8 @@ p.count {
 }
 </style>
 
-</head>
 
+</head>
 
 
 <!-- 카카오맵 -->
@@ -148,73 +173,77 @@ p.count {
 
 <body>
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">메인</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/details/ladder">오늘 뭐먹지?<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/store/list">맛집창고</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/board/notice/list">공지사항</a>
-      </li>	
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          테마맛집기행
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/board/mpick/list">미디어픽</a>
-          <a class="dropdown-item" href="/board/fstory/list">푸드스토리</a>
-        </div>
-      </li>
-    </ul>
-    	<div id="search">
-	<form class="form-inline my-2 my-lg-0" action="/all/search">
-		<c:forEach items="${search}" var="search">
-			<a href="/search/search?search=${search}">${search}</a>
-		</c:forEach>
-			<br>
-			<input name="search" id="search" type="search" style="width: 800px;" class="form-control mr-sm-2" placeholder="원하시는 메뉴를 입력해주세요" aria-label="Search">
-		<input type="submit" value="검색" class="btn btn-outline-success my-3 my-sm-0" style="color:black;border-color:black;" aria-label="Search">
-	</form>
-</div>
-
-<c:if test="${ user.id != null }">
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ${user.id}님 환영합니다
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/wishlist">위시리스트</a>
-          <a class="dropdown-item" href="/update">회원 정보 수정</a>
-          	<c:if test="${ user.role == 'role_admin'}">
-		<a class="dropdown-item" href="/store/insert">가게 등록</a>
-			</c:if>
-          <a class="dropdown-item" href="/logout">로그아웃</a>
-        </div>
-      </li>
-	</ul>
-	</div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-bs-target="#navbarTogglerDemo03"
+				aria-controls="navbarTogglerDemo03" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="/">메인</a>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item active"><a class="nav-link active"
+						aria-current="page" href="/details/ladder">오늘 뭐먹지?<span
+							class="sr-only"></span></a></li>
+					<li class="nav-item"><a class="nav-link" href="/store/list">최신맛집</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="/board/notice/list">공지사항</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">테마맛집기행</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/board/mpick/list">미디어픽</a></li>
+							<li><a class="dropdown-item" href="/board/fstory/list">푸드스토리</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<div id="search">
+				<form class="d-flex" action="/all/search">
+					<c:forEach items="${search}" var="search">
+						<a href="/search/search?search=${search}">${search}</a>
+					</c:forEach>
+					<input class="form-control me-2" name="search" id="search"
+						type="search" style="width: 500px;" placeholder="원하시는 메뉴를 입력해주세요"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">검색</button>
+				</form>
+			</div>
+		</div>
+		<c:if test="${ user.id != null }">
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ${user.id}님 환영합니다 </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/wishlist">위시리스트</a></li> 
+							<li><a class="dropdown-item" href="/update">회원 정보 수정</a></li>
+							<c:if test="${ user.role == 'role_admin'}">
+                        <li><a class="dropdown-item" href="/board/mpick/update/${dto.no}">글 수정</a></li>
+                        <li><a class="dropdown-item" id="${dto.no}" href="#">글 삭제</a></li>
+ 						<li><a class="dropdown-item" href="../list">목록 이동</a></li>
+                     </c:if>
+							<li><a class="dropdown-item" href="/logout">로그아웃</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</c:if>
 		<c:if test="${ user.id == null }">
-		 <a href="/loginform" id="login" class="btn btn-primary" style="width:100px; height:55px;">로그인</a>
- 		<a href="/insert" id="join" class="btn btn-primary" style="width:120px; height:55px;">회원가입</a>
+			<a href="/login" class="btn btn-primary"
+				style="width: 100px; height: 35px;">로그인</a>
+			<a href="/insert" class="btn btn-primary"
+				style="width: 120px; height: 35px;">회원가입</a>
 		</c:if>
+
   </div>
 </nav>
 
 <!-- 상세페이지 -->
  <div class="container" align="center" style="position:relative;top:50px;">
+
       <div class="row">
             <table class="table table-striped"
                style="text-align: center; float: center; width: 700px; border: 1px solid #dddddd">
@@ -251,6 +280,7 @@ p.count {
                      <td><input type="text" class="form-control"
                         placeholder="상세설명  : ${dto.detail}" name="detail" maxlength="50"
                         style="width: 1200px" readonly/></td>
+
                   </tr>
                    <tr align="left">
                    <tr><td>${dto.menu}</td>
@@ -263,7 +293,9 @@ p.count {
    <h6 class="card-text">조회수  : ${dto.view_count}</h6>
    <h6 style="color:red;">좋아요♥ ${allCount }</h6>
    
+
    <div class="container" style="position:relative; top:30px; left: 380px;">         
+
             <div class="row">
                <div class="col-md-4 mb-5" >
                   <div class="card" style="width: 100%">
@@ -287,6 +319,7 @@ p.count {
    <button type="button" class="btn btn-light"><a href="/store/update/${dto.no}" style="color:black;">맛집 수정</a></button>
    <button type="button" class="btn btn-light"><a id="${dto.no}" href="store/delete" style="color:black;">맛집 삭제</a></button>
    </c:if>
+
                   </div>
                   
                </div>
@@ -318,6 +351,7 @@ p.count {
       </div>
    </div>
    <div id="map" style="width:1200px;height:300px;"></div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -354,18 +388,20 @@ $("#addwishlist").click(function(){
       })//click
    })//ready
    
-	//맛집 삭제
-	$(function(){
-		$(".storedelete").click(function(){
-			let no = $(this).attr("id");
-			$.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
-			).done(function(){
-				location.href="/store/list";
-			})
-			return false;
-		})//click
-	})//ready
-	
+
+   //맛집 삭제
+   $(function(){
+      $(".storedelete").click(function(){
+         let no = $(this).attr("id");
+         $.ajax({url:"/store/delete", data:"no="+no, method:"delete"}
+         ).done(function(){
+            location.href="/store/list";
+         })
+         return false;
+      })//click
+   })//ready
+   
+
 </script>
 
 <script>
@@ -485,6 +521,7 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
          
          
 
+
    
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -562,19 +599,19 @@ $("#addwishlist").click(function(){
 
 //위시리스트 등록
 $("#addwishlist").click(function(){
-			let id = '${user.id}';
-			let store_no = ${dto.no};
-			let store_name = '${dto.name}';
-			let category = '${dto.category}';
-			
-			$.ajax({url:"/wishlist/add",
-					data:"no="+store_no+"&id="+id+"&name="+store_name+"&category="+category,
-					method:"post"
-			}).done(function(){
-					location.reload();
-				});
-			
-		})//click
+         let id = '${user.id}';
+         let store_no = ${dto.no};
+         let store_name = '${dto.name}';
+         let category = '${dto.category}';
+         
+         $.ajax({url:"/wishlist/add",
+               data:"no="+store_no+"&id="+id+"&name="+store_name+"&category="+category,
+               method:"post"
+         }).done(function(){
+               location.reload();
+            });
+         
+      })//click
 </script>
 
 <script>
@@ -668,49 +705,91 @@ $("#addwishlist").click(function(){
    
    </script>
 <script>
-	$(function(){
-		
-		$('#likebtn').click(function(){
-			likeupdate();
-		});
-		
-		function likeupdate(){
-			likeurl = "/like/likeupdate";
-			data = {"ltmid" : '${user.id}',
-					"ltbid" : ${dto.no}};
-			
-		$.ajax({
-			url : likeurl,
-			type : 'POST',
-			contentType: 'application/json',
-			data : JSON.stringify(data),
-			success : function(result){
-				console.log(result.count);
-				let count = result.count;
-				if(count == 0){
-					console.log("좋아요 취소");
-					 $('#likecheck').val(0);
-					 $('#likebtn').attr('class','btn btn-light');
-					 $("#count").text( parseInt($("#count").text())-1);
-				}else if(count == 1){
-					console.log("좋아요!");
-					$('#likecheck').val(1);
-					$('#likebtn').attr('class','btn btn-danger');
-					 $("#count").text( parseInt($("#count").text())+1);   
-				}
-			}, error : function(result){
-				console.log("에러" + result.result)
-			}
-			
-			});
-		};
-		
-		
-	</script>
 
-	</body>
-	
-	
+   $(function(){
+      
+      $('#likebtn').click(function(){
+         likeupdate();
+      });
+      
+      function likeupdate(){
+         likeurl = "/like/likeupdate";
+         data = {"ltmid" : '${user.id}',
+               "ltbid" : ${dto.no}};
+         
+      $.ajax({
+         url : likeurl,
+         type : 'POST',
+         contentType: 'application/json',
+         data : JSON.stringify(data),
+         success : function(result){
+            console.log(result.count);
+            let count = result.count;
+            if(count == 0){
+               console.log("좋아요 취소");
+                $('#likecheck').val(0);
+                $('#likebtn').attr('class','btn btn-light');
+                $("#count").text( parseInt($("#count").text())-1);
+            }else if(count == 1){
+               console.log("좋아요!");
+               $('#likecheck').val(1);
+               $('#likebtn').attr('class','btn btn-danger');
+                $("#count").text( parseInt($("#count").text())+1);   
+            }
+         }, error : function(result){
+            console.log("에러" + result.result)
+         }
+         
+         });
+      };
+      
+      $("#add").click(function (event) {         
+         //preventDefault 는 기본으로 정의된 이벤트를 작동하지 못하게 하는 메서드이다. submit을 막음 
+         //event.preventDefault();          
+          // Get form         
+          var form = $('#fileUploadForm')[0];         
+          // Create an FormData object          
+          var data = new FormData(form);        
+          // disabled the submit button         
+          //$("#btnSubmit").prop("disabled", true);   
+          
+          $.ajax({             
+             type: "POST",          
+              enctype: 'multipart/form-data',  
+              url: "/review/insert",        
+              data: data,          
+              processData: false,    
+              contentType: false,      
+              cache: false,           
+              timeout: 600000,       
+              success: function (data) { 
+                 location.reload();       
+                 //$("#btnSubmit").prop("disabled", false);      
+              },          
+              error: function (e) {  
+                 console.log("ERROR : ", e);     
+                  //$("#btnSubmit").prop("disabled", false);    
+                  alert("fail");      
+               }     
+         });
+      });
+      $(".dbtn").click(function(){
+         let no = $(this).attr("id");
+         $.ajax({url:"/review/delete/"+no,
+            method:"delete"
+      }).done(function(){
+            location.reload();
+         });
+         
+      })//click 
+      
+   })//ready
+   
+   </script>
+
+   </body>
+   
+   
  <div class="container">
       <footer class="row row-cols-5 py-5 my-5 border-top">
          <div class="col">
@@ -736,6 +815,7 @@ $("#addwishlist").click(function(){
 
          <div class="col">
             <ul class="nav flex-column">
+
                <li class="nav-item mb-2"><a href="/footer/inquiry"
                   class="nav-link p-0 text-muted">문의하기</a></li>
                <li class="nav-item mb-2"><a href="/footer/privacy"

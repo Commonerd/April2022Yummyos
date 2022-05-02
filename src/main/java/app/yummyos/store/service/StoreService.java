@@ -52,6 +52,7 @@ public class StoreService {
 			m.put("start", start);
 			m.put("end", end);
 			m.put("kind", kind);
+
          return dao.storeListSearch(m);
       }
       
@@ -82,6 +83,7 @@ public class StoreService {
      
          return dao.AllSearchStoreList(m);
       }
+
 
 		public List<StoreDto> storeListView(int start, int end, String kind){
 			Map<String,Object> m = new HashMap<String, Object>();

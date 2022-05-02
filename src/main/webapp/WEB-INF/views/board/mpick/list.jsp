@@ -6,7 +6,7 @@
 <html>
 <head>
 <!--  bList begin end count pageNum totalPages -->
-<title>글 목록</title>
+<title>미디어픽</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Bootstrap CSS -->
