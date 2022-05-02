@@ -6,14 +6,14 @@
 <insert parameterType="app.yummyos.store.dto.StoreDto" id="insertStore"> 
 
 insert into store(no, name, category, address, phone, menu, detail, hashtag, image, map_lt, map_ln)
-   values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
+	values(st_seq.nextval, #{name}, #{category},#{address},#{phone},#{menu},#{detail},#{hashtag},#{image},#{map_lt},#{map_ln}) 
 
 </insert>
 
 <update parameterType="app.yummyos.store.dto.StoreDto" id="updateStore">
-   update store set name=#{name}, category=#{category}, address=#{address},
-   phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
-   image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
+	update store set name=#{name}, category=#{category}, address=#{address},
+	phone=#{phone},menu=#{menu},detail=#{detail},hashtag=#{hashtag},
+	image=#{image}, map_lt=#{map_lt},map_ln=#{map_ln} where no=#{no}
 </update>
   
    <update id="addViewcount" parameterType="int">
@@ -110,3 +110,4 @@ select * from store where no = #{no}
       order by view_count desc) where r >= #{start} AND r &lt;= #{end} -->
 
 </mapper>
+

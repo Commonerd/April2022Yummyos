@@ -96,88 +96,84 @@ p.count {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-bs-target="#navbarTogglerDemo03"
-				aria-controls="navbarTogglerDemo03" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="navbar-brand" href="/">메인</a>
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item active"><a class="nav-link active"
-						aria-current="page" href="/details/ladder">오늘 뭐먹지?<span
-							class="sr-only"></span></a></li>
-					<li class="nav-item"><a class="nav-link" href="/store/list">최신맛집</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="/board/notice/list">공지사항</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#"
-						id="navbarDropdownMenuLink" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false">테마맛집기행</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/board/mpick/list">미디어픽</a></li>
-							<li><a class="dropdown-item" href="/board/fstory/list">푸드스토리</a></li>
-						</ul></li>
-				</ul>
-			</div>
-			<div id="search">
-				<form class="d-flex" action="/all/search">
-					<c:forEach items="${search}" var="search">
-						<a href="/search/search?search=${search}"></a>
-					</c:forEach>
-					<input class="form-control me-2" name="search" id="search"
-						type="search" style="width: 500px;" placeholder="원하시는 메뉴를 입력해주세요"
-						aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">검색</button>
-				</form>
-			</div>
-		</div>
-		<c:if test="${ user.id != null }">
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#"
-						id="navbarDropdownMenuLink" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> ${user.id}님
-							환영합니다 </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/wishlist">위시리스트</a></li>
-							<li><a class="dropdown-item" href="/update">회원 정보 수정</a></li>
-							<%-- 	<c:if test="${ user.role == 'role_admin'}">
-								<li><a class="dropdown-item" href="/board/mpick/write">새글
-										등록</a></li>
-							</c:if> --%>
-							<li><a class="dropdown-item" href="/logout">로그아웃</a></li>
-						</ul></li>
-				</ul>
-			</div>
-		</c:if>
-		<c:if test="${ user.id == null }">
-			<a href="/loginform" id="login" class="btn btn-primary"
-				style="width: 100px; height: 35px;">로그인</a>
-			<a href="/insert" id="join" class="btn btn-primary"
-				style="width: 120px; height: 35px;">회원가입</a>
-		</c:if>
 
-	</nav>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+         <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <a class="navbar-brand" href="/">메인</a>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item active"><a class="nav-link active"
+                  aria-current="page" href="/details/ladder">오늘 뭐먹지?<span
+                     class="sr-only"></span></a></li>
+               <li class="nav-item"><a class="nav-link" href="/store/list">최신맛집</a></li>
+               <li class="nav-item"><a class="nav-link"
+                  href="/board/notice/list">공지사항</a></li>
+               <li class="nav-item dropdown"><a
+                  class="nav-link dropdown-toggle" href="#"
+                  id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">테마맛집기행</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                     <li><a class="dropdown-item" href="/board/mpick/list">미디어픽</a></li>
+                     <li><a class="dropdown-item" href="/board/fstory/list">푸드스토리</a></li>
+                  </ul></li>
+            </ul>
+         </div>
+         <div id="search">
+            <form class="d-flex" action="/all/search">
+               <c:forEach items="${search}" var="search">
+                  <a href="/search/search?search=${search}"></a>
+               </c:forEach>
+               <input class="form-control me-2" name="search" id="search"
+                  type="search" style="width: 500px;" placeholder="원하시는 메뉴를 입력해주세요"
+                  aria-label="Search">
+               <button class="btn btn-outline-success" type="submit">검색</button>
+            </form>
+         </div>
+      </div>
+      <c:if test="${ user.id != null }">
+         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+               <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> ${user.id}님 환영합니다 </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                     <li><a class="dropdown-item" href="/wishlist">위시리스트</a></li> 
+                     <li><a class="dropdown-item" href="/update">회원 정보 수정</a></li>
+                     <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </c:if>
+      <c:if test="${ user.id == null }">
+         <a href="/loginform" id="login" class="btn btn-primary"
+            style="width: 100px; height: 35px;">로그인</a>
+         <a href="/insert" id="join" class="btn btn-primary"
+            style="width: 120px; height: 35px;">회원가입</a>
+      </c:if>
+      
+   </nav>   
 
-	<br>
-	<br>
 
+
+<br><br><br><br>
 	<div id="center">
-		<h1 align="center" class="fw-bold">[ ${search} ] 검색 결과</h1>
-		<div class="top">
-			<div class="quickmenu" align="center">
-				<br>
-				<nav id="TableOfContents">
-					<a href="#store" type="button" class="btn btn-outline-secondary">STORE</a>
-					<a href="#fstory" type="button" class="btn btn-outline-secondary">FSTORY</a>
-					<a href="#mpick" type="button" class="btn btn-outline-secondary">MPICK</a>
-				</nav>
-			</div>
+		<h3>[ ${search} ] 검색 결과</h3>
+		<br> 
+		<div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+			<nav id="TableOfContents" display="flex">
+				<a href="#store" type="button" class="btn btn-outline-secondary">STORE</a>
+				<a href="#fstory" type="button" class="btn btn-outline-secondary">FSTORY</a> 
+				<a href="#mpick" type="button" class="btn btn-outline-secondary">MPICK</a>
+			</nav>
+
+			
+
 		</div>
 		<br>
 

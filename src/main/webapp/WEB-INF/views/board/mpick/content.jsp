@@ -4,10 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>글 상세보기</title>
-<title>당신의 식사를 책임질, 야미요</title>
+<title>미디어픽</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <!-- Bootstrap CSS -->
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -88,8 +86,10 @@ h1{
 							<li><a class="dropdown-item" href="/wishlist">위시리스트</a></li> 
 							<li><a class="dropdown-item" href="/update">회원 정보 수정</a></li>
 							<c:if test="${ user.role == 'role_admin'}">
-								<li><a class="dropdown-item" href="/board/mpick/write">새글 등록</a></li>
-							</c:if>
+                        <li><a class="dropdown-item" href="/board/mpick/update/${dto.no}">글 수정</a></li>
+                        <li><a class="dropdown-item" id="${dto.no}" href="#">글 삭제</a></li>
+ 						<li><a class="dropdown-item" href="../list">목록 이동</a></li>
+                     </c:if>
 							<li><a class="dropdown-item" href="/logout">로그아웃</a></li>
 						</ul>
 					</li>
@@ -106,26 +106,15 @@ h1{
 	</nav>
 	
 	
-	<div style="text-align: right; margin-right: 150px;">
-	</div>
-	<div style="text-align: right; margin-right: 150px;">
-		<c:if test="${ user.role == 'role_admin' }">
-	<a class="udm" href="/board/mpick/update/${dto.no}">글 수정 </a> 
-	<a class="udm" id="${dto.no}" href="#">글 삭제</a>
-	</c:if>
-	<a class="udm" href="../list">목록 이동</a> 	
-	</div>	
-		
-		<h1  class="fw-bold">Media Pick</h1>	
-<table border="1" class="table table-borderless">	
+	<h1  class="fw-bold">Media Pick</h1>	
+	<table border="1" class="table table-borderless">	
 	<tr class="thead-dark"><td align="center"><font size="5">${dto.title} | 조회수 ${dto.readcount}</font></td>
 	<tr><td align="center"><font size="4">${dto.stitle}</font></td>
 	<tr><td align="center">작성자 : ${dto.id}</td>	
 	<tr><td align="center">등록일 <fmt:formatDate value="${dto.regdate }" dateStyle="long"/></td>
 	<tr><td align="center"></td>
-	<tr><td align="center">${dto.content}</td>
-	
-</table>
+	<tr><td align="center">${dto.content}</td>	
+	</table>
 <!--  cList -->
 <hr style="margin: auto; width: 90%;">
 

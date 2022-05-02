@@ -45,24 +45,29 @@ public class StoreService {
 			return dao.storeList(m);	
 		}
 		
-		public List<StoreDto> storeListSearch(int searchn, String search, int start, int end){
+		public List<StoreDto> storeListSearch(int searchn, String search, int start, int end, String kind){
 			Map<String,Object> m = new HashMap<String, Object>();
 			m.put("searchn", searchn);
 			m.put("search", search);
 			m.put("start", start);
 			m.put("end", end);
+=
+			m.put("kind", kind);
 
 
          return dao.storeListSearch(m);
       }
       
-      public int countSearch(int searchn, String search) {
+      public int countSearch(int searchn, String search, String kind) {
          System.out.println(searchn+search);
          Map<String,Object> m = new HashMap<String, Object>();
          m.put("searchn", searchn);
          m.put("search", search);
+         m.put("kind", kind);
          return dao.countSearch(m);
       }
+
+
 		public List<StoreDto> getstorelist(int start, int end, String kind){
 			Map<String,Object> m = new HashMap<String, Object>();
 			m.put("start", start);
@@ -91,6 +96,5 @@ public class StoreService {
 			m.put("kind", kind);
 			return dao.storeListView(m);	
 		}
-
 
 }

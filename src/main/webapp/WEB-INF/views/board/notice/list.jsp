@@ -14,8 +14,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 
 
-
-
 <!--  nList begin end count pageNum totalPages -->
 <title>글 목록</title>
 <style>
@@ -110,6 +108,21 @@ a {
       
    </nav>
 
+
+
+
+
+
+
+
+   <c:if test="${ user.id != null }">
+      <a>${user.id}님</a>
+      <a href="/logout">로그아웃</a>
+   </c:if>
+   <c:if test="${ user.id == null }">
+      <a href="/login">로그인</a>
+      <a href="/insert">회원가입</a>
+   </c:if>
    <div id="center">
       <section class="notice">
          <div class="page-title">
@@ -236,9 +249,6 @@ a {
       </footer>
    </div>
    <div class="b-example-divider"></div>
-
-
-
 
 </body>
 </html>
