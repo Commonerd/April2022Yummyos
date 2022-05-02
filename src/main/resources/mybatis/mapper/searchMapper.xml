@@ -18,5 +18,5 @@
 		select * from mpick where title like '%'||#{search}||'%' OR content like '%'||#{search}||'%'
 
 	</select>
-
+	
 </mapper>

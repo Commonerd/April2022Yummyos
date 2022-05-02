@@ -84,6 +84,7 @@ public class StoreController {
 		@RequestMapping("store/list")
 		public String list(@RequestParam(name="p", defaultValue = "1") int page, Model m, String kind) {
 
+
 			//글이 있는지 체크
 			int count = service.count(kind);
 			if(count > 0 ) {
@@ -95,6 +96,7 @@ public class StoreController {
 			m.addAttribute("sList", storeList);
 			
 			System.out.println(storeList);
+
 
 			int pageNum = 5;
 			int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수 
@@ -255,6 +257,7 @@ public class StoreController {
          List<StoreDto> storeList = service.storeListSearch(searchn,search,startRow, endRow, kind);
          m.addAttribute("sList", storeList);
 
+	
          int pageNum = 5;
          int totalPages = count / perPage + (count % perPage > 0 ? 1 : 0); //전체 페이지 수
          
@@ -271,8 +274,10 @@ public class StoreController {
          }
          m.addAttribute("count", count);
          m.addAttribute("searchn", searchn);
+         m.addAttribute("search", search);  
          m.addAttribute("search", search);
          m.addAttribute("kind", kind);
+
 
          
          return "store/search";

@@ -12,14 +12,10 @@ import app.yummyos.store.dao.StoreDao;
 
 @Mapper
 public interface SearchDao {
-	
-	public static final StoreDao storeDao = null;
-	
-	public static final FstoryDao fstoryDao = null;
-	
-	public static final MpickDao mpickDao = null;
 
 	List<SearchDto> searchList(Map<String,Object>m);
+
+	int countSearch(String search);
 
 	
 

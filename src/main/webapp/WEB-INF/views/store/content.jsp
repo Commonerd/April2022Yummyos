@@ -32,113 +32,89 @@
 #login {
    margin-right:0px;
 }
-
 #join {
 margin-right:5px;
 }
-
 .selector-for-some-widget {
   box-sizing: content-box;
 }
-
 h1 {
  color: black;
  text-align:center;
   padding:50px;
    margin: 20px;
 }
-
 h2 {
    color: lightslategray;
    text-align:center;
      padding:50px;
    margin: 20px;
 }
-
 p {
  color:red !important;
  font-size: 0.9em;
  line-ehight: 2.0;
 }
-
 #center {
    width: 700px;
    margin-left: auto;
    margin-right: auto;
 }
-
 table {
    border: 1px solid black;
    width: 700px;
    border-collapse: collapse;
 }
-
 th {
    border: 1px solid black;
    background-color: Aquamarine;
    width: 30px;
 }
-
 td {
    border: 1px solid black;
 }
-
 a {
    margin: 10px auto;
 }
-
 #page {
    text-align: center;
-
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 -->
-
 <style>
-
 .selector-for-some-widget {
    box-sizing: content-box;
 }
-
 <
 style>.orange {
    background-color: orange;
    width: 50px;
 }
-
 table {
    border-collapse: collapse;
    width: 800px;
-
 }
 .selector-for-some-widget {
    box-sizing: content-box;
 }
-
-
 <
 style>.orange {
    background-color: orange;
    width: 50px;
 }
-
 table {
    border-collapse: collapse;
    width: 800px;
 }
-
-
 #center {
    width: 700px;
    margin-left: auto;
    margin-right: auto;
 }
-
 #page {
    text-align: center;
 }
-
 h1 {
    text-align: center; # kind { width : 200px;
    height: 30px;
@@ -151,7 +127,6 @@ h1 {
    left: 205px;
    bottom: 10px;
 }
-
 p.count {
    color: gray;
    font-size: 0.8em;
@@ -357,7 +332,6 @@ p.count {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
-
 //위시리스트 등록
 $("#addwishlist").click(function(){
          let id = '${user.id}';
@@ -388,7 +362,6 @@ $("#addwishlist").click(function(){
       })//click
    })//ready
    
-
    //맛집 삭제
    $(function(){
       $(".storedelete").click(function(){
@@ -401,7 +374,6 @@ $("#addwishlist").click(function(){
       })//click
    })//ready
    
-
 </script>
 
 <script>
@@ -415,7 +387,6 @@ $("#addwishlist").click(function(){
          return false;
       })//click      
    })//ready
-
 </script>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2937f4a07074c718e1c8b3e8a1f4f9b&libraries=services"></script>
@@ -425,33 +396,25 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         center: new kakao.maps.LatLng(${dto.map_lt}, ${dto.map_ln}), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };  
-
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
-
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
-
 // 주소로 좌표를 검색합니다
 geocoder.addressSearch('${dto.address}', function(result, status) {
-
     // 정상적으로 검색이 완료됐으면 
      if (status === kakao.maps.services.Status.OK) {
-
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
         // 결과값으로 받은 위치를 마커로 표시합니다
         var marker = new kakao.maps.Marker({
             map: map,
             position: coords
         });
-
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
             content: '<div style="width:150px;text-align:center;padding:6px 0;">${dto.name}</div>'
         });
         infowindow.open(map, marker);
-
         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
         map.setCenter(coords);
     } 
@@ -527,7 +490,6 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
-
 //위시리스트 등록
 $("#addwishlist").click(function(){
          let id = '${user.id}';
@@ -558,7 +520,6 @@ $("#addwishlist").click(function(){
       })//click
    })//ready
    
-
 </script>
 
 <script>
@@ -572,7 +533,6 @@ $("#addwishlist").click(function(){
          return false;
       })//click      
    })//ready
-
 </script>
 
 
@@ -596,7 +556,6 @@ $("#addwishlist").click(function(){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
-
 //위시리스트 등록
 $("#addwishlist").click(function(){
          let id = '${user.id}';
@@ -705,7 +664,6 @@ $("#addwishlist").click(function(){
    
    </script>
 <script>
-
    $(function(){
       
       $('#likebtn').click(function(){

@@ -11,7 +11,7 @@ import app.yummyos.board.fstory.dto.FstoryDto;
 @Mapper
 public interface FstoryDao {
 
-	int insert(FstoryDto dto);
+int insert(FstoryDto dto);
 	
 	List<FstoryDto> fstoryList(Map<String,Object> m);
 	int count(String kind); //전체 글 갯수
@@ -25,8 +25,6 @@ public interface FstoryDao {
 	int addReadcount(int no);
 
 	List<FstoryDto> AllSearchFstoryList(Map<String, Object> m);
-
-	
 
 
 

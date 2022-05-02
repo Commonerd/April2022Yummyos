@@ -20,91 +20,74 @@
 #login {
 	margin-right:0px;
 }
-
 #join {
 margin-right:5px;
 }
-
 .selector-for-some-widget {
   box-sizing: content-box;
 }
-
 h1 {
  color: black;
  text-align:center;
   padding:50px;
    margin: 20px;
 }
-
 h2 {
 	color: lightslategray;
 	text-align:center;
 	  padding:50px;
    margin: 20px;
 }
-
 p {
  color:red !important;
  font-size: 0.9em;
  line-ehight: 2.0;
 }
-
 #center {
 	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 }
-
 table {
 	border: 1px solid black;
 	width: 700px;
 	border-collapse: collapse;
 }
-
 th {
 	border: 1px solid black;
 	background-color: Aquamarine;
 	width: 30px;
 }
-
 td {
 	border: 1px solid black;
 }
-
 a {
 	margin: 10px auto;
 }
-
 #page {
 	text-align: center;
 }
-
 #center {
    width: 700px;
    margin-left: auto;
    margin-right: auto;
 }
-
 table {
    border: 1px solid black;
    width: 700px;
    border-collapse: collapse;
 }
-
 th {
    border: 1px solid black;
    background-color: Aquamarine;
    width: 30px;
 }
-
 td {
    border: 1px solid black;
 }
-
 a {
    margin: 10px auto;
 }
-
 #page {
    text-align: center;
 }
