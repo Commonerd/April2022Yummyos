@@ -54,6 +54,13 @@
     
 <img src="https://github.com/Commonerd/commonerd.github.io/blob/master/yummyowishlist.png" width="70%" height="50%"></img>
 
+
+- 푸드스토리    
+     
+<img src="https://github.com/Commonerd/commonerd.github.io/blob/master/yummyofs.png" width="70%" height="50%"></img>
+    
+- 미디어픽      
+<img src="https://github.com/Commonerd/commonerd.github.io/blob/master/yummyompick.png" width="70%" height="50%"></img>
     
 - 회원가입    
     
