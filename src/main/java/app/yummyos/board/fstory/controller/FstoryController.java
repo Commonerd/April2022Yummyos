@@ -123,7 +123,7 @@ public class FstoryController {
 		return "board/fstory/content";
 	}
 
-	@GetMapping("board/fstory/update/{no}")
+	@GetMapping("/board/fstory/update/{no}")
 	public String updateForm(@PathVariable int no, Model m,MultipartFile file, HttpServletRequest request) {
 		FstoryDto dto = service.fstoryOne(no);
 		String path = upload(file, request);
@@ -170,11 +170,13 @@ public class FstoryController {
 			m.addAttribute("end", end);
 			m.addAttribute("pageNum", pageNum);
 			m.addAttribute("totalPages", totalPages);
+			
 
 		}
 		m.addAttribute("count", count);
 		m.addAttribute("searchn", searchn);
 		m.addAttribute("search", search);
+	
 	
 		
 

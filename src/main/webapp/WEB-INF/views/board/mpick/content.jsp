@@ -27,6 +27,7 @@
 table, tr, td{
  border:none;
 }
+
 h1{
 	text-align:center;
 	margin-top:50px;

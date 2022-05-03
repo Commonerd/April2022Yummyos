@@ -13,6 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 
+
 <!--  nList begin end count pageNum totalPages -->
 <title>글 목록</title>
 <style>
@@ -106,6 +107,8 @@ a {
       </c:if>
       
    </nav>
+
+
 
 
 
@@ -234,6 +237,7 @@ a {
                   class="nav-link p-0 text-muted">위치기반 서비스 이용약관</a></li>
             </ul>
          </div>
+
          <div class="col">            
             <ul class="nav flex-column">
                <li class="nav-item mb-2"><a href="/footer/inquiry"
@@ -245,5 +249,6 @@ a {
       </footer>
    </div>
    <div class="b-example-divider"></div>
+
 </body>
 </html>

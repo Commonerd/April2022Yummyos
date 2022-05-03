@@ -53,6 +53,7 @@ public class StoreService {
 			m.put("end", end);
 			m.put("kind", kind);
 
+
          return dao.storeListSearch(m);
       }
       
@@ -65,6 +66,7 @@ public class StoreService {
          return dao.countSearch(m);
       }
 
+
 		public List<StoreDto> getstorelist(int start, int end, String kind){
 			Map<String,Object> m = new HashMap<String, Object>();
 			m.put("start", start);
@@ -75,7 +77,7 @@ public class StoreService {
 		}
 
 
-      public List<StoreDto> AllSearchStoreList(String search, int startRow, int endRow) {
+      public List<StoreDto> AllSearchStoreList( String search, int startRow, int endRow) {
          Map<String,Object> m = new HashMap<String, Object>();
          m.put("search", search);
          m.put("start", startRow);

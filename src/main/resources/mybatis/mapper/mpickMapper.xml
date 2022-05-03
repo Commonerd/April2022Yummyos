@@ -28,7 +28,9 @@ update mpick set title=#{title}, content=#{content} where no=#{no} </update>
 
 <update id="addReadcount" parameterType="int">
 
+
 	update mpick set readcount = readcount + 1 where no = #{no} </update>
+
 
 <delete parameterType="int" id="deleteMpick"> delete from mpick where no = #{no} </delete>
 

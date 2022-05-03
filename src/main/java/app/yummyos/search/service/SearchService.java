@@ -32,11 +32,11 @@ public class SearchService {
 	 
 	@Autowired
 	MpickDao mpickDao;
-	
+	@Autowired
 	StoreService storeService;
-	
+	@Autowired
 	FstoryService fstoryService;
-	
+	@Autowired
 	MpickService mpickService;
 	
 	public List<SearchDto> searchList(String search, int start, int end){
@@ -47,6 +47,10 @@ public class SearchService {
 	      m.put("search", search);
 		return searchDao.searchList(m);
 	
+	}
+
+	public int countSearch(String search) {
+			return searchDao.countSearch(search);
 	}
 
 
