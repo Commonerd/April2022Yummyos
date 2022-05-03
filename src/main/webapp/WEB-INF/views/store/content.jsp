@@ -490,7 +490,6 @@ geocoder.addressSearch('${dto.address}', function(result, status) {
                      </div>
                   </div>
                </div>
-               
             </c:forEach>
             </div>   
             </div>

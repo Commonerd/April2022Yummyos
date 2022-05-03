@@ -5,7 +5,7 @@
 <mapper namespace="app.yummyos.store.dao.ReviewDao">
    
    <insert id="insertReview" parameterType="app.yummyos.store.dto.ReviewDto">
-      insert into review values(r_seq.nextval, #{content}, sysdate, #{store_no},#{id},#{image})
+      insert into review values(r_seq.nextval, #{image},sysdate, #{store_no},#{id},#{content})
    </insert>
    <delete id="deleteReview" parameterType="int">
       delete from review where no = #{no}    
