@@ -15,11 +15,11 @@
 
 ### 개발환경
 
-- OS : Window
-- Database : Oracle
-- Tools : Spring Boot
+- OS : Window10
+- Database : Oracle21
+- Tools : Eclipse(STS), SQL Developer
 - Front End : Html5, Css3, Javascript
-- Back End : Java
+- Back End : Java, JSP, Spring Boot
 - API : 카카오맵 API
    
 - DB 테이블   
