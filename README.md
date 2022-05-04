@@ -19,7 +19,7 @@
 - Database : Oracle21
 - Tools : Eclipse(STS), SQL Developer
 - Front End : Html5, Css3, Javascript
-- Back End : Java, JSP, Spring Boot
+- Back End : Java, JSP, jQuery, Spring Boot
 - API : 카카오맵 API
    
 - DB 테이블   
