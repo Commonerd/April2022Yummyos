@@ -16,7 +16,7 @@
 ### 개발환경
 
 - OS : Window10
-- Database : Oracle21
+- Database : Oracle21c
 - Tools : Eclipse(STS), SQL Developer
 - Front End : Html5, Css3, Javascript
 - Back End : Java, JSP, jQuery, Spring Boot
